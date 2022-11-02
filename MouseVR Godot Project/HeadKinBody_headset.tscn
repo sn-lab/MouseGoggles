@@ -1,7 +1,9 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://lefteye.gdshader" type="Shader" id=4]
-[ext_resource path="res://righteye.gdshader" type="Shader" id=5]
+[ext_resource path="res://lefteye.shader" type="Shader" id=4]
+[ext_resource path="res://righteye.shader" type="Shader" id=5]
+
+
 
 [sub_resource type="SphereShape" id=9]
 

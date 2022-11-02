@@ -68,6 +68,8 @@ var timestamp = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():	
+	randomize() #random seed
+	
 	#get current time
 	var td = OS.get_datetime() # time dictionary
 	timestamp = String(td.year) + "_" + String(td.month) + "_" + String(td.day) + "_" + String(td.hour) + "_" + String(td.minute) + "_" + String(td.second)
@@ -193,11 +195,14 @@ func average_difference(numbers: Array) -> float:
 
 func random_permutation(N) -> Array:
 	var order := []
+	var ind = 0
 	for i in range(N):
 		order.append(i)	
 	var perm_order := []
 	for i in range(N):
-		var ind = randi() % order.size()
+		ind = randi() % order.size()
+		while perm_order.has(ind):
+			ind = randi() % order.size()
 		perm_order.append(order[ind])
-		order.pop_at(ind)
+#		order.pop_at(ind)  pop_at isn't an array method in Godot 3.2.3?  I'll use a loop instead :(
 	return perm_order
