@@ -36,18 +36,18 @@ To 3D print the eyepiece or headset case, download the .stl files and print them
 To install all necessary software, you'll first need a PC to install the Raspberry Pi OS to the SD card that will be installed in the Raspberry Pi. Next, you'll need to start up the Raspberry Pi and install the Godot game engine and custom display driver on it.
 
 1. Installing the Raspberry Pi Operating System
-	i. Insert the micro SD card into your PC
-	ii. Download and install the [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
-	iii. Choose OS: "Raspberry Pi OS (32-bit)"
-	iv. Choose Storage: -select your SD card-
-	v. Write
-	vi. Insert the SD card into your Raspberry Pi, and power it on
+	* Insert the micro SD card into your PC
+	* Download and install the [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
+	* Choose OS: "Raspberry Pi OS (32-bit)"
+	* Choose Storage: -select your SD card-
+	* Write
+	* Insert the SD card into your Raspberry Pi, and power it on
 	
 2. Install the Godot game engine
-	i. Coming soon...
+	* Coming soon...
 
 3. Install the display driver
-	i. Coming soon...
+	* Coming soon...
 
 
 ## Monocular Display Build Instructions
