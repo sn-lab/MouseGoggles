@@ -74,3 +74,7 @@ To install all necessary software, you'll first need a PC to install the Raspber
 
 # Monocular Display Build Instructions
 Details coming soon...
+
+
+# Future Development
+Details coming soon...
