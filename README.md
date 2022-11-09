@@ -13,7 +13,7 @@ The heart of the mouseVRheadset is a [Raspberry Pi 4](https://www.raspberrypi.co
 ### The display driver
 Importantly, the headset displays are not limited to displaying what is rendered by Godot. In fact, whatever is displayed on the central 240x420 (WxH) pixel region of the display is going to be streamed to the displays -- the top half 240x210 going to display 0, and the bottom 240x210 to display 1. This means if you want to create images or video with some other program, you just have to position it in the center of the display for it to be streamed.
 
-## Build Instructions
+## Headset Build Instructions
 To build your own mouseVRheadset (or monocular display), follow these steps:
 1. Purhcase the parts
 2. Order and assemble the custom PCB
@@ -26,11 +26,29 @@ For a complete parts list for both the VR headser and monocular display, see Par
 3D printed parts can either be printed yourself or ordered through an online 3D print service, such as [Craftcloud](https://craftcloud3d.com/).
 
 ### custom PCB
-TBD
+To order a custom PCB, use a PCB printing service such as [JLCPCB](https://cart.jlcpcb.com/quote?orderType=1&stencilLayer=2&stencilWidth=100&stencilLength=100&stencilCounts=5) or [seeedstudio](https://www.seeedstudio.com/fusion_pcb.html).
+Add the zipped Gerber files for the PCB you want to print (for the Monocular display or the binocular headset). Choose your desired quantity to order and hit order.
 
 ### 3D-printed Case
-TBD
+To 3D print the eyepiece or headset case, download the .stl files and print them using a high-resolution 3D printer (we used the [Photon Mono X](https://www.anycubic.com/collections/anycubic-photon-3d-printers/products/photon-mono-x-resin-printer)) or order it through an 3D printing service such as [CraftCloud](https://craftcloud3d.com/upload).
 
 ### Software Installation
-TBD
+To install all necessary software, you'll first need a PC to install the Raspberry Pi OS to the SD card that will be installed in the Raspberry Pi. Next, you'll need to start up the Raspberry Pi and install the Godot game engine and custom display driver on it.
 
+1. Installing the Raspberry Pi Operating System
+	i. Insert the micro SD card into your PC
+	ii. Download and install the [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
+	iii. Choose OS: "Raspberry Pi OS (32-bit)"
+	iv. Choose Storage: -select your SD card-
+	v. Write
+	vi. Insert the SD card into your Raspberry Pi, and power it on
+	
+2. Install the Godot game engine
+	i. Coming soon...
+
+3. Install the display driver
+	i. Coming soon...
+
+
+## Monocular Display Build Instructions
+Coming soon...
