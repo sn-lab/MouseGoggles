@@ -1,7 +1,7 @@
 # mouseVRheadset
 A dual-SPI display mouse-sized VR headset, powered by Raspberry Pi and the Godot game engine.
 
-![A Raspberry Pi 4 uniquely controlling 2 circular displays](https://github.com/sn-lab/mouseVRheadset/blob/main/Images/RaspberryPi2Displays.png)
+![A Raspberry Pi 4 uniquely controlling 2 circular displays](https://github.com/sn-lab/mouseVRheadset/blob/main/Images/RaspberryPi2Displays.gif)
 
 - This system is a work in progress. Find a bug, have a suggestion, or want to make a feature request? Click [here](https://github.com/sn-lab/mouseVRheadset/issues) and submit a new issue. For more general questions/inquiries, email mdi22@cornell.edu with "mouseVRheadset" included in the subject line.
 
