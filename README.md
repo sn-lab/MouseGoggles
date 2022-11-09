@@ -6,16 +6,20 @@ A dual-SPI display mouse-sized VR headset, powered by Raspberry Pi and the Godot
 - This system is a work in progress. Find a bug, have a suggestion, or want to make a feature request? Click on the [issues](https://github.com/sn-lab/mouseVRheadset/issues) tab and submit a new issue. For more general questions/inquiries, email mdi22@cornell.edu with "mouseVRheadset" included in the subject line.
 
 ## About the System
-The mouseVRheadset is a VR system for mouse neuroscience and behavior research. By positioning the headset to the eyes of a head-fixed mouse running on a treadmill, virtual scenes can be displayed to the mouse in both closed-loop (treadmill motion controls the visual scene) and open-loop (visual scenes unaffected by movement) modes. The headset is powered by a Raspberry Pi 4, Godot video game engine, and a custom display driver for controlling each eye's display. A 3D printed case holds the Raspberry Pi and display eyepieces -- each eyepiece containing a circular display and Fresnel lens to 
+The mouseVRheadset is a VR system for mouse neuroscience and behavior research. By positioning the headset to the eyes of a head-fixed mouse running on a treadmill, virtual scenes can be displayed to the mouse in both closed-loop (treadmill motion controls the visual scene) and open-loop (visual scenes unaffected by movement) modes. The headset is powered by a Raspberry Pi 4, Godot video game engine, and a custom display driver for controlling each eye's display. A 3D printed case holds the Raspberry Pi and display eyepieces -- each eyepiece containing a circular display and Fresnel lens to cover a wide field-of-view (~70 deg solid angle) of the mouse eye and put the visual scene at a focal length of [approximately] infnity.
 
 ### The Raspberry Pi and Godot game engine
-The heart of the mouseVRheadset is a [Raspberry Pi 4](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) running the [Godot](https://godotengine.org/) video game engine. 
+The heart of the mouseVRheadset is a [Raspberry Pi 4](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) running the [Godot](https://godotengine.org/) video game engine. Since the displays are relatively low resolution (240x210), an inexpensive single-board computer like a Raspberry Pi 4 is all that's needed to effectively render visual scenes at high (>60 fps) framerates. The multiplatform game enging Godot makes it easy to develop virtual scenes andd create experimental protocols. Examples included are a visual cliff avoiadance, looms of various size/velocity ratios, and rotational gratings of various spatial wavelengths. The view rendered for each display is controlled by sepearate in-game cameras which can be tied together to match the eye distance and angle of a typical mouse. Custom display shaders warp the view from each camera to match the spherical distortion of the Fresnel lenses.
 
 ### The display driver
 Based on a ["blazing fast" display driver](https://github.com/juj/fbcp-ili9341) for SPI-based displays, the driver included in this repository works by copying the HDMI framebuffer and streaming the image data to the connected displays connected on the Raspberry Pi's SPI0 port. This means that the headset displays are not limited to displaying what is rendered by Godot; in fact, whatever is displayed on the central 240x420 (WxH) pixel region of the screen is going to be streamed to the displays. This means if you want to create images or video with some other program, you just have to position it in the center of the display for it to be streamed. The top 240x210 will be sent to display 0 (on SPI0 chip-select 0), and the bottom 240x210 to display 1 (on SPI0 chip-select 1).
 
+### Monocular display
+In addition to the VR headset, a monocular display can be built using a single display, lens, and microcontroller. Where the headset is ideal for complex virtual reality experiments and behavioral research, the simple monocular display is ideal for simple visual stimulation for basic visual neuroscience applications. The fast microcontroller Teensy4.0 and Adafruit graphics library is used to display simple shapes and moving pattern such as flickers, edges, and drifting grating stimuli.
+
+
 ## Headset Build Instructions
-To build your own mouseVRheadset (or monocular display), follow these steps:
+To build your own mouse VR headset (or monocular display), follow these steps:
 1. Purhcase the parts
 2. Order and assemble the custom PCB
 3. 3D print the case
