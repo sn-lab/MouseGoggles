@@ -69,8 +69,7 @@ To install all necessary software, you'll first need a PC to install the Raspber
 	cmake ..
 	make -j
 	sudo ./fbcp- ili9341
-	~~~
-
+	```
 
 ## Monocular Display Build Instructions
-Coming soon...
+Details coming soon...
