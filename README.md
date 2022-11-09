@@ -1,5 +1,5 @@
 # mouseVRheadset
-A dual-SPI display mouse VR headset, powered by Raspberry Pi and the Godot game engine
+A dual-SPI display mouse-sized VR headset, powered by Raspberry Pi and the Godot game engine
 
 ![Raspberry Pi 4 with 2 circular displays](https://github.com/sn-lab/mouseVRheadset/blob/main/Images/RaspberryPi2Displays.png)
 
@@ -12,7 +12,7 @@ The mouseVRheadset is a VR system for mouse neuroscience and behavior research. 
 The heart of the mouseVRheadset is a [Raspberry Pi 4](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) running the [Godot](https://godotengine.org/) video game engine. 
 
 ### The display driver
-Importantly, the headset displays are not limited to displaying what is rendered by Godot. In fact, whatever is displayed on the central 240x420 (WxH) pixel region of the display is going to be streamed to the displays -- the top half 240x210 going to display 0, and the bottom 240x210 to display 1. This means if you want to create images or video with some other program, you just have to position it in the center of the display for it to be streamed.
+Based on a ["blazing fast" display driver](https://github.com/juj/fbcp-ili9341) for SPI-based displays, the driver included in this repository works by copying the HDMI framebuffer and streaming the image data to the connected displays connected on the Raspberry Pi's SPI0 port. This means that the headset displays are not limited to displaying what is rendered by Godot; in fact, whatever is displayed on the central 240x420 (WxH) pixel region of the screen is going to be streamed to the displays. This means if you want to create images or video with some other program, you just have to position it in the center of the display for it to be streamed. The top 240x210 will be sent to display 0 (on SPI0 chip-select 0), and the bottom 240x210 to display 1 (on SPI0 chip-select 1).
 
 ## Headset Build Instructions
 To build your own mouseVRheadset (or monocular display), follow these steps:
