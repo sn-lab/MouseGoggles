@@ -49,10 +49,27 @@ To install all necessary software, you'll first need a PC to install the Raspber
 	* Insert the SD card into your Raspberry Pi, and power it on
 	
 2. Install the Godot game engine
-	* Coming soon...
+	* Open up the Raspberry Pi command terminal and enter each line, one at a time:
+	```
+	sudo apt update
+	sudo apt install flatpack
+	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+	flatpak install flathub org.godotengine.Godot
+	```
 
 3. Install the display driver
-	* Coming soon...
+	* Open up the Raspberry Pi command terminal and enter each line, one at a time:
+	```
+	sudo apt-get install cmake
+	cd ~
+	git clone https://github.com/sn-lab/mouseVRheadset
+	cd mouseVRheadset/fbcp-ili9341
+	mkdir build
+	cd build
+	cmake ..
+	make -j
+	sudo ./fbcp- ili9341
+	~~~
 
 
 ## Monocular Display Build Instructions
