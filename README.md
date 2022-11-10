@@ -5,7 +5,7 @@ A dual-SPI-display mouse-sized VR headset, powered by Raspberry Pi and the Godot
 
 The mouseVRheadset is a VR system for mouse neuroscience and behavior research. By positioning the headset to the eyes of a head-fixed mouse running on a treadmill, virtual scenes can be displayed to the mouse in both closed-loop (treadmill motion controls the visual scene) and open-loop (visual scenes unaffected by movement) modes. The headset is powered by a Raspberry Pi 4, Godot video game engine, and a custom display driver for controlling each eye's display. A 3D printed case holds the Raspberry Pi and display eyepieces -- each eyepiece containing a circular display and Fresnel lens to cover a wide field-of-view (~70 deg solid angle) of the mouse eye and put the visual scene at a focal length of [approximately] infnity.
 
-- This system is a work in progress. Find a bug, have a suggestion, or want to make a feature request? Click [here](https://github.com/sn-lab/mouseVRheadset/issues) to submit an issue or [here](https://github.com/sn-lab/mouseVRheadset/discussions) to start a discussion. 
+- This system is a work in progress. Find a bug, have a suggestion, or want to make a feature request? Submit an [issue](https://github.com/sn-lab/mouseVRheadset/issues) or start a [discussion](https://github.com/sn-lab/mouseVRheadset/discussions).
 
 ### The Raspberry Pi and Godot game engine
 
