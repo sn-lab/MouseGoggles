@@ -110,6 +110,7 @@ To install all necessary software, you'll first need a PC to install the Raspber
 	```
 	sudo pkill fbcp
 	```
+	* Check in `/etc/rc.local` and `/etc/init.d` to make sure fbcp does not start on system startup (delete any fbcp entries)
 	
 
 # Monocular Display Build Instructions
