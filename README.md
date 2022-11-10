@@ -75,21 +75,25 @@ To install all necessary software, you'll first need a PC to install the Raspber
 	sudo ./fbcp- ili9341
 	```
 	
-### Running the system
-To start the display driver (if it is not already running, i.e. if the displays are not updating)
+### Operating the system
+1. To start the display driver, if it is not already running (i.e. if the displays are not updating)
 	* Open up the Raspberry Pi command terminal and enter each line, one at a time:
 	```
 	cd mouseVRheadset/fbcp-ili9341/build
 	sudo ./fbcp- ili9341
 	```
 	
-To start the game engine and run experiments
+2. To start the game engine and run experiments
 	* Open up the Raspberry Pi command terminal and enter the following line:
 	```
 	flatpak run org.godotengine.Godot
 	```
+	* Import the Godot game project located in mouseVRheadset/MouseVR Godot Project/
+	* Click the small "play" button on the upper-right side of the menu bar
+	* Select a scene
+	* Upon the completion of an experiment (i.e. "game"), logs of the mouse movement and experiment details will be saved in "MouseVR Godot Project/logs/"
 	
-To stop the display driver (e.g. for re-installation or installing a new version)
+4. To stop the display driver (e.g. for re-installation or installing a new version)
 	* Open up the Raspberry Pi command terminal and enter the following line:
 	```
 	sudo pkill fbcp
