@@ -8,9 +8,15 @@ The mouseVRheadset is a VR system for mouse neuroscience and behavior research. 
 - This system is a work in progress. Find a bug, have a suggestion, or want to make a feature request? Click [here](https://github.com/sn-lab/mouseVRheadset/issues) to submit an issue or [here](https://github.com/sn-lab/mouseVRheadset/discussions) to start a discussion. 
 
 ### The Raspberry Pi and Godot game engine
+
+![Godot game engine running on a Raspberry Pi 4](https://github.com/sn-lab/mouseVRheadset/blob/main/Images/RaspberryPiGodot.png)
+
 The heart of the mouseVRheadset is a [Raspberry Pi 4](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) running the [Godot](https://godotengine.org/) video game engine. Since the displays are relatively low resolution (240x210), an inexpensive single-board computer like a Raspberry Pi 4 is all that's needed to effectively render visual scenes at high (>60 fps) framerates. The multiplatform game engine Godot makes it easy to create virtual scenes and develop experimental protocols. Examples included in this repo are experiments for visual cliff avoidance, reactions to looming stimuli of various size/velocity ratios, and the syndirectional rotational optomotor response to gratings of various spatial wavelengths. The views rendered for each display are controlled by sepearate in-game cameras which can be tied together to match the inter-eye distance and angle of a typical mouse. Custom display shaders warp the view from each camera to match the spherical distortion of the Fresnel lenses, intended to create a realistic and immersive experience for the mouse.
 
 ### The display driver
+
+![dual-SPI-display driver streams different frame subsets to two displays](https://github.com/sn-lab/mouseVRheadset/blob/main/Images/DisplaySubsets2.png)
+
 Based on a ["blazing fast" display driver](https://github.com/juj/fbcp-ili9341) for SPI-based displays, the driver included in this repository works by copying the HDMI framebuffer and streaming the image data to the connected displays connected on the Raspberry Pi's SPI port. This means that the headset displays are not limited to displaying what is rendered by Godot; in fact, whatever is displayed on the central 240x420 (WxH) pixel region of the screen is going to be streamed to the displays. This means if you want to create images or video with some other program, you just have to position it in the center of the display for it to be sent to the displays -- the top 240x210 sent to display 0 (on SPI0 chip-select 0) and the bottom 240x210 to display 1 (on SPI0 chip-select 1).
 
 ### Spherical Treadmill
