@@ -48,7 +48,7 @@ To order a custom PCB, use a PCB printing service such as [JLCPCB](https://cart.
 Upload [these] zipped Gerber files for the PCB you want to print (for the Monocular display or the binocular headset). Choose your desired quantity to order and hit order.
 
 ### 3D-printed Case
-To 3D print the eyepiece or headset case, download the .stl files and print them using a high-resolution 3D printer (we used the [Photon Mono X](https://www.anycubic.com/collections/anycubic-photon-3d-printers/products/photon-mono-x-resin-printer)) or order it through an 3D printing service such as [CraftCloud](https://craftcloud3d.com/upload).
+To 3D print the eyepiece or headset case, download the [.stl files](https://github.com/sn-lab/mouseVRheadset/tree/main/Hardware/3D%20Prints) and print them using a high-resolution 3D printer (we used the [Photon Mono X](https://www.anycubic.com/collections/anycubic-photon-3d-printers/products/photon-mono-x-resin-printer)) or order it through an 3D printing service such as [CraftCloud](https://craftcloud3d.com/upload).
 
 ### Headset Assembly
 Tutorial pictures coming soon!
