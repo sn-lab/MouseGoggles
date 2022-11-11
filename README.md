@@ -29,7 +29,7 @@ To create an immersive, wide field-of-view (FOV) VR headset from the dual-displa
 
 ![Render of a spherical treadmill system with a head mount, air-suspended Styrofoam ball, motion sensors, and microcontroller](https://github.com/sn-lab/mouseVRheadset/blob/main/Images/SphericalTreadmillRender.png)
 
-This system was developed and tested using a spherical treadmill setup as described [here](https://pubmed.ncbi.nlm.nih.gov/19829374/) for closed-loop VR experiments. This treadmill simulates 2D navigation to a head-fixed mouse, allowing ground translation and yaw rotation. The treadmill motion is measured using optical sensors pointed at the treadmill along axes that are orthogonal to each other, acquired by a microcontroller (in our case, an Arduino Due). The microcontroller then converts these two sources of horizontal optic flow into treadmill spherical rotations: yaw, pitch, and roll. These rotation values are then sent to the Raspberry Pi over USB through computer mouse emulation: yaw rotations mapped as mouse x movement, pitch as mouse y movement, and roll as mouse scroll wheel movement. The Godot game engine converts these detected mouse movement events into the appropriate camera movements in the virtual scene. This setup allows the human user to test the game environments and experiments using a standard computer mouse or touchpad, and to use this VR system with any type of treadmill controll system that can be translated through a mouse emulator. See [here](https://github.com/sn-lab/mouseVRheadset/tree/main/Hardware/mouseVRheadset_controller_V4) for our Arduino Due code for measuring ball motion and mouse emulation.
+Our VR headset was developed and tested using a spherical treadmill setup as described [here](https://pubmed.ncbi.nlm.nih.gov/19829374/) for closed-loop VR experiments. This treadmill simulates 2D navigation to a head-fixed mouse, allowing ground translation and yaw rotation. The treadmill motion is measured using optical sensors pointed at the treadmill along axes that are orthogonal to each other, acquired by a microcontroller (in our case, an Arduino Due). The microcontroller then converts these two sources of horizontal optic flow into treadmill spherical rotations: yaw, pitch, and roll. These rotation values are then sent to the Raspberry Pi over USB through computer mouse emulation: yaw rotations mapped as mouse x movement, pitch as mouse y movement, and roll as mouse scroll wheel movement. The Godot game engine converts these detected mouse movement events into the appropriate camera movements in the virtual scene. This setup allows the human user to test the game environments and experiments using a standard computer mouse or touchpad, and to use this VR system with any type of treadmill controll system that can be translated through a mouse emulator. See [here](https://github.com/sn-lab/mouseVRheadset/tree/main/Hardware/mouseVRheadset_controller_V4) for our Arduino Due code for measuring ball motion and mouse emulation.
 
 ### The monocular display
 
@@ -39,7 +39,7 @@ In addition to the VR headset system, a monocular display can be built using a s
 
 
 # Headset Build Instructions
-To build your own mouse VR headset, follow this general outline:
+To build a mosue VR headset, follow this general outline:
 1. Purhcase the parts
 2. Order and assemble the custom PCB
 3. 3D print the case
@@ -47,7 +47,7 @@ To build your own mouse VR headset, follow this general outline:
 5. Install software on the Raspberry Pi
 
 ### Parts
-For a complete parts list for both the VR headser and monocular display, see [PartsList.xls](https://github.com/sn-lab/mouseVRheadset/blob/main/Hardware/Parts%20Lists.xlsx).
+For a complete parts list for both the VR headset and monocular display, see [PartsList.xls](https://github.com/sn-lab/mouseVRheadset/blob/main/Hardware/Parts%20Lists.xlsx).
 
 ### custom PCB
 To order a custom PCB, use a PCB printing service such as [JLCPCB](https://cart.jlcpcb.com/quote?orderType=1&stencilLayer=2&stencilWidth=100&stencilLength=100&stencilCounts=5) or [seeedstudio](https://www.seeedstudio.com/fusion_pcb.html).
@@ -120,8 +120,21 @@ To install all necessary software, you'll first need a PC to install the Raspber
 	
 
 # Monocular Display Build Instructions
-Details coming soon!
+To build a monocular display system, follow this general outline:
+1. Purhcase the parts
+2. Order and assemble the custom PCB
+3. 3D print the case
+4. Assemble the components
+5. Install software on the Teensy microcontroller
 
+### Parts, PCB, and 3D printed case
+See [headset build instructions](#Headset-Build-Instructions) for details on how to order/print the parts for the monocular display.
+
+### Monocular Headset Assmebly
+Tutorial pictures coming soon!
+
+### Software Installation
+Details coming soon!
 
 # Future Development
 Details coming soon!
