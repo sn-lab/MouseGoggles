@@ -39,7 +39,7 @@ In addition to the VR headset system, a monocular display can be built using a s
 
 
 # Headset Build Instructions
-To build a mosue VR headset, follow this general outline:
+To build a mouse VR headset, follow this general outline:
 1. Purhcase the parts
 2. Order and assemble the custom PCB
 3. 3D print the case
