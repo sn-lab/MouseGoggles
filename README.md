@@ -134,7 +134,24 @@ See [headset build instructions](#Headset-Build-Instructions) for details on how
 Tutorial pictures coming soon!
 
 ### Software Installation
-Details coming soon!
+1. Installing display software on the Teensy 4.0 microcontroller
+	* Download the latest [Arduino IDE](https://www.arduino.cc/en/software) on your PC/laptop
+	* Download [Teensyduino](https://www.pjrc.com/teensy/td_download.html)
+	* Plug in the Teensy 4.0 to your PC/laptop
+	* In the Arduino IDE, select Tools>board>Teensyduino>Teensy 4.0
+	* Select Tools>port>[the port your teensy is plugged into] (if you don't know which port this is, unplug the teensy and check the available ports again to see which
+	disappeared
+	* Copy the [GC9307_teensy_GFX](https://github.com/sn-lab/mouseVRheadset/tree/main/Monocular%20Display) folder to your desktop, and open the .ino file with the Arduino
+	IDE
+	* Click the checkmark button ("verify") in the top-left of the IDE
+	* If this is the first time you're uploading code to the Teensy, the teensyduino program will prompt you to click the button on the Teensy to put it in programming
+	mode.
+	* If the code hasn't been uploaded yet, with the arrow button ("upload") in the top-left of the IDE
+	* Check the display to see that the code was successfully uploaded  (it should be running a demo mode)
+
+2. Installing Matlab scripts to control the display
+	* Details coming soon!
+
 
 # Future Development
 Details coming soon!
