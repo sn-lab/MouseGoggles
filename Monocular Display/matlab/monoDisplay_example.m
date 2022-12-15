@@ -1,11 +1,11 @@
 %% open connection to controller
 clear vs %clear "vis-struct"
 vs.port = 'COM6';
+vs.directory = 'C:\Users\';
 vs = teensyComm(vs, 'Connect');
 
 %% set experiment parameters
 vs.expname = 'directional_test_stimulus_1';
-vs.directory = 'C:\Users\Matthew\Documents\Schaffer-Nishimura Lab\Visual Stimulation\Data';
 vs.trial_duration = 8;
 vs.randomize = 0; %1=randomize order of conditions, 0=don't randomize
 vs.num_trials = 13;

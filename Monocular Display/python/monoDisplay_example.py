@@ -40,7 +40,6 @@ param = PAR(2,[1, 2, 3],[4, 5 ,6],[7, 8, 9],20,1,29,1,[10, 10],0,2,5)
 
 
 #set experiment parameters
-#cs = CS('COM7','directional_test_stimulus1', 'Users/Matthew/Documents/Schaffer-Nishimura Lab/Visual Stimulation/Data', 3, 0, None, None,None) 
 cs = CS('directional_test_stimulus1','/Users/yusolpark/python/mini-vis-python', 3, 0, None, None,{'counter', 'time', 'trial', 'repetition', 'readdelay', 
 'bar1red', 'bar1green', 'bar1blue', 'bar2red', 'bar2green', 'bar2blue', 'backred', 
 'backgreen', 'backblue', 'barwidth', 'numgratings', 'angle', 'frequency', 

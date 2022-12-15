@@ -1,4 +1,4 @@
-# mouseVRheadset
+# About mouseVRheadset
 A dual-SPI-display mouse-sized VR headset, powered by Raspberry Pi and the Godot game engine.
 
 ![(left) A Raspberry Pi 4 uniquely controlling 2 circular displays. (right) Render of a head-fixed mouse on a treadmill with a VR headset](https://github.com/sn-lab/mouseVRheadset/blob/main/Images/mouseVRheadsetIntro.png)
@@ -106,12 +106,41 @@ To install all necessary software, you'll first need a PC to install the Raspber
 	```
 	flatpak run org.godotengine.Godot
 	```
-	* Import the Godot game project located in mouseVRheadset/MouseVR Godot Project/
+	* Import the Godot game project located in mouseVRheadset/MouseVR Godot Project V0.X/project.godot
+	* When the game editor opens, reduce the window to a partial screen (running it in full screen may cause hang-ups)
+	* In Project>Project Settings>Display>Window, change `Width` to 240 and `Height` to 420
+	* In Project>Project Settings>Debug>Settings, change `Force FPS` to 80
 	* Click the small "play" button on the upper-right side of the menu bar
-	* Select a scene
-	* Upon the completion of an experiment (i.e. "game"), logs of the mouse movement and experiment details will be saved in "MouseVR Godot Project/logs/"
+	* Select an experiment (i.e. "scene")
+	* A game window will appear with views rendered for each of the two eyepiece displays -- these are rotated to match the rotations of each display and are positioned in the center of the screen -- do not move this window
+	* Upon the completion of each repetition of an experiment, logs of the mouse movement and experiment details will be saved in "MouseVR Godot Project/logs/" in csv format (one line per frame)
+	* Click the `esc` button to exit an experiment early (logs of completed experiment repetitions will still have been saved)
 	
-4. To stop the display driver (e.g. for re-installation or installing a new version)
+3. To customize Godot experiments on the Raspberry Pi
+	* Use the Godot editor, following [official documentation](https://docs.godotengine.org/en/stable/) or numerous online tutorials
+	* 3D environments can be edited in .tscn files in the "3D" tab
+	* Experiment code can be edited in .gd files in the "Script" tab
+	* In .gd files, pay special attention to "movement sensitivities" variables -- these will need to be calibrated to your specific behavior measurement system
+	
+4. To customize Godot experiments on a Windows or Mac PC (to be later transferred to the Raspberry Pi headset)
+	* Install the latest [Godot editor](https://godotengine.org/) on your PC
+	* Run Godot and import the Godot project
+	* For rendered views that are easier to see and work with, in each .tscn experiment file, delete the `HeadKinBody` node (under the parent `spatial` node) and drag the "HeadKinBody.tscn" resource (from the FileSystem panel) to the `spatial` node. (the screen layout in "HeadKinBody" is easy to work with, while the screen layout in "HeadKinBody_headset" is needed for the Raspberry Pi headset)
+	* for the "HeadKinBody" layout, change with window dimensions to 420x240 (WxH) (in Project>Project Settings>Display>Window)
+	* for the "HeadKinBody_headset" layout, change with window dimensions to 240x242 (WxH)
+	* In the .gd files for each experiment, optimize the movement sensitivities for your desired input (e.g. computer mouse, trackpad)
+	* Try running an experiment (hit "play" button), do you see a dependecy error for the shaders? If so, resolve them by selecting the .gdshader files for both "eyes" (e.g. for the lefteye, select lefteye.gdshader file for PCs, lefteye.shader for Raspberry Pi)
+	* Follow [official documentation](https://docs.godotengine.org/en/stable/) or numerous online tutorials to edit the experiments
+	* Save any changes and rename your project
+	* To transfer the project to the headset, copy the Project folder and transfer to the Raspberry Pi
+	* On the Raspberry Pi, run Godot (`flatpak run org.godotengine.Godot`) and import/edit the new project
+	* Reduce the window size from full screen
+	* In Project>Project Settings>Display>Window, change `Width` to 240 and `Height` to 420
+	* In each experiment .tscn file, replace the `HeadKinBody` node with the "HeadKinBody_headset" file
+	* Resolve shader dependency errors by selecting ".shader" files (.gdshader is used on PCs)
+	* In .gd files, adjust "movement sensitivities" for your specific behavior measurement system
+	
+5. To stop the display driver on the Raspberry Pi (only needed for re-installation or updating the display driver)
 	* Open up the Raspberry Pi command terminal and enter the following line:
 	```
 	sudo pkill fbcp
@@ -137,21 +166,37 @@ Tutorial pictures coming soon!
 1. Installing display software on the Teensy 4.0 microcontroller
 	* Download the latest [Arduino IDE](https://www.arduino.cc/en/software) on your PC/laptop
 	* Download [Teensyduino](https://www.pjrc.com/teensy/td_download.html)
+	* Open up the Arduino IDE, select Tools>Library Manager, and install the following libraries:
+	```
+	Adafruit SPIflash
+	Adafruit BusIO
+	Adafruit GFX Library
+	Adafruit TFT
+	Adafruit ST7735 and ST7789 Library
+	```
 	* Plug in the Teensy 4.0 to your PC/laptop
 	* In the Arduino IDE, select Tools>board>Teensyduino>Teensy 4.0
-	* Select Tools>port>[the port your teensy is plugged into] (if you don't know which port this is, unplug the teensy and check the available ports again to see which
-	disappeared
-	* Copy the [GC9307_teensy_GFX](https://github.com/sn-lab/mouseVRheadset/tree/main/Monocular%20Display) folder to your desktop, and open the .ino file with the Arduino
-	IDE
+	* Select Tools>port>[the port your teensy is plugged into] (if you don't know which port this is, unplug the teensy and check the available ports again to see which disappeared
+	* Copy the [GC9307_teensy_GFX](https://github.com/sn-lab/mouseVRheadset/tree/main/Monocular%20Display) folder to your desktop, and open the .ino file with the Arduino IDE
 	* Click the checkmark button ("verify") in the top-left of the IDE
-	* If this is the first time you're uploading code to the Teensy, the teensyduino program will prompt you to click the button on the Teensy to put it in programming
-	mode.
-	* If the code hasn't been uploaded yet, with the arrow button ("upload") in the top-left of the IDE
-	* Check the display to see that the code was successfully uploaded  (it should be running a demo mode)
-
-2. Installing Matlab scripts to control the display
-	* Details coming soon!
-
+	* The Teensyduino program window will open and prompt you to click the reset button on the Teensy to put it in programming mode and upload the code
+	* If the monocular display is fully assembled, check the display to see that the code was successfully uploaded (it should be running a demo mode)
+	
+2. Controlling the display from MATLAB
+	* Install [Matlab](https://www.mathworks.com/products/matlab.html) (display controller does not work with "Matlab Online")
+	* Copy the [Matlab code](https://github.com/sn-lab/mouseVRheadset/tree/main/Monocular%20Display/matlab) folder to your desktop and open the monoDisplay_example.m file in Matlab
+	* In Matlab, add the entire folder of files into Matlab's paths (Home>Set Path>Add with Subfolders>[select your downloaded Matlab folder]>Save>Close)
+	* At the top of the monoDisplay_example code, change`vs.port` to the port your display is connected
+	* Change `vs.directory` to your desired save folder
+	* Run the script and watch the display to verify code and communication is working properly
+	
+3. Controlling the display from Python
+	* Download the latest [Python release](https://www.python.org/downloads/)
+	* Open your preferred Python IDE (e.g. IDLE (installs with Python), [Visual Studio](https://visualstudio.microsoft.com/downloads/), [PyCharm](https://www.jetbrains.com/pycharm/), [Spyder](https://www.spyder-ide.org/))
+	* Copy the [Python code](https://github.com/sn-lab/mouseVRheadset/tree/main/Monocular%20Display/python) (not fully tested) to your desktop and open the monoDisplay_example.py file in your Python IDE
+	* At the top of the monoDisplay_example code, change `ser = serial.Serial('/dev/cu.usbmodem14201',9600)`
+	* Further down, change `cs = CS('directional_test_stimulus1','/Users/', 3, 0...` to your desired save directory
+	* Run the script and watch the display to verify code and communication is working properly
 
 # Future Development
 Details coming soon!
