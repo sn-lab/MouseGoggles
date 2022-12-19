@@ -106,14 +106,14 @@ To install all necessary software, you'll first need a PC to install the Raspber
 	```
 	flatpak run org.godotengine.Godot
 	```
-	* Import the Godot game project located in mouseVRheadset/MouseVR Godot Project V0.X/project.godot
+	* Import the Godot game project located in mouseVRheadset/Godot/MouseVR Godot Project V0.X/project.godot
 	* When the game editor opens, reduce the window to a partial screen (running it in full screen may cause hang-ups)
 	* In Project>Project Settings>Display>Window, change `Width` to 240 and `Height` to 420
 	* In Project>Project Settings>Debug>Settings, change `Force FPS` to 80
 	* Click the small "play" button on the upper-right side of the menu bar
 	* Select an experiment (i.e. "scene")
 	* A game window will appear with views rendered for each of the two eyepiece displays -- these are rotated to match the rotations of each display and are positioned in the center of the screen -- do not move this window
-	* Upon the completion of each repetition of an experiment, logs of the mouse movement and experiment details will be saved in "MouseVR Godot Project/logs/" in csv format (one line per frame)
+	* Upon the completion of each repetition of an experiment, logs of the mouse movement and experiment details will be saved in "MouseVR Godot Project V0.X/logs/" in csv format (one line per frame)
 	* Click the `esc` button to exit an experiment early (logs of completed experiment repetitions will still have been saved)
 	
 3. To customize Godot experiments on the Raspberry Pi
