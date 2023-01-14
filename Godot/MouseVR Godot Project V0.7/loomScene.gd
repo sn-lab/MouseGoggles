@@ -165,7 +165,7 @@ func _process(delta):
 	fps = times.size()
 		
 	#calculate current movement
-	movement_current = mouse_gain*(abs(thrust_gain*head_thrust) + abs(slip_gain*head_slip) + deg2rad(abs(0.05*yaw_gain*head_yaw)))
+	movement_current = mouse_gain*(abs(head_thrust) + abs(head_slip) + deg2rad(abs(head_yaw)))
 	movement_total += movement_current
 	movement_samples.append(movement_current)
 	while movement_samples.size() > (fps*slow_duration_before_loom):
