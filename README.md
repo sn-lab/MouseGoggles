@@ -74,7 +74,7 @@ To install all necessary software, you'll first need a PC to install the Raspber
 	* Open up the Raspberry Pi command terminal and enter each line, one at a time:
 	```
 	sudo apt update
-	sudo apt install flatpack
+	sudo apt install flatpak
 	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	flatpak install flathub org.godotengine.Godot
 	```
