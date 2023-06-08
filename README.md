@@ -201,6 +201,6 @@ Tutorial pictures coming soon!
 	* Run the script and watch the display to verify code and communication is working properly
 
 # Future Development
-	* An easier to assemble headset, with adjustable inter-eye distance
-	* A new liquid reward delivery system and optical lick sensor (ephys compatible)
+* An easier to assemble headset, with adjustable inter-eye distance
+* A new liquid reward delivery system and optical lick sensor (ephys compatible)
 
