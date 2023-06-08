@@ -161,7 +161,7 @@ To build a monocular display system, follow this general outline:
 ### Parts, PCB, and 3D printed case
 See [headset build instructions](#Headset-Build-Instructions) for details on how to order/print the parts for the monocular display.
 
-### Monocular Headset Assmebly
+### Monocular Headset Assembly
 Tutorial pictures coming soon!
 
 ### Software Installation
