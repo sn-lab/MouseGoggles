@@ -90,7 +90,7 @@ To install all necessary software, you'll first need a PC to install the Raspber
 	cd build
 	cmake ..
 	make -j
-	sudo ./fbcp- ili9341
+	sudo ./fbcp-ili9341
 	```
 	
 ### Operating the system
@@ -98,7 +98,7 @@ To install all necessary software, you'll first need a PC to install the Raspber
 	* Open up the Raspberry Pi command terminal and enter each line, one at a time:
 	```
 	cd mouseVRheadset/fbcp-ili9341/build
-	sudo ./fbcp- ili9341
+	sudo ./fbcp-ili9341
 	```
 	
 2. To start the game engine and run experiments
