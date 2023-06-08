@@ -78,6 +78,7 @@ To install all necessary software, you'll first need a PC to install the Raspber
 	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	flatpak install flathub org.godotengine.Godot
 	```
+	* note: when you are asked if you want to continue installing, answer yes
 
 3. Install the display driver
 	* Open up the Raspberry Pi command terminal and enter each line, one at a time:
@@ -92,6 +93,7 @@ To install all necessary software, you'll first need a PC to install the Raspber
 	make -j
 	sudo ./fbcp-ili9341
 	```
+	* note: when you are asked if you want to continue installing, answer yes
 	
 ### Operating the system
 1. To start the display driver, if it is not already running (i.e. if the displays are not updating)
@@ -106,15 +108,15 @@ To install all necessary software, you'll first need a PC to install the Raspber
 	```
 	flatpak run org.godotengine.Godot
 	```
-	* Import the Godot game project located in mouseVRheadset/Godot/MouseVR Godot Project V0.X/project.godot
+	* Import the Godot game project located in mouseVRheadset/Godot/MouseVR Godot Project V0.X/project.godot (recommended to select the newest available version)
 	* When the game editor opens, reduce the window to a partial screen (running it in full screen may cause hang-ups)
 	* In Project>Project Settings>Display>Window, change `Width` to 240 and `Height` to 420
-	* In Project>Project Settings>Debug>Settings, change `Force FPS` to 80
+	* In Project>Project Settings>Debug>Settings, change `Force FPS` to 60 (higher fps may be possible)
 	* Click the small "play" button on the upper-right side of the menu bar
-	* Select an experiment (i.e. "scene")
+	* Select an experiment (aka "scene")
 	* A game window will appear with views rendered for each of the two eyepiece displays -- these are rotated to match the rotations of each display and are positioned in the center of the screen -- do not move this window
 	* Upon the completion of each repetition of an experiment, logs of the mouse movement and experiment details will be saved in "MouseVR Godot Project V0.X/logs/" in csv format (one line per frame)
-	* Click the `esc` button to exit an experiment early (logs of completed experiment repetitions will still have been saved)
+	* Click the `esc` button to exit an experiment early (logs of completed experiment repetitions will have been saved, but the in-progress/unfinished repetition will not be saved)
 	
 3. To customize Godot experiments on the Raspberry Pi
 	* Use the Godot editor, following [official documentation](https://docs.godotengine.org/en/stable/) or numerous online tutorials
@@ -199,4 +201,6 @@ Tutorial pictures coming soon!
 	* Run the script and watch the display to verify code and communication is working properly
 
 # Future Development
-Details coming soon!
+	* An easier to assemble headset, with adjustable inter-eye distance
+	* A new liquid reward delivery system and optical lick sensor (ephys compatible)
+
