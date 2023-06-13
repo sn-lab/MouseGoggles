@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
 // Inspector params:
-uniform float fov = 140; //FOV (in degrees) that the circular display covers 
+uniform float fov = 153; //FOV (in degrees) that the circular display covers 
 uniform float aspect_ratio = 0.875; //ratio of x pixels to y pixels
 
 void fragment(){
