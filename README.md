@@ -57,7 +57,27 @@ Upload the zipped Gerber files for the PCB you want to print ([TeensyGC9307](htt
 To 3D print the eyepiece or headset case, download the [.stl files](https://github.com/sn-lab/mouseVRheadset/tree/main/Hardware/3D%20Prints) and print them using a high-resolution 3D printer (we used the [Photon Mono X](https://www.anycubic.com/collections/anycubic-photon-3d-printers/products/photon-mono-x-resin-printer)) or order it through an 3D printing service such as [CraftCloud](https://craftcloud3d.com/upload).
 
 ### Headset Assembly
-Tutorial pictures coming soon!
+After all components (including off-the-shelf parts and tools, 3D prints, and the custom PCB) have been obtained:
+1. Install the circular display by sliding it into the display slot of the eyepiece, with the glass side facing out, ensuring it is pushed all the way in and the ribbon cable is centered in the slot.
+* Note: if during assembly anything is difficult to slide into place, check for imperfections or warping of the printed part and sand them down with the needle file until parts fit freely.
+2. Slide the "DisplayHolder" 3D print into the slot following the display, with the cutout making space for the ribbon cable, until it is flush with the eyepiece edges.
+3. Install the Fresnel lens into the lens slot of the eyepiece, with the ridged side facing the display and the flat side facing out.
+* Note: very gently sliding your finger or fingernail along each flat face of the lens will tell you which side is smooth and which side is ridged.
+4. Silde the "LensHolder" 3D print into the slot following the lens, with the angled side facing to the side and matching the slope of the eyepiece, until it is flush with the eyepiece edges.
+5. Add a dab of silicone adhesive to the edges of the holders and wipe it flat with a cloth or finger. Add more silicone to close all gaps if minimal light pollution is desired. 
+6. Leave the eyepiece untouched to allow the adhesive to set.
+7. Repeat steps 1-6 for the 2nd eyepiece.
+8. Attach the fully assembled PCB (with 2x20 socket header and FPC connectors soldered) to the bottom of the "CaseFront" 3D print with double-sided tape or a loop of regular tape. The 2x20 header connector should be toward the edge of the CaseFront, with the the display ribbon cables passing through the hole in the center.
+9. Using tweezers and/or careful handling, gently open the connecting flap on each fpc connector and slide each ribbon cable into the slot. Close the flap to hold the cable in place. 
+* Note: When the cable is properly inserted, the white horizontal line of the ribbon cable will be flush with the edge of the closed flap.
+10. With the "CaseBack" 3D print set upside down (so the large central mounting hole is facing up), slide a 4-40 nut into each of the 4 small mounting holes slots. Temporarily screw in 4-40 screws through these holes to ensure the nuts are properly positioned. 
+11. Add a dab of instant-bond adhesive to the edge of the nuts, inside the slot but not near the threads of the nuts, to permanently fix the nuts in place. Remove the screws after the adhesive has set.
+12. Repeat steps 10-11 with a 1/4-20 nut/screw and the large central mounting hole.
+13. Place a raspberry pi 4 inside the CaseBack, facing up and aligned to the mounting holes, with the USB ports pointing toward the open end.
+14. Place the assembled CaseFront on top of the CaseBack, making sure the Raspberry Pi pins are aligned with the 2x20 sockets, and push down until the case is closed and the PCB is connected.
+15. Add four 1" 4-40 screws into the screw holes of the CaseFront to hold the case and components securely in place.
+The headset is assembled! Now you can simply connect the Raspberry Pi to a monitor (using the hdmi 0 port), a USB keyboard and mouse, and a 5 v power supply, and proceed to the software installation steps.
+
 
 ### Software Installation
 To install all necessary software, you'll first need a PC to install the Raspberry Pi OS to the SD card that will be installed in the Raspberry Pi. Next, you'll need to start up the Raspberry Pi and install the Godot game engine and custom display driver.
