@@ -67,16 +67,18 @@ After all components (including off-the-shelf parts and tools, 3D prints, and th
 5. Add a dab of silicone adhesive to the edges of the holders and wipe it flat with a cloth or finger. Add more silicone to close all gaps if minimal light pollution is desired. 
 6. Leave the eyepiece untouched to allow the adhesive to set.
 7. Repeat steps 1-6 for the 2nd eyepiece.
-8. Attach the fully assembled PCB (with 2x20 socket header and FPC connectors soldered) to the bottom of the "CaseFront" 3D print with double-sided tape or a loop of regular tape. The 2x20 header connector should be toward the edge of the CaseFront, with the the display ribbon cables passing through the hole in the center.
-9. Using tweezers and/or careful handling, gently open the connecting flap on each fpc connector and slide each ribbon cable into the slot. Close the flap to hold the cable in place. 
-	* Note: When the cable is properly inserted, the white horizontal line of the ribbon cable will be flush with the edge of the closed flap.
-10. With the "CaseBack" 3D print set upside down (so the large central mounting hole is facing up), slide a 4-40 nut into each of the 4 small mounting holes slots. Temporarily screw in 4-40 screws through these holes to ensure the nuts are properly positioned. 
+8. Attach the fully assembled PCB (with 2x20 socket header and FPC connectors soldered) to the bottom of the "CaseFront" 3D print with double-sided tape or a loop of regular tape. The 2x20 header should be toward the edge of the CaseFront, with the the display ribbon cables passing through the hole in the center.
+9. Using tweezers and/or careful handling, gently open the connecting flap on each fpc connector and slide each ribbon cable into their respective slots. Close the flaps to hold the cables in place. 
+	* Note: When a cable is properly inserted, the white horizontal line of the ribbon cable will be flush or nearly flush with the edge of the closed flap.
+10. With the "CaseBack" 3D print set upside down (so the large central mounting hole is facing up), slide a 4-40 nut into each of the four small mounting hole slots. Temporarily screw in 4-40 screws through these holes to ensure the nuts are properly positioned. 
 11. Add a dab of instant-bond adhesive to the edge of the nuts, inside the slot but not near the threads of the nuts, to permanently fix the nuts in place. Remove the screws after the adhesive has set.
 12. Repeat steps 10-11 with a 1/4-20 nut/screw and the large central mounting hole.
 13. Place a raspberry pi 4 inside the CaseBack, facing up and aligned to the mounting holes, with the USB ports pointing toward the open end.
 14. Place the assembled CaseFront on top of the CaseBack, making sure the Raspberry Pi pins are aligned with the 2x20 sockets, and push down until the case is closed and the PCB is connected.
 15. Add four 1" 4-40 screws into the screw holes of the CaseFront to hold the case and components securely in place.
 The headset is assembled! Now you can simply connect the Raspberry Pi to a monitor (using the hdmi 0 port), a USB keyboard and mouse, and a 5 v power supply, and proceed to the software installation steps.
+
+	* Note on disassembly: when opening up the assembled case, take special care not to pull on or twist the display ribbon cables as they can easily break, rendering the displays broken and unfixable. To safely open the case, hold the PCB firmly against the CaseFront before attempting to separate the PCB from the Raspberry Pi and CaseBack. Only after the ribbon cables are disconnected can you let go of and remove the PCB from the CaseFont. (This complication has been eliminated in newer versions of the headset design, coming soon!)
 
 
 ### Software Installation
