@@ -51,7 +51,9 @@ For a complete parts list for both the VR headset and monocular display, see [Pa
 
 ### custom PCB
 To order a custom PCB, use a PCB printing service such as [JLCPCB](https://cart.jlcpcb.com/quote?orderType=1&stencilLayer=2&stencilWidth=100&stencilLength=100&stencilCounts=5) or [seeedstudio](https://www.seeedstudio.com/fusion_pcb.html).
-Upload the zipped Gerber files for the PCB you want to print ([TeensyGC9307](https://github.com/sn-lab/mouseVRheadset/tree/main/Hardware/PCBs) for the Monocular display or [RaspbyGC9307](https://github.com/sn-lab/mouseVRheadset/tree/main/Hardware/PCBs) for the binocular headset). Choose your desired quantity to order and hit order.
+Upload the zipped Gerber files for the PCB you want to print ([TeensyGC9307](https://github.com/sn-lab/mouseVRheadset/tree/main/Hardware/PCBs) for the Monocular display or [RaspbyGC9307](https://github.com/sn-lab/mouseVRheadset/tree/main/Hardware/PCBs) for the binocular headset). Choose your desired quantity to order and hit order. 
+
+To assemble components onto the PCB (headers and display connectors), see the options in this [discussion](https://github.com/sn-lab/mouseVRheadset/discussions/7) for either using a professional assembly service or for manual microsoldering.
 
 ### 3D-printed Case
 To 3D print the eyepiece or headset case, download the [.stl files](https://github.com/sn-lab/mouseVRheadset/tree/main/Hardware/3D%20Prints) and print them using a high-resolution 3D printer (we used the [Photon Mono X](https://www.anycubic.com/collections/anycubic-photon-3d-printers/products/photon-mono-x-resin-printer)) or order it through an 3D printing service such as [CraftCloud](https://craftcloud3d.com/upload).
