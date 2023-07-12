@@ -33,10 +33,7 @@ void InitST7789V2()
   {
       BEGIN_SPI_COMMUNICATION(SPI_CS_BIT);
       
-
-#if 0
-          //ST7789V2 init sequence (for more info: "ST7789V2_SPEC_V1.0.pdf")
-          //original from gc9307
+          //ST7789V2 init sequence -- it appears to work (for more info: "ST7789V2_SPEC_V1.0.pdf")
           SPI_TRANSFER(SPI_CS_BIT, 0xFE);
           SPI_TRANSFER(SPI_CS_BIT, 0xEF);
           usleep(120 * 1000);
@@ -67,10 +64,11 @@ void InitST7789V2()
           SPI_TRANSFER(SPI_CS_BIT, 0xF3, 0x3E, 0x92, 0x90, 0x21, 0x23, 0x9F);
           usleep(30 * 1000);
 
-          //invert colors
+          //invert colors (this looks like it solves the color inversion problem with the original driver)
           SPI_TRANSFER(SPI_CS_BIT, 0x21/*Display Inversion On*/);
 
-          //flip display
+          ///////this method was tried 7/12. result: display was vertically offset by ~ 80 pixels; displays appear upside-down, but I think are actually left-right flipped
+#if 0
 #define MADCTL_COLUMN_ADDRESS_ORDER_SWAP (1<<6)
 #define MADCTL_ROW_ADDRESS_ORDER_SWAP (1<<7)
 #define MADCTL_ROTATE_180_DEGREES (MADCTL_COLUMN_ADDRESS_ORDER_SWAP | MADCTL_ROW_ADDRESS_ORDER_SWAP)
@@ -83,7 +81,26 @@ void InitST7789V2()
           madctl ^= MADCTL_ROTATE_180_DEGREES;
 #endif
           SPI_TRANSFER(SPI_CS_BIT, 0x36/*MADCTL: Memory Access Control*/, madctl);
-          SPI_TRANSFER(SPI_CS_BIT, 0x37/*VSCSAD: Vertical Scroll Start Address of RAM*/, 0, 320 - DISPLAY_WIDTH);
+          //SPI_TRANSFER(SPI_CS_BIT, 0x37/*VSCSAD: Vertical Scroll Start Address of RAM*/, 0, 320 - DISPLAY_WIDTH); 
+#endif
+          //end of old method
+
+
+          ////////new method: just flip the column address order
+#if 1
+#define MADCTL_COLUMN_ADDRESS_ORDER_SWAP (1<<6)
+#define MADCTL_ROW_ADDRESS_ORDER_SWAP (1<<7)
+#define MADCTL_ROTATE_180_DEGREES (MADCTL_COLUMN_ADDRESS_ORDER_SWAP | MADCTL_ROW_ADDRESS_ORDER_SWAP)
+
+          uint8_t madctl = 0;
+          madctl |= MADCTL_COLUMN_ADDRESS_ORDER_SWAP;
+
+#ifdef DISPLAY_ROTATE_180_DEGREES
+          madctl ^= MADCTL_ROTATE_180_DEGREES;
+#endif
+          SPI_TRANSFER(SPI_CS_BIT, 0x36/*MADCTL: Memory Access Control*/, madctl);
+#endif
+          //end of new method
 
           //original from gc9307
           SPI_TRANSFER(SPI_CS_BIT, 0x11);
@@ -92,68 +109,7 @@ void InitST7789V2()
           usleep(120 * 1000);
           SPI_TRANSFER(SPI_CS_BIT, 0x2C);
           usleep(120 * 1000);
-#endif
           //end original from gc9307
-
-#if 1
-          //ST7789V2 init sequence (for more info: "ST7789V2_SPEC_V1.0.pdf")
-          //copy from st7789vw
-          usleep(120 * 1000);
-          SPI_TRANSFER(SPI_CS_BIT, 0x11/*Sleep Out*/);
-          usleep(120 * 1000);
-
-          SPI_TRANSFER(SPI_CS_BIT, 0x3A/*COLMOD: Pixel Format Set*/, 0x05/*16bpp*/);
-          usleep(20 * 1000);
-
-#define MADCTL_BGR_PIXEL_ORDER (1<<3)
-#define MADCTL_ROW_COLUMN_EXCHANGE (1<<5)
-#define MADCTL_COLUMN_ADDRESS_ORDER_SWAP (1<<6)
-#define MADCTL_ROW_ADDRESS_ORDER_SWAP (1<<7)
-#define MADCTL_ROTATE_180_DEGREES (MADCTL_COLUMN_ADDRESS_ORDER_SWAP | MADCTL_ROW_ADDRESS_ORDER_SWAP)
-
-          uint8_t madctl = 0;
-#ifdef DISPLAY_SWAP_BGR
-          madctl ^= MADCTL_BGR_PIXEL_ORDER;
-#endif
-#if defined(DISPLAY_FLIP_ORIENTATION_IN_HARDWARE)
-          madctl |= MADCTL_ROW_COLUMN_EXCHANGE;
-#endif
-          madctl |= MADCTL_ROW_ADDRESS_ORDER_SWAP;
-
-          madctl ^= MADCTL_ROTATE_180_DEGREES;
-
-#ifdef DISPLAY_ROTATE_180_DEGREES
-          madctl ^= MADCTL_ROTATE_180_DEGREES;
-#endif
-
-          SPI_TRANSFER(SPI_CS_BIT, 0x36/*MADCTL: Memory Access Control*/, madctl);
-          usleep(10 * 1000);
-
-          SPI_TRANSFER(0xBA/*DGMEN: Enable Gamma*/, 0x04);
-          bool invertColors = true;
-
-#ifdef DISPLAY_INVERT_COLORS
-          invertColors = !invertColors;
-#endif
-          if (invertColors)
-              SPI_TRANSFER(SPI_CS_BIT, 0x21/*Display Inversion On*/);
-          else
-              SPI_TRANSFER(SPI_CS_BIT, 0x20/*Display Inversion Off*/);
-
-          SPI_TRANSFER(SPI_CS_BIT, 0x13/*NORON: Partial off (normal)*/);
-          usleep(10 * 1000);
-
-          // The ST7789 controller is actually a unit with 320x240 graphics memory area, but only 240x240 portion
-          // of it is displayed. Therefore if we wanted to swap row address mode above, writes to Y=0...239 range will actually land in
-          // memory in row addresses Y = 319-(0...239) = 319...80 range. To view this range, we must scroll the view by +80 units in Y
-          // direction so that contents of Y=80...319 is displayed instead of Y=0...239.
-          if ((madctl & MADCTL_ROW_ADDRESS_ORDER_SWAP))
-              SPI_TRANSFER(SPI_CS_BIT, 0x37/*VSCSAD: Vertical Scroll Start Address of RAM*/, 0, 320 - DISPLAY_WIDTH);
-
-          SPI_TRANSFER(SPI_CS_BIT, 0x29/*Display ON*/);
-          usleep(100 * 1000);
-#endif
-          //end copy from st7789vw
 
 
           //finish initialization
