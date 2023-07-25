@@ -78,9 +78,10 @@ After all components (including off-the-shelf parts and tools, 3D prints, and th
 13. Place a raspberry pi 4 inside the CaseBack, facing up and aligned to the mounting holes, with the USB ports pointing toward the open end.
 14. Place the assembled CaseFront on top of the CaseBack, making sure the Raspberry Pi pins are aligned with the 2x20 sockets, and push down until the case is closed and the PCB is connected.
 15. Add four 1" 4-40 screws into the screw holes of the CaseFront to hold the case and components securely in place.
+
 The headset is assembled! Now you can simply connect the Raspberry Pi to a monitor (using the hdmi 0 port), a USB keyboard and mouse, and a 5 v power supply, and proceed to the software installation steps.
 
-	* Note on disassembly: when opening up the assembled case, take special care not to pull on or twist the display ribbon cables as they can easily break, rendering the displays broken and unfixable. To safely open the case, hold the PCB firmly against the CaseFront before attempting to separate the PCB from the Raspberry Pi and CaseBack. Only after the ribbon cables are disconnected can you let go of and remove the PCB from the CaseFont. (This complication has been eliminated in newer versions of the headset design, coming soon!)
+* Note on disassembly: when opening up the assembled case, take special care not to pull on or twist the display ribbon cables as they can easily break, rendering the displays broken and unfixable. To safely open the case, hold the PCB firmly against the CaseFront before attempting to separate the PCB from the Raspberry Pi and CaseBack. Only after the ribbon cables are disconnected can you let go of and remove the PCB from the CaseFont. This complication (and a few others) have been eliminated in newer versions of the headset design, coming soon!
 
 
 ### Software Installation
@@ -117,7 +118,8 @@ To install all necessary software, you'll first need a PC to install the Raspber
 	make -j
 	sudo ./fbcp-ili9341
 	```
-	* note: when you are asked if you want to continue installing, answer yes
+	* note 1: when you are asked if you want to continue installing, answer yes
+ 	* note 2: a new driver chip has been spotted in some circular displays! If after finishing installation and [operating the system](https://github.com/sn-lab/mouseVRheadset#operating-the-system) step 1 you notice the display colors are inverted, shut down the display driver (step 5 of operating the system) and reinstall it, replacing the single line `cd mouseVRheadset/fbcp-ili9341` with `cd mouseVRheadset/fbcp-st7789`
 	
 ### Operating the system
 1. To start the display driver, if it is not already running (i.e. if the displays are not updating)
@@ -186,7 +188,7 @@ To build a monocular display system, follow this general outline:
 See [headset build instructions](#Headset-Build-Instructions) for details on how to order/print the parts for the monocular display.
 
 ### Monocular Headset Assembly
-Tutorial pictures coming soon!
+Assembly instructions coming soon!
 
 ### Software Installation
 1. Installing display software on the Teensy 4.0 microcontroller
@@ -225,6 +227,7 @@ Tutorial pictures coming soon!
 	* Run the script and watch the display to verify code and communication is working properly
 
 # Future Development
-* An easier to assemble headset, with adjustable inter-eye distance
+* An easier to assemble headset, with adjustable inter-eye distance is in the final stages of testing!
 * A new liquid reward delivery system and optical lick sensor (ephys compatible)
+* A simpler spherical treadmill?
 
