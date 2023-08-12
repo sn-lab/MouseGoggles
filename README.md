@@ -141,31 +141,29 @@ To install all necessary software, you'll first need a PC to install the Raspber
 	* Click the small "play" button on the upper-right side of the menu bar
 	* Select an experiment (aka "scene")
 	* A game window will appear with views rendered for each of the two eyepiece displays -- these are rotated to match the rotations of each display and are positioned in the center of the screen -- do not move this window
-	* Upon the completion of each repetition of an experiment, logs of the mouse movement and experiment details will be saved in "MouseVR Godot Project V0.X/logs/" in csv format (one line per frame)
+	* Upon the completion of each repetition of an experiment, logs of the mouse movement and experiment details will be saved in "MouseVR Godot Project VX.X/logs/" in csv format (one line per frame, variables stored in columns)
 	* Click the `esc` button to exit an experiment early (logs of completed experiment repetitions will have been saved, but the in-progress/unfinished repetition will not be saved)
 	
 3. To customize Godot experiments on the Raspberry Pi
-	* Use the Godot editor, following [official documentation](https://docs.godotengine.org/en/stable/) or numerous online tutorials
+	* Use the Godot editor, following [official documentation](https://docs.godotengine.org/en/stable/) or numerous online tutorials (e.g. [GDQuest](https://www.youtube.com/channel/UCxboW7x0jZqFdvMdCFKTMsQ/playlists))
 	* 3D environments can be edited in .tscn files in the "3D" tab
 	* Experiment code can be edited in .gd files in the "Script" tab
 	* In .gd files, pay special attention to "movement sensitivities" variables -- these will need to be calibrated to your specific behavior measurement system
 	
-4. To customize Godot experiments on a Windows or Mac PC (to be later transferred to the Raspberry Pi headset)
+4. To customize Godot experiments on a Windows or Mac PC to be later transferred to the Raspberry Pi headset (Godot Project V1.0 and later)
 	* Install the latest [Godot editor](https://godotengine.org/) on your PC
 	* Run Godot and import the Godot project
-	* For rendered views that are easier to see and work with, in each .tscn experiment file, delete the `HeadKinBody` node (under the parent `spatial` node) and drag the "HeadKinBody.tscn" resource (from the FileSystem panel) to the `spatial` node. (the screen layout in "HeadKinBody" is easy to work with, while the screen layout in "HeadKinBody_headset" is needed for the Raspberry Pi headset)
-	* for the "HeadKinBody" layout, change with window dimensions to 420x240 (WxH) (in Project>Project Settings>Display>Window)
-	* for the "HeadKinBody_headset" layout, change with window dimensions to 240x242 (WxH)
+	* For rendered views that are easier to see and work with, in each .tscn experiment file, delete the `HeadKinBody` node (under the parent `spatial` node) and drag the "HeadKinBody_monitor.tscn" resource (from the FileSystem panel) to the `spatial` node. (the screen layout in "HeadKinBody_monitor" is easy to work with on a desktop monitor, while the screen layout in "HeadKinBody_headset" is required for the Raspberry Pi headset)
+	* for the "HeadKinBody_monitor" layout, change with window dimensions to 420x240 (WxH) (in Project>Project Settings>Display>Window)
+	* for the "HeadKinBody_headset" layout, change with window dimensions to 240x420 (WxH)
 	* In the .gd files for each experiment, optimize the movement sensitivities for your desired input (e.g. computer mouse, trackpad)
-	* Try running an experiment (hit "play" button), do you see a dependecy error for the shaders? If so, resolve them by selecting the .gdshader files for both "eyes" (e.g. for the lefteye, select lefteye.gdshader file for PCs, lefteye.shader for Raspberry Pi)
 	* Follow [official documentation](https://docs.godotengine.org/en/stable/) or numerous online tutorials to edit the experiments
 	* Save any changes and rename your project
 	* To transfer the project to the headset, copy the Project folder and transfer to the Raspberry Pi
 	* On the Raspberry Pi, run Godot (`flatpak run org.godotengine.Godot`) and import/edit the new project
 	* Reduce the window size from full screen
 	* In Project>Project Settings>Display>Window, change `Width` to 240 and `Height` to 420
-	* In each experiment .tscn file, replace the `HeadKinBody` node with the "HeadKinBody_headset" file
-	* Resolve shader dependency errors by selecting ".shader" files (.gdshader is used on PCs)
+	* If you were working with "HeadKinBody_monitor" on your PC, in each experiment .tscn file, replace the `HeadKinBody` node with the "HeadKinBody_headset" file
 	* In .gd files, adjust "movement sensitivities" for your specific behavior measurement system
 	
 5. To stop the display driver on the Raspberry Pi (only needed for re-installation or updating the display driver)
