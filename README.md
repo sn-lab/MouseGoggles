@@ -65,7 +65,7 @@ After all components (including off-the-shelf parts and tools, 3D prints, and th
 2. Slide the "DisplayHolder" 3D print into the slot following the display, with the cutout making space for the ribbon cable, until it is flush with the eyepiece edges.
 3. Install the Fresnel lens into the lens slot of the eyepiece, with the ridged side facing the display and the flat side facing out.
 	* Note: very gently sliding your finger or fingernail along each flat face of the lens will tell you which side is smooth and which side is ridged.
-4. Silde the "LensHolder" 3D print into the slot following the lens, with the angled side facing to the side and matching the slope of the eyepiece, until it is flush with the eyepiece edges.
+4. Slide the "LensHolder" 3D print into the slot following the lens, with the angled side facing to the side and matching the slope of the eyepiece, until it is flush with the eyepiece edges.
 5. Add a dab of silicone adhesive to the edges of the holders and wipe it flat with a cloth or finger. Add more silicone to close all gaps if minimal light pollution is desired. 
 6. Leave the eyepiece untouched to allow the adhesive to set.
 7. Repeat steps 1-6 for the 2nd eyepiece.
@@ -78,6 +78,7 @@ After all components (including off-the-shelf parts and tools, 3D prints, and th
 13. Place a raspberry pi 4 inside the CaseBack, facing up and aligned to the mounting holes, with the USB ports pointing toward the open end.
 14. Place the assembled CaseFront on top of the CaseBack, making sure the Raspberry Pi pins are aligned with the 2x20 sockets, and push down until the case is closed and the PCB is connected.
 15. Add four 1" 4-40 screws into the screw holes of the CaseFront to hold the case and components securely in place.
+16. To further reduce light pollution from the headset, paint the outside of the eyepieces with matte black acrylic paint.
 
 The headset is assembled! Now you can simply connect the Raspberry Pi to a monitor (using the hdmi 0 port), a USB keyboard and mouse, and a 5 v power supply, and proceed to the software installation steps.
 
@@ -186,7 +187,26 @@ To build a monocular display system, follow this general outline:
 See [headset build instructions](#Headset-Build-Instructions) for details on how to order/print the parts for the monocular display.
 
 ### Monocular Headset Assembly
-Assembly instructions coming soon!
+After all components (including off-the-shelf parts and tools, 3D prints, and the custom PCB) have been obtained:
+1. Install the circular display by sliding it into the display slot of the EyepieceFront, with the glass side facing out, ensuring it is pushed all the way in and the ribbon cable is centered in the slot.
+	* Note: if during assembly anything is difficult to slide into place, check for imperfections or warping of the printed part and sand them down with the needle file until parts fit freely.
+2. Slide the "DisplayHolder" 3D print into the slot following the display, with the cutout making space for the ribbon cable, until it is flush with the eyepiece edges.
+3. Install the Fresnel lens into the lens slot of the EyepieceFront, with the ridged side facing the display and the flat side facing out.
+	* Note: very gently sliding your finger or fingernail along each flat face of the lens will tell you which side is smooth and which side is ridged.
+4. Slide the "LensHolder" 3D print into the slot following the lens, with the angled side facing to the side and matching the slope of the eyepiece, until it is flush with the eyepiece edges.
+5. Add a dab of silicone adhesive to the edges of the holders and wipe it flat with a cloth or finger. Add more silicone to close all gaps if minimal light pollution is desired. 
+6. Leave the EyepieceFront untouched to allow the adhesive to set.
+7. Solder the Teensy4.0 onto the custom PCB, so that the edges of the PCB line up with the edges of the Teensy (on the opposite side as the Teensy). The side of the PCB with the fpc connector should be facing toward the Teensy, while the side of the Teensy with the white reset button should be facing away from the PCB.
+   	* Note: when soldering the PCB to the Teensy, make sure there is enough space between them to open and close the fpc connector flap.
+8. Using tweezers and/or careful handling, gently open the connecting flap on the fpc connector and slide the EyepieceFront display's ribbon cable into the slot. Close the flap to hold the cable in place. 
+	* Note: When a cable is properly inserted, the white horizontal line of the ribbon cable will be flush or nearly flush with the edge of the closed flap.
+9. Holding the Teeny/PCB firmly in place with the Eyepiece Front, slide and shift the EyepieceBack so that the Teensy's USB port is accesible through the EyepieceBack's port, the Teensy is tighly positioned in the rectangular space, and the screw holes line up across the EyepieceBack and EyepieceFront.
+10. With the combined eyepiece set upside down (so the central mounting hole is facing up), slide two 4-40 nuts into each of the mounting hole slots on the sides and one in into the centeral mounting hole. Screw in 4-40 screws through the 2 side holes to hold the eyepiece together. Add a temporary 4-40 screw into the central mounting holw to ensure the central nut is properly positioned. 
+11. Add a dab of instant-bond adhesive to the edge of all 3 nuts, inside the slot but not near the threads of the nuts, to permanently fix the nuts in place. Remove the temporary screw in the central mounting hole.
+12. To further reduce light pollution from the display, paint the outside of the EyepieceFront with matte black acrylic paint.
+
+The monocular display is assembled! Now you can and proceed to the software installation steps below.
+
 
 ### Software Installation
 1. Installing display software on the Teensy 4.0 microcontroller
