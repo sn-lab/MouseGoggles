@@ -1,0 +1,36 @@
+
+ >>>>> started run at 22/04/2023 07:02:08Warning: cellpose did not import
+No module named 'cellpose'
+cannot use anatomical mode, but otherwise suite2p will run normally
+{'data_path': ['C:/Users/misaa/Desktop/VR2 V1 imaging/mouse3/suite2p'], 'subfolders': [], 'save_path0': 'C:/Users/misaa/Desktop/VR2 V1 imaging/mouse3/suite2p', 'fast_disk': 'C:/Users/misaa/Desktop/VR2 V1 imaging/mouse3/suite2p', 'input_format': 'tif'}
+tif
+** Found 1 tifs - converting to binary **
+2000 frames of binary, time 5.04 sec.
+4000 frames of binary, time 8.54 sec.
+6000 frames of binary, time 11.38 sec.
+time 12.73 sec. Wrote 6690 frames per binary for 1 planes
+>>>>>>>>>>>>>>>>>>>>> PLANE 0 <<<<<<<<<<<<<<<<<<<<<<
+NOTE: not running registration, ops['do_registration']=0
+binary path: C:/Users/misaa/Desktop/VR2 V1 imaging/mouse3/suite2p\suite2p\plane0\data.bin
+NOTE: applying default C:\Users\misaa\.suite2p\classifiers\classifier_user.npy
+----------- ROI DETECTION
+Binning movie in chunks of length 05
+Binned movie [1300,256,256] in 2.89 sec.
+Binned movie denoised (for cell detection only) in 6.93 sec.
+NOTE: FORCED spatial scale ~12 pixels, time epochs 1.08, threshold 10.83 
+0 ROIs, score=112.23
+Detected 173 ROIs, 6.68 sec
+After removing overlaps, 171 ROIs remain
+----------- Total 17.13 sec.
+----------- EXTRACTION
+Masks created, 0.18 sec.
+Extracted fluorescence from 171 ROIs in 6690 frames, 8.75 sec.
+----------- Total 8.99 sec.
+----------- CLASSIFICATION
+['npix_norm', 'compact', 'skew']
+----------- Total 0.03 sec.
+----------- SPIKE DECONVOLUTION
+----------- Total 0.09 sec.
+Plane 0 processed in 26.49 sec (can open in GUI).
+total = 39.26 sec.
+TOTAL RUNTIME 39.26 sec

@@ -85,7 +85,7 @@ The headset is assembled! Now you can simply connect the Raspberry Pi to a monit
 
 
 ### Software Installation
-To install all necessary software, you'll first need a PC to install the Raspberry Pi OS to the SD card that will be installed in the Raspberry Pi. Next, you'll need to start up the Raspberry Pi and install the Godot game engine and custom display driver.
+To install all necessary software, you'll first need a PC to install the Raspberry Pi OS to the SD card that will be installed in the Raspberry Pi. Next, you'll need to start up the Raspberry Pi and install the Godot game engine and custom display driver, as well as all dependencies listed in the instructions below. Software installation on the Raspberry Pi typically takes <5 minutes.
 
 1. Installing the Raspberry Pi Operating System
 	* Insert the micro SD card into your PC
@@ -119,7 +119,12 @@ To install all necessary software, you'll first need a PC to install the Raspber
 	sudo ./fbcp-ili9341
 	```
 	* note 1: when you are asked if you want to continue installing, answer yes
- 	* note 2: a new driver chip has been spotted in some circular displays! If after finishing installation and [operating the system](https://github.com/sn-lab/mouseVRheadset#operating-the-system) step 1 you notice the display colors are inverted, shut down the display driver (step 5 of operating the system) and reinstall it, replacing the single line `cd mouseVRheadset/fbcp-ili9341` with `cd mouseVRheadset/fbcp-st7789`
+ 	* note 2: a new driver chip has been spotted in some newer circular displays! If after finishing installation and [operating the system](https://github.com/sn-lab/mouseVRheadset#operating-the-system) step 1 you notice the display colors are inverted, shut down the display driver (step 5 of operating the system) and reinstall it, replacing the single line `cd mouseVRheadset/fbcp-ili9341` with `cd mouseVRheadset/fbcp-st7789`
+
+This installation has been verified using the following software versions: 
+	* flatpak: 1.14.1-4
+	* cmake: cmake-3.27.4
+	* godot: 3.2.3.stable.flathub
 	
 ### Operating the system
 1. To start the display driver, if it is not already running (i.e. if the displays are not updating)
@@ -134,14 +139,14 @@ To install all necessary software, you'll first need a PC to install the Raspber
 	```
 	flatpak run org.godotengine.Godot
 	```
-	* Import the Godot game project located in mouseVRheadset/Godot/MouseVR Godot Project V0.X/project.godot (recommended to select the newest available version)
+	* Import the Godot game project located in mouseVRheadset/Godot/MouseVR Godot Project V1.X/project.godot (recommended to select the newest available version)
 	* When the game editor opens, reduce the window to a partial screen (running it in full screen may cause hang-ups)
 	* In Project>Project Settings>Display>Window, change `Width` to 240 and `Height` to 420
 	* In Project>Project Settings>Debug>Settings, change `Force FPS` to 60 (higher fps may be possible)
 	* Click the small "play" button on the upper-right side of the menu bar
 	* Select an experiment (aka "scene")
 	* A game window will appear with views rendered for each of the two eyepiece displays -- these are rotated to match the rotations of each display and are positioned in the center of the screen -- do not move this window
-	* Upon the completion of each repetition of an experiment, logs of the mouse movement and experiment details will be saved in "MouseVR Godot Project V0.X/logs/" in csv format (one line per frame)
+	* Upon the completion of each repetition of an experiment (typically 30 - 60 s duration), logs of the mouse movement and important experiment parameters will be saved in "MouseVR Godot Project V0.X/logs/" in csv format (one row per frame, one column per data type)
 	* Click the `esc` button to exit an experiment early (logs of completed experiment repetitions will have been saved, but the in-progress/unfinished repetition will not be saved)
 	
 3. To customize Godot experiments on the Raspberry Pi
@@ -225,6 +230,18 @@ Assembly instructions coming soon!
 	* At the top of the monoDisplay_example code, change `ser = serial.Serial('/dev/cu.usbmodem14201',9600)`
 	* Further down, change `cs = CS('directional_test_stimulus1','/Users/', 3, 0...` to your desired save directory
 	* Run the script and watch the display to verify code and communication is working properly
+
+# Published Data
+Multiple datasets have been collected for validating and testing different aspects of the MouseGoggles system for neuroscience applications, including 2-photon imaging for visual stimulation, hippocampal electrophysiology for place cell activity during virtual navigation, and video recordings of mouse behaviors during looming stimulus presentation. Data, metadata, and code to process and analyze these datasets are included in the [Published Data](https://github.com/sn-lab/mouseVRheadset/tree/main/Published%Data) folder. Large raw data files unsuitable for github are hosted on [Figshare](https://figshare.com/articles/dataset/Raw_image_files/24039021). 
+To reproduce the published results from each of these datasets, follow the instructions in the [Description of Contents](https://github.com/sn-lab/mouseVRheadset/tree/main/Published%Data/Description%of%Contents.md) file, noting the software dependencies listed here:
+	* Matlab 2022b
+	* Python 2.8.8
+	* suite2p (suite2p.org)
+	* https://github.com/misaacson01/NoRMCorre
+	* https://github.com/lolaBerkowitz/SNLab_ephys
+	* https://github.com/nelpy/nelpy
+	* https://github.com/ryanharvey1/neuro_py
+	* https://github.com/ryanharvey1/ripple_heterogeneity
 
 # Future Development
 * An easier to assemble headset, with adjustable inter-eye distance is in the final stages of testing!
