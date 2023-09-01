@@ -250,18 +250,18 @@ The monocular display is assembled! Now you can and proceed to the software inst
 	* Run the script and watch the display to verify code and communication is working properly
 
 # Published Data
-Multiple datasets have been collected for validating and testing different aspects of the MouseGoggles system for neuroscience applications, including 2-photon imaging for visual stimulation, hippocampal electrophysiology for place cell activity during virtual navigation, and video recordings of mouse behaviors during looming stimulus presentation. Data, metadata, and code to process and analyze these datasets are included in the [Published Data](https://github.com/sn-lab/mouseVRheadset/tree/main/Published%Data) folder. Large raw data files unsuitable for github are hosted on [Figshare](https://figshare.com/articles/dataset/Raw_image_files/24039021). 
-To reproduce the published results from each of these datasets, follow the instructions in the [Description of Contents](https://github.com/sn-lab/mouseVRheadset/tree/main/Published%Data/Description%of%Contents.md) file, noting the software dependencies listed here:
-	```
-	* Matlab 2022b
-	* Python 2.8.8
-	* suite2p (suite2p.org)
-	* https://github.com/misaacson01/NoRMCorre
-	* https://github.com/lolaBerkowitz/SNLab_ephys
-	* https://github.com/nelpy/nelpy
-	* https://github.com/ryanharvey1/neuro_py
-	* https://github.com/ryanharvey1/ripple_heterogeneity
-	```
+Multiple datasets have been collected for validating and testing different aspects of the MouseGoggles system for neuroscience applications, including 2-photon imaging for visual stimulation, hippocampal electrophysiology for place cell activity during virtual navigation, and video recordings of mouse behaviors during looming stimulus presentation. Data, metadata, and code to process and analyze these datasets are included in the [Published Data](https://github.com/sn-lab/MouseGoggles/tree/main/Published%20Data) folder. Large raw data files unsuitable for github are hosted on [Figshare](https://figshare.com/articles/dataset/Raw_image_files/24039021). 
+To reproduce the published results from each of these datasets, follow the instructions in the [Description of Contents](https://github.com/sn-lab/MouseGoggles/blob/main/Published%20Data/Description%20of%20Contents.md) file, noting the software dependencies listed here:
+```
+* Matlab 2022b
+* Python 2.8.8
+* suite2p (suite2p.org)
+* https://github.com/misaacson01/NoRMCorre
+* https://github.com/lolaBerkowitz/SNLab_ephys
+* https://github.com/nelpy/nelpy
+* https://github.com/ryanharvey1/neuro_py
+* https://github.com/ryanharvey1/ripple_heterogeneity
+```
 
 # Future Development
 * An easier to assemble headset, with adjustable inter-eye distance is in the final stages of testing!
