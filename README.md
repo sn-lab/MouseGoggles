@@ -47,16 +47,16 @@ To build a mouse VR headset, follow this general outline:
 5. Install software on the Raspberry Pi
 
 ### Parts
-For a complete parts list for both the VR headset and monocular display, see [PartsList.xls](https://github.com/sn-lab/MouseGoggles/blob/main/Hardware/Parts%20Lists.xlsx).
+For a complete list of parts for the monocular display, binocular headset, as well as a small form factor headset, see the [Parts List](https://github.com/sn-lab/MouseGoggles/blob/main/Hardware/Parts%20Lists.xlsx).
 
 ### custom PCB
 To order a custom PCB, use a PCB printing service such as [JLCPCB](https://cart.jlcpcb.com/quote?orderType=1&stencilLayer=2&stencilWidth=100&stencilLength=100&stencilCounts=5) or [seeedstudio](https://www.seeedstudio.com/fusion_pcb.html).
-Upload the zipped Gerber files for the PCB you want to print ([TeensyGC9307](https://github.com/sn-lab/MouseGoggles/tree/main/Hardware/PCBs) for the Monocular display or [RaspbyGC9307](https://github.com/sn-lab/MouseGoggles/tree/main/Hardware/PCBs) for the binocular headset). Choose your desired quantity to order and hit order. 
+Upload the zipped Gerber files for the PCB(s) you want, as listed in the [Parts List](https://github.com/sn-lab/MouseGoggles/blob/main/Hardware/Parts%20Lists.xlsx). Choose your desired quantity to order and hit order. 
 
-To assemble components onto the PCB (headers and display connectors), see the options in this [discussion](https://github.com/sn-lab/MouseGoggles/discussions/7) for either using a professional assembly service or for manual microsoldering.
+To assemble components onto the PCB (headers and connectors), see the options in this [discussion](https://github.com/sn-lab/MouseGoggles/discussions/7) for either using a professional assembly service or for manual microsoldering.
 
 ### 3D-printed Case
-To 3D print the eyepiece or headset case, download the [.stl files](https://github.com/sn-lab/MouseGoggles/tree/main/Hardware/3D%20Prints) and print them using a high-resolution 3D printer (we used the [Photon Mono X](https://www.anycubic.com/collections/anycubic-photon-3d-printers/products/photon-mono-x-resin-printer)) or order it through an 3D printing service such as [CraftCloud](https://craftcloud3d.com/upload).
+To 3D print the monocular display or headset enclosure, download the [.stl files](https://github.com/sn-lab/MouseGoggles/tree/main/Hardware/3D%20Prints) listed in the [Parts List](https://github.com/sn-lab/MouseGoggles/blob/main/Hardware/Parts%20Lists.xlsx) and print them using a high-resolution 3D printer (we used the [Photon Mono X](https://www.anycubic.com/collections/anycubic-photon-3d-printers/products/photon-mono-x-resin-printer)) or order it through an 3D printing service such as [CraftCloud](https://craftcloud3d.com/upload).
 
 ### Headset Assembly
 After all components (including off-the-shelf parts and tools, 3D prints, and the custom PCB) have been obtained:
