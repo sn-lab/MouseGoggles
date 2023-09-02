@@ -47,16 +47,16 @@ To build a mouse VR headset, follow this general outline:
 5. Install software on the Raspberry Pi
 
 ### Parts
-For a complete parts list for both the VR headset and monocular display, see [PartsList.xls](https://github.com/sn-lab/MouseGoggles/blob/main/Hardware/Parts%20Lists.xlsx).
+For a complete list of parts for the monocular display, binocular headset, as well as a small form factor headset, see the [Parts List](https://github.com/sn-lab/MouseGoggles/blob/main/Hardware/Parts%20Lists.xlsx).
 
 ### custom PCB
 To order a custom PCB, use a PCB printing service such as [JLCPCB](https://cart.jlcpcb.com/quote?orderType=1&stencilLayer=2&stencilWidth=100&stencilLength=100&stencilCounts=5) or [seeedstudio](https://www.seeedstudio.com/fusion_pcb.html).
-Upload the zipped Gerber files for the PCB you want to print ([TeensyGC9307](https://github.com/sn-lab/MouseGoggles/tree/main/Hardware/PCBs) for the Monocular display or [RaspbyGC9307](https://github.com/sn-lab/MouseGoggles/tree/main/Hardware/PCBs) for the binocular headset). Choose your desired quantity to order and hit order. 
+Upload the zipped Gerber files for the PCB(s) you want, as listed in the [Parts List](https://github.com/sn-lab/MouseGoggles/blob/main/Hardware/Parts%20Lists.xlsx). Choose your desired quantity to order and hit order. 
 
-To assemble components onto the PCB (headers and display connectors), see the options in this [discussion](https://github.com/sn-lab/MouseGoggles/discussions/7) for either using a professional assembly service or for manual microsoldering.
+To assemble components onto the PCB (headers and connectors), see the options in this [discussion](https://github.com/sn-lab/MouseGoggles/discussions/7) for either using a professional assembly service or for manual microsoldering.
 
 ### 3D-printed Case
-To 3D print the eyepiece or headset case, download the [.stl files](https://github.com/sn-lab/MouseGoggles/tree/main/Hardware/3D%20Prints) and print them using a high-resolution 3D printer (we used the [Photon Mono X](https://www.anycubic.com/collections/anycubic-photon-3d-printers/products/photon-mono-x-resin-printer)) or order it through an 3D printing service such as [CraftCloud](https://craftcloud3d.com/upload).
+To 3D print the monocular display or headset enclosure, download the [.stl files](https://github.com/sn-lab/MouseGoggles/tree/main/Hardware/3D%20Prints) listed in the [Parts List](https://github.com/sn-lab/MouseGoggles/blob/main/Hardware/Parts%20Lists.xlsx) and print them using a high-resolution 3D printer (we used the [Photon Mono X](https://www.anycubic.com/collections/anycubic-photon-3d-printers/products/photon-mono-x-resin-printer)) or order it through an 3D printing service such as [CraftCloud](https://craftcloud3d.com/upload).
 
 ### Headset Assembly
 After all components (including off-the-shelf parts and tools, 3D prints, and the custom PCB) have been obtained:
@@ -250,18 +250,18 @@ The monocular display is assembled! Now you can and proceed to the software inst
 	* Run the script and watch the display to verify code and communication is working properly
 
 # Published Data
-Multiple datasets have been collected for validating and testing different aspects of the MouseGoggles system for neuroscience applications, including 2-photon imaging for visual stimulation, hippocampal electrophysiology for place cell activity during virtual navigation, and video recordings of mouse behaviors during looming stimulus presentation. Data, metadata, and code to process and analyze these datasets are included in the [Published Data](https://github.com/sn-lab/mouseVRheadset/tree/main/Published%Data) folder. Large raw data files unsuitable for github are hosted on [Figshare](https://figshare.com/articles/dataset/Raw_image_files/24039021). 
-To reproduce the published results from each of these datasets, follow the instructions in the [Description of Contents](https://github.com/sn-lab/mouseVRheadset/tree/main/Published%Data/Description%of%Contents.md) file, noting the software dependencies listed here:
-	```
-	* Matlab 2022b
-	* Python 2.8.8
-	* suite2p (suite2p.org)
-	* https://github.com/misaacson01/NoRMCorre
-	* https://github.com/lolaBerkowitz/SNLab_ephys
-	* https://github.com/nelpy/nelpy
-	* https://github.com/ryanharvey1/neuro_py
-	* https://github.com/ryanharvey1/ripple_heterogeneity
-	```
+Multiple datasets have been collected for validating and testing different aspects of the MouseGoggles system for neuroscience applications, including 2-photon imaging for visual stimulation, hippocampal electrophysiology for place cell activity during virtual navigation, and video recordings of mouse behaviors during looming stimulus presentation. Data, metadata, and code to process and analyze these datasets are included in the [Published Data](https://github.com/sn-lab/MouseGoggles/tree/main/Published%20Data) folder. Large raw data files unsuitable for github are hosted on [Figshare](https://figshare.com/articles/dataset/Raw_image_files/24039021). 
+To reproduce the published results from each of these datasets, follow the instructions in the [Description of Contents](https://github.com/sn-lab/MouseGoggles/blob/main/Published%20Data/Description%20of%20Contents.md) file, noting the software dependencies listed here:
+```
+* Matlab 2022b
+* Python 2.8.8
+* suite2p (suite2p.org)
+* https://github.com/misaacson01/NoRMCorre
+* https://github.com/lolaBerkowitz/SNLab_ephys
+* https://github.com/nelpy/nelpy
+* https://github.com/ryanharvey1/neuro_py
+* https://github.com/ryanharvey1/ripple_heterogeneity
+```
 
 # Future Development
 * An easier to assemble headset, with adjustable inter-eye distance is in the final stages of testing!
