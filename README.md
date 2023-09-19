@@ -1,5 +1,5 @@
 # About MouseGoggles
-A dual-SPI-display mouse-sized VR headset, powered by Raspberry Pi and the Godot game engine.
+A dual-SPI-display mouse-sized VR headset, powered by Raspberry Pi and the Godot game engine. Check out our preprint on Research Square! https://doi.org/10.21203/rs.3.rs-3301474/v1
 
 ![(left) A Raspberry Pi 4 uniquely controlling 2 circular displays. (right) Render of a head-fixed mouse on a treadmill with a VR headset](https://github.com/sn-lab/MouseGoggles/blob/main/Images/mouseVRheadsetIntro.png)
 
@@ -250,7 +250,7 @@ The monocular display is assembled! Now you can and proceed to the software inst
 	* Run the script and watch the display to verify code and communication is working properly
 
 # Published Data
-Multiple datasets have been collected for validating and testing different aspects of the MouseGoggles system for neuroscience applications, including 2-photon imaging for visual stimulation, hippocampal electrophysiology for place cell activity during virtual navigation, and video recordings of mouse behaviors during looming stimulus presentation. Data, metadata, and code to process and analyze these datasets are included in the [Published Data](https://github.com/sn-lab/MouseGoggles/tree/main/Published%20Data) folder. Large raw data files unsuitable for github are hosted on [Figshare](https://figshare.com/articles/dataset/Raw_image_files/24039021). 
+Multiple datasets have been collected for validating and testing different aspects of the MouseGoggles system for neuroscience applications, including 2-photon imaging for visual stimulation, hippocampal electrophysiology for place cell activity during virtual navigation, and video recordings of mouse behaviors during looming stimulus presentation. Check out our [preprint on Research Square](https://doi.org/10.21203/rs.3.rs-3301474/v1) for explanation and visualization of these datasets. Data, metadata, and code to process and analyze these datasets are included in the [Published Data](https://github.com/sn-lab/MouseGoggles/tree/main/Published%20Data) folder of this repository; large raw data files unsuitable for github are hosted on [Figshare](https://figshare.com/articles/dataset/Raw_image_files/24039021). 
 To reproduce the published results from each of these datasets, follow the instructions in the [Description of Contents](https://github.com/sn-lab/MouseGoggles/blob/main/Published%20Data/Description%20of%20Contents.md) file, noting the software dependencies listed here:
 ```
 * Matlab 2022b
