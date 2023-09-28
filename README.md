@@ -49,6 +49,15 @@ To build a mouse VR headset, follow this general outline:
 ### Parts
 For a complete list of parts for the monocular display, binocular headset, as well as a small form factor headset, see the [Parts List](https://github.com/sn-lab/MouseGoggles/blob/main/Hardware/Parts%20Lists.xlsx).
 
+The circular display model listed in the parts list (TT108RGN10A) is just one of a family of similar displays, many of which may be compatible with MouseGoggles. Since specific display models are occasionally discontinued, listed below are the circular display model numbers we are aware of and our most up-to-date estimates of their compatibility:
+* TT108RGN10A - tested, working
+* TT108RRN11A  - tested, working
+* TT109RAN11A - untested, NOT compatible
+* TT109RAN12A - untested, likely NOT compatible
+* TT108RRN13A - untested, likely compatible
+* TST108102 - untested, likely compatible
+* TST108103 - untested, likely compatible
+
 ### custom PCB
 To order a custom PCB, use a PCB printing service such as [JLCPCB](https://cart.jlcpcb.com/quote?orderType=1&stencilLayer=2&stencilWidth=100&stencilLength=100&stencilCounts=5) or [seeedstudio](https://www.seeedstudio.com/fusion_pcb.html).
 Upload the zipped Gerber files for the PCB(s) you want, as listed in the [Parts List](https://github.com/sn-lab/MouseGoggles/blob/main/Hardware/Parts%20Lists.xlsx). Choose your desired quantity to order and hit order. 
