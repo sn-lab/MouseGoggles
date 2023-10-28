@@ -68,6 +68,8 @@ To assemble components onto the PCB (headers and connectors), see the options in
 To 3D print the monocular display or headset enclosure, download the [.stl files](https://github.com/sn-lab/MouseGoggles/tree/main/Hardware/3D%20Prints) listed in the [Parts List](https://github.com/sn-lab/MouseGoggles/blob/main/Hardware/Parts%20Lists.xlsx) and print them using a high-resolution 3D printer (we used the [Photon Mono X](https://www.anycubic.com/collections/anycubic-photon-3d-printers/products/photon-mono-x-resin-printer)) or order it through an 3D printing service such as [CraftCloud](https://craftcloud3d.com/upload).
 
 ### Headset Assembly
+![(left) Hardware for assembling a MouseGoggles system. (middle) Assembly photo, step 1. (right) Assembly photo, step 5](https://github.com/sn-lab/MouseGoggles/blob/main/Images/MouseGoggles%20assembly%20combined%201.png)
+![(left)  Assembly photo, step 9. (middle) Assembly photo, step 13. (right) Assembly photo, step 15](https://github.com/sn-lab/MouseGoggles/blob/main/Images/MouseGoggles%20Assembly%20combined%202.png)
 After all components (including off-the-shelf parts and tools, 3D prints, and the custom PCB) have been obtained:
 1. Install the circular display by sliding it into the display slot of the eyepiece, with the glass side facing out, ensuring it is pushed all the way in and the ribbon cable is centered in the slot.
 	* Note: if during assembly anything is difficult to slide into place, check for imperfections or warping of the printed part and sand them down with the needle file until parts fit freely.
