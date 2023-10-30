@@ -54,7 +54,7 @@ The circular display model listed in the parts list (TT108RGN10A) is just one of
 * TT108RRN11A  - tested, working
 * TT109RAN11A - untested, NOT compatible
 * TT109RAN12A - untested, likely NOT compatible
-* TT108RRN13A - untested, likely compatible
+* TT108RRN13A - tested, working
 * TST108102 - untested, likely compatible
 * TST108103 - untested, likely compatible
 
@@ -99,10 +99,10 @@ The headset is assembled! Now you can simply connect the Raspberry Pi to a monit
 ### Software Installation
 To install all necessary software, you'll first need a PC to install the Raspberry Pi OS to the SD card that will be installed in the Raspberry Pi. Next, you'll need to start up the Raspberry Pi and install the Godot game engine and custom display driver, as well as all dependencies listed in the instructions below. Software installation on the Raspberry Pi typically takes <5 minutes.
 
-1. Installing the Raspberry Pi Operating System
+1. Installing the Legacy Raspberry Pi Operating System
 	* Insert the micro SD card into your PC
 	* Download and install the [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
-	* Choose OS: "Raspberry Pi OS (32-bit)"
+	* Choose OS: "Raspberry Pi OS (Legacy)"
 	* Choose Storage: -select your SD card-
 	* Write
 	* Insert the SD card into your Raspberry Pi and power it on
@@ -131,7 +131,7 @@ To install all necessary software, you'll first need a PC to install the Raspber
 	sudo ./fbcp-ili9341
 	```
 	* note 1: when you are asked if you want to continue installing, answer yes
- 	* note 2: a new driver chip has been spotted in some newer circular displays! If after finishing installation and [operating the system](https://github.com/sn-lab/mouseVRheadset#operating-the-system) step 1 you notice the display colors are inverted, shut down the display driver (step 5 of operating the system) and reinstall it, replacing the single line `cd mouseVRheadset/fbcp-ili9341` with `cd mouseVRheadset/fbcp-st7789`
+ 	* note 2: a new driver chip has been spotted in some newer circular displays! If after finishing installation and [operating the system](https://github.com/sn-lab/mouseVRheadset#operating-the-system) step 1 you notice the display colors are inverted or not fully working, shut down the display driver (step 5 of operating the system) and reinstall it, replacing the single line `cd mouseVRheadset/fbcp-ili9341` with `cd mouseVRheadset/fbcp-st7789`
 
 This installation has been verified using the following software versions: 
 	* flatpak: 1.14.1-4
