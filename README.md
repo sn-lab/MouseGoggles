@@ -134,9 +134,9 @@ To install all necessary software, you'll first need a PC to install the Raspber
  	* note 2: a new driver chip has been spotted in some newer circular displays! If after finishing installation and [operating the system](https://github.com/sn-lab/mouseVRheadset#operating-the-system) step 1 you notice the display colors are inverted or not fully working, shut down the display driver (step 5 of operating the system) and reinstall it, replacing the single line `cd mouseVRheadset/fbcp-ili9341` with `cd mouseVRheadset/fbcp-st7789`
 
 This installation has been verified using the following software versions: 
-	* flatpak: 1.14.1-4
-	* cmake: cmake-3.27.4
-	* godot: 3.2.3.stable.flathub
+* flatpak: 1.14.1-4
+* cmake: cmake-3.27.4
+* godot: 3.2.3.stable.flathub
 	
 ### Operating the system
 1. To start the display driver, if it is not already running (i.e. if the displays are not updating)
