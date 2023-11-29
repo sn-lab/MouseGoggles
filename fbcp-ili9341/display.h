@@ -27,6 +27,8 @@
 #include "gc9307.h"
 #elif defined(ST7789V2)
 #include "st7789v2.h"
+#elif defined(GC9A01)
+#include "gc9a01.h"
 #else
 #error Please reconfigure CMake with your display controller directive set!
 #endif
