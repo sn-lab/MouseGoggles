@@ -50,13 +50,14 @@ To build a mouse VR headset, follow this general outline:
 For a complete list of parts for the monocular display, binocular headset, as well as a small form factor headset, see the [Parts List](https://github.com/sn-lab/MouseGoggles/blob/main/Hardware/Parts%20Lists.xlsx).
 
 The circular display model listed in the parts list (TT108RGN10A) is just one of a family of similar displays, many of which may be compatible with MouseGoggles. Since specific display models are occasionally discontinued, listed below are the circular display model numbers we are aware of and our most up-to-date estimates of their compatibility:
-* TT108RGN10A - tested, working
+* [TT108RGN10A](https://www.alibaba.com/product-detail/Small-IPS-Round-LCD-Module-1_62550674738.html) - tested, working
 * TT108RRN11A  - tested, working
 * TT109RAN11A - untested, NOT compatible
 * TT109RAN12A - untested, likely NOT compatible
 * TT108RRN13A - tested, working
 * TST108102 - untested, likely compatible
 * TST108103 - untested, likely compatible
+* [Waveshare 240x240](https://www.waveshare.com/product/1.28inch-lcd-module.htm) - tested, working (requires different 3D prints and PCB, coming soon!)
 
 ### custom PCB
 To order a custom PCB, use a PCB printing service such as [JLCPCB](https://cart.jlcpcb.com/quote?orderType=1&stencilLayer=2&stencilWidth=100&stencilLength=100&stencilCounts=5) or [seeedstudio](https://www.seeedstudio.com/fusion_pcb.html).
@@ -130,8 +131,8 @@ To install all necessary software, you'll first need a PC to install the Raspber
 	make -j
 	sudo ./fbcp-ili9341
 	```
-	* note 1: when you are asked if you want to continue installing, answer yes
- 	* note 2: a new driver chip has been spotted in some newer circular displays! If after finishing installation and [operating the system](https://github.com/sn-lab/mouseVRheadset#operating-the-system) step 1 you notice the display colors are inverted or not fully working, shut down the display driver (step 5 of operating the system) and reinstall it, replacing the single line `cd mouseVRheadset/fbcp-ili9341` with `cd mouseVRheadset/fbcp-st7789`
+	* note 1: Depending on which circular display you're using, the `cmake ..` line may have to be customized. If you're using a circular display with the GC9307 driver (e.g. TT108RGN10A), then the default `cmake ..` line is appropriate. If the display uses the 		ST7789V2 driver (e.g., TT108RRN13A), the line should be changed to `cmake -DST7789V2 ..`. And if you're using a display with the GC9A01 driver (e.g., waveshare 240x240), use `cmake -DGC9A01 ..`.
+ 	* note 2: when you are asked if you want to continue installing, answer yes.
 
 This installation has been verified using the following software versions: 
 * flatpak: 1.14.1-4
