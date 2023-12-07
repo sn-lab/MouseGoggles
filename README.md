@@ -131,7 +131,7 @@ To install all necessary software, you'll first need a PC to install the Raspber
 	make -j
 	sudo ./fbcp-ili9341
 	```
-	* note 1: Depending on which circular display you're using, the `cmake ..` line may have to be customized. If you're using a circular display with the GC9307 driver (e.g. TT108RGN10A), then the default `cmake ..` line is appropriate. If the display uses the 		ST7789V2 driver (e.g., TT108RRN13A), the line should be changed to `cmake -DST7789V2 ..`. And if you're using a display with the GC9A01 driver (e.g., waveshare 240x240), use `cmake -DGC9A01 ..`.
+	* note 1: Depending on which circular display you're using, the `cmake ..` line may have to be customized. If you're using a circular display with the GC9307 driver (e.g. TT108RGN10A), then the default `cmake ..` line is appropriate. If the display uses the 		ST7789V2 driver (e.g., TT108RRN13A), the line should be changed to `cmake -DST7789V2=ON ..`. And if you're using a display with the GC9A01 driver (e.g., waveshare 240x240), use `cmake -DGC9A01=ON ..`.
  	* note 2: when you are asked if you want to continue installing, answer yes.
 
 This installation has been verified using the following software versions: 
