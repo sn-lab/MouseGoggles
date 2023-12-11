@@ -4,6 +4,7 @@ shader_type canvas_item;
 uniform float fov = 151; //FOV (in degrees) that the circular display covers 
 uniform float fovmax = 151; //FOV (in degrees) that the circular display covers 
 uniform float aspect_ratio = 1; //ratio of x pixels to y pixels
+uniform float red_scale = 1.0; //scale factor to reduce red pixel values
 
 void fragment(){
 	float fovhalfy = (fov/2.0)*3.14159/180.0; //half of the FOV (in radians); y (the taller side) covers the FOV completely
@@ -43,4 +44,7 @@ void fragment(){
 	if (r>=fovhalfmax){
 		COLOR.a = 0.0;
 	}
+	
+	//scale red color
+	COLOR.r = COLOR.r*red_scale;
 }
