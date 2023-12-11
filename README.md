@@ -98,7 +98,7 @@ The headset is assembled! Now you can simply connect the Raspberry Pi to a monit
 
 
 ### Software Installation
-To install all necessary software, you'll first need a PC to install the Raspberry Pi OS to the SD card that will be installed in the Raspberry Pi. Next, you'll need to start up the Raspberry Pi and install the Godot game engine and custom display driver, as well as all dependencies listed in the instructions below. Software installation on the Raspberry Pi typically takes <5 minutes.
+To install all necessary software, you'll first need a PC to install the Raspberry Pi OS to the SD card that will be installed in the Raspberry Pi. Next, you'll need to start up the Raspberry Pi and install the Godot game engine and custom display driver, as well as all dependencies listed in the instructions below. Software installation on the Raspberry Pi typically takes <10 minutes.
 
 1. Installing the Legacy Raspberry Pi Operating System
 	* Insert the micro SD card into your PC
