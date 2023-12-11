@@ -116,7 +116,7 @@ To install all necessary software, you'll first need a PC to install the Raspber
 	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 	flatpak install flathub org.godotengine.Godot
 	```
-	* note: when you are asked if you want to continue installing, answer yes
+	* note: When you are asked if you want to continue installing, answer yes
 
 3. Install the display driver
 	* Open up the Raspberry Pi command terminal and enter each line, one at a time:
@@ -132,7 +132,8 @@ To install all necessary software, you'll first need a PC to install the Raspber
 	sudo ./fbcp-ili9341
 	```
 	* note 1: Depending on which circular display you're using, the `cmake ..` line may have to be customized. If you're using a circular display with the GC9307 driver (e.g. TT108RGN10A), then the default `cmake ..` line is appropriate. If the display uses the 		ST7789V2 driver (e.g., TT108RRN13A), the line should be changed to `cmake -DST7789V2=ON ..`. And if you're using a display with the GC9A01 driver (e.g., waveshare 240x240), use `cmake -DGC9A01=ON ..`.
- 	* note 2: when you are asked if you want to continue installing, answer yes.
+ 	* note 2: When you are asked if you want to continue installing, answer yes.
+	* note 3: See the error "vc_dispmanx_display_open failed!" on the last step? See [this issue](https://github.com/sn-lab/MouseGoggles/issues/23) for a quick fix.
 
 This installation has been verified using the following software versions: 
 * flatpak: 1.14.1-4
