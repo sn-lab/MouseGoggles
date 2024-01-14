@@ -27,10 +27,10 @@ Notes on print quality: UV-cured resin-based SLA printers (e.g. [Photon Mono X](
 
 | Part Name                                | Description                                                    | Link  | Quantity |
 | ---------------------------------------- | -------------------------------------------------------------- | ----- | -------- |
-| MouseGoggles 1.5 EyepieceEnclosureV2     | Enclosure for VR headset eyepiece                              | [stl] | 2        |
-| MouseGoggles 1.5 EyepieceEnclosureBackV2 | Enclosure Back                                                 | [stl] | 2        |
-| MouseGoggles 1.5 EyepieceBackV2          | 50 deg angled mount to connect two eyepieces into a VR headset | [stl] | 2        |
-| MouseGoggles 1.5 SpacerV2                | Display-lens spacer for eyepiece                               | [stl] | 2        |
+| MouseGoggles 1.5 EyepieceEnclosureV2     | Enclosure for VR headset eyepiece                              | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/1.5/3D%20Prints/MouseGoggles%201.5%20EyepieceEnclosureV2.stl)                   | 2        |
+| MouseGoggles 1.5 EyepieceEnclosureBackV2 | Enclosure Back                                                 | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/1.5/3D%20Prints/MouseGoggles%201.5%20EyepieceEnclosureBackV2.stl)               | 2        |
+| MouseGoggles 1.5 EyepieceBackV2          | 50 deg angled mount to connect two eyepieces into a VR headset | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/1.5/3D%20Prints/MouseGoggles%201.5%20EyepieceBackV2.stl)                        | 2        |
+| MouseGoggles 1.5 SpacerV2                | Display-lens spacer for eyepiece                               | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/1.5/3D%20Prints/MouseGoggles%201.5%20EyepieceSpacerV2.stl)                      | 2        |
 
 ##### Custom PCBs
 
@@ -38,7 +38,7 @@ The table below lists all custom PCBs (printed circuit boards) used by MouseGogg
 
 | Part Name                           | Description                                      | Link  | Quantity |
 | ----------------------------------- | ------------------------------------------------ | ----- | -------- |
-| MouseGoggles Hat-1-5_2023-12-21.zip | zipped Gerber files of Rasberry Pi PCB connector | [zip] | 1        |
+| MouseGoggles Hat-1-5_2023-12-21.zip | zipped Gerber files of Rasberry Pi PCB connector | [zip](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/1.5/PCBs/MouseGoggles%20Hat-1-5/MouseGoggles%20Hat-1-5_2023-12-21.zip)                 | 1        |
 
 # 
 
