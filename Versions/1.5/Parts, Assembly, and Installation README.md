@@ -14,8 +14,6 @@ The table below lists all off-the-shelf parts required to build MouseGoggles 1.5
 | Micro-HDMI to HDMI cable for Pi 4, 3ft, Black     | HDMI adapter to connect Pi 4 to desktop monitor    | [PiShop.US](https://www.pishop.us/product/micro-hdmi-to-hdmi-cable-for-pi-4-3ft-black/)                                                                         | $5             | 1        |
 | Waveshare 1.28 inch 240x240 display               | Circular display (with 8-pin cable) for VR headset | [Waveshare](https://www.waveshare.com/product/1.28inch-lcd-module.htm)                                                                                          | $15            | 2        |
 | FRP0510 - Ø1/2" Fresnel Lens, f = 10 mm           | Fresnel lens for VR headset                        | [Thorlabs](https://www.thorlabs.com/thorproduct.cfm?partnumber=FRP0510)                                                                                         | $21            | 2        |
-| 4-40 thread, 1/4" length socket head screws       | Hex screws to assemble 3D printed parts            | [McMaster](https://www.mcmaster.com/91251A106/)                                                                                                                 | $12            | 1        |
-| 4-40 thread, 3/16" wide narrow hex nuts           | Hex nuts to assemble 3D printed parts              | [McMaster](https://www.mcmaster.com/90760A160/)                                                                                                                 | $5             | 1        |
 | GPIO Header for Raspberry Pi - 2x20 Female Header | Pin header to connect custom PCB to Pi 4           | [Adafruit](https://www.adafruit.com/product/2222)                                                                                                               | $1.5           | 1        |
 | Break-away 0.1" male header strip                 | Pin header to connect displays to custom PCB       | [Adafruit](https://www.adafruit.com/product/392)                                                                                                                | $5             | 1        |
 
@@ -25,12 +23,21 @@ The table below lists all custom 3D-printable parts required for MouseGoggles 1.
 
 Notes on print quality: UV-cured resin-based SLA printers (e.g. [Photon Mono X](https://www.anycubic.com/products/photon-mono-x-resin-printer)) can produce adequate and cost-effective parts for MouseGoggles, though resin-based prints can become brittle over time and are often semi-transparent. To reduce stray light from semi-transparent headset prints, parts can be painted with an opaque paint (e.g. [Black 3.0](https://www.culturehustleusa.com/products/black-3-0-the-worlds-blackest-black-acrylic-paint-150ml)). Thermoplastic polymers such as PLA, PETG, or ABS can produce tougher, longer-laster, and more opaque parts, though should only be used for MouseGoggles from high-resolution 3D printers (e.g. [Ultimaker S3]([UltiMaker S3: Easy-to-use 3D printing starts here](https://ultimaker.com/3d-printers/s-series/ultimaker-s3/))). If you are printing the parts yourself, a [needle file]([McMaster-Carr](https://www.mcmaster.com/4261A37/)) can be helpful in cleaning up any imperfections in the part.
 
+<<<<<<< HEAD
 | Part Name                                | Description                                                    | Link  | Quantity | Approx. Dimensions (mm) |
 | ---------------------------------------- | -------------------------------------------------------------- | ----- | -------- | ----------------------- |
 | MouseGoggles 1.5 EyepieceEnclosureV2     | Enclosure for VR headset eyepiece                              | [stl] | 2        | 44x41x21                |
 | MouseGoggles 1.5 EyepieceEnclosureBackV2 | Enclosure Back                                                 | [stl] | 2        | 41x41x8                 |
 | MouseGoggles 1.5 EyepieceBackV2          | 50 deg angled mount to connect two eyepieces into a VR headset | [stl] | 2        | 32x22x16                |
 | MouseGoggles 1.5 SpacerV2                | Display-lens spacer for eyepiece                               | [stl] | 2        | 31x31x10                |
+=======
+| Part Name                                | Description                                                    | Link  | Quantity |
+| ---------------------------------------- | -------------------------------------------------------------- | ----- | -------- |
+| MouseGoggles 1.5 EyepieceEnclosureV2     | Enclosure for VR headset eyepiece                              | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/1.5/3D%20Prints/MouseGoggles%201.5%20EyepieceEnclosureV2.stl)                   | 2        |
+| MouseGoggles 1.5 EyepieceEnclosureBackV2 | Enclosure backing                                              | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/1.5/3D%20Prints/MouseGoggles%201.5%20EyepieceEnclosureBackV2.stl)               | 2        |
+| MouseGoggles 1.5 EyepieceBackV2          | 50 deg angled mount to connect two eyepieces into a VR headset | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/1.5/3D%20Prints/MouseGoggles%201.5%20EyepieceBackV2.stl)                        | 2        |
+| MouseGoggles 1.5 SpacerV2                | Display-lens spacer for eyepiece                               | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/1.5/3D%20Prints/MouseGoggles%201.5%20EyepieceSpacerV2.stl)                      | 2        |
+>>>>>>> 944baf3cb05cc6954c420656e7d124b0bee9e7f1
 
 ##### Custom PCBs
 
@@ -38,7 +45,6 @@ The table below lists all custom PCBs (printed circuit boards) used by MouseGogg
 
 | Part Name                           | Description                                      | Link  | Quantity |
 | ----------------------------------- | ------------------------------------------------ | ----- | -------- |
-| MouseGoggles Hat-1-5_2023-12-21.zip | zipped Gerber files of Rasberry Pi PCB connector | [zip] | 1        |
 
 # 
 
@@ -206,4 +212,3 @@ This installation has been verified using the following software versions:
 
 - Scroll down and look for the `inet` field. Find the number to the right and write it down for later (e.g. `10.192.168.1`)
 
-- On the PC from which you'd like to control the MouseGoggles system (and which is connected to the same network as the Raspberry Pi), download [RealVNC Viewer]([Download VNC Viewer | VNC® Connect](https://www.realvnc.com/en/connect/download/viewer/)). From the search bar, enter the Raspberry Pi's `inet` number. When prompted for a username and password, enter the information you set during the Raspberry Pi OS installation
