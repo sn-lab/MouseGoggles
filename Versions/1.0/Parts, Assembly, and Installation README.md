@@ -36,20 +36,20 @@ The table below lists all custom 3D-printable parts required for MouseGoggles 1.
 
 Notes on print quality: UV-cured resin-based SLA printers (e.g. [Photon Mono X](https://www.anycubic.com/products/photon-mono-x-resin-printer)) can produce adequate and cost-effective parts for MouseGoggles, though resin-based prints can become brittle over time and are often semi-transparent. To reduce stray light from semi-transparent headset prints, parts can be painted with an opaque paint (e.g. [Black 3.0](https://www.culturehustleusa.com/products/black-3-0-the-worlds-blackest-black-acrylic-paint-150ml)). Thermoplastic polymers such as PLA, PETG, or ABS can produce tougher, longer-laster, and more opaque parts, though should only be used for MouseGoggles from high-resolution 3D printers (e.g. [Ultimaker S3]([UltiMaker S3: Easy-to-use 3D printing starts here](https://ultimaker.com/3d-printers/s-series/ultimaker-s3/))). If you are printing the parts yourself, a [needle file]([McMaster-Carr](https://www.mcmaster.com/4261A37/)) can be helpful in cleaning up any imperfections in the part.
 
-| Part Name                               | Description                        | Link  | Quantity | Approx. Dimensions (mm) |
-| --------------------------------------- | ---------------------------------- | ----- | -------- | ----------------------- |
-| MouseGoggles 1.0 RaspberryPiCaseFrontV4 | Enclosure for VR headset eyepieces | [stl] | 1        | 92x63x34                |
-| MouseGoggles 1.0 RaspberryPiCaseBackV4  | Enclosure for Raspberry Pi         | [stl] | 1        | 92x63x33                |
-| MouseGoggles 1.0 DisplayHolderV1        | Holder for eyepiece display slot   | [stl] | 2        | 31x12x1.5               |
-| MouseGoggles 1.0 LensHolderV1           | Holder for eyepiece lens slot      | [stl] | 2        | 11x8x1.5                |
+| Part Name                               | Description                        | Link                                                                                                                             | Quantity | Approx. Dimensions (mm) |
+| --------------------------------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------------------- |
+| MouseGoggles 1.0 RaspberryPiCaseFrontV4 | Enclosure for VR headset eyepieces | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/1.0/3D%20Prints/MouseGoggles%201.0%20RaspberryPiCaseFrontV4.stl) | 1        | 92x63x34                |
+| MouseGoggles 1.0 RaspberryPiCaseBackV4  | Enclosure for Raspberry Pi         | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/1.0/3D%20Prints/MouseGoggles%201.0%20RaspberryPiCaseBackV4.stl)  | 1        | 92x63x33                |
+| MouseGoggles 1.0 DisplayHolderV1        | Holder for eyepiece display slot   | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/1.0/3D%20Prints/MouseGoggles%201.0%20DisplayHolderV1.stl)        | 2        | 31x12x1.5               |
+| MouseGoggles 1.0 LensHolderV1           | Holder for eyepiece lens slot      | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/1.0/3D%20Prints/MouseGoggles%201.0%20LensHolderV1.stl)           | 2        | 11x8x1.5                |
 
 ##### Custom PCBs
 
 The table below lists all custom PCBs (printed circuit boards) used by MouseGoggles 1.0. To order a bare custom PCB, you can use a PCB printing service such as [JLCPCB](https://cart.jlcpcb.com/quote?orderType=1&stencilLayer=2&stencilWidth=100&stencilLength=100&stencilCounts=5) or [seeedstudio](https://www.seeedstudio.com/fusion_pcb.html). JLCPCB-prints have been verified for all MouseGoggles PCBs. To order a PCB, follow the links in the table to download the zipper gerber files. Upload the zipped folder to the PCB printing service, set any required PCB parameters (e.g. layers=2, FR-4 board material, 1.6 mm board thickness, 0.0348 mm copper thickness, and HASL with lead surface finish), and choose your desired quantity.
 
-| Part Name                              | Description                                      | Link  | Quantity |
-| -------------------------------------- | ------------------------------------------------ | ----- | -------- |
-| MouseGoggles HatBrd-1-0_2023-12-21.zip | zipped Gerber files of Rasberry Pi PCB connector | [zip] | 1        |
+| Part Name                              | Description                                      | Link                                                                                                                                         | Quantity |
+| -------------------------------------- | ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| MouseGoggles HatBrd-1-0_2023-12-21.zip | zipped Gerber files of Rasberry Pi PCB connector | [zip](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/1.0/PCBs/MouseGoggles%20HatBrd-1-0/MouseGoggles%20HatBrd-1-0_2023-12-21.zip) | 1        |
 
 # 
 
