@@ -2,7 +2,7 @@
 
 ---
 
-##### Off-the-shelf parts
+### Off-the-shelf parts
 
 The table below lists all off-the-shelf parts required to build MouseGoggles 1.5, the first version of MouseGoggles using easier-to-source, fully-circular 240x240 [Waveshare](https://www.waveshare.com/product/1.28inch-lcd-module.htm) displays and an easier to assemble design. Follow the links below to purchase the parts in the quantities listed. In addition to these listed parts, you will also need a desktop monitor (with HDMI input or an HDMI-DVI adapter), a USB keyboard and mouse, and a MicroSD card reader, at least for the initial setup.
 
@@ -19,11 +19,11 @@ The table below lists all off-the-shelf parts required to build MouseGoggles 1.5
 | GPIO Header for Raspberry Pi - 2x20 Female Header | Pin header to connect custom PCB to Pi 4           | [Adafruit](https://www.adafruit.com/product/2222)                                                                                                               | $1.5           | 1        |
 | Break-away 0.1" male header strip                 | Pin header to connect displays to custom PCB       | [Adafruit](https://www.adafruit.com/product/392)                                                                                                                | $5             | 1        |
 
-##### 3D prints
+### 3D prints
 
 The table below lists all custom 3D-printable parts required for MouseGoggles 1.5. Follow the links below for .stl files to print these parts on your own high-resolution 3D printer (recommended layer resolution <=0.2 mm) or to send to a 3D printing service such as [CraftCloud](https://craftcloud3d.com/). 
 
-Notes on print quality: UV-cured resin-based SLA printers (e.g. [Photon Mono X](https://www.anycubic.com/products/photon-mono-x-resin-printer)) can produce adequate and cost-effective parts for MouseGoggles, though resin-based prints can become brittle over time and are often semi-transparent. To reduce stray light from semi-transparent headset prints, parts can be painted with an opaque paint (e.g. [Black 3.0](https://www.culturehustleusa.com/products/black-3-0-the-worlds-blackest-black-acrylic-paint-150ml)). Thermoplastic polymers such as PLA, PETG, or ABS can produce tougher, longer-laster, and more opaque parts, though should only be used for MouseGoggles from high-resolution 3D printers (e.g. [Ultimaker S3]([UltiMaker S3: Easy-to-use 3D printing starts here](https://ultimaker.com/3d-printers/s-series/ultimaker-s3/))). If you are printing the parts yourself, a [needle file]([McMaster-Carr](https://www.mcmaster.com/4261A37/)) can be helpful in cleaning up any imperfections in the part.
+Notes on print quality: UV-cured resin-based SLA printers (e.g. [Photon Mono X](https://www.anycubic.com/products/photon-mono-x-resin-printer)) can produce adequate and cost-effective parts for MouseGoggles, though resin-based prints can become brittle over time and are often semi-transparent. To reduce stray light from semi-transparent headset prints, parts can be painted with an opaque paint (e.g. [Black 3.0](https://www.culturehustleusa.com/products/black-3-0-the-worlds-blackest-black-acrylic-paint-150ml)). Thermoplastic polymers such as PLA, PETG, or ABS can produce tougher, longer-laster, and more opaque parts, though should only be used for MouseGoggles from high-resolution 3D printers (e.g. [Ultimaker S3](https://ultimaker.com/3d-printers/s-series/ultimaker-s3/)). If you are printing the parts yourself, a [needle file]([McMaster-Carr](https://www.mcmaster.com/4261A37/)) can be helpful in cleaning up any imperfections in the part.
 
 | Part Name                                | Description                       | Link                                                                                                                              | Quantity | Aprox. Dimensions (mm) |
 | ---------------------------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | -------- | ---------------------- |
@@ -32,7 +32,7 @@ Notes on print quality: UV-cured resin-based SLA printers (e.g. [Photon Mono X](
 | MouseGoggles 1.5 EyepieceBackV2          | 50 deg angled mount               | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/1.5/3D%20Prints/MouseGoggles%201.5%20EyepieceBackV2.stl)          | 2        | 32x22x16               |
 | MouseGoggles 1.5 SpacerV2                | Display-lens spacer for eyepiece  | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/1.5/3D%20Prints/MouseGoggles%201.5%20EyepieceSpacerV2.stl)        | 2        | 31x31x10               |
 
-##### Custom PCBs
+### Custom PCBs
 
 The table below lists all custom PCBs (printed circuit boards) used by MouseGoggles 1.5. To order a bare custom PCB, you can use a PCB printing service such as [JLCPCB](https://cart.jlcpcb.com/quote?orderType=1&stencilLayer=2&stencilWidth=100&stencilLength=100&stencilCounts=5) or [seeedstudio](https://www.seeedstudio.com/fusion_pcb.html). JLCPCB-prints have been verified for all MouseGoggles PCBs. To order a PCB, follow the links in the table to download the zipper gerber files. Upload the zipped folder to the PCB printing service, set any required PCB parameters (e.g. layers=2, FR-4 board material, 1.6 mm board thickness, 0.0348 mm copper thickness, and HASL with lead surface finish), and choose your desired quantity.
 
@@ -46,13 +46,13 @@ The table below lists all custom PCBs (printed circuit boards) used by MouseGogg
 
 ---
 
-##### Assemble the custom PCB
+### Assemble the custom PCB
 
 1. Insert the 2x20 GPIO header onto the back of the custom PCB (the side without any text) and solder the header in place.
 
 2. Break away two 8-pin sections and one 6-pin section of male headers and insert them onto the front of the custom PCB (the side with text) and solder them in place.
 
-##### Assemble the MouseGoggles headset
+### Assemble the MouseGoggles headset
 
 1. With the small end of the "EyepieceEnclosure" 3D print facing down, insert a Fresnel lens straight down into the bottom, with the ridged side facing up and the smooth side facing down. 
    
@@ -74,7 +74,7 @@ The table below lists all custom PCBs (printed circuit boards) used by MouseGogg
    
    * Note: If any part is too difficult to slide into place, use a needle file to sand down any warped areas or imperfections of the 3D prints. The edges of the custom PCB can also be sanded down, since there may also be imperfections in the PCB manufacturing/cutting process.
 
-##### Wire up the displays
+### Wire up the displays
 
 1. Attach the custom PCB to the Raspberry Pi's 40-pin header, so that the custom PCB hangs over the Pi (rather than hanging off the side).
 
@@ -88,7 +88,7 @@ The table below lists all custom PCBs (printed circuit boards) used by MouseGogg
 
 To install all necessary software, you'll first need a PC to install the Raspberry Pi OS to the MicroSD card that will be installed in the Raspberry Pi. Next, you'll need to start up the Raspberry Pi and install the Godot game engine and custom display driver, as well as all dependencies listed in the instructions below. Software installation on the Raspberry Pi typically takes <10 minutes.
 
-##### Installing the Legacy Raspberry Pi Operating System
+### Installing the Legacy Raspberry Pi Operating System
 
 - Insert the micro SD card into your PC
 - Download and install the [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
@@ -100,7 +100,7 @@ To install all necessary software, you'll first need a PC to install the Raspber
 - Select "yes" to install the OS with your custom settings
 - After the image has finished writing, Insert the SD card into your Raspberry Pi and power it on
 
-##### Install the Godot game engine
+### Install the Godot game engine
 
 - Open up the Raspberry Pi command terminal and enter each line, one at a time:
   
@@ -113,7 +113,7 @@ To install all necessary software, you'll first need a PC to install the Raspber
 
 - note: When you are asked if you want to continue installing, answer yes
 
-##### Install the display driver
+### Install the display driver
 
 - Open up the Raspberry Pi command terminal and enter each line, one at a time:
   
@@ -143,7 +143,7 @@ This installation has been verified using the following software versions:
 
 ---
 
-##### Starting the display driver
+### Starting the display driver
 
 - Open up the Raspberry Pi command terminal and enter each line, one at a time:
   
@@ -152,7 +152,7 @@ This installation has been verified using the following software versions:
   sudo ./fbcp-ili9341
   ```
 
-##### Starting the game engine and running experiments
+### Starting the game engine and running experiments
 
 - Open up a Raspberry Pi command terminal and enter the following line:
   
@@ -176,7 +176,7 @@ This installation has been verified using the following software versions:
 
 - Click the `esc` button to exit an experiment early. Logs of completed experiment repetitions will have been saved, but the in-progress/unfinished repetition will not be saved by default
 
-##### Stopping the display driver
+### Stopping the display driver
 
 (only needed for re-installing or updating the display driver)
 
@@ -188,7 +188,7 @@ This installation has been verified using the following software versions:
 
 - Check in `/etc/rc.local` and `/etc/init.d` to make sure fbcp does not start on system startup (delete any fbcp entries) 
 
-##### Operating the system remotely with VNC
+### Operating the system remotely with VNC
 
 - Open up a Raspberry Pi command terminal and enter the following line:
   

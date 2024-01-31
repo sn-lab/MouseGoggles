@@ -2,7 +2,7 @@
 
 ---
 
-##### Off-the-shelf parts
+### Off-the-shelf parts
 
 The table below lists all off-the-shelf parts required to build MouseGoggles 1.2, an updated version of the small form factor MouseGoggles 1.1 with independently attached eyepieces to allow for adjustable inter-eye distances. Follow the links below to purchase the parts in the quantities listed. In addition to these listed parts, you will also need a desktop monitor (with HDMI input or an HDMI-DVI adapter), a USB keyboard and mouse, and a MicroSD card reader, at least for the initial setup.
 
@@ -32,11 +32,11 @@ The table below lists all off-the-shelf parts required to build MouseGoggles 1.2
 - TST108102 - untested, likely compatible
 - TST108103 - untested, likely compatible 
 
-##### 3D prints
+### 3D prints
 
 The table below lists all custom 3D-printable parts required for MouseGoggles 1.2. Follow the links below for .stl files to print these parts on your own high-resolution 3D printer (recommended layer resolution <0.2 mm) or to send to a 3D printing service such as [CraftCloud](https://craftcloud3d.com/). 
 
-Notes on print quality: UV-cured resin-based SLA printers (e.g. [Photon Mono X](https://www.anycubic.com/products/photon-mono-x-resin-printer)) can produce adequate and cost-effective parts for MouseGoggles, though resin-based prints can become brittle over time and are often semi-transparent. To reduce stray light from semi-transparent headset prints, parts can be painted with an opaque paint (e.g. [Black 3.0](https://www.culturehustleusa.com/products/black-3-0-the-worlds-blackest-black-acrylic-paint-150ml)). Thermoplastic polymers such as PLA, PETG, or ABS can produce tougher, longer-laster, and more opaque parts, though should only be used for MouseGoggles from high-resolution 3D printers (e.g. [Ultimaker S3]([UltiMaker S3: Easy-to-use 3D printing starts here](https://ultimaker.com/3d-printers/s-series/ultimaker-s3/))). If you are printing the parts yourself, a [needle file]([McMaster-Carr](https://www.mcmaster.com/4261A37/)) can be helpful in cleaning up any imperfections in the part.
+Notes on print quality: UV-cured resin-based SLA printers (e.g. [Photon Mono X](https://www.anycubic.com/products/photon-mono-x-resin-printer)) can produce adequate and cost-effective parts for MouseGoggles, though resin-based prints can become brittle over time and are often semi-transparent. To reduce stray light from semi-transparent headset prints, parts can be painted with an opaque paint (e.g. [Black 3.0](https://www.culturehustleusa.com/products/black-3-0-the-worlds-blackest-black-acrylic-paint-150ml)). Thermoplastic polymers such as PLA, PETG, or ABS can produce tougher, longer-laster, and more opaque parts, though should only be used for MouseGoggles from high-resolution 3D printers (e.g. [Ultimaker S3](https://ultimaker.com/3d-printers/s-series/ultimaker-s3/)). If you are printing the parts yourself, a [needle file]([McMaster-Carr](https://www.mcmaster.com/4261A37/)) can be helpful in cleaning up any imperfections in the part.
 
 | Part Name                        | Description                                 | Link                                                                                                                      | Quantity | Approx. Dimensions (mm) |
 | -------------------------------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | -------- | ----------------------- |
@@ -46,7 +46,7 @@ Notes on print quality: UV-cured resin-based SLA printers (e.g. [Photon Mono X](
 | MouseGoggles 1.0 DisplayHolderV1 | Holder for eyepiece display slot            | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/1.2/3D%20Prints/MouseGoggles%201.0%20DisplayHolderV1.stl) | 2        | 31x12x1.5               |
 | MouseGoggles 1.0 LensHolderV1    | Holder for eyepiece lens slot               | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/1.2/3D%20Prints/MouseGoggles%201.0%20LensHolderV1.stl)    | 2        | 11x8x1.5                |
 
-##### Custom PCBs
+### Custom PCBs
 
 The table below lists all custom PCBs (printed circuit boards) used by MouseGoggles 1.2. To order a bare custom PCB, you can use a PCB printing service such as [JLCPCB](https://cart.jlcpcb.com/quote?orderType=1&stencilLayer=2&stencilWidth=100&stencilLength=100&stencilCounts=5) or [seeedstudio](https://www.seeedstudio.com/fusion_pcb.html). JLCPCB-prints have been verified for all MouseGoggles PCBs. To order a PCB, follow the links in the table to download the zipper gerber files. Upload the zipped folder to the PCB printing service, set any required PCB parameters (e.g. layers=2, FR-4 board material, 1.6 mm board thickness, 0.0348 mm copper thickness, and HASL with lead surface finish), and choose your desired quantity.
 
@@ -61,16 +61,16 @@ The table below lists all custom PCBs (printed circuit boards) used by MouseGogg
 
 ---
 
-##### Assemble the custom PCB
+### Assemble the custom PCB
 
 1. Solder two surface-mount ribbon cable connectors and one SPI cable connector onto the top of the "MiniBrd" PCB.
    
-   * note: Soldering these parts may require microsoldering equipment. For more details and options on microsoldering, see [this discussion]([PCB assembly/microsoldering options · sn-lab/MouseGoggles · Discussion #7 · GitHub](https://github.com/sn-lab/MouseGoggles/discussions/7)
+   * note: Soldering these parts may require microsoldering equipment. For more details and options on microsoldering, see [this discussion](https://github.com/sn-lab/MouseGoggles/discussions/7).
      2* Solder one SPI cable connector onto the top of the "MiniHat" PCB.
 
 2. Insert the 2x20 GPIO header onto the back of the "MiniHat" PCB (the side without any text) and solder the header in place.
 
-##### Assemble the MouseGoggles headset
+### Assemble the MouseGoggles headset
 
 1. Install the circular display by sliding it into the display slot of the "EyepieceLeft" 3D print, with the glass side facing out, ensuring it is pushed all the way in and the ribbon cable is centered in the slot.
    - Note: if during assembly anything is difficult to slide into place, check for imperfections or warping of the printed part and sand them down with the needle file until parts fit freely.
@@ -96,7 +96,7 @@ The table below lists all custom PCBs (printed circuit boards) used by MouseGogg
 
 To install all necessary software, you'll first need a PC to install the Raspberry Pi OS to the MicroSD card that will be installed in the Raspberry Pi. Next, you'll need to start up the Raspberry Pi and install the Godot game engine and custom display driver, as well as all dependencies listed in the instructions below. Software installation on the Raspberry Pi typically takes <10 minutes.
 
-##### Installing the Legacy Raspberry Pi Operating System
+### Installing the Legacy Raspberry Pi Operating System
 
 - Insert the micro SD card into your PC
 - Download and install the [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
@@ -108,7 +108,7 @@ To install all necessary software, you'll first need a PC to install the Raspber
 - Select "yes" to install the OS with your custom settings
 - After the image has finished writing, Insert the SD card into your Raspberry Pi and power it on
 
-##### Install the Godot game engine
+### Install the Godot game engine
 
 - Open up the Raspberry Pi command terminal and enter each line, one at a time:
   
@@ -121,7 +121,7 @@ To install all necessary software, you'll first need a PC to install the Raspber
 
 - note: When you are asked if you want to continue installing, answer yes
 
-##### Install the display driver
+### Install the display driver
 
 - Open up the Raspberry Pi command terminal and enter each line, one at a time:
   
@@ -153,7 +153,7 @@ This installation has been verified using the following software versions:
 
 ---
 
-##### Starting the display driver
+### Starting the display driver
 
 - Open up the Raspberry Pi command terminal and enter each line, one at a time:
   
@@ -162,7 +162,7 @@ This installation has been verified using the following software versions:
   sudo ./fbcp-ili9341
   ```
 
-##### Starting the game engine and running experiments
+### Starting the game engine and running experiments
 
 - Open up a Raspberry Pi command terminal and enter the following line:
   
@@ -186,7 +186,7 @@ This installation has been verified using the following software versions:
 
 - Click the `esc` button to exit an experiment early. Logs of completed experiment repetitions will have been saved, but the in-progress/unfinished repetition will not be saved by default
 
-##### Stopping the display driver
+### Stopping the display driver
 
 (only needed for re-installing or updating the display driver)
 
@@ -198,7 +198,7 @@ This installation has been verified using the following software versions:
 
 - Check in `/etc/rc.local` and `/etc/init.d` to make sure fbcp does not start on system startup (delete any fbcp entries) 
 
-##### Operating the system remotely with VNC
+### Operating the system remotely with VNC
 
 - Open up a Raspberry Pi command terminal and enter the following line:
   
@@ -216,4 +216,4 @@ This installation has been verified using the following software versions:
 
 - Scroll down and look for the `inet` field. Find the number to the right and write it down for later (e.g. `10.192.168.1`)
 
-- On the PC from which you'd like to control the MouseGoggles system (and which is connected to the same network as the Raspberry Pi), download [RealVNC Viewer]([Download VNC Viewer | VNC® Connect](https://www.realvnc.com/en/connect/download/viewer/)). From the search bar, enter the Raspberry Pi's `inet` number. When prompted for a username and password, enter the information you set during the Raspberry Pi OS installation
+- On the PC from which you'd like to control the MouseGoggles system (and which is connected to the same network as the Raspberry Pi), download [RealVNC Viewer](https://www.realvnc.com/en/connect/download/viewer/). From the search bar, enter the Raspberry Pi's `inet` number. When prompted for a username and password, enter the information you set during the Raspberry Pi OS installation

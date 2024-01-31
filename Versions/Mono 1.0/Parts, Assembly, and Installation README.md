@@ -2,7 +2,7 @@
 
 ---
 
-##### Off-the-shelf parts
+### Off-the-shelf parts
 
 The table below lists all off-the-shelf parts required to build MouseGoggles Mono 1.0, the first official monocular display version of MouseGoggles. Follow the links below to purchase the parts in the quantities listed. In addition to these listed parts, you will also need a desktop monitor (with HDMI input or an HDMI-DVI adapter), a USB keyboard and mouse, and a MicroSD card reader, at least for the initial setup.
 
@@ -27,11 +27,11 @@ The table below lists all off-the-shelf parts required to build MouseGoggles Mon
 - TST108102 - untested, likely compatible
 - TST108103 - untested, likely compatible 
 
-##### 3D prints
+### 3D prints
 
 The table below lists all custom 3D-printable parts required for MouseGoggles Mono 1.0. Follow the links below for .stl files to print these parts on your own high-resolution 3D printer (recommended layer resolution <0.2 mm) or to send to a 3D printing service such as [CraftCloud](https://craftcloud3d.com/). 
 
-Notes on print quality: UV-cured resin-based SLA printers (e.g. [Photon Mono X](https://www.anycubic.com/products/photon-mono-x-resin-printer)) can produce adequate and cost-effective parts for MouseGoggles, though resin-based prints can become brittle over time and are often semi-transparent. To reduce stray light from semi-transparent headset prints, parts can be painted with an opaque paint (e.g. [Black 3.0](https://www.culturehustleusa.com/products/black-3-0-the-worlds-blackest-black-acrylic-paint-150ml)). Thermoplastic polymers such as PLA, PETG, or ABS can produce tougher, longer-laster, and more opaque parts, though should only be used for MouseGoggles from high-resolution 3D printers (e.g. [Ultimaker S3]([UltiMaker S3: Easy-to-use 3D printing starts here](https://ultimaker.com/3d-printers/s-series/ultimaker-s3/))). If you are printing the parts yourself, a [needle file]([McMaster-Carr](https://www.mcmaster.com/4261A37/)) can be helpful in cleaning up any imperfections in the part.
+Notes on print quality: UV-cured resin-based SLA printers (e.g. [Photon Mono X](https://www.anycubic.com/products/photon-mono-x-resin-printer)) can produce adequate and cost-effective parts for MouseGoggles, though resin-based prints can become brittle over time and are often semi-transparent. To reduce stray light from semi-transparent headset prints, parts can be painted with an opaque paint (e.g. [Black 3.0](https://www.culturehustleusa.com/products/black-3-0-the-worlds-blackest-black-acrylic-paint-150ml)). Thermoplastic polymers such as PLA, PETG, or ABS can produce tougher, longer-laster, and more opaque parts, though should only be used for MouseGoggles from high-resolution 3D printers (e.g. [Ultimaker S3](https://ultimaker.com/3d-printers/s-series/ultimaker-s3/)). If you are printing the parts yourself, a [needle file]([McMaster-Carr](https://www.mcmaster.com/4261A37/)) can be helpful in cleaning up any imperfections in the part.
 
 | Part Name                                 | Description                                   | Link                                                                                                                                      | Quantity | Approx. Dimensions (mm) |
 | ----------------------------------------- | --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------------------- |
@@ -41,7 +41,7 @@ Notes on print quality: UV-cured resin-based SLA printers (e.g. [Photon Mono X](
 | MouseGoggles 1.0 LensHolderV1             | Holder for eyepiece lens slot                 | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/Mono%201.0/3D%20Prints/MouseGoggles%201.0%20LensHolderV1.stl)             | 1        | 11x8x1.5                |
 | MouseGoggles 1.0mono 0.25-20AdapterV1     | Adapter for 1/4"-20 mounting screw (optional) | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/Mono%201.0/3D%20Prints/MouseGoggles%201.0mono%200.25-20AdapterV1.stl)     | 1        | 18x17x15                |
 
-##### Custom PCBs
+### Custom PCBs
 
 The table below lists all custom PCBs (printed circuit boards) used by MouseGoggles Mono 1.0. To order a bare custom PCB, you can use a PCB printing service such as [JLCPCB](https://cart.jlcpcb.com/quote?orderType=1&stencilLayer=2&stencilWidth=100&stencilLength=100&stencilCounts=5) or [seeedstudio](https://www.seeedstudio.com/fusion_pcb.html). JLCPCB-prints have been verified for all MouseGoggles PCBs. To order a PCB, follow the links in the table to download the zipper gerber files. Upload the zipped folder to the PCB printing service, set any required PCB parameters (e.g. layers=2, FR-4 board material, 1.6 mm board thickness, 0.0348 mm copper thickness, and HASL with lead surface finish), and choose your desired quantity.
 
@@ -55,15 +55,15 @@ The table below lists all custom PCBs (printed circuit boards) used by MouseGogg
 
 ---
 
-##### Assemble the custom PCB
+### Assemble the custom PCB
 
 1. Solder a surface-mount ribbon cable connector onto the top "MonoHat" PCB.
    
-   * note: Soldering these parts may require microsoldering equipment. For more details and options on microsoldering, see [this discussion]([PCB assembly/microsoldering options · sn-lab/MouseGoggles · Discussion #7 · GitHub](https://github.com/sn-lab/MouseGoggles/discussions/7).
+   * note: Soldering these parts may require microsoldering equipment. For more details and options on microsoldering, see [this discussion](https://github.com/sn-lab/MouseGoggles/discussions/7).
 
 2. Insert the pin headers onto the top of the MonoHat PCB and solder the headers in place.
 
-##### Assemble the MouseGoggles Mono eyepiece
+### Assemble the MouseGoggles Mono eyepiece
 
 1. Install the circular display by sliding it into the display slot of the "EyepieceFront" 3D print, with the glass side facing out, ensuring it is pushed all the way in and the ribbon cable is centered in the slot.
    
@@ -135,7 +135,7 @@ Follow the steps below to installing the monocular display software on the Teens
 
 ---
 
-##### Controlling the display from MATLAB
+### Controlling the display from MATLAB
 
 - Install https://www.mathworks.com/products/matlab.html (the display controller does not work with "Matlab Online").
 - Copy the [Matlab code](https://github.com/sn-lab/MouseGoggles/tree/main/Monocular%20Display/matlab) folder to your computer and open the monoDisplay_example.m file in Matlab.
@@ -144,7 +144,7 @@ Follow the steps below to installing the monocular display software on the Teens
 - Change `vs.directory` to your desired save folder.
 - Run the script and watch the display to verify code and communication is working properly.
 
-##### Controlling the display from Python
+### Controlling the display from Python
 
 - Download the latest [Python release](https://www.python.org/downloads/).
 - Open your preferred Python IDE (e.g. IDLE (installs with Python), [Visual Studio](https://visualstudio.microsoft.com/downloads/), [PyCharm](https://www.jetbrains.com/pycharm/), [Spyder](https://www.spyder-ide.org/)).
@@ -157,7 +157,7 @@ Follow the steps below to installing the monocular display software on the Teens
 
 ---
 
-##### List of Matlab/Teensy commands
+### List of Matlab/Teensy commands
 
 Both the Matlab and Python scripts above control the display by sending serial commands and data to the Teensy microcontroller code describing what function the display should perform next. Each command is defined by one or two bytes, and can be followed by additional data bytes. The table below lists all of the command bytes the Teensy code can recieve, what additional data bytes are expected to follow each command, and what bytes are returned from the Teensy (if any). To make this control system more user-friendly, in the Matlab control script (monoDisplay_example) commands are additionally defined by descriptive name strings (e.g. 'Connect' for command 0x___________), and associated data are contained in a parameter struct, to make it easier for the user to send the correct instructions. Some Matlab commands do not send any commands to the Teensy and serve only to simplify common MouseGoggles Mono functions, as described below.
 
@@ -175,7 +175,7 @@ Both the Matlab and Python scripts above control the display by sending serial c
 | Demo-On          | Turns the Teensy display demo mode on                                                                                                            | 0x6F            | none                                                     | none                                              |
 | Demo-Off         | Turns the Teensy display demo mode off                                                                                                           | 0x6E            | none                                                     | none                                              |
 
-##### List of Pattern Parameters
+### List of Pattern Parameters
 
 The table below lists all of the parameters necesary to define a pattern to be generated by the Teensy controller.
 
