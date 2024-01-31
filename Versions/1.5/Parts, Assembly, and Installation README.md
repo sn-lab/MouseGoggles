@@ -4,7 +4,7 @@
 
 ##### Off-the-shelf parts
 
-The table below lists all off-the-shelf parts required to build MouseGoggles 1.5, the first version of MouseGoggles using [Waveshare](https://www.waveshare.com/product/1.28inch-lcd-module.htm) displays. Follow the links below to purchase the parts in the quantities listed. In addition to these listed parts, you will also need a desktop monitor (with HDMI input or an HDMI-DVI adapter), a USB keyboard and mouse, and a MicroSD card reader, at least for the initial setup.
+The table below lists all off-the-shelf parts required to build MouseGoggles 1.5, the first version of MouseGoggles using easier-to-source, fully-circular 240x240 [Waveshare](https://www.waveshare.com/product/1.28inch-lcd-module.htm) displays and an easier to assemble design. Follow the links below to purchase the parts in the quantities listed. In addition to these listed parts, you will also need a desktop monitor (with HDMI input or an HDMI-DVI adapter), a USB keyboard and mouse, and a MicroSD card reader, at least for the initial setup.
 
 | Part Name                                         | Description                                        | Link                                                                                                                                                            | Est. Unit Cost | Quantity |
 | ------------------------------------------------- | -------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |:--------------:|:--------:|
@@ -25,12 +25,12 @@ The table below lists all custom 3D-printable parts required for MouseGoggles 1.
 
 Notes on print quality: UV-cured resin-based SLA printers (e.g. [Photon Mono X](https://www.anycubic.com/products/photon-mono-x-resin-printer)) can produce adequate and cost-effective parts for MouseGoggles, though resin-based prints can become brittle over time and are often semi-transparent. To reduce stray light from semi-transparent headset prints, parts can be painted with an opaque paint (e.g. [Black 3.0](https://www.culturehustleusa.com/products/black-3-0-the-worlds-blackest-black-acrylic-paint-150ml)). Thermoplastic polymers such as PLA, PETG, or ABS can produce tougher, longer-laster, and more opaque parts, though should only be used for MouseGoggles from high-resolution 3D printers (e.g. [Ultimaker S3]([UltiMaker S3: Easy-to-use 3D printing starts here](https://ultimaker.com/3d-printers/s-series/ultimaker-s3/))). If you are printing the parts yourself, a [needle file]([McMaster-Carr](https://www.mcmaster.com/4261A37/)) can be helpful in cleaning up any imperfections in the part.
 
-| Part Name                                | Description                                                    | Link  | Quantity |
-| ---------------------------------------- | -------------------------------------------------------------- | ----- | -------- |
-| MouseGoggles 1.5 EyepieceEnclosureV2     | Enclosure for VR headset eyepiece                              | [stl] | 2        |
-| MouseGoggles 1.5 EyepieceEnclosureBackV2 | Enclosure Back                                                 | [stl] | 2        |
-| MouseGoggles 1.5 EyepieceBackV2          | 50 deg angled mount to connect two eyepieces into a VR headset | [stl] | 2        |
-| MouseGoggles 1.5 SpacerV2                | Display-lens spacer for eyepiece                               | [stl] | 2        |
+| Part Name                                | Description                                                    | Link  | Quantity | Approx. Dimensions (mm) |
+| ---------------------------------------- | -------------------------------------------------------------- | ----- | -------- | ----------------------- |
+| MouseGoggles 1.5 EyepieceEnclosureV2     | Enclosure for VR headset eyepiece                              | [stl] | 2        | 44x41x21                |
+| MouseGoggles 1.5 EyepieceEnclosureBackV2 | Enclosure Back                                                 | [stl] | 2        | 41x41x8                 |
+| MouseGoggles 1.5 EyepieceBackV2          | 50 deg angled mount to connect two eyepieces into a VR headset | [stl] | 2        | 32x22x16                |
+| MouseGoggles 1.5 SpacerV2                | Display-lens spacer for eyepiece                               | [stl] | 2        | 31x31x10                |
 
 ##### Custom PCBs
 
@@ -138,8 +138,6 @@ This installation has been verified using the following software versions:
 - flatpak: 1.14.1-4
 - cmake: cmake-3.27.4
 - godot: 3.2.3.stable.flathub
-  
-  
 
 # Operating Instructions
 
@@ -162,7 +160,7 @@ This installation has been verified using the following software versions:
   flatpak run org.godotengine.Godot
   ```
 
-- Import the Godot game project located in MouseGoggles/Versions/1.5/MouseVR Godot Project V1.5/project.godot
+- Import the Godot game project located in MouseGoggles/Godot/MouseVR Godot Project V1.5/project.godot
 
 - When the game editor opens, reduce the window to a partial screen (running it in full screen may cause hang-ups)
 
