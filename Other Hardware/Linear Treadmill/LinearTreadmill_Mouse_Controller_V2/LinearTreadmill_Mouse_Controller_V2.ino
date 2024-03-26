@@ -34,6 +34,7 @@
 #define maxMouseval 127.0f
 
 float maxDACval = MAXDACVOLTS * MAXDACCNTS / 3.3; // limit dac output to max allowed
+float mouseGain = 1.0;
 
 #define encAPin 0
 #define encBPin 1
@@ -126,7 +127,7 @@ void loop()
     distance += DIST_PER_COUNT;
 
     dacval = (maxDACval/2)+ dir*(runSpeed/MAXSPEED * (maxDACval))/2; 
-    forwardSpeed =  dir*(runSpeed/MAXSPEED * (maxMouseval));
+    forwardSpeed =  mouseGain*dir*(runSpeed/MAXSPEED * (maxMouseval));
     if( dacval < 0 ) dacval = 0;
     if( dacval > maxDACval) dacval = maxDACval;
     // Serial.print("distance:");
