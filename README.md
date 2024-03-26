@@ -6,13 +6,17 @@
 
 **Latest Updates** (Jan 2024)
 
-* New MouseGoggles versions added to the [Versions](https://github.com/sn-lab/MouseGoggles/tree/main/Versions) folder! Versions 1.1, 1.2, and 1.5 detach the Raspberry Pi from the eyepieces, creating a smaller form factor headset. Versions 1.2+ adds the ability to adjust inter-eye distance. And version 1.5 uses newer, pre-assembled circular displays for the easiest-to-build version yet. Not sure which version to build? Try [1.5](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/1.5/Parts%2C%20Assembly%2C%20and%20Installation%20README.md)!
+* (Mar 2024) New MouseGoggles EyeTrack headset, for binocular eye/pupil tracking cameras integrated into the headset!
 
-* Added design files for 3D printable parts (.step files) and custom PCBs (schematic, layout, and autodesk eagle project files) for all versions to make it easier to modify MouseGoggles as you please.
+* (Mar 2024) Reorganized and renamed versions folder for 3 MouseGoggles builds: Mono (monocular display), Duo (binocular VR headset), and EyeTrack (binocular VR headset with eye/pupil imaging).
 
-* Added software support for the Janelia low-friction linear treadmill, located in the [Other Hardware/Linear Treadmill](https://github.com/sn-lab/MouseGoggles/tree/main/Other%20Hardware/Linear%20Treadmill/LinearTreadmill_Mouse_Controller_V2) folder.
+* (Jan 2024) New MouseGoggles versions added to the [Versions](https://github.com/sn-lab/MouseGoggles/tree/main/Versions) folder! Versions 1.1, 1.2, and 1.5 detach the Raspberry Pi from the eyepieces, creating a smaller form factor headset. Versions 1.2+ adds the ability to adjust inter-eye distance. And version 1.5 uses newer, pre-assembled circular displays for the easiest-to-build version yet. Not sure which version to build? Try [1.5](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/Duo/1.5/Parts%2C%20Assembly%2C%20and%20Installation%20README.md)!
 
-* Added files for headbars and mounts compatabile with MouseGoggles, located in the [Other Hardware/Headbars](https://github.com/sn-lab/MouseGoggles/tree/main/Other%20Hardware/Headbars) folder.
+* (Jan 2024) Added design files for 3D printable parts (.step files) and custom PCBs (schematic, layout, and autodesk eagle project files) for all versions to make it easier to modify MouseGoggles as you please.
+
+* (Jan 2024) Added software support for the Janelia low-friction linear treadmill, located in the [Other Hardware/Linear Treadmill](https://github.com/sn-lab/MouseGoggles/tree/main/Other%20Hardware/Linear%20Treadmill/LinearTreadmill_Mouse_Controller_V2) folder.
+
+* (Jan 2024) Added files for headbars and mounts compatabile with MouseGoggles, located in the [Other Hardware/Headbars](https://github.com/sn-lab/MouseGoggles/tree/main/Other%20Hardware/Headbars) folder.
 
 # About MouseGoggles
 
@@ -38,7 +42,7 @@ To create an immersive, wide field-of-view (FOV) VR headset from the dual-displa
 
 ![Monocular display for basic visual stimuli (e.g. drifting gratings)](https://github.com/sn-lab/MouseGoggles/blob/main/Images/MonocularDisplay.png)
 
-In addition to the binocular MouseGoggles system, a monocular eyepiece version can be built using a single display, lens, and microcontroller. Where the headset is ideal for complex virtual reality experiments and behavioral research, the monocular display is ideal for simple visual stimulation for basic visual neuroscience applications. The fast microcontroller [Teensy4.0](https://www.pjrc.com/store/teensy40.html) and [Adafruit graphics library](https://learn.adafruit.com/adafruit-gfx-graphics-library/overview) is used to display simple shapes and moving patterns such as drifting gratings and flickers. For more details, see [Versions/Mono 1.0]().
+In addition to the binocular MouseGoggles system, a monocular eyepiece version can be built using a single display, lens, and microcontroller. Where the headset is ideal for complex virtual reality experiments and behavioral research, the monocular display is ideal for simple visual stimulation for basic visual neuroscience applications. The fast microcontroller [Teensy4.0](https://www.pjrc.com/store/teensy40.html) and [Adafruit graphics library](https://learn.adafruit.com/adafruit-gfx-graphics-library/overview) is used to display simple shapes and moving patterns such as drifting gratings and flickers. For more details, see [Versions/Mono/1.0]().
 
 ### Treadmills
 
@@ -48,7 +52,7 @@ The MouseGoggles VR headset was developed and tested using a two different tread
 
 # Building a MouseGoggles System
 
-All versions of MouseGoggles were designed using as many readily available, off-the-shelf parts as possible, with only a minimal number of custom 3D printed parts and circuit boards, to make assembly as simple as possible. To build a MouseGoggles system, navigate to the folder of the version you'd like to build in the [Versions](https://github.com/sn-lab/MouseGoggles/tree/main/Versions) folder (if you're not sure which, try the latest, [version 1.5](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/1.5)) and follow the included README for a comprehensive parts list, assembly guide, and software installation instructions.
+All versions of MouseGoggles were designed using as many readily available, off-the-shelf parts as possible, with only a minimal number of custom 3D printed parts and circuit boards, to make assembly as simple as possible. To build a MouseGoggles system, navigate to the folder of the version you'd like to build in the [Versions](https://github.com/sn-lab/MouseGoggles/tree/main/Versions) folder (if you're not sure which, try the latest, [version 1.5](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/Duo/1.5)) and follow the included README for a comprehensive parts list, assembly guide, and software installation instructions.
 
 # Published Data
 

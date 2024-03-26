@@ -33,21 +33,21 @@ The table below lists all custom 3D-printable parts required for MouseGoggles Mo
 
 Notes on print quality: UV-cured resin-based SLA printers (e.g. [Photon Mono X](https://www.anycubic.com/products/photon-mono-x-resin-printer)) can produce adequate and cost-effective parts for MouseGoggles, though resin-based prints can become brittle over time and are often semi-transparent. To reduce stray light from semi-transparent headset prints, parts can be painted with an opaque paint (e.g. [Black 3.0](https://www.culturehustleusa.com/products/black-3-0-the-worlds-blackest-black-acrylic-paint-150ml)). Thermoplastic polymers such as PLA, PETG, or ABS can produce tougher, longer-laster, and more opaque parts, though should only be used for MouseGoggles from high-resolution 3D printers (e.g. [Ultimaker S3](https://ultimaker.com/3d-printers/s-series/ultimaker-s3/)). If you are printing the parts yourself, a [needle file]([McMaster-Carr](https://www.mcmaster.com/4261A37/)) can be helpful in cleaning up any imperfections in the part.
 
-| Part Name                                 | Description                                   | Link                                                                                                                                      | Quantity | Approx. Dimensions (mm) |
-| ----------------------------------------- | --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------------------- |
-| MouseGoggles 1.0mono MouseEyepieceFrontV3 | Enclosure for eyepiece (front half)           | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/Mono%201.0/3D%20Prints/MouseGoggles%201.0mono%20MouseEyepieceFrontV3.stl) | 1        | 36x36x28                |
-| MouseGoggles 1.0mono MouseEyepieceBackV3  | Enclosure for eyepiece (back half)            | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/Mono%201.0/3D%20Prints/MouseGoggles%201.0mono%20MouseEyepieceBackV3.stl)  | 1        | 43x36x21                |
-| MouseGoggles 1.0 DisplayHolderV1          | Holder for eyepiece display slot              | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/Mono%201.0/3D%20Prints/MouseGoggles%201.0%20DisplayHolderV1.stl)          | 1        | 31x12x1.5               |
-| MouseGoggles 1.0 LensHolderV1             | Holder for eyepiece lens slot                 | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/Mono%201.0/3D%20Prints/MouseGoggles%201.0%20LensHolderV1.stl)             | 1        | 11x8x1.5                |
-| MouseGoggles 1.0mono 0.25-20AdapterV1     | Adapter for 1/4"-20 mounting screw (optional) | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/Mono%201.0/3D%20Prints/MouseGoggles%201.0mono%200.25-20AdapterV1.stl)     | 1        | 18x17x15                |
+| Part Name                                 | Description                                   | Link                                                                                                                                    | Quantity | Approx. Dimensions (mm) |
+| ----------------------------------------- | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------------------- |
+| MouseGoggles 1.0mono MouseEyepieceFrontV3 | Enclosure for eyepiece (front half)           | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/Mono/1.0/3D%20Prints/MouseGoggles%201.0mono%20MouseEyepieceFrontV3.stl) | 1        | 36x36x28                |
+| MouseGoggles 1.0mono MouseEyepieceBackV3  | Enclosure for eyepiece (back half)            | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/Mono/1.0/3D%20Prints/MouseGoggles%201.0mono%20MouseEyepieceBackV3.stl)  | 1        | 43x36x21                |
+| MouseGoggles 1.0 DisplayHolderV1          | Holder for eyepiece display slot              | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/Mono/1.0/3D%20Prints/MouseGoggles%201.0%20DisplayHolderV1.stl)          | 1        | 31x12x1.5               |
+| MouseGoggles 1.0 LensHolderV1             | Holder for eyepiece lens slot                 | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/Mono/01.0/3D%20Prints/MouseGoggles%201.0%20LensHolderV1.stl)            | 1        | 11x8x1.5                |
+| MouseGoggles 1.0mono 0.25-20AdapterV1     | Adapter for 1/4"-20 mounting screw (optional) | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/Mono/01.0/3D%20Prints/MouseGoggles%201.0mono%200.25-20AdapterV1.stl)    | 1        | 18x17x15                |
 
 ### Custom PCBs
 
 The table below lists all custom PCBs (printed circuit boards) used by MouseGoggles Mono 1.0. To order a bare custom PCB, you can use a PCB printing service such as [JLCPCB](https://cart.jlcpcb.com/quote?orderType=1&stencilLayer=2&stencilWidth=100&stencilLength=100&stencilCounts=5) or [seeedstudio](https://www.seeedstudio.com/fusion_pcb.html). JLCPCB-prints have been verified for all MouseGoggles PCBs. To order a PCB, follow the links in the table to download the zipper gerber files. Upload the zipped folder to the PCB printing service, set any required PCB parameters (e.g. layers=2, FR-4 board material, 1.6 mm board thickness, 0.0348 mm copper thickness, and HASL with lead surface finish), and choose your desired quantity.
 
-| Part Name                | Description                                 | Link                                                                                                                                                  | Quantity |
-| ------------------------ | ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| MouseGoggles MonoHat-1-0 | zipped Gerber files of Teensy PCB connector | [zip](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/Mono%201.0/PCBs/MouseGoggles%20MonoHat-1-0/MouseGoggles%20MonoHat-1-0_2023-12-21.zip) | 1        |
+| Part Name                | Description                                 | Link                                                                                                                                                | Quantity |
+| ------------------------ | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| MouseGoggles MonoHat-1-0 | zipped Gerber files of Teensy PCB connector | [zip](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/Mono/1.0/PCBs/MouseGoggles%20MonoHat-1-0/MouseGoggles%20MonoHat-1-0_2023-12-21.zip) | 1        |
 
 # 
 
@@ -123,7 +123,7 @@ Follow the steps below to installing the monocular display software on the Teens
 
 - In `Tools>port`, select the serial port the microcontroller is connected to (if you're not sure, disconnect and reconnect the microcontroller to see which COM port changes).
 
-- In the Arduino IDE, load the [GC9307_teensy_GFX.ino](https://github.com/sn-lab/MouseGoggles/tree/main/Monocular%20Display) script.
+- In the Arduino IDE, load the [GC9307_teensy_GFX.ino](https://github.com/sn-lab/MouseGoggles/tree/main/Mono/1.0/Code/Arduino/) script.
 
 - Click the checkmark button ("verify") in the top-left of the IDE.
 
@@ -138,7 +138,7 @@ Follow the steps below to installing the monocular display software on the Teens
 ### Controlling the display from MATLAB
 
 - Install https://www.mathworks.com/products/matlab.html (the display controller does not work with "Matlab Online").
-- Copy the [Matlab code](https://github.com/sn-lab/MouseGoggles/tree/main/Monocular%20Display/matlab) folder to your computer and open the monoDisplay_example.m file in Matlab.
+- Copy the [Matlab code](https://github.com/sn-lab/MouseGoggles/tree/main/Mono/1.0/matlab) folder to your computer and open the monoDisplay_example.m file in Matlab.
 - In Matlab, add the entire folder of files into Matlab's paths (Home>Set Path>Add with Subfolders>[select your downloaded Matlab folder]>Save>Close).
 - At the top of the monoDisplay_example code, change`vs.port` to the COM port your display is connected to.
 - Change `vs.directory` to your desired save folder.
@@ -148,7 +148,7 @@ Follow the steps below to installing the monocular display software on the Teens
 
 - Download the latest [Python release](https://www.python.org/downloads/).
 - Open your preferred Python IDE (e.g. IDLE (installs with Python), [Visual Studio](https://visualstudio.microsoft.com/downloads/), [PyCharm](https://www.jetbrains.com/pycharm/), [Spyder](https://www.spyder-ide.org/)).
-- Copy the [Python code](https://github.com/sn-lab/MouseGoggles/tree/main/Monocular%20Display/python) (not fully tested) to your desktop and open the monoDisplay_example.py file in your Python IDE.
+- Copy the [Python code](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/Mono/1.0/python) (not fully tested) to your desktop and open the monoDisplay_example.py file in your Python IDE.
 - At the top of the monoDisplay_example code, change `ser = serial.Serial('/dev/cu.usbmodem14201',9600)` to the serial port the display is connect to. (e.g. `ser = serial.Serial('COM5',9600)`)
 - Further down, change `cs = CS('directional_test_stimulus1','/Users/', 3, 0...` to your desired save directory
 - Run the script and watch the display to verify code and communication is working properly
