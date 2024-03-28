@@ -77,3 +77,63 @@ The headbar mount for the spherical treadmill (SN HeadbarMountBlock V2) can be 3
 ### Headbar Mount for the Linear Treadmill
 
 The headbar mount for the linear treadmill (SN HeadbarMount V2) should be machined from a relatively stiff metal material, such as stainless steel, which can be manufactured by many machine shops with the supplied SN HeadbarMount V2.ipt design file and SN HeadbarMount V2.dwg schematic file. To position this mount above the linear treadmill, the mount can be attached to [Thorlabs mini-series optical posts](https://www.thorlabs.com/navigation.cfm?guide_id=2249) positioned on either side of the treadmill. The mount position may be blocked by the removable walls of the linear treadmill, so a new design for a treadmill wall and is included in the folder (SN LinearTreadmillWall V4) that can be 3D printed to replace the standard treadmill walls. Walls may also be removed altogether, but can be helpful in training mice to maintain a centered walking position on the treadmill.
+
+# Rotation Sensors
+
+Since MouseGoggles is built in a small form-factor, it is possible to design rotating setups where the headset can rotate with a head-fixed mouse. In such setups, it may be desirable for the experiment to update the mouse's virtual position based on the current rotational position of the headset. To track the headset orientation in real time, an accelerometer can be used to track the roll and/or pitch tilt angles of the headset, while a magnetometer can track the yaw position. In the [Rotation Sensors]() folder, two example Arduino programs (written to be run on a Teensy 4.0 microcontroller) are shown which can acquire signals from IIC-based magnetometer or acceleromater sensors, convert those signals to a rotational position, and send this position to a MouseGoggles headset. To build this system, follow the instructions below to purchase the required hardware, install the Arduino software, and test the system with MouseGoggles.
+
+### Parts list
+
+| Part Name                     | Description                                 | Link                                                | Est. Unit Cost | Quantity |
+| ----------------------------- | ------------------------------------------- | --------------------------------------------------- | -------------- | -------- |
+| (choose 1) LSM6DSOX           | 6 DoF Gyroscope and Accelerometer           | [Adafruit](https://www.adafruit.com/product/4438)   | $12            | 1        |
+| (choose 1) LIS3MDL            | Triple-axis Magnetometer                    | [Adafruit](https://www.adafruit.com/product/4479)   | $10            | 1        |
+| (choose 1) LSM6DSOX + LIS3MDL | 9 DoF Gyro, Accelerometer, and Magnetometer | [Adafruit](https://www.adafruit.com/product/4517)   | $20            | 1        |
+| IIC cable                     | 100 mm length 4-pin Stemma QT cable         | [Adafruit](https://www.adafruit.com/product/4210)   | $1             | 1        |
+| Qwiic adapter                 | IIC cable breakout                          | [Sparkfun](https://www.sparkfun.com/products/14495) | $1.6           | 1        |
+| Teensy 4.0                    | High -speed microcontroller                 | [PJRC](https://www.pjrc.com/store/teensy40.html)    | $24            | 1        |
+| Micro USB/USB A cable         | USB cable to Teensy 4.0                     | [Adafruit](https://www.adafruit.com/product/2185)   | $5             | 1        |
+| Pin headers                   | Break-away pin headers (male, short)        | [Adafruit](https://www.adafruit.com/product/3009)   | $5             | 1        |
+| Jumper wires                  | 3 inch length female-female jumper wires    | [Adafruit](https://www.adafruit.com/product/1951)   | $2             | 1        |
+
+### Hardware installation
+
+* Solder pin headers onto the Teensy 4.0 and the Qwiic adapter.
+
+* Wire the Teensy to the Qwiic adapter using jumper wires, connecting the 3V and GND cables together, and connecting the SDA and SCL pins of the adapter to pins 18 and 19 of the Teensy, respectively.
+
+* Connect the Sensor to the Qwiic adapter with the IIC cable.
+
+### Software Installation
+
+To install microcontroller code to read sensor signals and transmit rotation values to the MouseGoggles system, follow the instructions below to upload either the [MouseGoggles_Gyro.ino]() (for accelerometer-based roll or pitch control using the LSM6DSOX sensor) or the [MouseGoggles_Magnetometer.ino]() Arduino code (for yaw-based control using the LIS3MDL sensor) to the Teensy 4.0 microcontroller and plug the microcontroller into the Raspberry Pi with a microUSB-to-USB cable.
+
+- Download the latest [Arduino IDE](https://www.arduino.cc/en/software) on your PC/laptop.
+
+- Open up the Arduino IDE, and click File > Preferences (on MacOS, click Arduino IDE > Settings). In "Additional boards manager URLs", copy this link:
+  
+  `https://www.pjrc.com/teensy/package_teensy_index.json`
+
+- In the main Arduino window, open Boards Manager by clicking the left-side board icon. Search for "teensy", and click "Install".
+
+- In the Arduino IDE, load either the `MouseGoggles_Gyro.ino` or the `MouseGoggles_Magnetometer.ino`script.
+
+- Plug in the microcontroller to your PC with a microUSB-USB cable.
+
+- In `Tools>Board`, select `Teensyduino>Teensy LC`.
+
+- In `Tools>USB Type`, select `Keyboard+Mouse+Joystick`.
+
+- In `Tools>Port`, select the serial port the microcontroller is connected to (if you're not sure, disconnect and reconnect the microcontroller to see which COM port changes).
+
+- Click the check mark on the upper left side of the window to verify/compile the sketch, then click the arrow button next to it to upload the code to the microcontroller.
+
+- The Teensyduino program window will automatically open. If Teensyduino prompts you to reset or put the microcontroller in programming mode, click the reset button on the microcontroller.
+
+- To verify that the Teensy was successfully reprogrammed, rotate the sensor in different directions to see the computer mouse cursor move.
+
+### Testing
+
+To verify that the sensor is operating correctly, open the `MouseVR Godot Project V1.6` project in the Godot editor and open the `rotations.gd` script. At the top of the script, specify the type of rotational sensor-control you will be using, defined by the `rotation_type` variable (for yaw, pitch, or roll control). Run the project by clicking the green "play" arrow on the top-right of the editor. Select the `rotations` scene in the scene select window, and verify that rotating the sensor results in a similar rotation in the virtual scene. 
+
+note: you may need to determine through trial-and-error what is the best starting orientation of the sensor to produce the most accurate rotation detection.

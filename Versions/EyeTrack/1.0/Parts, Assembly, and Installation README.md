@@ -190,7 +190,7 @@ This installation has been verified using the following software versions:
   flatpak run org.godotengine.Godot
   ```
 
-- Import the Godot game project located in MouseGoggles/Godot/MouseVR Godot Project V1.5/project.godot
+- Import the Godot game project located in MouseGoggles/Godot/MouseVR Godot Project V1.6/project.godot
 
 - When the game editor opens, reduce the window to a partial screen (running it in full screen may cause hang-ups)
 
@@ -202,7 +202,7 @@ This installation has been verified using the following software versions:
 
 - By default, forward/backward movement and left/right turning in the VR scene can be controlled by a USB computer mouse or trackpad, which can be used to verify the VR system is correctly working
 
-- Upon the completion of each repetition of an experiment (typically 30 - 60 s duration), logs of the mouse movement and important experiment parameters will be saved in "MouseVR Godot Project V1.5/logs/" in csv format (one row per frame, one column per data type)
+- Upon the completion of each repetition of an experiment (typically 30 - 60 s duration), logs of the mouse movement and important experiment parameters will be saved in "MouseVR Godot Project V1.6/logs/" in csv format (one row per frame, one column per data type)
 
 - Click the `esc` button to exit an experiment early. Logs of completed experiment repetitions will have been saved, but the in-progress/unfinished repetition will not be saved by default
 
