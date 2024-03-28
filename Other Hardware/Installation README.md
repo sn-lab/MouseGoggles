@@ -80,7 +80,7 @@ The headbar mount for the linear treadmill (SN HeadbarMount V2) should be machin
 
 # Rotation Sensors
 
-Since MouseGoggles is built in a small form-factor, it is possible to design rotating setups where the headset can rotate with a head-fixed mouse. In such setups, it may be desirable for the experiment to update the mouse's virtual position based on the current rotational position of the headset. To track the headset orientation in real time, an accelerometer can be used to track the roll and/or pitch tilt angles of the headset, while a magnetometer can track the yaw position. In the [Rotation Sensors]() folder, two example Arduino programs (written to be run on a Teensy 4.0 microcontroller) are shown which can acquire signals from IIC-based magnetometer or acceleromater sensors, convert those signals to a rotational position, and send this position to a MouseGoggles headset. To build this system, follow the instructions below to purchase the required hardware, install the Arduino software, and test the system with MouseGoggles.
+Since MouseGoggles is built in a small form-factor, it is possible to design rotating setups where the headset can rotate with a head-fixed mouse. In such setups, it may be desirable for the experiment to update the mouse's virtual position based on the current rotational position of the headset. To track the headset orientation in real time, an accelerometer can be used to track the roll and/or pitch tilt angles of the headset, while a magnetometer can track the yaw position. In the [Rotation Sensors](https://github.com/sn-lab/MouseGoggles/tree/main/Other%20Hardware/Rotation%20Sensors) folder, two example Arduino programs (written to be run on a Teensy 4.0 microcontroller) are shown which can acquire signals from IIC-based magnetometer or acceleromater sensors, convert those signals to a rotational position, and send this position to a MouseGoggles headset. To build this system, follow the instructions below to purchase the required hardware, install the Arduino software, and test the system with MouseGoggles.
 
 ### Parts list
 
@@ -106,7 +106,7 @@ Since MouseGoggles is built in a small form-factor, it is possible to design rot
 
 ### Software Installation
 
-To install microcontroller code to read sensor signals and transmit rotation values to the MouseGoggles system, follow the instructions below to upload either the [MouseGoggles_Gyro.ino]() (for accelerometer-based roll or pitch control using the LSM6DSOX sensor) or the [MouseGoggles_Magnetometer.ino]() Arduino code (for yaw-based control using the LIS3MDL sensor) to the Teensy 4.0 microcontroller and plug the microcontroller into the Raspberry Pi with a microUSB-to-USB cable.
+To install microcontroller code to read sensor signals and transmit rotation values to the MouseGoggles system, follow the instructions below to upload either the [MouseGoggles_Gyro.ino](https://github.com/sn-lab/MouseGoggles/tree/main/Other%20Hardware/Rotation%20Sensors/MouseGoggles_Gyro) (for accelerometer-based roll or pitch control using the LSM6DSOX sensor) or the [MouseGoggles_Magnetometer.ino](https://github.com/sn-lab/MouseGoggles/tree/main/Other%20Hardware/Rotation%20Sensors/MouseGoggles_Magnetometer) Arduino code (for yaw-based control using the LIS3MDL sensor) to the Teensy 4.0 microcontroller and plug the microcontroller into the Raspberry Pi with a microUSB-to-USB cable.
 
 - Download the latest [Arduino IDE](https://www.arduino.cc/en/software) on your PC/laptop.
 
