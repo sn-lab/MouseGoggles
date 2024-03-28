@@ -4,7 +4,7 @@
 
 - Find a bug, have a suggestion, or want to make a feature request? Submit an [issue](https://github.com/sn-lab/MouseGoggles/issues) or start a [discussion](https://github.com/sn-lab/MouseGoggles/discussions)!
 
-**Latest Updates** (Jan 2024)
+**Latest Updates**
 
 * (Mar 2024) New MouseGoggles EyeTrack headset, for binocular eye/pupil tracking cameras integrated into the headset!
   
