@@ -7,7 +7,10 @@
 **Latest Updates** (Jan 2024)
 
 * (Mar 2024) New MouseGoggles EyeTrack headset, for binocular eye/pupil tracking cameras integrated into the headset!
-
+  
+* (Mar 2024) Added Code and instructions for closed-loop rotation feedback into the VR system (see the [rotation sensors](https://github.com/sn-lab/MouseGoggles/blob/main/Other%20Hardware/Installation%20README.md#rotation-sensors
+) readme for details).
+  
 * (Mar 2024) Reorganized and renamed versions folder for 3 MouseGoggles builds: Mono (monocular display), Duo (binocular VR headset), and EyeTrack (binocular VR headset with eye/pupil imaging).
 
 * (Jan 2024) New MouseGoggles versions added to the [Versions](https://github.com/sn-lab/MouseGoggles/tree/main/Versions) folder! Versions 1.1, 1.2, and 1.5 detach the Raspberry Pi from the eyepieces, creating a smaller form factor headset. Versions 1.2+ adds the ability to adjust inter-eye distance. And version 1.5 uses newer, pre-assembled circular displays for the easiest-to-build version yet. Not sure which version to build? Try [1.5](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/Duo/1.5/Parts%2C%20Assembly%2C%20and%20Installation%20README.md)!
