@@ -6,7 +6,7 @@
 
 **Latest Updates**
 
-* (Mar 2024) New MouseGoggles EyeTrack headset, for binocular eye/pupil tracking cameras integrated into the headset!
+* (Mar 2024) New [MouseGoggles EyeTrack](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/EyeTrack/1.0) headset, for binocular eye/pupil tracking cameras integrated into the headset!
   
 * (Mar 2024) Added Code and instructions for closed-loop rotation feedback into the VR system (see the [rotation sensors](https://github.com/sn-lab/MouseGoggles/blob/main/Other%20Hardware/Installation%20README.md#rotation-sensors
 ) readme for details).
