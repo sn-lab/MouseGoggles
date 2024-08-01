@@ -8,7 +8,7 @@ The [official online documentation](https://docs.godotengine.org/en/3.0/) makes 
 
 ### Installing and running the Godot game engine
 
-On a Windows or Mac PC, download the latest Godot Engine version at [godotengine.org](godotengine.org). 
+On a Windows or Mac PC, download the Godot Engine from [godotengine.org](godotengine.org). To use the same software version that is used on the Raspberry Pi 4, download [version 3.2](https://godotengine.org/download/archive/3.2-stable/).  
 
 On a Raspberry Pi 4, Godot can be installed by opening the command terminal and entering each line, one at a time:
 
