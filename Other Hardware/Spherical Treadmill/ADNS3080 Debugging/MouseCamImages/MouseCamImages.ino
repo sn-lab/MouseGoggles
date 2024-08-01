@@ -1,3 +1,7 @@
+//MouseCamImages.ino functions to read data from an optical flow
+//sensor, and instead of outputing the average global motion data,
+//outputting the entire raw image (for validation and debugging)
+
 #include <SPI.h>
 
 //uncomment to read images from sensor 1
@@ -8,9 +12,10 @@
 //#define PIN_MOUSECAM_RESET             5
 //#define PIN_SS                         4
 
+//define variables
 #define PIN_MOUSECAM_CS                10
 
-#define ADNS3080_PIXELS_X              30
+#define ADNS3080_PIXELS_X              30 //30x30 pixel image
 #define ADNS3080_PIXELS_Y              30
 #define SERIAL                         Serial
 
@@ -25,12 +30,12 @@
 SPISettings spi_settings(24000000, MSBFIRST, SPI_MODE3);
 byte frame[ADNS3080_PIXELS_X * ADNS3080_PIXELS_Y];
 
-//struct to hold sensor motion data
+//define struct to hold sensor motion data
 struct MD
 {
  byte motion;
- char dx, dy;
- byte squal;
+ char dx, dy; //x,y optic flow
+ byte squal; //image quality
  word shutter;
  byte max_pix;
 };
