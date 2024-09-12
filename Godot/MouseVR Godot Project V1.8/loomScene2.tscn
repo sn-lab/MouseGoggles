@@ -1,0 +1,116 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://HeadKinBody_headset_waveshare_eyer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://loomScene2.gd" type="Script" id=2]
+[ext_resource path="res://textures/checkerboard40.png" type="Texture" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_unshaded = true
+
+[sub_resource type="CylinderMesh" id=2]
+material = SubResource( 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="CubeMesh" id=4]
+material = SubResource( 3 )
+
+[sub_resource type="SpatialMaterial" id=5]
+params_cull_mode = 1
+
+[sub_resource type="SphereMesh" id=6]
+material = SubResource( 5 )
+
+[sub_resource type="SpatialMaterial" id=7]
+flags_unshaded = true
+params_cull_mode = 1
+albedo_color = Color( 0.784314, 0.784314, 0.784314, 1 )
+
+[sub_resource type="Environment" id=8]
+background_mode = 1
+background_color = Color( 1, 1, 1, 1 )
+ambient_light_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="CylinderMesh" id=9]
+
+[sub_resource type="SpatialMaterial" id=10]
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="CubeMesh" id=11]
+
+[sub_resource type="SpatialMaterial" id=12]
+albedo_color = Color( 0.0392157, 0.701961, 0, 1 )
+
+[sub_resource type="PrismMesh" id=13]
+
+[sub_resource type="SpatialMaterial" id=14]
+albedo_color = Color( 0.0392157, 0.701961, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=15]
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="CylinderMesh" id=16]
+material = SubResource( 15 )
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="HeadKinBody" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.02, 0, 0, 0, 0.002, 0, 0, 0, 0.02, 0, 0.003, -10 )
+
+[node name="object" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, -10 )
+
+[node name="MeshInstance" type="MeshInstance" parent="object"]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="floor" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, -0.1, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="floor"]
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="sky" type="KinematicBody" parent="."]
+transform = Transform( 25, 0, 0, 0, 25, 0, 0, 0, 25, 0, 0, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="sky"]
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 8 )
+
+[node name="demoobject" type="KinematicBody" parent="."]
+transform = Transform( -0.0362058, 0.000582164, 0.0184893, 0.0336176, 0.00047645, 0.0283257, 0.00768099, 0.000658847, -0.0368212, 0.0759362, -0.0814859, 0.201578 )
+visible = false
+
+[node name="MeshInstance" type="MeshInstance" parent="demoobject"]
+transform = Transform( 1, -4.65661e-10, -5.96046e-08, 4.76837e-07, 1, 0, 0, 9.31323e-10, 1, 2.20769, 78.222, 1.86017 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="demoobject2" type="KinematicBody" parent="."]
+transform = Transform( 0.005, 0, 0, 0, -2.18557e-09, -0.001, 0, 0.05, -4.37114e-11, -0.0558134, 0.0640605, -0.151129 )
+visible = false
+
+[node name="MeshInstance" type="MeshInstance" parent="demoobject2"]
+mesh = SubResource( 11 )
+material/0 = SubResource( 12 )
+
+[node name="demoobject3" type="KinematicBody" parent="."]
+transform = Transform( 0.02, 0, 0, 0, 0.00297794, -0.000988853, 0, 0.0197771, 0.000148897, -0.0560924, 0.0648162, -0.0790825 )
+visible = false
+
+[node name="MeshInstance" type="MeshInstance" parent="demoobject3"]
+mesh = SubResource( 13 )
+material/0 = SubResource( 14 )
+
+[node name="verticalclip" type="KinematicBody" parent="."]
+transform = Transform( 10, 0, 0, 0, 0.1, 0, 0, 0, 10, 0, 20, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="verticalclip"]
+mesh = SubResource( 16 )
+material/0 = null
