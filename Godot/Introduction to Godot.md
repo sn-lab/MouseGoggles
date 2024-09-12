@@ -67,13 +67,13 @@ At the top of each experiment script (e.g. `linearTrackScene.gd` in Godot projec
 
 ### Creating a new experiment
 
-If you want to design new experiments of your own, you may choose to follow the tutorials listed at the top to create a new exxperiment from scratch. Alternatively, a simpler, faster way to create an experiment is to select an existing experiment that most closely matches the experiment you'd like to create, and copy/customize that experiment. General guidance on creating a new experiment this way and adding it to an existing project.
+If you want to design new experiments of your own, you may choose to follow the tutorials listed at the top to create a new exxperiment from scratch. Alternatively, a simpler, faster way to create an experiment is to select an existing experiment that most closely matches the experiment you'd like to create, and copy/customize that experiment. The following instructions provide general guidance on creating a new experiment this way by copying and editing an existing project.
 
 1. Copy the existing project, and give it a new name
    
    * Copy the "MouseVR Godot Project X.X" folder that you wish to adapt, and give the copy a unique name
    
-   * Open Godot, and in the project manager window, import the new project folder you just created. The project will still have the original project name, so rename it to match the new folder you just created
+   * Open Godot, and in the project manager window, import the new project folder you just created. The project will still have the original project name, so rename it to match the new folder you just created (In the editor window: Project>Project Settings>Config>Name)
 
 2. Run the new project, copy an existing experiment, and give it a new name
    
