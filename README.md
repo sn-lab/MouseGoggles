@@ -1,10 +1,16 @@
-**MouseGoggles**: A dual-SPI-display mouse-sized VR headset for mouse neuroscience and behavior research, powered by Raspberry Pi and the Godot game engine. Check out our preprint on Research Square! https://doi.org/10.21203/rs.3.rs-3301474/v1
+**MouseGoggles**: A dual-SPI-display mouse-sized VR headset for mouse neuroscience and behavior research, powered by Raspberry Pi and the Godot game engine. Check out our paper at Nature Methods! https://www.nature.com/articles/s41592-024-02540-y
 
 ![(left) A Raspberry Pi 4 uniquely controlling 2 circular displays. (right) Render of a head-fixed mouse on a treadmill with a VR headset](https://github.com/sn-lab/MouseGoggles/blob/main/Images/mouseVRheadsetIntro.png)
 
 - Find a bug, have a suggestion, or want to make a feature request? Submit an [issue](https://github.com/sn-lab/MouseGoggles/issues) or start a [discussion](https://github.com/sn-lab/MouseGoggles/discussions)!
 
-**Latest Updates**
+**Work in progess**
+
+* New version of MouseGoggles EyeTrack (1.1) for a simpler assembly and real-time pupil tracking (expected completion: Dec 2024)
+
+* New version of MouseGoggles Mono using a waveshare display (expected completion: Jan 2024)
+  
+**Previous Updates**
 
 * (Mar 2024) New [MouseGoggles EyeTrack](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/EyeTrack/1.0) headset, for binocular eye/pupil tracking cameras integrated into the headset!
   
