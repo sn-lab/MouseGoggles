@@ -16,6 +16,7 @@ The table below lists all off-the-shelf parts required to build MouseGoggles Mon
 | 4-40 thread, 1" length socket head screws                  | Hex screws to assemble 3D printed parts        | [McMaster](https://www.mcmaster.com/90044A111/)                                                 | $9             | 1        |
 | 4-40 thread, 3/16" wide narrow hex nuts                    | Hex nuts to assemble 3D printed parts          | [McMaster](https://www.mcmaster.com/90760A160/)                                                 | $5             | 1        |
 | Silicone glue                                              | Adhesive for securing lens and display holders | [McMaster](https://www.mcmaster.com/7587A2/)                                                    | $9             | 1        |
+| 13 position surface-mount FPC connector                    | Ribbon cable connector for circular displays   | [TE](https://www.te.com/en/product-1-2328724-3.html)                                            | $0.27          | 1        |
 
 **note**: The circular display model listed in the parts list (TT108RGN10A) is just one of a family of similar displays listed on Alibaba, many of which may be compatible with MouseGoggles. Since specific display models are occasionally discontinued or difficult to find, listed below are the circular display model numbers we are aware of and our most up-to-date estimates of their compatibility:
 
