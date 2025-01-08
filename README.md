@@ -6,7 +6,7 @@
 
 **Work in progess**
 
-* New version of MouseGoggles EyeTrack (1.1) for a simpler assembly and real-time pupil tracking (expected completion: Dec 2024)
+* New version of MouseGoggles EyeTrack (1.1) for a simpler assembly and real-time pupil tracking (expected completion: Jan 2025)
 
 * New version of MouseGoggles Mono using a waveshare display (expected completion: Jan 2025)
   
