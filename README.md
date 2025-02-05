@@ -6,27 +6,19 @@
 
 **Work in progess**
 
-* New version of MouseGoggles EyeTrack (1.1) for a simpler assembly and real-time pupil tracking (expected completion: Jan 2025)
-
-* New version of MouseGoggles Mono using a waveshare display (expected completion: Jan 2025)
+* New version of MouseGoggles Mono using either a waveshare or Adafruit circular display (expected completion: March 2025)
   
 **Previous Updates**
 
-* (Mar 2024) New [MouseGoggles EyeTrack](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/EyeTrack/1.0) headset, for binocular eye/pupil tracking cameras integrated into the headset!
+* (Feb 2025) New version of [MouseGoggles EyeTrack (version 1.1)](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/EyeTrack/1.0) for a simpler assembly and dual-camera support with a Raspberry Pi 5.
+
+* (Mar 2024) Added the [MouseGoggles EyeTrack](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/EyeTrack/1.0) headset, for binocular eye/pupil tracking cameras integrated into the headset!
   
 * (Mar 2024) Added Code and instructions for closed-loop rotation feedback into the VR system (see the [rotation sensors](https://github.com/sn-lab/MouseGoggles/blob/main/Other%20Hardware/Installation%20README.md#rotation-sensors
 ) readme for details).
+
+* (Jan 2024) New MouseGoggles versions added to the [Versions](https://github.com/sn-lab/MouseGoggles/tree/main/Versions) folder! Versions 1.1, 1.2, and 1.5 detach the Raspberry Pi from the eyepieces, creating a smaller form factor headset. Versions 1.2+ adds the ability to adjust inter-eye distance. And version 1.5 uses newer, pre-assembled circular displays for the easiest-to-build version yet.
   
-* (Mar 2024) Reorganized and renamed versions folder for 3 MouseGoggles builds: Mono (monocular display), Duo (binocular VR headset), and EyeTrack (binocular VR headset with eye/pupil imaging).
-
-* (Jan 2024) New MouseGoggles versions added to the [Versions](https://github.com/sn-lab/MouseGoggles/tree/main/Versions) folder! Versions 1.1, 1.2, and 1.5 detach the Raspberry Pi from the eyepieces, creating a smaller form factor headset. Versions 1.2+ adds the ability to adjust inter-eye distance. And version 1.5 uses newer, pre-assembled circular displays for the easiest-to-build version yet. Not sure which version to build? Try [1.5](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/Duo/1.5/Parts%2C%20Assembly%2C%20and%20Installation%20README.md)!
-
-* (Jan 2024) Added design files for 3D printable parts (.step files) and custom PCBs (schematic, layout, and autodesk eagle project files) for all versions to make it easier to modify MouseGoggles as you please.
-
-* (Jan 2024) Added software support for the Janelia low-friction linear treadmill, located in the [Other Hardware/Linear Treadmill](https://github.com/sn-lab/MouseGoggles/tree/main/Other%20Hardware/Linear%20Treadmill/LinearTreadmill_Mouse_Controller_V2) folder.
-
-* (Jan 2024) Added files for headbars and mounts compatabile with MouseGoggles, located in the [Other Hardware/Headbars](https://github.com/sn-lab/MouseGoggles/tree/main/Other%20Hardware/Headbars) folder.
-
 # About MouseGoggles
 
 ### The Raspberry Pi and Godot game engine
