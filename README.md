@@ -10,7 +10,7 @@
   
 **Previous Updates**
 
-* (Feb 2025) New version of [MouseGoggles EyeTrack (version 1.1)](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/EyeTrack/1.0) for a simpler assembly and dual-camera support with a Raspberry Pi 5.
+* (Feb 2025) New version of [MouseGoggles EyeTrack (version 1.1)](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/EyeTrack/1.1) for a simpler assembly and dual-camera support with a Raspberry Pi 5.
 
 * (Mar 2024) Added the [MouseGoggles EyeTrack](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/EyeTrack/1.0) headset, for binocular eye/pupil tracking cameras integrated into the headset!
   
