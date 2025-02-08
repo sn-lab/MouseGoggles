@@ -1,4 +1,4 @@
-**MouseGoggles**: A dual-SPI-display mouse-sized VR headset for mouse neuroscience and behavior research, powered by Raspberry Pi and the Godot game engine. Check out our paper at Nature Methods! https://www.nature.com/articles/s41592-024-02540-y
+**MouseGoggles**: A dual-SPI-display mouse-sized VR headset for mouse neuroscience and behavior research, powered by Raspberry Pi and the Godot game engine. Check out the paper at Nature Methods! https://www.nature.com/articles/s41592-024-02540-y
 
 ![(left) A Raspberry Pi 4 uniquely controlling 2 circular displays. (right) Render of a head-fixed mouse on a treadmill with a VR headset](https://github.com/sn-lab/MouseGoggles/blob/main/Images/mouseVRheadsetIntro.png)
 
@@ -10,14 +10,24 @@
   
 **Previous Updates**
 
-* (Feb 2025) New version of [MouseGoggles EyeTrack (version 1.1)](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/EyeTrack/1.1) for a simpler assembly and dual-camera support with a Raspberry Pi 5.
+* (Feb 2025) New version of [MouseGoggles EyeTrack (version 1.1)](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/EyeTrack/1.1) for a simpler assembly and dual eye-tracking camera support with a Raspberry Pi 5.
 
 * (Mar 2024) Added the [MouseGoggles EyeTrack](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/EyeTrack/1.0) headset, for binocular eye/pupil tracking cameras integrated into the headset!
   
 * (Mar 2024) Added Code and instructions for closed-loop rotation feedback into the VR system (see the [rotation sensors](https://github.com/sn-lab/MouseGoggles/blob/main/Other%20Hardware/Installation%20README.md#rotation-sensors
 ) readme for details).
 
-* (Jan 2024) New MouseGoggles versions added to the [Versions](https://github.com/sn-lab/MouseGoggles/tree/main/Versions) folder! Versions 1.1, 1.2, and 1.5 detach the Raspberry Pi from the eyepieces, creating a smaller form factor headset. Versions 1.2+ adds the ability to adjust inter-eye distance. And version 1.5 uses newer, pre-assembled circular displays for the easiest-to-build version yet.
+* (Jan 2024) New MouseGoggles Duo versions added to the [Versions](https://github.com/sn-lab/MouseGoggles/tree/main/Versions) folder! Versions 1.1, 1.2, and 1.5 detach the Raspberry Pi from the eyepieces, creating a smaller form factor headset. Versions 1.2+ adds the ability to adjust inter-eye distance. And version 1.5 uses newer, pre-assembled circular displays for the easiest-to-build version yet.
+  
+
+# Building a MouseGoggles System
+
+All versions of MouseGoggles were designed using as many readily available, off-the-shelf parts as possible, with only a minimal number of custom 3D printed parts and circuit boards, to make assembly as simple as possible. To build a MouseGoggles system, navigate to the folder of the version you'd like to build in the [Versions](https://github.com/sn-lab/MouseGoggles/tree/main/Versions) folder and follow the included README for a comprehensive parts list, assembly guide, and software installation instructions. If you're not sure which version you'd like to build:
+
+* Do you need binocular VR with embedded eye-tracking? Try [Eyetrack version 1.1](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/EyeTrack/1.1)).
+* Don't need eye-tracking? Go with the headset that is simplest and assemble and use, [Duo version 1.5](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/Duo/1.5)).
+* Only looking for monocoular visual stimulation with basic stimuli (e.g. gratings, edges)? Consider the even smaller and simpler [Mono version 1.0](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/Mono/1.0)).
+
   
 # About MouseGoggles
 
@@ -50,10 +60,6 @@ In addition to the binocular MouseGoggles system, a monocular eyepiece version c
 ![Render of a spherical treadmill system with a head mount, air-suspended Styrofoam ball, motion sensors, and microcontroller](https://github.com/sn-lab/MouseGoggles/blob/main/Images/SphericalTreadmillRender.png)
 
 The MouseGoggles VR headset was developed and tested using a two different treadmills for simulated walking: the spherical treadmill setup as described [here](https://pubmed.ncbi.nlm.nih.gov/19829374/) and the linear treadmill described [here](https://github.com/janelia-experimental-technology/Rodent-Belt-Treadmill/tree/main). These treadmills use sensors to detect treadmill motion and a microcontroller to transmit this movement information to external devices. By modifying the microcontroller code, we can adapt these systems to send treadmill motion to the Raspberry Pi over USB through computer mouse emulation. Forward movement (i.e. "pitch" of the spherical treadmill, or any movement of the linear treadmill) is mapped as mouse y movement, turning (i.e. "yaw" of the spherical treadmill) is mapped as x movement, and sideways motion (i.e. "roll" of the spherical treadmill) is mapped as mouse scroll wheel movement. The Godot game engine converts these detected mouse movement events into the corresponding camera movements in the virtual scene. This setup allows the human user to test the game environments and experiments using a standard computer mouse or touchpad, and to use this VR system with any type of treadmill control system that can be translated through the standard USB mouse communication protocol. To set up one of these treadmill systems with MouseGoggles (including adding a headbar and mount to head-fix a mouse above the treadmill), see the [README](https://github.com/sn-lab/MouseGoggles/blob/main/Other%20Hardware/Installation%20README.md) in the [Other Hardware](https://github.com/sn-lab/MouseGoggles/tree/main/Other%20Hardware) folder.
-
-# Building a MouseGoggles System
-
-All versions of MouseGoggles were designed using as many readily available, off-the-shelf parts as possible, with only a minimal number of custom 3D printed parts and circuit boards, to make assembly as simple as possible. To build a MouseGoggles system, navigate to the folder of the version you'd like to build in the [Versions](https://github.com/sn-lab/MouseGoggles/tree/main/Versions) folder (if you're not sure which, try the latest, [version 1.5](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/Duo/1.5)) and follow the included README for a comprehensive parts list, assembly guide, and software installation instructions.
 
 # Published Data
 
