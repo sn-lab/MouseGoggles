@@ -93,17 +93,19 @@ The table below lists all custom PCBs (printed circuit boards) used by MouseGogg
 
 8. Repeat steps 1-5 to create a second eyepiece.
 
-9. On each eyepiece, place the assembled IRLED PCB into the cutout on the side of the eyepiece enclosure, and insert a NoIR camera into the camera slot. Holding the IRLED PCB and camera in place, slide the "Clip" 3D print over the camera and LED board, bending the clip so that it grabs the ledges of the eyepiece next to the LED boad, securing the camera board in place. 
+9. Before inserting the NoIR cameras into the eyepieces, remove the dab of glue on the side of the lens (just inside the square outer case) which prevents adjustment of the camera focus. Dig out the glue using a small tool such as a needle or small pair of scissors, until the lens can be rotated smoothly using the "IMX519 Key" 3D print. After the glue is removed, use the key to unscrew the lens until it protrudes from its square case about 2-3 mm.
 
-10. Attach the "Pi5 Mount" 3D print to the top of a Raspberry Pi 5 (the side with the connectors) by lining up the mounting holes and inserting three 1" long screws from the top of the Pi5 Mount. Do not add nuts to the bottom of the Raspberry Pi yet.
+10. On each eyepiece, place the assembled IRLED PCB into the cutout on the side of the eyepiece enclosure, and insert a NoIR camera into the camera slot. Holding the IRLED PCB and camera in place, slide the "Clip" 3D print over the camera and LED board, bending the clip so that it grabs the ledges of the eyepiece next to the LED boad, securing the camera board in place. 
 
-11. Connect the "Pi Spacer" 3D print to the bottom of th Raspberry Pi 5, threading the screws through the mounting holes.
+11. Attach the "Pi5 Mount" 3D print to the top of a Raspberry Pi 5 (the side with the connectors) by lining up the mounting holes and inserting three 1" long screws from the top of the Pi5 Mount. Do not add nuts to the bottom of the Raspberry Pi yet.
 
-12. Connect a Raspberry Pi 4 below the Pi Spacer, so that the bottom of the Pi 4 is next to the bottom of the Pi 5.
+12. Connect the "Pi Spacer" 3D print to the bottom of th Raspberry Pi 5, threading the screws through the mounting holes.
 
-13. Add 3 hex nuts to the screws, tightening them to the top of the Pi 4. You may add a 4th screw to the empty through hole if desired.
+13. Connect a Raspberry Pi 4 below the Pi Spacer, so that the bottom of the Pi 4 is next to the bottom of the Pi 5.
 
-14. On each eyepiece, insert two hex nuts into the slots of the Enclosure Back, and secure the eyepiece to the Pi 5 mount using hex screws. Orient the eyepieces so that the cameras are nearer the open side of the Pi 5 mount which exposes the pair of CSI camera ports. Repeat for the other eyepiece.
+14. Add 3 hex nuts to the screws, tightening them to the top of the Pi 4. You may add a 4th screw to the empty through hole if desired.
+
+15. On each eyepiece, insert two hex nuts into the slots of the Enclosure Back, and secure the eyepiece to the Pi 5 mount using hex screws. Orient the eyepieces so that the cameras are nearer the open side of the Pi 5 mount which exposes the pair of CSI camera ports. Repeat for the other eyepiece.
     
     * Note: If any part is too difficult to slide into place, use a needle file to sand down any warped areas or imperfections of the 3D prints. The edges of the custom PCBs can also be sanded down, since there may also be imperfections in the PCB manufacturing/cutting process.
 
@@ -269,6 +271,10 @@ This installation has been verified using the following software versions:
 * Run the `pi5cam.py` script, which will open camera preview windows and start recording. A .mjpg file will be saved for each video once the recording has finished.
 
 * (Optional) To convert the .mjpg file to a .mkv file that can be viewed with vlc, open the command terminal and enter the following line, changing the input and output filenames as desired:
+
+* Note 1: The focus of the cameras will likely need to be manually adjusted for high-quality eye imaging. Use the IMX519 key to adjust each camera's focus until an object (e.g. a piece of paper with small text) positioned ~1 mm away from the center of the Fresnel lens of the eyepiece is in sharp focus.
+
+* Note 2: Since the camera is IR sensitive but still strongly detects red, green, and blue light from the displays, the best eye imaging during VR presentation can be achieved by using the latest godot project which only presents images using the blue and green LEDs of the display, and by performing eye-imaging using only the red channel of the NoIR cameras.
   
   ```
   ffmpeg -framerate 25 -i input.mjpg -c:v copy -metadata fps=25 output.mkv
