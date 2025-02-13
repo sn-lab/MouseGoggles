@@ -93,7 +93,7 @@ The table below lists all custom PCBs (printed circuit boards) used by MouseGogg
 
 8. Repeat steps 1-5 to create a second eyepiece.
 
-9. Before inserting the NoIR cameras into the eyepieces, remove the dab of glue on the side of the lens (just inside the square outer case) which prevents adjustment of the camera focus. Dig out the glue using a small tool such as a needle or small pair of scissors, until the lens can be rotated smoothly using the "IMX519 Key" 3D print. After the glue is removed, use the key to unscrew the lens until it protrudes from its square case about 2-3 mm.
+9. Before inserting the NoIR cameras into the eyepieces, remove the dab of glue on the side of the lens (just inside the square outer case) which prevents adjustment of the camera focus. Dig out the glue using a small tool such as a needle or small pair of scissors, until the lens can be rotated smoothly using the "IMX519 Key" 3D print. After the glue is removed, use the key to unscrew the lens until it protrudes from its square case by ~2 mm.
 
 10. On each eyepiece, place the assembled IRLED PCB into the cutout on the side of the eyepiece enclosure, and insert a NoIR camera into the camera slot. Holding the IRLED PCB and camera in place, slide the "Clip" 3D print over the camera and LED board, bending the clip so that it grabs the ledges of the eyepiece next to the LED boad, securing the camera board in place. 
 
@@ -190,12 +190,10 @@ This installation has been verified using the following software versions:
   
   ```
   wget -O install_pivariety_pkgs.sh https://github.com/ArduCAM/Arducam-Pivariety-V4L2-Driver/releases/download/install_script/install_pivariety_pkgs.sh
-  chmod+xinstall_pivariety_pkgs.sh
+  chmod +x install_pivariety_pkgs.sh
   ./install_pivariety_pkgs.sh -p libcamera_dev
   ./install_pivariety_pkgs.sh -p libcamera_apps
   ```
-
-- note: If you are asked if you want to continue installing, answer yes.
 
 ### Add dual-camera support in the configuration file
 
@@ -273,7 +271,7 @@ This installation has been verified using the following software versions:
 
 * (Optional) To convert the .mjpg file to a .mkv file that can be viewed with vlc, open the command terminal and enter the following line, changing the input and output filenames as desired:
 
-* Note 1: The focus of the cameras will likely need to be manually adjusted for high-quality eye imaging. Use the IMX519 key to adjust each camera's focus until an object (e.g. a piece of paper with small text) positioned ~1 mm away from the center of the Fresnel lens of the eyepiece is in sharp focus.
+* Note 1: The focus of the cameras will likely need to be manually adjusted for high-quality eye imaging. Use the IMX519 key to adjust each camera's focus (i.e. unscrew the lens) until an object (e.g. a piece of paper with small text) positioned ~0.5-1 mm away from the center of the Fresnel lens of the eyepiece is in sharp focus. 
 
 * Note 2: Since the camera is IR sensitive but still strongly detects red, green, and blue light from the displays, the best eye imaging during VR presentation can be achieved by using the latest godot project which only presents images using the blue and green LEDs of the display, and by performing eye-imaging using only the red channel of the NoIR cameras.
   
