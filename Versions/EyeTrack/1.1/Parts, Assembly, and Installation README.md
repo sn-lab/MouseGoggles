@@ -143,6 +143,7 @@ To install all necessary software, you'll first need a PC to install the Raspber
 
 ### Install the Godot game engine
 
+- Start the Raspberry Pi and connect to the internet.
 - Open up the Raspberry Pi command terminal and enter each line, one at a time:
   
   ```
@@ -184,11 +185,11 @@ This installation has been verified using the following software versions:
 
 ### Install the camera driver and software
 
-- Open up the Raspberry Pi command terminal and enter each line, one at a time:
+- Start the Raspberry Pi and connect to the internet.
+- Open up the command terminal and enter each line, one at a time:
   
   ```
-  wget -O
-  install_pivariety_pkgs.sh https://github.com/ArduCAM/Arducam-Pivariety-V4L2-Driver/releases/download/install_script/install_pivariety_pkgs.sh
+  wget -O install_pivariety_pkgs.sh https://github.com/ArduCAM/Arducam-Pivariety-V4L2-Driver/releases/download/install_script/install_pivariety_pkgs.sh
   chmod+xinstall_pivariety_pkgs.sh
   ./install_pivariety_pkgs.sh -p libcamera_dev
   ./install_pivariety_pkgs.sh -p libcamera_apps
