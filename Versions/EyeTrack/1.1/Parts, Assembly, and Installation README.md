@@ -53,7 +53,7 @@ The table below lists all custom PCBs (printed circuit boards) used by MouseGogg
 | Part Name                                    | Description                                      | Link                                                                                                                                                                  | Quantity |
 | -------------------------------------------- | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | MouseGoggles EyeTrack Hat-1-1_2025-02-03.zip | zipped Gerber files of Rasberry Pi PCB connector | [zip](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/EyeTrack/1.1/PCBs/MouseGoggles%20EyeTrack%20Hat-1-1/MouseGoggles%20EyeTrack%20Hat-1-1_2025-02-03.zip) | 1        |
-| MouseGoggles IRLED-1-5_2023-12-21.zip        | zipped Gerber files of IR LED PCB mount          | [zip](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/EyeTrack/1.1/PCBs/MouseGoggles%20IRLED-1-5/MouseGoggles%20IRLED-1-5_2023-12-21.zip)                   | 2        |
+| MouseGoggles IRLED-1-5_2023-12-21.zip        | zipped Gerber files of IR LED PCB mount          | [zip](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/EyeTrack/1.1/PCBs/MouseGoggles%20IRLED-1-5/MouseGoggles%20IRLED-1-5_2025-02-12.zip)                   | 2        |
 
 # 
 
