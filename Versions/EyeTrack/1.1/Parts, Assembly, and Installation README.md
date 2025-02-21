@@ -1,3 +1,6 @@
+
+![(left) 3D render of assembled MouseGoggles EyeTrack 1.1. (right) Picture of assembled MouseGoggles EyeTrack 1.1](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/EyeTrack/1.1/Images/EyeTrack_1-1_Assembled.png)
+
 # Parts List
 
 ---
@@ -58,6 +61,8 @@ The table below lists all custom PCBs (printed circuit boards) used by MouseGogg
 # 
 
 # Hardware Assembly Instructions
+
+![Image series of MouseGoggles EyeTrack 1.1 assembly process](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/EyeTrack/1.1/Images/EyeTrack_1-1_Assembly.png)
 
 ---
 
