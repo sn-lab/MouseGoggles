@@ -149,16 +149,10 @@ To install all necessary software, you'll first need a PC to install the Raspber
 ### Install the Godot game engine
 
 - Start the Raspberry Pi and connect to the internet.
-- Open up the Raspberry Pi command terminal and enter each line, one at a time:
-  
-  ```
-  sudo apt update
-  sudo apt install flatpak
-  flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-  flatpak install flathub org.godotengine.Godot
-  ```
-
-- note: When you are asked if you want to continue installing, answer yes
+- Open up the githib page for the [Unofficial Godot Engine for the Raspberry Pi](https://github.com/hiulit/Unofficial-Godot-Engine-Raspberry-Pi/tree/main?tab=readme-ov-file#compiling).
+- In the "Downloads" section, download the zip file for 3.5.2 - Raspberry Pi 4
+- After the zip file has been downloaded, navigate to your "downloads" folder, right-click on the zip file, and click "extract here"
+- Inside the unzipped folder, find the "...editor_Ito.bin" file. This is the executable file for running the godot game engine. To run the engine, double-click this file and select "Execute".
 
 ### Install the display driver
 
@@ -184,7 +178,7 @@ This installation has been verified using the following software versions:
 
 - flatpak: 1.14.1-4
 - cmake: cmake-3.27.4
-- godot: 3.2.3.stable.flathub
+- unofficial godot: 3.5.2-stable
 
 ## Installing Software for the Raspberry Pi 5
 
@@ -246,13 +240,9 @@ This installation has been verified using the following software versions:
 
 ### Starting the game engine and running experiments
 
-- Open up a Raspberry Pi command terminal and enter the following line:
-  
-  ```
-  flatpak run org.godotengine.Godot
-  ```
+- Navigate to the "godot_3.5.2-stable_rpi4_editor_Ito.bin" file. Double-click this file and select "Execute".
 
-- Import the Godot game project located in MouseGoggles/Godot/MouseVR Godot Project V1.6/project.godot
+- Import the Godot game project located in MouseGoggles/Godot/MouseVR Godot Project V2.0/project.godot
 
 - When the game editor opens, reduce the window to a partial screen (running it in full screen may cause hang-ups)
 
@@ -264,7 +254,7 @@ This installation has been verified using the following software versions:
 
 - By default, forward/backward movement and left/right turning in the VR scene can be controlled by a USB computer mouse or trackpad, which can be used to verify the VR system is correctly working
 
-- Upon the completion of each repetition of an experiment (typically 30 - 60 s duration), logs of the mouse movement and important experiment parameters will be saved in "MouseVR Godot Project V1.6/logs/" in csv format (one row per frame, one column per data type)
+- Upon the completion of each repetition of an experiment (typically 30 - 60 s duration), logs of the mouse movement and important experiment parameters will be saved in "MouseVR Godot Project V2.0/logs/" in csv format (one row per frame, one column per data type)
 
 - Click the `esc` button to exit an experiment early. Logs of completed experiment repetitions will have been saved, but the in-progress/unfinished repetition will not be saved by default
 
