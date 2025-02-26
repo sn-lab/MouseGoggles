@@ -134,9 +134,9 @@ To install all necessary software, you'll first need a PC to install the Raspber
 
 ## Installing software for the Raspberry Pi 4
 
-### Install the Legacy Raspberry Pi Operating System
+### Install the Legacy Raspberry Pi 4 Operating System
 
-- Insert a micro SD card into your PC
+- Insert a blank micro SD card into your PC
 - Download and install the [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
 - Choose Device: "Raspiberry Pi 4""
 - Choose OS: "Raspberry Pi OS (Legacy, 32-bit)"
@@ -188,6 +188,18 @@ This installation has been verified using the following software versions:
 
 ## Installing Software for the Raspberry Pi 5
 
+### Install the Legacy Raspberry Pi 5 Operating System
+
+- Insert a blank micro SD card into your PC
+- Download and install the [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
+- Choose Device: "Raspiberry Pi 5""
+- Choose OS: "Raspberry Pi OS (64-bit)"
+- Choose Storage: -select your SD card-
+- When asked if you would like to apply custom OS settings, click "Edit Settings"
+- Set the hostname, username, password, WiFi, and localisation settings as desired, then click save and exit the settings window
+- Select "yes" to install the OS with your custom settings
+- After the image has finished writing, Insert the SD card into your Raspberry Pi and power it on
+- 
 ### Install the camera driver and software
 
 - Start the Raspberry Pi and connect to the internet.
