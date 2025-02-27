@@ -10,7 +10,7 @@
   
 **Previous Updates**
 
-* (Feb 2025) New version of [MouseGoggles EyeTrack (version 1.1)](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/EyeTrack/1.1) for a simpler assembly and dual eye-tracking camera support with a Raspberry Pi 5. Godot project 2.0 adds new experiment types and cleans up existing ones for compatibilty with EyeTrack 1.1.
+* (Feb 2025) New version of [MouseGoggles EyeTrack (version 1.1)](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/EyeTrack/1.1) for a simpler assembly and dual eye-tracking camera support with a Raspberry Pi 5. [Godot project 2.0](https://github.com/sn-lab/MouseGoggles/tree/main/Godot/MouseVR%20Godot%20Project%20V2.0) adds new experiment types and cleans up existing ones for compatibilty with EyeTrack 1.1.
 
 * (Mar 2024) Added the [MouseGoggles EyeTrack](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/EyeTrack/1.0) headset, for binocular eye/pupil tracking cameras integrated into the headset!
   
