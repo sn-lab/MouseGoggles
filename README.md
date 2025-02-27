@@ -25,7 +25,7 @@
 All versions of MouseGoggles were designed using as many readily available, off-the-shelf parts as possible, with only a minimal number of custom 3D printed parts and circuit boards, to make assembly as simple as possible. To build a MouseGoggles system, navigate to the folder of the version you'd like to build in the [Versions](https://github.com/sn-lab/MouseGoggles/tree/main/Versions) folder and follow the included README for a comprehensive parts list, assembly guide, and software installation instructions. If you're not sure which version you'd like to build:
 
 * Do you need binocular VR with embedded eye-tracking? Try [Eyetrack version 1.1](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/EyeTrack/1.1)).
-* Don't need eye-tracking? Go with the headset that is simplest and assemble and use, [Duo version 1.5](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/Duo/1.5)).
+* Don't need eye-tracking? Go with the headset that is simplest to assemble and use: [Duo version 1.5](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/Duo/1.5)).
 * Only looking for monocoular visual stimulation with basic stimuli (e.g. gratings, edges)? Consider the even smaller and simpler [Mono version 1.0](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/Mono/1.0)).
 
   
