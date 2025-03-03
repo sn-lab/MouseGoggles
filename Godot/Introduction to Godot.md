@@ -53,7 +53,7 @@ Different experiments are designed to store different variables that are importa
 
 ### Calibrating an existing experiment
 
-At the top of each experiment script (e.g. `linearTrackScene.gd` in Godot project 1.6), variables are set which descibe many of the experiment's parameters. Some of these parameters may need to be changed depending on your specific experimental setup. Listed below is a few parameters which are mostly likely to change, though for each experiment you run, it is wise to first look through all of the parameters to verify they make sense for your experiment.
+At the top of each experiment script (e.g. `linearTrackScene.gd` in Godot project 1.6), variables are set which descibe many of the experiment's parameters. Some of these parameters may need to be changed depending on your specific experimental setup. Beginning in Godot project 2.0, many of these parameters which are common across all experiments (e.g. parameters about the headset configuration) are instead contained in the `commonSettings.gd` script to remove redundancy. Listed below is a few parameters which are mostly likely to change, though for each experiment you run, it is wise to first look through all of the parameters to verify they make sense for your experiment.
 
 * `trial_duration`: The duration (in s) of each trial, before a timeout is reached and the next trial starts.
 
