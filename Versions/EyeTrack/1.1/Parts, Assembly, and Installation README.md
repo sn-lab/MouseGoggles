@@ -182,7 +182,7 @@ This installation has been verified using the following software versions:
 
 ## Installing Software for the Raspberry Pi 5
 
-### Install the Legacy Raspberry Pi 5 Operating System
+### Install the Raspberry Pi 5 Operating System
 
 - Insert a blank micro SD card into your PC
 - Download and install the [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
