@@ -14,9 +14,9 @@ export var camera_trigger_duration = 0.5 #duration of trigger signal to start/st
 export var exp_phase = 1
 
 #training protocol parameters
-export var num_reps_1 = 48
+export var num_reps_1 = 4
 export var trial_angles_1 = [0, 45] #angle change rotational speeds for each trial (day 1)
-export var num_reps_2 = 12
+export var num_reps_2 = 8
 export var trial_angles_2 = [0, 0, 0, 0, 5, 10, 22.5, 45] #angle change rotational speeds for each trial (days 2+)
 
 #optomotor variables
@@ -54,24 +54,22 @@ var num_reps = []
 var current_angle = 0
 var current_rep = 1
 var num_trials = 0
-var times := [] # Timestamps of frames rendered in the last second
-var fps := 0 # Frames per second
 var statecolor = Color(0, 0, 0)
 var dataNames = ['head_yaw', 'head_thrust', 'head_slip', 'current_trial', 'rotation_phase', 'stim_out', 'ms_now']
-var dataArray := []
-var dataLog := []
-var timestamp = "_"
-var ms_start := OS.get_ticks_msec()
-var ms_now := OS.get_ticks_msec()
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():    
-	var td = OS.get_datetime() # time dictionary
-	ms_start = OS.get_ticks_msec()
-	timestamp = String(td.year) + "_" + String(td.month) + "_" + String(td.day) + "_" + String(td.hour) + "_" + String(td.minute) + "_" + String(td.second)
+	experimentName =  timestamp + "_" + scene_name
 	
 	#input setup
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	#UDP handshake
+	assert(udp.listen(listen_port) == OK, "UDP listen failed")
+	verify_connection()
+	start_video(experimentName, 780.0)
+	OS.delay_msec(1000)
 	
 	#set new eye positions
 	inter_eye_distance = 0 #put eyes together in the center
@@ -89,7 +87,6 @@ func _ready():
 	num_trials = trial_angles.size()
 	randomize()
 	trial_angles.shuffle()
-	Input.start_joy_vibration(0,0,camera_trigger_duration,0.1) #strong/left rumble (duration is in 10's of ms, so 50 = 500 ms = 0.5 s)
 	print("trial order " + str(trial_angles))
 	
 	#set mouse position to free walking area
@@ -257,7 +254,7 @@ func _process(delta):
 			
 	elif rotation_phase == 3: #[horizontal or angled] grating rotation
 		#rotate cylinder
-		rotatinggrating.rotation_degrees.z = current_angle
+		#rotatinggrating.rotation_degrees.z = current_angle
 		rotation_angle_y = delta*rotation_speed_y
 		rotatinggrating.rotate_object_local(Vector3(0,1,0), rotation_angle_y*3.14/180)
 		
@@ -337,15 +334,18 @@ func _process(delta):
 			current_trial += 1
 			# Check for time to switch to next rep
 			if (current_trial==num_trials):
-				saveUtils.save_logs(current_rep,dataLog,dataNames,timestamp,scene_name) #save current logged data to a new file
+				saveUtils.save_logs(current_rep,dataLog,dataNames,experimentName) #save current logged data to a new file
 				dataLog = [] #clear saved data
 				current_trial = 0
 				current_rep += 1
 				if (current_rep > num_reps):
-					Input.start_joy_vibration(0,0,camera_trigger_duration,0.1)
+					stop_video()
 					print("experiment complete")
-					yield(get_tree().create_timer(1.0), "timeout")
-					get_tree().quit() 
+					fpslabel.text = "transferring video..."
+					transfer_video(experimentName)
+					print("done")
+					Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+					get_tree().change_scene("res://sceneSelect.tscn")
 				else:
 					trial_angles.shuffle()
 					print("trial order " + str(trial_angles))
@@ -359,8 +359,15 @@ func _process(delta):
 func _input(ev):
 	if ev is InputEventKey and ev.is_pressed():
 		if ev.scancode == KEY_ESCAPE:
-			saveUtils.save_logs(current_rep,dataLog,dataNames,timestamp,scene_name) #save current logged data to a new file
-			get_tree().quit() 
+			saveUtils.save_logs(current_rep,dataLog,dataNames,experimentName) #save current logged data to a new file
+			stop_video()
+			print("experiment exited, transferring video...")
+			yield(get_tree().create_timer(1.0), "timeout")
+			fpslabel.text = "transferring video..."
+			transfer_video(experimentName)
+			print("done")
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			get_tree().change_scene("res://sceneSelect.tscn")
 			
 	if ev is InputEventMouseMotion:
 		head_yaw += ev.relative.x

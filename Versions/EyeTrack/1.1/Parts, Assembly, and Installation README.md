@@ -1,4 +1,3 @@
-
 ![(left) 3D render of assembled MouseGoggles EyeTrack 1.1. (right) Picture of assembled MouseGoggles EyeTrack 1.1](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/EyeTrack/1.1/Images/EyeTrack_1-1_Assembled.png)
 
 # Parts List
@@ -7,7 +6,7 @@
 
 ### Off-the-shelf parts
 
-The table below lists all off-the-shelf parts required to build MouseGoggles EyeTrack 1.1, updated with newer IR-sensitive cameras, dual-camera-support with a Raspberry 5, and a simpler assembly! 
+The table below lists all off-the-shelf parts required to build MouseGoggles EyeTrack 1.1, updated with newer IR-sensitive cameras, dual-camera-support with a Raspberry 5, and a simpler assembly! This system is also the first to use Godot Project 2.1, which enables control of the eye-tracking cameras from within the Godot VR game engine.
 
 Follow the links below to purchase the parts in the quantities listed (though you may considering ordering spare parts as well). In addition to these listed parts, you will also need some basic computer peripherals (HDMI monitor, USB keyboard and mouse /touchpad, microSD card reader), at for the initial setup.
 
@@ -30,6 +29,7 @@ Follow the links below to purchase the parts in the quantities listed (though yo
 | VSMB2943GX01 SMD 940 nm Infrared LED              | IR LED for eye tracking illumination                | [DigiKey](https://www.digikey.com/en/products/detail/vishay-semiconductor-opto-division/VSMB2943GX01/3984794)                                                   | $0.6           | 4        |
 | 100 Ohm SMD Resistor, 0805 package                | Resistor for IR LED circuit                         | [DigiKey](https://www.digikey.com/en/products/detail/yageo/RC0805FR-07100RL/727543)                                                                             | $0.1           | 2        |
 | IMX519 NoIR Camera Module for Raspberry Pi 5      | Mini IR-sensitive eye tracking camera               | [Arducam](https://www.arducam.com/product/arducam-mini-16mp-imx519-camera-module-for-raspberry-pi-zero-b0391/)                                                  | $33            | 2        |
+| Ethernet CAT6 Cable - 30cm long                   | Ethernet cable for Pi-to-Pi communication           | [Adafruit](https://www.adafruit.com/product/5443)                                                                                                               | $2.50          | 1        |
 
 ### 3D prints
 
@@ -193,11 +193,12 @@ This installation has been verified using the following software versions:
 - Set the hostname, username, password, WiFi, and localisation settings as desired, then click save and exit the settings window
 - Select "yes" to install the OS with your custom settings
 - After the image has finished writing, Insert the SD card into your Raspberry Pi and power it on
-  
+
 ### Install the camera driver and software
 
 - Start the Raspberry Pi and connect to the internet.
-- Open up the command terminal and enter each line, one at a time:
+
+- Open up the command terminal and enter each line, one at a time: (scroll to see the full line)
   
   ```
   wget -O install_pivariety_pkgs.sh https://github.com/ArduCAM/Arducam-Pivariety-V4L2-Driver/releases/download/install_script/install_pivariety_pkgs.sh
@@ -224,6 +225,33 @@ This installation has been verified using the following software versions:
 * Hit ctrl-s to save the file
 
 * Reboot the Raspberry Pi
+  
+  
+  
+
+### (Optional) Set up TCP/UDP connection to the Pi 4
+
+- To create a static IP address for direct ethernet connection to the Pi 4, open up the Raspberry Pi command terminal and enter the following lines (feel free to change the IP address to anything between `169.254.0.1/16` and`169.254.255.254/16`): (scroll to see the full line)
+  
+  ```
+  sudo nmcli connection modify "Wired connection 1" ipv4.addresses 169.254.123.1/16 ipv4.method manual
+  sudo nmcli connection up "Wired connection 1"
+  
+  
+  ```
+
+- To enable the Pi 4 to control the eye-tracking cameras on the Pi 5, download the "pi5cam_udp.py" and "pi5cam_udp.service" files from the python folder and place them in a folder named "Cam" on the Pi 5 desktop.
+
+- To automatically start the pi5cam_udp.py script whenever the Pi 5 boots up (recommended), open up a command terminal and enter each line one at a time to copy the service file into the systemd folder and enable/start the service: (scroll to see the full line)
+  
+  ```
+  sudo cp /home/MG5/Desktop/Cam/pi5cam_udp.service /etc/systemd/system/pi5cam_udp.service
+  sudo systemctl daemon-reload
+  sudo systemctl enable pi5cam_udp.service
+  sudo systemctl start pi5cam_udp.service
+  ```
+  
+  
 
 # Operating Instructions
 
@@ -242,7 +270,7 @@ This installation has been verified using the following software versions:
 
 - Navigate to the "godot_3.5.2-stable_rpi4_editor_Ito.bin" file. Double-click this file and select "Execute".
 
-- Import the Godot game project located in MouseGoggles/Godot/MouseVR Godot Project V2.0/project.godot
+- Import the Godot game project located in MouseGoggles/Godot/MouseVR Godot Project V2.1/project.godot
 
 - When the game editor opens, reduce the window to a partial screen (running it in full screen may cause hang-ups)
 
@@ -254,7 +282,7 @@ This installation has been verified using the following software versions:
 
 - By default, forward/backward movement and left/right turning in the VR scene can be controlled by a USB computer mouse or trackpad, which can be used to verify the VR system is correctly working
 
-- Upon the completion of each repetition of an experiment (typically 30 - 60 s duration), logs of the mouse movement and important experiment parameters will be saved in "MouseVR Godot Project V2.0/logs/" in csv format (one row per frame, one column per data type)
+- Upon the completion of each repetition of an experiment (typically 30 - 60 s duration), logs of the mouse movement and important experiment parameters will be saved in "MouseVR Godot Project V2.1/logs/" in csv format (one row per frame, one column per data type)
 
 - Click the `esc` button to exit an experiment early. Logs of completed experiment repetitions will have been saved, but the in-progress/unfinished repetition will not be saved by default
 
@@ -270,7 +298,7 @@ This installation has been verified using the following software versions:
 
 - Check in `/etc/rc.local` and `/etc/init.d` to make sure fbcp does not start on system startup (delete any fbcp entries) 
 
-### Recording video from the eye-tracking cameras
+### Manually recording video from the eye-tracking cameras
 
 * Copy the `pi5cam.py` script from the `Python` folder to the Raspberry Pi 5.
 
@@ -284,11 +312,54 @@ This installation has been verified using the following software versions:
   
   ```
   ffmpeg -framerate 25 -i input.mjpg -c:v copy -metadata fps=25 output.mkv
+  
   ```
+
+### Automatically recording video from the eye-tracking cameras from a VR experiment
+
+- Make sure that you followed the final installation step above for setting up a TCP/UDP connection.
+
+- Ensure that both Raspberry Pis are turned on.
+
+- On the Pi 4, navigate to the "godot_3.5.2-stable_rpi4_editor_Ito.bin" file. Double-click this file and select "Execute".
+
+- Open/edit the MouseVR Godot Project V2.1.
+
+- Find the "commonSettings.gd" script and open it in the "script" tab.
+
+- Scroll down to find the the "var destination_ip" line and ensure that the IP address listed here is the same you selected during the TCP/UDP installation step above.
+
+- To verify that the UDP connection is working, run the project (play button on the upper-right) and select the "camera viewer" scene. A window should show images from the eye-tracking cameras, updated at 2 Hz. This scene can be used to ensure accurate placement of the headset for eye-trakcing
+
+- To see an example VR experiment which automatically records eye-tracking video, run the "rotating grating" scene and/or open up the rotatingGratingScene.gd script.
+
+- To enable automatic eye-tracking camera recording for other experiments, copy the following code blocks into their respective locations in the experiment .gd script file:
+
+- Copy the following block of code into the experiment's "_ready()" function: (change the recording_duration to be just greater than the maximum duration of the experiment)
+  
+  ```
+  #UDP handshake
+  var recording_duration = 100 #seconds of video to record, if not stopped sooner
+  assert(udp.listen(listen_port) == OK, "UDP listen failed")
+  verify_connection()
+  start_video(experimentName, recording_duration)
+  OS.delay_msec(1000)
+  ```
+
+* Copy the following block of code into two locations: 1) at the end of the "_process(delta)" function, just before the experiment exits back to the sceneSelect scene (get_tree().change_scene("res://sceneSelect.tscn")), and 2) in the "_input(ev)" function when "KEY_ESCAPE" is pressed, just before the experiment exits back to the sceneSelect scene:
+  
+  ```
+  stop_video() #stops the video recording early (earlier than the duration set above)
+  transfer_video(experimentName) #transfers recorded video from the Pi 5 into the log folder of this experiment
+  ```
+  
+  
 
 ### Operating the systems remotely with VNC
 
-- Open up a Raspberry Pi command terminal and enter the following line:
+- Make sure that the reaspberry Pi(s) you want to operate are connected to the internet or your local network.
+
+* Open up a Raspberry Pi command terminal and enter the following line:
   
   ```
   sudo raspi-config

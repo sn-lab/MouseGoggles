@@ -20,7 +20,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Mouse VR Godot Project V2.0"
+config/name="Mouse VR Godot Project V2.1"
 run/main_scene="res://sceneSelect.tscn"
 config/icon="res://icon.png"
 
@@ -30,7 +30,7 @@ settings/fps/force_fps=60
 
 [display]
 
-window/size/width=240
+window/size/width=720
 window/size/height=480
 window/size/resizable=false
 

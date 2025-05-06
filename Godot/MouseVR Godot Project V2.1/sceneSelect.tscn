@@ -6,84 +6,98 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 20.0
+rect_pivot_offset = Vector2( 171, 375 )
 script = ExtResource( 1 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_right = 210.0
-margin_bottom = 240.0
+margin_right = 240.0
+margin_bottom = 480.0
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
 margin_right = 81.0
-margin_bottom = 332.0
+margin_bottom = 480.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer2"]
+margin_right = 81.0
+margin_bottom = 456.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="HBoxContainer/MarginContainer"]
-modulate = Color( 1, 1, 1, 0.392157 )
-margin_top = 159.0
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2/MarginContainer"]
+margin_top = 221.0
 margin_right = 81.0
-margin_bottom = 173.0
+margin_bottom = 235.0
 size_flags_horizontal = 4
 text = "scene select"
+
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 460.0
+margin_right = 81.0
+margin_bottom = 480.0
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer2/MarginContainer2"]
+margin_right = 81.0
+margin_bottom = 20.0
+text = "Exit"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 margin_left = 85.0
 margin_right = 223.0
-margin_bottom = 332.0
+margin_bottom = 480.0
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
 margin_right = 138.0
-margin_bottom = 20.0
+margin_bottom = 28.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="HBoxContainer/VBoxContainer/MarginContainer"]
-modulate = Color( 1, 1, 1, 0.392157 )
+margin_top = 4.0
 margin_right = 138.0
-margin_bottom = 20.0
+margin_bottom = 24.0
 size_flags_vertical = 4
 action_mode = 0
 text = "habituation"
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
-margin_top = 24.0
+margin_top = 32.0
 margin_right = 138.0
-margin_bottom = 44.0
+margin_bottom = 60.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="HBoxContainer/VBoxContainer/MarginContainer2"]
-modulate = Color( 1, 1, 1, 0.392157 )
+margin_top = 4.0
 margin_right = 138.0
-margin_bottom = 20.0
+margin_bottom = 24.0
 size_flags_vertical = 4
 text = "loom"
 
 [node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
-margin_top = 48.0
-margin_right = 138.0
-margin_bottom = 68.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer/MarginContainer3"]
-modulate = Color( 1, 1, 1, 0.392157 )
-margin_right = 138.0
-margin_bottom = 20.0
-size_flags_vertical = 4
-text = "cylindrical cliff"
-
-[node name="MarginContainer4" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
-margin_top = 72.0
+margin_top = 64.0
 margin_right = 138.0
 margin_bottom = 92.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer/MarginContainer4"]
-modulate = Color( 1, 1, 1, 0.392157 )
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer/MarginContainer3"]
+margin_top = 4.0
 margin_right = 138.0
-margin_bottom = 20.0
+margin_bottom = 24.0
+size_flags_vertical = 4
+text = "cylindrical cliff"
+
+[node name="MarginContainer4" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
+margin_top = 96.0
+margin_right = 138.0
+margin_bottom = 125.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer/MarginContainer4"]
+margin_top = 4.0
+margin_right = 138.0
+margin_bottom = 24.0
 rect_pivot_offset = Vector2( -563, 90 )
 size_flags_vertical = 4
 action_mode = 0
@@ -93,16 +107,16 @@ __meta__ = {
 }
 
 [node name="MarginContainer5" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
-margin_top = 96.0
+margin_top = 129.0
 margin_right = 138.0
-margin_bottom = 116.0
+margin_bottom = 157.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="HBoxContainer/VBoxContainer/MarginContainer5"]
-modulate = Color( 1, 1, 1, 0.392157 )
+margin_top = 4.0
 margin_right = 138.0
-margin_bottom = 20.0
+margin_bottom = 24.0
 rect_pivot_offset = Vector2( -563, 90 )
 size_flags_vertical = 4
 action_mode = 0
@@ -112,16 +126,16 @@ __meta__ = {
 }
 
 [node name="MarginContainer6" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
-margin_top = 120.0
+margin_top = 161.0
 margin_right = 138.0
-margin_bottom = 140.0
+margin_bottom = 189.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="HBoxContainer/VBoxContainer/MarginContainer6"]
-modulate = Color( 1, 1, 1, 0.392157 )
+margin_top = 4.0
 margin_right = 138.0
-margin_bottom = 20.0
+margin_bottom = 24.0
 rect_pivot_offset = Vector2( -563, 90 )
 size_flags_vertical = 4
 action_mode = 0
@@ -131,16 +145,16 @@ __meta__ = {
 }
 
 [node name="MarginContainer7" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
-margin_top = 144.0
+margin_top = 193.0
 margin_right = 138.0
-margin_bottom = 164.0
+margin_bottom = 221.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="HBoxContainer/VBoxContainer/MarginContainer7"]
-modulate = Color( 1, 1, 1, 0.392157 )
+margin_top = 4.0
 margin_right = 138.0
-margin_bottom = 20.0
+margin_bottom = 24.0
 rect_pivot_offset = Vector2( -563, 90 )
 size_flags_vertical = 4
 action_mode = 0
@@ -150,106 +164,121 @@ __meta__ = {
 }
 
 [node name="MarginContainer8" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
-margin_top = 168.0
+margin_top = 225.0
 margin_right = 138.0
-margin_bottom = 188.0
+margin_bottom = 254.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="HBoxContainer/VBoxContainer/MarginContainer8"]
-modulate = Color( 1, 1, 1, 0.392157 )
+margin_top = 4.0
 margin_right = 138.0
-margin_bottom = 20.0
+margin_bottom = 24.0
 size_flags_vertical = 4
 action_mode = 0
 text = "optomotor"
 
 [node name="MarginContainer9" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
-margin_top = 192.0
+margin_top = 258.0
 margin_right = 138.0
-margin_bottom = 212.0
+margin_bottom = 286.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="HBoxContainer/VBoxContainer/MarginContainer9"]
-modulate = Color( 1, 1, 1, 0.392157 )
+margin_top = 4.0
 margin_right = 138.0
-margin_bottom = 20.0
+margin_bottom = 24.0
 size_flags_vertical = 4
 action_mode = 0
 text = "I/O test"
 
 [node name="MarginContainer10" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
-margin_top = 216.0
+margin_top = 290.0
 margin_right = 138.0
-margin_bottom = 236.0
+margin_bottom = 318.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="HBoxContainer/VBoxContainer/MarginContainer10"]
-modulate = Color( 1, 1, 1, 0.392157 )
+margin_top = 4.0
 margin_right = 138.0
-margin_bottom = 20.0
+margin_bottom = 24.0
 size_flags_vertical = 4
 action_mode = 0
 text = "rotations"
 
 [node name="MarginContainer11" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
-margin_top = 240.0
+margin_top = 322.0
 margin_right = 138.0
-margin_bottom = 260.0
+margin_bottom = 350.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="HBoxContainer/VBoxContainer/MarginContainer11"]
-modulate = Color( 1, 1, 1, 0.392157 )
+margin_top = 4.0
 margin_right = 138.0
-margin_bottom = 20.0
+margin_bottom = 24.0
 size_flags_vertical = 4
 action_mode = 0
 text = "linear gap"
 
 [node name="MarginContainer12" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
-margin_top = 264.0
+margin_top = 354.0
 margin_right = 138.0
-margin_bottom = 284.0
+margin_bottom = 383.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="HBoxContainer/VBoxContainer/MarginContainer12"]
-modulate = Color( 1, 1, 1, 0.392157 )
+margin_top = 4.0
 margin_right = 138.0
-margin_bottom = 20.0
+margin_bottom = 24.0
 size_flags_vertical = 4
 action_mode = 0
 text = "rotating gratings"
 
 [node name="MarginContainer13" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
-margin_top = 288.0
+margin_top = 387.0
 margin_right = 138.0
-margin_bottom = 308.0
+margin_bottom = 415.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="HBoxContainer/VBoxContainer/MarginContainer13"]
-modulate = Color( 1, 1, 1, 0.392157 )
+margin_top = 4.0
 margin_right = 138.0
-margin_bottom = 20.0
+margin_bottom = 24.0
 size_flags_vertical = 4
 action_mode = 0
 text = "linear track loom"
 
 [node name="MarginContainer14" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
-margin_top = 312.0
+margin_top = 419.0
 margin_right = 138.0
-margin_bottom = 332.0
+margin_bottom = 447.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="HBoxContainer/VBoxContainer/MarginContainer14"]
-modulate = Color( 1, 1, 1, 0.392157 )
+margin_top = 4.0
 margin_right = 138.0
-margin_bottom = 20.0
+margin_bottom = 24.0
 size_flags_vertical = 4
 action_mode = 0
 text = "movement 3D"
+
+[node name="MarginContainer15" type="MarginContainer" parent="HBoxContainer/VBoxContainer"]
+margin_top = 451.0
+margin_right = 138.0
+margin_bottom = 480.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer/MarginContainer15"]
+margin_top = 4.0
+margin_right = 138.0
+margin_bottom = 24.0
+size_flags_vertical = 4
+action_mode = 0
+text = "camera viewer"

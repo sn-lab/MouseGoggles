@@ -24,24 +24,15 @@ var RightEyeDirection = Vector3.ZERO #
 
 #logging/saving stuff
 var current_rep = 1
-var times := [] # Timestamps of frames rendered in the last second
-var fps := 0 # Frames per second
 var statecolor = Color(0, 0, 0)
 var current_frame = 0
 var dataNames = ['head_yaw', 'head_thrust', 'head_slip', 'head_x', 'head_z', 'head_yaw_angle', 'ms_now']
-var dataArray := []
-var dataLog := []
-var timestamp = "_"
-var ms_start := OS.get_ticks_msec()
-var ms_now := OS.get_ticks_msec()
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var td = OS.get_datetime() # time dictionary
-	ms_start = OS.get_ticks_msec()
-	timestamp = String(td.year) + "_" + String(td.month) + "_" + String(td.day) + "_" + String(td.hour) + "_" + String(td.minute) + "_" + String(td.second)
-
+	experimentName =  timestamp + "_" + scene_name
+	
 	#constant positions
 	head_y = 0.01 + head_radius
 	righthead.translation.y = head_y
@@ -117,12 +108,12 @@ func _process(delta):
 	#next trial
 	current_frame += 1
 	if (current_frame/frames_per_second)>=trial_duration:
-		saveUtils.save_logs(current_rep,dataLog,dataNames,timestamp,scene_name) #save current logged data to a new file
+		saveUtils.save_logs(current_rep,dataLog,dataNames,experimentName) #save current logged data to a new file
 		dataLog = [] #clear saved data
 		current_rep += 1
 		current_frame = 1
 		if (current_rep>num_reps):
-			get_tree().quit() 
+			get_tree().change_scene("res://sceneSelect.tscn")
 		else:
 			head_yaw_angle = randi() % 360
 			head_x = start_x
@@ -133,8 +124,9 @@ func _process(delta):
 func _input(ev):
 	if ev is InputEventKey and ev.is_pressed():
 		if ev.scancode == KEY_ESCAPE:
-			saveUtils.save_logs(current_rep,dataLog,dataNames,timestamp,scene_name) #save current logged data to a new file
-			get_tree().quit() 
+			saveUtils.save_logs(current_rep,dataLog,dataNames,experimentName) #save current logged data to a new file
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			get_tree().change_scene("res://sceneSelect.tscn")
 			
 	if ev is InputEventMouseMotion:
 		head_yaw += ev.relative.x

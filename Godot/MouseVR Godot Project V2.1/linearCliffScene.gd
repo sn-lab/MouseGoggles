@@ -30,23 +30,15 @@ var current_rep = 1
 var current_trial_counter = 1
 var current_trial_index = 0
 var lick_in = 0
-var times := [] # Timestamps of frames rendered in the last second
-var fps := 0 # Frames per second
 var statecolor = Color(0, 0, 0)
 var current_frame = 0
 var dataNames = ['head_yaw', 'head_thrust', 'head_slip', 'head_x', 'head_z', 'head_yaw_angle', 'current_trial_index', 'ms_now']
-var dataArray := []
-var dataLog := []
-var timestamp = "_"
-var ms_start := OS.get_ticks_msec()
-var ms_now := OS.get_ticks_msec()
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var td = OS.get_datetime() # time dictionary
-	ms_start = OS.get_ticks_msec()
-	timestamp = String(td.year) + "_" + String(td.month) + "_" + String(td.day) + "_" + String(td.hour) + "_" + String(td.minute) + "_" + String(td.second)
-
+	experimentName =  timestamp + "_" + scene_name
+	
 	#constant positions
 	head_y = head_radius
 	righthead.translation.y = head_y
@@ -136,13 +128,14 @@ func _process(delta):
 		current_trial_counter += 1
 		current_frame = 1
 		if (current_trial_counter>num_trials):
-			saveUtils.save_logs(current_rep,dataLog,dataNames,timestamp,scene_name) #save current logged data to a new file
+			saveUtils.save_logs(current_rep,dataLog,dataNames,experimentName) #save current logged data to a new file
 			dataLog = [] #clear saved data
 			current_trial_counter = 1
 			current_rep += 1
 			trial_order.shuffle()
 			if (current_rep>num_reps):
-				get_tree().quit() 
+				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+				get_tree().change_scene("res://sceneSelect.tscn")
 			else: 
 				print("rep " + str(current_rep) + ", trial order: " + str(trial_order))
 		current_trial_index = trial_order[current_trial_counter-1];
@@ -163,8 +156,9 @@ func _process(delta):
 func _input(ev):
 	if ev is InputEventKey and ev.is_pressed():
 		if ev.scancode == KEY_ESCAPE:
-			saveUtils.save_logs(current_rep,dataLog,dataNames,timestamp,scene_name) #save current logged data to a new file
-			get_tree().quit() 
+			saveUtils.save_logs(current_rep,dataLog,dataNames,experimentName) #save current logged data to a new file
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			get_tree().change_scene("res://sceneSelect.tscn")
 			
 	if ev is InputEventMouseMotion:
 		#head_yaw += ev.relative.x

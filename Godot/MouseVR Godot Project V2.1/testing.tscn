@@ -18,8 +18,7 @@ Input"
 anchor_left = 0.95
 anchor_right = 1.0
 anchor_bottom = 0.025
-margin_top = 20.0
-margin_bottom = 20.0
+margin_bottom = 40.0
 
 [node name="Label2" type="Label" parent="."]
 anchor_top = 0.5

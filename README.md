@@ -6,19 +6,16 @@
 
 **Work in progess**
 
-* New version of MouseGoggles Mono using either a waveshare or Adafruit circular display (expected completion: March 2025)
-  
+* New version of MouseGoggles Mono using an Adafruit circular display (expected completion: June 2025)
+
 **Previous Updates**
 
-* (Feb 2025) New version of [MouseGoggles EyeTrack (version 1.1)](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/EyeTrack/1.1) for a simpler assembly and dual eye-tracking camera support with a Raspberry Pi 5. [Godot project 2.0](https://github.com/sn-lab/MouseGoggles/tree/main/Godot/MouseVR%20Godot%20Project%20V2.0) adds new experiment types and cleans up existing ones for compatibilty with EyeTrack 1.1.
+* (May 2025) Big software update to EyeTrack 1.1, including the first Godot project (2.1) which enables controlling and viewing the eye-tracking cameras from within the game engine!
 
-* (Mar 2024) Added the [MouseGoggles EyeTrack](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/EyeTrack/1.0) headset, for binocular eye/pupil tracking cameras integrated into the headset!
-  
+* (Mar 2024) Added the [MouseGoggles EyeTrack](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/EyeTrack/1.0) headset, for binocular eye/pupil tracking cameras integrated into the headset
+
 * (Mar 2024) Added Code and instructions for closed-loop rotation feedback into the VR system (see the [rotation sensors](https://github.com/sn-lab/MouseGoggles/blob/main/Other%20Hardware/Installation%20README.md#rotation-sensors
-) readme for details).
-
-* (Jan 2024) New MouseGoggles Duo versions added to the [Versions](https://github.com/sn-lab/MouseGoggles/tree/main/Versions) folder! Versions 1.1, 1.2, and 1.5 detach the Raspberry Pi from the eyepieces, creating a smaller form factor headset. Versions 1.2+ adds the ability to adjust inter-eye distance. And version 1.5 uses newer, pre-assembled circular displays for the easiest-to-build version yet.
-  
+  ) readme for details)
 
 # Building a MouseGoggles System
 
@@ -28,7 +25,6 @@ All versions of MouseGoggles were designed using as many readily available, off-
 * Don't need eye-tracking? Go with the headset that is simplest to assemble and use: [Duo version 1.5](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/Duo/1.5)).
 * Only looking for monocoular visual stimulation with basic stimuli (e.g. gratings, edges)? Consider the even smaller and simpler [Mono version 1.0](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/Mono/1.0)).
 
-  
 # About MouseGoggles
 
 ### The Raspberry Pi and Godot game engine

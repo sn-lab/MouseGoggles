@@ -16,6 +16,9 @@ onready var lineargapbutton = get_node("HBoxContainer/VBoxContainer/MarginContai
 onready var rotatinggratingbutton = get_node("HBoxContainer/VBoxContainer/MarginContainer12/Button")
 onready var lineartrackloombutton = get_node("HBoxContainer/VBoxContainer/MarginContainer13/Button")
 onready var movementbutton = get_node("HBoxContainer/VBoxContainer/MarginContainer14/Button")
+onready var camerabutton = get_node("HBoxContainer/VBoxContainer/MarginContainer15/Button")
+
+onready var exitbutton = get_node("HBoxContainer/VBoxContainer2/MarginContainer2/Button")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,6 +36,9 @@ func _ready():
 	rotatinggratingbutton.connect("pressed",self,"_load_rotatingGrating")
 	lineartrackloombutton.connect("pressed",self,"_load_linearTrackLoom")
 	movementbutton.connect("pressed",self,"_load_movement3D")
+	camerabutton.connect("pressed",self,"_load_cameraViewer")
+	
+	exitbutton.connect("pressed",self,"_exitGame")
 	
 func _load_habituation():
 	get_tree().change_scene("res://habituationScene.tscn")
@@ -74,4 +80,11 @@ func _load_linearTrackLoom():
 	get_tree().change_scene("res://linearTrackLoomScene.tscn")
 
 func _load_movement3D():
-	get_tree().change_scene("res://movement3D.tscn")
+	#get_tree().change_scene("res://movement3D.tscn")
+	get_tree().change_scene("res://transferTest.tscn")
+	
+func _load_cameraViewer():
+	get_tree().change_scene("res://cameraViewer.tscn")
+	
+func _exitGame():
+	get_tree().quit() 

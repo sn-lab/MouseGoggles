@@ -2,7 +2,7 @@
 extends "res://commonSettings.gd"
 
 #habituation parameters
-export var scene_name = "rotation"
+export var scene_name = "movement3D"
 export var trial_duration = 300
 export var reward_dur = 0.05 #seconds to open the reward valve
 
@@ -10,8 +10,10 @@ export var reward_dur = 0.05 #seconds to open the reward valve
 export var head_yaw = 0 #degrees; 0 points along -z; 90 points to +x
 export var head_pitch = 0
 export var head_roll = 0
-export var head_yaw_angle = 0 #degrees; 0 points along -z; 90 points to +x
-export var head_roll_angle = 0 #degrees; 0 points along -z; 90 points to +x
+export var head_ori_x = 0 
+export var head_ori_y = 0
+export var head_ori_z = 0
+var head_lift = 0 #+ points to +y
 var head_thrust = 0 #+ points to -z
 var head_slip = 0 #+ points to +x
 var head_x = 0
@@ -21,23 +23,15 @@ var head_y = 0
 #logging/saving stuff
 var lick_in = 0
 var reward_out = 0
-var times := [] # Timestamps of frames rendered in the last second
-var fps := 0 # Frames per second
 var statecolor = Color(0, 0, 0)
 var current_frame = 0
 var dataNames = ['head_yaw', 'head_thrust', 'head_slip', 'reward_out', 'lick_in', 'ms_now']
-var dataArray := []
-var dataLog := []
-var timestamp = "_"
-var ms_start := OS.get_ticks_msec()
-var ms_now := OS.get_ticks_msec()
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():	
-	var td = OS.get_datetime() # time dictionary
-	ms_start = OS.get_ticks_msec()
-	timestamp = String(td.year) + "_" + String(td.month) + "_" + String(td.day) + "_" + String(td.hour) + "_" + String(td.minute) + "_" + String(td.second)
-
+	experimentName =  timestamp + "_" + scene_name
+	
 	#constant positions
 	head_y = head_radius
 	righthead.translation.y = head_y
@@ -65,7 +59,7 @@ func _ready():
 	lefteye.translation.y = head_y - (0.5*inter_eye_distance*sin(deg2rad(head_roll)))
 	lefteye.translation.z = head_z - (0.5*inter_eye_distance*sin(deg2rad(head_yaw))*cos(deg2rad(head_roll)))
 	righteye.translation.x = head_x + (0.5*inter_eye_distance*cos(deg2rad(head_yaw))*cos(deg2rad(head_roll)))
-	righteye.translation.y = head_y# + (0.5*inter_eye_distance*sin(deg2rad(head_roll)))
+	righteye.translation.y = head_y + (0.5*inter_eye_distance*sin(deg2rad(head_roll)))
 	righteye.translation.z = head_z + (0.5*inter_eye_distance*sin(deg2rad(head_yaw))*cos(deg2rad(head_roll)))
 	
 	
@@ -83,38 +77,13 @@ func _process(delta):
 	fps = times.size()
 	current_frame += 1
 	
-	#move mouse to simulate forward-walking
-	head_z += mouse_gain*(thrust_gain*head_thrust*cos(deg2rad(head_yaw_angle)) + slip_gain*head_slip*sin(deg2rad(head_yaw_angle)))
-	if (head_z>0.05):
-		head_z -= 0.1
-	if (head_z<-0.05):
-		head_z += 0.1
-		
-	#translate head position
-	righthead.translation.z = head_z
-	lefthead.translation.z = head_z
+	#translate mouse position
+	#lefthead.translate(Vector3(slip_gain*mouse_gain*head_slip,lift_gain*mouse_gain*head_lift,thrust_gain*mouse_gain*head_thrust))
+	#righthead.translate(Vector3(slip_gain*mouse_gain*head_slip,lift_gain*mouse_gain*head_lift,thrust_gain*mouse_gain*head_thrust))
 	
-	#rotate eyes relative to body
-	lefteye.rotation_degrees.x = eye_pitch
-	lefteye.rotation_degrees.y = -head_yaw_angle+eye_yaw
-	lefteye.rotation_degrees.z = head_roll_angle+head_roll-90
-	righteye.rotation_degrees.x = eye_pitch
-	righteye.rotation_degrees.y = -head_yaw_angle-eye_yaw
-	righteye.rotation_degrees.z = -head_roll_angle+head_roll-90
-	
-	#translate eyes relative to body
-	head_yaw_angle = head_yaw
-	lefteye.translation.z = head_z - inter_eye_distance*sin(deg2rad(head_yaw_angle))
-	righteye.translation.z = head_z + inter_eye_distance*sin(deg2rad(head_yaw_angle))
-	
-	#translate eyes relative to body
-	lefteye.translation.x = head_x - (0.5*inter_eye_distance*cos(deg2rad(head_yaw_angle))*cos(deg2rad(head_roll_angle)))
-	lefteye.translation.y = head_y - (0.5*inter_eye_distance*sin(deg2rad(head_roll_angle)))
-	lefteye.translation.z = head_z - (0.5*inter_eye_distance*sin(deg2rad(head_yaw_angle))*cos(deg2rad(head_roll_angle)))
-	righteye.translation.x = head_x + (0.5*inter_eye_distance*cos(deg2rad(head_yaw_angle))*cos(deg2rad(head_roll_angle)))
-	righteye.translation.y = head_y + (0.5*inter_eye_distance*sin(deg2rad(head_roll_angle)))
-	righteye.translation.z = head_z + (0.5*inter_eye_distance*sin(deg2rad(head_yaw_angle))*cos(deg2rad(head_roll_angle)))
-	
+	#rotate body based on orientation
+	lefthead.rotate_object_local(Vector3(0,1,0),mouse_gain*head_thrust)
+	righthead.rotate_object_local(Vector3(0,1,0),mouse_gain*head_thrust)
 	
 	#log data
 	dataArray = [head_yaw, head_thrust, head_slip, reward_out, lick_in, ms_now]
@@ -122,8 +91,7 @@ func _process(delta):
 		dataLog.append(dataArray[i])
 	
 	#update text label
-#	fpslabel.text = str(fps) + " FPS" 
-	fpslabel.text = str(head_roll_angle)
+#	fpslabel.text = str(fps) + " FPS"
 	#fpslabel.text = "R=reward"
 	
 	#reset movements
@@ -136,16 +104,18 @@ func _process(delta):
 	if (current_frame%int(60*frames_per_second))==0:
 		print(str(round(current_frame/(60*frames_per_second))) + " min elapsed")
 	if (current_frame > trial_duration*frames_per_second):
-		saveUtils.save_logs(1,dataLog,dataNames,timestamp,scene_name) #save current logged data to a new file
+		saveUtils.save_logs(1,dataLog,dataNames,experimentName) #save current logged data to a new file
 		dataLog = [] #clear saved data
-		get_tree().quit() 
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().change_scene("res://sceneSelect.tscn")
 
 func _input(ev):
 	if ev is InputEventKey and ev.is_pressed():
 		if ev.scancode == KEY_ESCAPE:
-			saveUtils.save_logs(1,dataLog,dataNames,timestamp,scene_name) #save current logged data to a new file
+			saveUtils.save_logs(1,dataLog,dataNames,experimentName) #save current logged data to a new file
 			dataLog = [] #clear saved data
-			get_tree().quit() 
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			get_tree().change_scene("res://sceneSelect.tscn")
 		if ev.scancode == KEY_R:
 			reward_out = 1
 			Input.start_joy_vibration(0,1,1,reward_dur) #for using xinput rumble output

@@ -2,9 +2,10 @@ shader_type canvas_item;
 
 // Inspector params:
 uniform float fov = 150; //FOV (in degrees) that the circular display covers 
-uniform float fovmax = 150; //FOV (in degrees) that the visible area of the circular display covers 
+uniform float fovmax = 150; //FOV (in degrees) that the circular display covers 
 uniform float aspect_ratio = 1; //ratio of x pixels to y pixels
-uniform float red_scale = 0.0; //scale factor to reduce red pixel values
+uniform float red_scale = 0.0; //scale factor to reduce red pixel values (useful for simultaneous IR imaging)
+uniform float green_scale = 0.0; //scale factor to reduce green pixel values
 
 void fragment(){
 	float fovhalfy = (fov/2.0)*3.14159/180.0; //half of the FOV (in radians); y (the taller side) covers the FOV completely
@@ -14,7 +15,7 @@ void fragment(){
 	//scale and shift [x,y] so that they are in linear radians away from the center
 	vec2 xy = UV;
 	xy.y = (sinfovhalfy*2.0*xy.y) - sinfovhalfy;
-	xy.x = (sinfovhalfx*2.0*xy.x) - sinfovhalfy; //shift x by fovhalfy_lin as well, to account for clipped edge of circular display
+	xy.x = (sinfovhalfx*2.0*xy.x) - (2.0*sinfovhalfx) + sinfovhalfy; //shift x by fovhalfy_lin as well, to account for clipped edge of circular display
 	float z = cos(fovhalfy); //distance of the frustum plane away from the center
 	
 	//calculate radians away from the center
@@ -44,7 +45,8 @@ void fragment(){
 	if (r>=fovhalfmax){
 		COLOR.a = 0.0;
 	}
-
+	
 	//scale red color
-	COLOR.r = COLOR.r*red_scale;			
+	COLOR.r = COLOR.r*red_scale;
+	COLOR.g = COLOR.g*green_scale;
 }

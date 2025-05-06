@@ -77,22 +77,14 @@ var reward_trial = 1
 var rewarded_frame = 0
 var reward_out = 0
 var lick_in = 0
-var times := [] # Timestamps of frames rendered in the last second
-var fps := 0 # Frames per second
 var current_frame = 0
 var dataNames = ['head_yaw', 'head_thrust', 'head_slip', 'head_x', 'head_z', 'head_yaw_angle', 'reward_out', 'lick_in', 'loom_cur_distance', 'ms_now']
-var dataArray := []
-var dataLog := []
-var timestamp = "_"
-var ms_start := OS.get_ticks_msec()
-var ms_now := OS.get_ticks_msec()
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():	
-	var td = OS.get_datetime() # time dictionary
-	ms_start = OS.get_ticks_msec()
-	timestamp = String(td.year) + "_" + String(td.month) + "_" + String(td.day) + "_" + String(td.hour) + "_" + String(td.minute) + "_" + String(td.second)
-
+	experimentName =  timestamp + "_" + scene_name
+	
 	#constant positions
 	head_y = head_radius
 	righthead.translation.y = head_y
@@ -256,12 +248,13 @@ func _process(delta):
 	
 	#next trial
 	if (head_z == (track_length/2)-head_radius) || (current_frame > trial_duration*frames_per_second):
-		saveUtils.save_logs(current_rep,dataLog,dataNames,timestamp,scene_name) #save current logged data to a new file
+		saveUtils.save_logs(current_rep,dataLog,dataNames,experimentName) #save current logged data to a new file
 		dataLog = [] #clear saved data
 		current_frame = 1
 		current_rep += 1
 		if (current_rep>num_reps):
-			get_tree().quit() 
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			get_tree().change_scene("res://sceneSelect.tscn")
 		else:
 			head_yaw_angle = 180
 			head_x = track_xpos
@@ -280,8 +273,9 @@ func _process(delta):
 func _input(ev):
 	if ev is InputEventKey and ev.is_pressed():
 		if ev.scancode == KEY_ESCAPE:
-			saveUtils.save_logs(current_rep,dataLog,dataNames,timestamp,scene_name) #save current logged data to a new file
-			get_tree().quit() 
+			saveUtils.save_logs(current_rep,dataLog,dataNames,experimentName) #save current logged data to a new file
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			get_tree().change_scene("res://sceneSelect.tscn")
 		if ev.scancode == KEY_L:
 			loom_started = true
 			

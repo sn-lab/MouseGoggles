@@ -11,6 +11,7 @@ shader_param/fov = 151.0
 shader_param/fovmax = 151.0
 shader_param/aspect_ratio = 1.0
 shader_param/red_scale = 0.0
+shader_param/green_scale = 0.0
 
 [sub_resource type="ViewportTexture" id=3]
 viewport_path = NodePath("Control/HBoxContainer/ViewportContainer/TextureRect/Viewport")
@@ -23,6 +24,7 @@ shader_param/fov = 151.0
 shader_param/fovmax = 151.0
 shader_param/aspect_ratio = 1.0
 shader_param/red_scale = 0.0
+shader_param/green_scale = 0.0
 
 [sub_resource type="ViewportTexture" id=6]
 viewport_path = NodePath("Control/HBoxContainer/ViewportContainer2/TextureRect/Viewport")
@@ -38,7 +40,8 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="HBoxContainer" type="VBoxContainer" parent="Control"]
-margin_right = 240.0
+margin_left = 240.0
+margin_right = 480.0
 margin_bottom = 480.0
 
 [node name="ViewportContainer" type="ViewportContainer" parent="Control/HBoxContainer"]
@@ -131,7 +134,7 @@ fov = 140.0
 near = 0.01
 
 [node name="Overlay" type="ColorRect" parent="Control"]
-modulate = Color( 1, 1, 1, 0.498039 )
-margin_left = -1.18918
-margin_right = 238.811
+modulate = Color( 0, 0, 0, 0.501961 )
+margin_left = 240.0
+margin_right = 480.0
 margin_bottom = 480.0

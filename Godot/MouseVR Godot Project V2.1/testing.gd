@@ -11,8 +11,6 @@ onready var colorrect = get_node("ColorRect")
 #logging/saving stuff
 var reward_out = 0
 var lick_in = 0
-var times := [] # Timestamps of frames rendered in the last second
-var fps := 0 # Frames per second
 var current_frame = 0
 var td = OS.get_datetime() # time dictionary
 var timestamp = String(td.year) + "_" + String(td.month) + "_" + String(td.day) + "_" + String(td.hour) + "_" + String(td.minute) + "_" + String(td.second)
@@ -21,6 +19,8 @@ var labeloption = 1
 var head_yaw = 0
 var head_thrust = 0
 var head_slip = 0
+var times := [] # Timestamps of frames rendered in the last second
+var fps := 0 # Frames per second
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -49,7 +49,7 @@ func _process(delta):
 		valuelabel.text = str(head_thrust) + " thrust value"
 		displaylabel.text = "test options: [I,Y,T,S,F]\ncurrent selection: Thrust (T)"
 	if labeloption==4:
-		valuelabel.text = str(head_slip) + " flip value"
+		valuelabel.text = str(head_slip) + " slip value"
 		displaylabel.text = "test options: [I,Y,T,S,F]\ncurrent selection: Slip (S)"
 	if labeloption==5:	
 		valuelabel.text = str(fps) + " frames/sec"
@@ -64,7 +64,8 @@ func _process(delta):
 func _input(ev):
 	if ev is InputEventKey and ev.is_pressed():
 		if ev.scancode == KEY_ESCAPE:
-			get_tree().quit() 
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			get_tree().change_scene("res://sceneSelect.tscn")
 		if ev.scancode == KEY_R:
 			Input.start_joy_vibration(0,1,1,reward_dur) #for using xinput rumble output
 			colorrect.color = Color(1, 1, 1)

@@ -8,7 +8,7 @@ export var lick_in_reward_required = 0 #whether the mouse has to lick in the rew
 export var scene_name = "lineartrack"
 export var track_length = 1.5
 export var track_width = 0.1
-export var num_reps = 40 #max number of trials 
+export var num_reps = 400 #max number of trials 
 export var trial_duration = 60 #max duration of each trial
 export var reward_dur = 0.05 #duration to open liquid reward valve)
 export var mouse_num_reward_loc := 	[-0.25, -0.25, 0.25, 0.25, 0.25] #for mouse [1 2 3 4 5]
@@ -43,23 +43,14 @@ var reward_trial = 1
 var rewarded_frame = 0
 var reward_out = 0
 var lick_in = 0
-var times := [] # Timestamps of frames rendered in the last second
-var fps := 0 # Frames per second
 var current_frame = 0
 var dataNames = ['head_yaw', 'head_thrust', 'head_slip', 'head_x', 'head_z', 'head_yaw_angle', 'reward_out', 'lick_in', 'ms_now']
-var dataArray := []
-var dataLog := []
-var timestamp = "_"
-var ms_start := OS.get_ticks_msec()
-var ms_now := OS.get_ticks_msec()
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():	
-	var td = OS.get_datetime() # time dictionary
-	ms_start = OS.get_ticks_msec()
-	timestamp = String(td.year) + "_" + String(td.month) + "_" + String(td.day) + "_" + String(td.hour) + "_" + String(td.minute) + "_" + String(td.second)
-
+	experimentName =  timestamp + "_" + scene_name
+	
 	#determine whether to reward
 	randomize()
 	for i in range(num_rewards_out_of_10):
@@ -176,12 +167,13 @@ func _process(delta):
 	
 	#next trial
 	if (head_z == (track_length/2)-head_radius) || (current_frame > trial_duration*frames_per_second):
-		saveUtils.save_logs(current_rep,dataLog,dataNames,timestamp,scene_name) #save current logged data to a new file
+		saveUtils.save_logs(current_rep,dataLog,dataNames,experimentName) #save current logged data to a new file
 		dataLog = [] #clear saved data
 		current_frame = 1
 		current_rep += 1
 		if (current_rep>num_reps):
-			get_tree().quit() 
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			get_tree().change_scene("res://sceneSelect.tscn")
 		else:
 			head_yaw_angle = 180
 			head_x = track_xpos
@@ -201,8 +193,9 @@ func _process(delta):
 func _input(ev):
 	if ev is InputEventKey and ev.is_pressed():
 		if ev.scancode == KEY_ESCAPE:
-			saveUtils.save_logs(current_rep,dataLog,dataNames,timestamp,scene_name) #save current logged data to a new file
-			get_tree().quit() 
+			saveUtils.save_logs(current_rep,dataLog,dataNames,experimentName) #save current logged data to a new file
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			get_tree().change_scene("res://sceneSelect.tscn")
 			
 	if ev is InputEventMouseMotion:
 		head_yaw += ev.relative.x
