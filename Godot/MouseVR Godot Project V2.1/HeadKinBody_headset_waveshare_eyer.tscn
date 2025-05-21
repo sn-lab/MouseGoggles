@@ -134,7 +134,8 @@ fov = 140.0
 near = 0.01
 
 [node name="Overlay" type="ColorRect" parent="Control"]
-modulate = Color( 0, 0, 0, 0.501961 )
+modulate = Color( 0, 0, 0, 1 )
 margin_left = 240.0
 margin_right = 480.0
 margin_bottom = 480.0
+color = Color( 0, 0, 0, 0 )

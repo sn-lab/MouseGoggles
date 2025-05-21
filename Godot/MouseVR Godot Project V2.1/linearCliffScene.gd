@@ -8,7 +8,7 @@ export var num_trials = 4
 export var condition_angles = [0.0, 180.0, 0.0, 180.0]
 export var condition_start_positions = [0, 0, 0, 0]
 export var condition_eye_distances = [0.0, 0.0, 0.01, 0.01]
-export var trial_duration = 600
+export var trial_duration = 60
 export var max_z = 1
 export var min_z = -1
 export var max_x = 0
@@ -45,13 +45,15 @@ func _ready():
 	lefthead.translation.y = head_y
 	
 	#set starting direction
-	randomize()
 	trial_order.shuffle()
 	head_x = 0
 	head_yaw_angle = condition_angles[trial_order[0]]
 	head_z = condition_start_positions[trial_order[0]]
 	current_trial_index = trial_order[current_trial_counter-1];
 	
+	#start experiment
+	var experimentDuration = num_reps*num_trials*trial_duration
+	start_experiment(experimentName, experimentDuration)
 	print("rep " + str(current_rep) + ", trial order: " + str(trial_order))
 	if current_trial_index==0:
 		print("trial 0: texture stereo")
@@ -61,9 +63,6 @@ func _ready():
 		print("trial 2: texture mono")
 	else:
 		print("trial 3: cliff mono")
-	
-	#input setup
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -134,8 +133,7 @@ func _process(delta):
 			current_rep += 1
 			trial_order.shuffle()
 			if (current_rep>num_reps):
-				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-				get_tree().change_scene("res://sceneSelect.tscn")
+				stop_experiment(experimentName)
 			else: 
 				print("rep " + str(current_rep) + ", trial order: " + str(trial_order))
 		current_trial_index = trial_order[current_trial_counter-1];
@@ -157,8 +155,8 @@ func _input(ev):
 	if ev is InputEventKey and ev.is_pressed():
 		if ev.scancode == KEY_ESCAPE:
 			saveUtils.save_logs(current_rep,dataLog,dataNames,experimentName) #save current logged data to a new file
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			get_tree().change_scene("res://sceneSelect.tscn")
+			dataLog = [] #clear saved data
+			stop_experiment(experimentName)
 			
 	if ev is InputEventMouseMotion:
 		#head_yaw += ev.relative.x

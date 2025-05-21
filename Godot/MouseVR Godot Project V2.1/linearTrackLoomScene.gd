@@ -93,16 +93,10 @@ func _ready():
 	head_yaw_angle = 180
 	
 	#determine whether to reward
-	randomize()
 	for i in range(num_rewards_out_of_10):
 		reward_order[i] = 1
 	reward_order.shuffle()
 	reward_trial = reward_order[current_rep]
-	if reward_trial || guaranteed_rewards>0:
-		print("rep " + String(current_rep))
-		reward_trial = 1
-	else:
-		print("rep " + String(current_rep) + " (no reward)")
 	
 	#set linear track reward location
 	track_reward_loc = mouse_num_reward_loc[mouse_num-1]
@@ -135,9 +129,16 @@ func _ready():
 	object.rotation_degrees.y = obj_y_ang
 	object.rotation_degrees.x = loom_pitch_angle
 	
-	#input setup
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
+	#start experiment
+	var experimentDuration = num_reps*trial_duration
+	start_experiment(experimentName, experimentDuration)
+	if reward_trial || guaranteed_rewards>0:
+		print("rep " + String(current_rep))
+		reward_trial = 1
+	else:
+		print("rep " + String(current_rep) + " (no reward)")
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#calculate fps
@@ -253,8 +254,7 @@ func _process(delta):
 		current_frame = 1
 		current_rep += 1
 		if (current_rep>num_reps):
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			get_tree().change_scene("res://sceneSelect.tscn")
+			stop_experiment(experimentName)
 		else:
 			head_yaw_angle = 180
 			head_x = track_xpos
@@ -274,8 +274,8 @@ func _input(ev):
 	if ev is InputEventKey and ev.is_pressed():
 		if ev.scancode == KEY_ESCAPE:
 			saveUtils.save_logs(current_rep,dataLog,dataNames,experimentName) #save current logged data to a new file
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			get_tree().change_scene("res://sceneSelect.tscn")
+			dataLog = [] #clear saved data
+			stop_experiment(experimentName)
 		if ev.scancode == KEY_L:
 			loom_started = true
 			

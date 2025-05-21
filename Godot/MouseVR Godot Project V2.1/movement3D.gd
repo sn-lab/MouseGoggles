@@ -62,11 +62,11 @@ func _ready():
 	righteye.translation.y = head_y + (0.5*inter_eye_distance*sin(deg2rad(head_roll)))
 	righteye.translation.z = head_z + (0.5*inter_eye_distance*sin(deg2rad(head_yaw))*cos(deg2rad(head_roll)))
 	
-	
-	#input setup
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
-	
+	#start experiment
+	var experimentDuration = trial_duration
+	start_experiment(experimentName, experimentDuration)
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#calculate fps
@@ -106,16 +106,15 @@ func _process(delta):
 	if (current_frame > trial_duration*frames_per_second):
 		saveUtils.save_logs(1,dataLog,dataNames,experimentName) #save current logged data to a new file
 		dataLog = [] #clear saved data
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		get_tree().change_scene("res://sceneSelect.tscn")
+		stop_experiment(experimentName)
 
 func _input(ev):
 	if ev is InputEventKey and ev.is_pressed():
 		if ev.scancode == KEY_ESCAPE:
 			saveUtils.save_logs(1,dataLog,dataNames,experimentName) #save current logged data to a new file
 			dataLog = [] #clear saved data
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			get_tree().change_scene("res://sceneSelect.tscn")
+			stop_experiment(experimentName)
+			
 		if ev.scancode == KEY_R:
 			reward_out = 1
 			Input.start_joy_vibration(0,1,1,reward_dur) #for using xinput rumble output

@@ -44,7 +44,6 @@ func _ready():
 	experimentName =  timestamp + "_" + scene_name
 	
 	#head positions
-	randomize()
 	head_y = 0.01 + head_radius
 	head_yaw_angle = randf()*360
 	head_x = track_length*(randf()-0.5)
@@ -57,14 +56,14 @@ func _ready():
 		
 	rewarded = 0
 	reward_trial = (randf()<=reward_rate) || (current_rep<=guaranteed_rewards)
+	
+	#start experiment
+	var experimentDuration = scene_duration
+	start_experiment(experimentName, experimentDuration)
 	if reward_trial:
 		print("rep " + String(current_rep))
 	else:
 		print("rep " + String(current_rep) + " (no reward)")
-	
-	#input setup
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -148,8 +147,7 @@ func _process(delta):
 		current_frame = 1
 		current_rep += 1
 		if (current_rep>num_reps):
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			get_tree().change_scene("res://sceneSelect.tscn")
+			stop_experiment(experimentName)
 		else:
 			head_yaw_angle = randf()*360
 			head_x = track_length*(randf()-0.5)
@@ -171,8 +169,8 @@ func _input(ev):
 	if ev is InputEventKey and ev.is_pressed():
 		if ev.scancode == KEY_ESCAPE:
 			saveUtils.save_logs(current_rep,dataLog,dataNames,experimentName) #save current logged data to a new file
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			get_tree().change_scene("res://sceneSelect.tscn")
+			dataLog = [] #clear saved data
+			stop_experiment(experimentName)
 			
 	if ev is InputEventMouseMotion:
 		head_yaw += ev.relative.x

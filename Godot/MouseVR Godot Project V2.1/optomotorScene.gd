@@ -49,13 +49,11 @@ func _ready():
 	eye_pitch = 0 #degrees from the horizontal
 	
 	#get starting wavelength
-	randomize()
 	for i in range(num_trials):
 		trial_order.append(i)
 	trial_order.shuffle()
 	current_trial = 0
 	current_condition = trial_order[current_trial]
-	print("trial order " + str(trial_order))
 	if ((trial_order[current_trial])>=(num_trials/2)):
 		cur_wavelength_trial = current_condition - (num_trials/2)
 		rotation_direction = -1
@@ -67,10 +65,12 @@ func _ready():
 	righteye.translation.z = -3
 	start_predelay = 1
 	
-	#input setup
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
-	
+	#start experiment
+	var experimentDuration = num_reps*num_trials*trial_duration
+	start_experiment(experimentName, experimentDuration)
+	print("trial order " + str(trial_order))
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#calculate fps
@@ -127,8 +127,7 @@ func _process(delta):
 			current_trial = 0
 			current_rep += 1
 			if (current_rep > num_reps):
-				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-				get_tree().change_scene("res://sceneSelect.tscn")
+				stop_experiment(experimentName)
 			trial_order.shuffle()
 			print("trial order " + str(trial_order))
 		current_condition = trial_order[current_trial]
@@ -151,8 +150,8 @@ func _input(ev):
 	if ev is InputEventKey and ev.is_pressed():
 		if ev.scancode == KEY_ESCAPE:
 			saveUtils.save_logs(current_rep,dataLog,dataNames,experimentName) #save current logged data to a new file
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			get_tree().change_scene("res://sceneSelect.tscn")
+			dataLog = [] #clear saved data
+			stop_experiment(experimentName)
 			
 	if ev is InputEventMouseMotion:
 		head_yaw += ev.relative.x

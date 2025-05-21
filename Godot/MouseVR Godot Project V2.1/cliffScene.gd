@@ -43,11 +43,12 @@ func _ready():
 	#set starting head angle
 	randomize()
 	head_yaw_angle = randi() % 360
+	
+	#start experiment
+	var experimentDuration = num_reps*trial_duration
+	start_experiment(experimentName, experimentDuration)
 	print("rep 1: head angle " + String(head_yaw_angle))
-	
-	#input setup
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -113,7 +114,7 @@ func _process(delta):
 		current_rep += 1
 		current_frame = 1
 		if (current_rep>num_reps):
-			get_tree().change_scene("res://sceneSelect.tscn")
+			stop_experiment(experimentName)
 		else:
 			head_yaw_angle = randi() % 360
 			head_x = start_x
@@ -125,8 +126,8 @@ func _input(ev):
 	if ev is InputEventKey and ev.is_pressed():
 		if ev.scancode == KEY_ESCAPE:
 			saveUtils.save_logs(current_rep,dataLog,dataNames,experimentName) #save current logged data to a new file
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			get_tree().change_scene("res://sceneSelect.tscn")
+			dataLog = [] #clear saved data
+			stop_experiment(experimentName)
 			
 	if ev is InputEventMouseMotion:
 		head_yaw += ev.relative.x

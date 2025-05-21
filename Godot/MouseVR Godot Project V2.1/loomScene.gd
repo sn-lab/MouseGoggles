@@ -83,7 +83,6 @@ func _ready():
 	head_yaw_angle = 180
 	
 	#get starting loom
-	randomize()
 	if force_first_trial:
 		trial_order = forced_first_trial_order
 	else:
@@ -104,7 +103,6 @@ func _ready():
 	yscale = sin(deg2rad(loom_pitch_angle))
 	zscale = cos(deg2rad(loom_pitch_angle))*cos(deg2rad(loom_yaw_angle))
 	head_z = 0.0
-	print("trial " + str(current_condition) + ": type " + str(trial_type) + ", direction " + str(direction))
 	
 	#rotate eyes relative to body
 	lefteye.rotation_degrees.y = -head_yaw_angle+eye_yaw
@@ -128,9 +126,12 @@ func _ready():
 	object.rotation_degrees.y = obj_y_ang
 	object.rotation_degrees.x = loom_pitch_angle
 	
-	#input setup
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
+	#start experiment
+	var experimentDuration = num_reps*num_trials*(predelay + (loom_start_distance-loom_stop_distance)/velocity + postdelay) + trial1delay
+	start_experiment(experimentName, experimentDuration)
+	print("trial " + str(current_condition) + ": type " + str(trial_type) + ", direction " + str(direction))
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#calculate fps
@@ -237,8 +238,7 @@ func _process(delta):
 			current_trial = 0
 			current_rep += 1
 			if (current_rep > num_reps):
-				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-				get_tree().change_scene("res://sceneSelect.tscn")
+				stop_experiment(experimentName)
 			trial_order.shuffle()
 			print("rep " + str(current_rep) + ", trial order: " + str(trial_order))
 		current_condition = trial_order[current_trial]
@@ -259,8 +259,8 @@ func _input(ev):
 	if ev is InputEventKey and ev.is_pressed():
 		if ev.scancode == KEY_ESCAPE:
 			saveUtils.save_logs(current_rep,dataLog,dataNames,experimentName) #save current logged data to a new file
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			get_tree().change_scene("res://sceneSelect.tscn")
+			dataLog = [] #clear saved data
+			stop_experiment(experimentName)
 			
 	if ev is InputEventMouseMotion:
 		head_yaw += ev.relative.x

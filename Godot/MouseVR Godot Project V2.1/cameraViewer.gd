@@ -1,6 +1,9 @@
 #get common settings
 extends "res://commonSettings.gd"
 
+# Camera viewer settings
+var cam_brightness_scale = 1.5 #scale to increase brightness of frames received over UDP
+
 # UDP Configuration
 var time_elapsed = 0.0
 var frame_period = 1
@@ -16,7 +19,7 @@ func _ready():
 	verify_connection()
 	time_elapsed = 0
 	colorbox.color = Color(0, 0, brightness_modulate)
-	colorlabel.text = "Brightness: " + str(brightness_modulate)
+	colorlabel.text = "Max Brightness: " + str(brightness_modulate)
 	
 func _process(delta):
 	time_elapsed += delta
@@ -29,18 +32,19 @@ func _process(delta):
 			if packet.size()>0:
 				var cam_index = packet[1]-48 # ASCII to num
 				var image_data = packet.subarray(2, packet.size()-1)
+				#invert and scale brightness
+				for i in range(image_data.size()):
+					image_data.set(i,max((255-image_data[i]*cam_brightness_scale),0))
+				# create Godot Image from grayscale bytes
 				var image = Image.new()
-				var error = image.load_jpg_from_buffer(image_data)
-				
-				if error == OK:
-					var texture = ImageTexture.new()
-					texture.create_from_image(image)
-					if cam_index == 0:
-						cam0.texture = texture
-					else:
-						cam1.texture = texture
+				image.create_from_data(250, 250, false, Image.FORMAT_R8, image_data)  # no mipmaps, 8-bit grayscale
+				#update the texture
+				var texture = ImageTexture.new()
+				texture.create_from_image(image)
+				if cam_index == 0:
+					cam0.texture = texture
 				else:
-					print("JPEG decode error: ", error)
+					cam1.texture = texture
 
 
 func _input(ev):

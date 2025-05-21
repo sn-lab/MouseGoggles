@@ -14,7 +14,7 @@ export var camera_trigger_duration = 0.5 #duration of trigger signal to start/st
 export var exp_phase = 1
 
 #training protocol parameters
-export var num_reps_1 = 4
+export var num_reps_1 = 32
 export var trial_angles_1 = [0, 45] #angle change rotational speeds for each trial (day 1)
 export var num_reps_2 = 8
 export var trial_angles_2 = [0, 0, 0, 0, 5, 10, 22.5, 45] #angle change rotational speeds for each trial (days 2+)
@@ -62,15 +62,6 @@ var dataNames = ['head_yaw', 'head_thrust', 'head_slip', 'current_trial', 'rotat
 func _ready():    
 	experimentName =  timestamp + "_" + scene_name
 	
-	#input setup
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
-	#UDP handshake
-	assert(udp.listen(listen_port) == OK, "UDP listen failed")
-	verify_connection()
-	start_video(experimentName, 780.0)
-	OS.delay_msec(1000)
-	
 	#set new eye positions
 	inter_eye_distance = 0 #put eyes together in the center
 	eye_pitch = 10 #degrees from the horizontal
@@ -79,15 +70,11 @@ func _ready():
 	if exp_phase == 1:
 		trial_angles = trial_angles_1
 		num_reps = num_reps_1
-		
 	if exp_phase == 2:
 		trial_angles = trial_angles_2
 		num_reps = num_reps_2
-	
 	num_trials = trial_angles.size()
-	randomize()
 	trial_angles.shuffle()
-	print("trial order " + str(trial_angles))
 	
 	#set mouse position to free walking area
 	head_y = walking_y + head_radius
@@ -111,6 +98,11 @@ func _ready():
 	lefteye.translation.x = head_x - inter_eye_distance*cos(deg2rad(head_yaw_angle))
 	righteye.translation.z = head_z + inter_eye_distance*sin(deg2rad(head_yaw_angle))
 	righteye.translation.x = head_x + inter_eye_distance*cos(deg2rad(head_yaw_angle))
+	
+	#start experiment
+	var experimentDuration = num_reps*num_trials*(intertrial_duration + grating_duration_1 + intergrating_duration + grating_duration_2)
+	start_experiment(experimentName, experimentDuration)
+	print("trial order " + str(trial_angles))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -339,13 +331,7 @@ func _process(delta):
 				current_trial = 0
 				current_rep += 1
 				if (current_rep > num_reps):
-					stop_video()
-					print("experiment complete")
-					fpslabel.text = "transferring video..."
-					transfer_video(experimentName)
-					print("done")
-					Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-					get_tree().change_scene("res://sceneSelect.tscn")
+					stop_experiment(experimentName)
 				else:
 					trial_angles.shuffle()
 					print("trial order " + str(trial_angles))
@@ -354,28 +340,25 @@ func _process(delta):
 	head_thrust = 0
 	head_slip = 0
 	head_yaw = 0
-	
+
 
 func _input(ev):
 	if ev is InputEventKey and ev.is_pressed():
 		if ev.scancode == KEY_ESCAPE:
 			saveUtils.save_logs(current_rep,dataLog,dataNames,experimentName) #save current logged data to a new file
-			stop_video()
-			print("experiment exited, transferring video...")
-			yield(get_tree().create_timer(1.0), "timeout")
-			fpslabel.text = "transferring video..."
-			transfer_video(experimentName)
-			print("done")
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			get_tree().change_scene("res://sceneSelect.tscn")
-			
+			dataLog = [] #clear saved data
+			stop_experiment(experimentName)
+
+
 	if ev is InputEventMouseMotion:
 		head_yaw += ev.relative.x
 		head_thrust += ev.relative.y
-		
+
+
 	if ev is InputEventMouseButton:
 		if ev.is_pressed():
 			if ev.button_index == BUTTON_WHEEL_UP:
 				head_slip += 1
 			if ev.button_index == BUTTON_WHEEL_DOWN:
 				head_slip -= 1
+
