@@ -205,6 +205,9 @@ This installation has been verified using the following software versions:
   chmod +x install_pivariety_pkgs.sh
   ./install_pivariety_pkgs.sh -p libcamera_dev
   ./install_pivariety_pkgs.sh -p libcamera_apps
+  sudo apt-get update
+  sudo apt-get upgrade
+  sudo apt install python3-opencv
   ```
 
 ### Add dual-camera support in the configuration file
