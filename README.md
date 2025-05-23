@@ -10,7 +10,7 @@
 
 **Previous Updates**
 
-* (May 2025) Big software update to EyeTrack 1.1, including the first Godot project (2.1) which enables controlling and viewing the eye-tracking cameras from within the game engine!
+* (May 2025) Big software updates to EyeTrack 1.1, including the first Godot project (2.1) which enables controlling and viewing the eye-tracking cameras from within the game engine! TCP/UDP communication between the Pis enable TTL outputs and eye-tracking videos to be controlled directly from VR experiment scripts.
 
 * (Mar 2024) Added the [MouseGoggles EyeTrack](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/EyeTrack/1.0) headset, for binocular eye/pupil tracking cameras integrated into the headset
 
