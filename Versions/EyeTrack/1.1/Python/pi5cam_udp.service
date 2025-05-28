@@ -8,4 +8,4 @@ Restart=on-failure
 RestartSec=1s
 
 [Install]
-WantedBy=multi-user.target #Start when system is read (e.g. for more user)
+WantedBy=multi-user.target
