@@ -149,11 +149,11 @@ To install all necessary software, you'll first need a PC to install the Raspber
 ### Install the Godot game engine
 
 - Start the Raspberry Pi and connect to the internet.
-   - to connect to a wireless internet network, you will first be asked to set your Wifi country
+   - to connect to a wireless internet network, you will first be asked to set your wireless LAN country
 - Open up the githib page for the [Unofficial Godot Engine for the Raspberry Pi](https://github.com/hiulit/Unofficial-Godot-Engine-Raspberry-Pi/tree/main?tab=readme-ov-file#compiling).
 - In the "Downloads" section, download the zip file for 3.5.2 - Raspberry Pi 4
 - After the zip file has been downloaded, navigate to your "downloads" folder, right-click on the zip file, and click "extract here"
-- Inside the unzipped folder, find the "...editor_Ito.bin" file. This is the executable file for running the godot game engine. To run the engine, double-click this file and select "Execute".
+- Inside the unzipped folder, find the "...editor_Ito.bin" file. This is the executable file for running the godot game engine. To run the engine, double-click this file and select "Execute" (you do not need to run the engine yet)
 
 ### Install the display driver
 
@@ -198,7 +198,7 @@ This installation has been verified using the following software versions:
 ### Install the camera driver and software
 
 - Start the Raspberry Pi and connect to the internet.
-   - to connect to a wireless internet network, you will first be asked to set your Wifi country
+   - to connect to a wireless internet network, you will first be asked to set your wireless LAN country
 
 - Open up the command terminal and enter each line, one at a time: (scroll to see the full line)
   
@@ -252,7 +252,7 @@ This installation has been verified using the following software versions:
    - The line below uses the hostname as "MG5"; hange this line to match the hostname you chose for this Raspberry Pi 5
 
   ```
-  sudo cp /home/MG5/Desktop/Cam/pi5cam_udp.service /etc/systemd/system/pi5cam_udp.service
+  sudo cp Desktop/Cam/pi5cam_udp.service /etc/systemd/system/pi5cam_udp.service
   sudo systemctl daemon-reload
   sudo systemctl enable pi5cam_udp.service
   sudo systemctl start pi5cam_udp.service
