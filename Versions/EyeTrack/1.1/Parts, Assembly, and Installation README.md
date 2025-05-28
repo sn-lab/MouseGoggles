@@ -149,6 +149,7 @@ To install all necessary software, you'll first need a PC to install the Raspber
 ### Install the Godot game engine
 
 - Start the Raspberry Pi and connect to the internet.
+   - to connect to a wireless internet network, you will first be asked to set your Wifi country
 - Open up the githib page for the [Unofficial Godot Engine for the Raspberry Pi](https://github.com/hiulit/Unofficial-Godot-Engine-Raspberry-Pi/tree/main?tab=readme-ov-file#compiling).
 - In the "Downloads" section, download the zip file for 3.5.2 - Raspberry Pi 4
 - After the zip file has been downloaded, navigate to your "downloads" folder, right-click on the zip file, and click "extract here"
@@ -197,6 +198,7 @@ This installation has been verified using the following software versions:
 ### Install the camera driver and software
 
 - Start the Raspberry Pi and connect to the internet.
+   - to connect to a wireless internet network, you will first be asked to set your Wifi country
 
 - Open up the command terminal and enter each line, one at a time: (scroll to see the full line)
   
@@ -209,6 +211,7 @@ This installation has been verified using the following software versions:
   sudo apt-get upgrade
   sudo apt install python3-opencv
   ```
+- note: When you are asked if you want to continue installing, answer yes.
 
 ### Add dual-camera support in the configuration file
 
@@ -246,7 +249,8 @@ This installation has been verified using the following software versions:
 - To enable the Pi 4 to control the eye-tracking cameras on the Pi 5, download the "pi5cam_udp.py" and "pi5cam_udp.service" files from the python folder and place them in a folder named "Cam" on the Pi 5 desktop.
 
 - To automatically start the pi5cam_udp.py script whenever the Pi 5 boots up (recommended), open up a command terminal and enter each line one at a time to copy the service file into the systemd folder and enable/start the service: (scroll to see the full line)
-  
+   - The line below uses the hostname as "MG5"; hange this line to match the hostname you chose for this Raspberry Pi 5
+
   ```
   sudo cp /home/MG5/Desktop/Cam/pi5cam_udp.service /etc/systemd/system/pi5cam_udp.service
   sudo systemctl daemon-reload
