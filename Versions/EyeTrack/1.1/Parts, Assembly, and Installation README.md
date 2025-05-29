@@ -304,68 +304,39 @@ This installation has been verified using the following software versions:
   sudo pkill fbcp
   ```
 
-- Check in `/etc/rc.local` and `/etc/init.d` to make sure fbcp does not start on system startup (delete any fbcp entries) 
+- Check in `/etc/rc.local` and `/etc/init.d` to make sure fbcp does not start on system startup (delete any fbcp entries)
+  
 
 ### Manually recording video from the eye-tracking cameras
 
-* Copy the `pi5cam.py` script from the `Python` folder to the Raspberry Pi 5.
+* Make sure the `pi5cam.py` script from the `Python` folder is copied to the Raspberry Pi 5, in a folder named "Cam" on the desktop.
 
-* Run the `pi5cam.py` script, which will open camera preview windows and start recording. A .mjpg file will be saved for each video once the recording has finished.
+* Open the `pi5cam.py` script, which contains two blocks of code, one of which is commented out with the symbols `"""`. Running the script with the 1st block only will open camera preview windows. Running the script with the 2nd block only will record video from both cameras and save them to a binary file on the desktop. To view this video, open the `pi5cam_binaryviewer.py` script, set the filename of the video you would like to view, and run it.
 
-* (Optional) To convert the .mjpg file to a .mkv file that can be viewed with vlc, open the command terminal and enter the following line, changing the input and output filenames as desired:
-
-* Note 1: The focus of the cameras will likely need to be manually adjusted for high-quality eye imaging. Use the IMX519 key to adjust each camera's focus (i.e. unscrew the lens) until an object (e.g. a piece of paper with small text) positioned ~0.5-1 mm away from the center of the Fresnel lens of the eyepiece is in sharp focus. 
-
-* Note 2: Since the camera is IR sensitive but still strongly detects red, green, and blue light from the displays, the best eye imaging during VR presentation can be achieved by using the latest godot project which only presents images using the blue and green LEDs of the display, and by performing eye-imaging using only the red channel of the NoIR cameras.
-  
-  ```
-  ffmpeg -framerate 25 -i input.mjpg -c:v copy -metadata fps=25 output.mkv
-  
-  ```
 
 ### Automatically recording video from the eye-tracking cameras from a VR experiment
 
-- Make sure that you followed the final installation step above for setting up a TCP/UDP connection.
+- Make sure that you followed the final installation step above for setting up a TCP/UDP connection
 
-- Ensure that both Raspberry Pis are turned on.
+- Ensure that both Raspberry Pis are turned on
 
-- On the Pi 4, navigate to the "godot_3.5.2-stable_rpi4_editor_Ito.bin" file. Double-click this file and select "Execute".
+- On the Pi 4, navigate to the "godot_3.5.2-stable_rpi4_editor_Ito.bin" file. Double-click this file and select "Execute"
 
-- Open/edit the MouseVR Godot Project V2.1.
+- Open/edit the MouseVR Godot Project V2.1
 
-- Find the "commonSettings.gd" script and open it in the "script" tab.
+- Find the "commonSettings.gd" script and open it in the "script" tab
 
-- Scroll down to find the the "var destination_ip" line and ensure that the IP address listed here is the same you selected during the TCP/UDP installation step above.
+- Scroll down to find the the "var destination_ip" line and ensure that the IP address listed here is the same you selected during the TCP/UDP installation step above
 
-- To verify that the UDP connection is working, run the project (play button on the upper-right) and select the "camera viewer" scene. A window should show images from the eye-tracking cameras, updated at 2 Hz. This scene can be used to ensure accurate placement of the headset for eye-trakcing
+- To verify that the UDP connection is working, run the project (play button on the upper-right) and select the "eye-tracking test" function. A window should show images from the eye-tracking cameras, updated at 1 Hz. This scene can be used to ensure accurate placement of the headset for eye-tracking
 
-- To see an example VR experiment which automatically records eye-tracking video, run the "rotating grating" scene and/or open up the rotatingGratingScene.gd script.
+- To enable automatic eye-tracking camera recording during an experiment, open the commonSettings.gd page (viewing it in the "Script" tab) and set the `record_eyes` variable to `True`. To disable eye recording during experiments, set this variable to `False`
 
-- To enable automatic eye-tracking camera recording for other experiments, copy the following code blocks into their respective locations in the experiment .gd script file:
 
-- Copy the following block of code into the experiment's "_ready()" function: (change the recording_duration to be just greater than the maximum duration of the experiment)
-  
-  ```
-  #UDP handshake
-  var recording_duration = 100 #seconds of video to record, if not stopped sooner
-  assert(udp.listen(listen_port) == OK, "UDP listen failed")
-  verify_connection()
-  start_video(experimentName, recording_duration)
-  OS.delay_msec(1000)
-  ```
-
-* Copy the following block of code into two locations: 1) at the end of the "_process(delta)" function, just before the experiment exits back to the sceneSelect scene (get_tree().change_scene("res://sceneSelect.tscn")), and 2) in the "_input(ev)" function when "KEY_ESCAPE" is pressed, just before the experiment exits back to the sceneSelect scene:
-  
-  ```
-  stop_video() #stops the video recording early (earlier than the duration set above)
-  transfer_video(experimentName) #transfers recorded video from the Pi 5 into the log folder of this experiment
-  ```
-  
-  
 
 ### Operating the systems remotely with VNC
 
-- Make sure that the reaspberry Pi(s) you want to operate are connected to the internet or your local network.
+- Make sure that the reaspberry Pi(s) you want to operate are connected to the internet or your local network
 
 * Open up a Raspberry Pi command terminal and enter the following line:
   
