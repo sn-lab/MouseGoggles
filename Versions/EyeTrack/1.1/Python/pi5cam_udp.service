@@ -2,6 +2,7 @@
 Description=Run pi5cam_udp.py automatically
 
 [Service]
+WorkingDirectory=/home/MG5/Desktop/Cam
 ExecStart=/usr/bin/python3 /home/MG5/Desktop/Cam/pi5cam_udp.py
 User=MG5
 Restart=on-failure
