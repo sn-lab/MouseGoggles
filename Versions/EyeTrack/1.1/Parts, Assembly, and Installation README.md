@@ -160,6 +160,7 @@ To install all necessary software, you'll first need a PC to install the Raspber
 - Open up the Raspberry Pi command terminal and enter each line, one at a time:
   
   ```
+  sudo apt install python3-opencv
   sudo apt-get install cmake
   cd ~
   git clone https://github.com/sn-lab/MouseGoggles
@@ -247,9 +248,9 @@ This installation has been verified using the following software versions:
   ```
 
 - To enable the Pi 4 to control the eye-tracking cameras on the Pi 5, download the "pi5cam_udp.py" and "pi5cam_udp.service" files from the python folder and place them in a folder named "Cam" on the Pi 5 desktop.
-
-- To automatically start the pi5cam_udp.py script whenever the Pi 5 boots up (recommended), open up a command terminal and enter each line one at a time to copy the service file into the systemd folder and enable/start the service: (scroll to see the full line)
-   - The line below uses the hostname as "MG5"; hange this line to match the hostname you chose for this Raspberry Pi 5
+  
+- To automatically start the pi5cam_udp.py script whenever the Pi 5 boots up (recommended), open the pi5cam_udp.service in a text editor, and change all instances of the user name "MG5" to the user name you selected for this device. Save and exit the file
+- Open up a command terminal and enter each line one at a time to copy the service file into the systemd folder and enable/start the service:
 
   ```
   sudo cp Desktop/Cam/pi5cam_udp.service /etc/systemd/system/pi5cam_udp.service
