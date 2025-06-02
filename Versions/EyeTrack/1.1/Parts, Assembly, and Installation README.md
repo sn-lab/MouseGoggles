@@ -242,9 +242,7 @@ This installation has been verified using the following software versions:
   
   ```
   sudo nmcli connection modify "Wired connection 1" ipv4.addresses 169.254.123.1/16 ipv4.method manual
-  sudo nmcli connection up "Wired connection 1"
-  
-  
+  sudo nmcli connection up "Wired connection 1"  
   ```
 
 - To enable the Pi 4 to control the eye-tracking cameras on the Pi 5, download the "pi5cam_udp.py" and "pi5cam_udp.service" files from the python folder and place them in a folder named "Cam" on the Pi 5 desktop.
