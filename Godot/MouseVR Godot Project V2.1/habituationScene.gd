@@ -6,6 +6,15 @@ export var scene_name = "habituation"
 export var trial_duration = 1800
 export var reward_dur = 0.05 #seconds to open the reward valve
 
+#headkinbody viewport nodes
+onready var lefthead = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer/TextureRect/Viewport/LeftEyeBody")
+onready var righthead = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer2/TextureRect/Viewport/RightEyeBody")
+onready var lefteye = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer/TextureRect/Viewport/LeftEyeBody/LeftEyePivot")
+onready var righteye = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer2/TextureRect/Viewport/RightEyeBody/RightEyePivot")
+onready var colorrect = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer/ColorRect")
+onready var fpslabel = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer2/Label")
+onready var overlay = get_node("HeadKinBody/Control/Overlay")
+
 #head/eye position variables
 var head_yaw = 0 #degrees; 0 points along -z; 90 points to +x
 var head_thrust = 0 #+ points to -z
@@ -54,11 +63,12 @@ func _ready():
 	
 	#start experiment
 	var experimentDuration = trial_duration
-	start_experiment(experimentName, experimentDuration)
+	overlay.color = Color(0, 0, 0, 1-brightness_modulate) #modulate brightness with black overlay transparency 
+	start_experiment(experimentDuration)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	#calculate fps
 	ms_now = OS.get_ticks_msec() - ms_start
 	times.append(ms_now)
@@ -104,14 +114,14 @@ func _process(delta):
 	if (current_frame > trial_duration*frames_per_second):
 		saveUtils.save_logs(1,dataLog,dataNames,experimentName) #save current logged data to a new file
 		dataLog = [] #clear saved data
-		stop_experiment(experimentName)
+		stop_experiment()
 
 func _input(ev):
 	if ev is InputEventKey and ev.is_pressed():
 		if ev.scancode == KEY_ESCAPE:
 			saveUtils.save_logs(1,dataLog,dataNames,experimentName) #save current logged data to a new file
 			dataLog = [] #clear saved data
-			stop_experiment(experimentName)
+			stop_experiment()
 			
 		if ev.scancode == KEY_R:
 			reward_out = 1

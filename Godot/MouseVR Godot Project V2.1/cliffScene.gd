@@ -9,6 +9,15 @@ export var start_x = 0.25
 export var start_z = 0
 export var arena_radius = 1
 
+#headkinbody viewport nodes
+onready var lefthead = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer/TextureRect/Viewport/LeftEyeBody")
+onready var righthead = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer2/TextureRect/Viewport/RightEyeBody")
+onready var lefteye = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer/TextureRect/Viewport/LeftEyeBody/LeftEyePivot")
+onready var righteye = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer2/TextureRect/Viewport/RightEyeBody/RightEyePivot")
+onready var colorrect = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer/ColorRect")
+onready var fpslabel = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer2/Label")
+onready var overlay = get_node("HeadKinBody/Control/Overlay")
+
 #head/eye position variables
 var head_yaw = 0 #degrees; 0 points along -z; 90 points to +x
 var head_thrust = 0 #+ points to -z
@@ -46,7 +55,8 @@ func _ready():
 	
 	#start experiment
 	var experimentDuration = num_reps*trial_duration
-	start_experiment(experimentName, experimentDuration)
+	overlay.color = Color(0, 0, 0, 1-brightness_modulate) #modulate brightness with black overlay transparency 
+	start_experiment(experimentDuration)
 	print("rep 1: head angle " + String(head_yaw_angle))
 
 
@@ -114,7 +124,7 @@ func _process(delta):
 		current_rep += 1
 		current_frame = 1
 		if (current_rep>num_reps):
-			stop_experiment(experimentName)
+			stop_experiment()
 		else:
 			head_yaw_angle = randi() % 360
 			head_x = start_x
@@ -127,7 +137,7 @@ func _input(ev):
 		if ev.scancode == KEY_ESCAPE:
 			saveUtils.save_logs(current_rep,dataLog,dataNames,experimentName) #save current logged data to a new file
 			dataLog = [] #clear saved data
-			stop_experiment(experimentName)
+			stop_experiment()
 			
 	if ev is InputEventMouseMotion:
 		head_yaw += ev.relative.x

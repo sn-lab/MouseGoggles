@@ -32,7 +32,7 @@ static func save_logs(currentRep, dataLog, dataNames, experimentName):
 		file.store_string("\n")
 			
 		# Write data rows
-		for l in range(numRows):
+		for _l in range(numRows):
 			for i in range(numColumns):
 				file.store_string(String(dataLog[n]))
 				if i < (numColumns-1):

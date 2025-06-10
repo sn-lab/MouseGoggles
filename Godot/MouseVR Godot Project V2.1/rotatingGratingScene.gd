@@ -19,6 +19,15 @@ export var trial_angles_1 = [0, 45] #angle change rotational speeds for each tri
 export var num_reps_2 = 8
 export var trial_angles_2 = [0, 0, 0, 0, 5, 10, 22.5, 45] #angle change rotational speeds for each trial (days 2+)
 
+#headkinbody viewport nodes
+onready var lefthead = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer/TextureRect/Viewport/LeftEyeBody")
+onready var righthead = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer2/TextureRect/Viewport/RightEyeBody")
+onready var lefteye = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer/TextureRect/Viewport/LeftEyeBody/LeftEyePivot")
+onready var righteye = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer2/TextureRect/Viewport/RightEyeBody/RightEyePivot")
+onready var colorrect = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer/ColorRect")
+onready var fpslabel = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer2/Label")
+onready var overlay = get_node("HeadKinBody/Control/Overlay")
+
 #optomotor variables
 var rotation_speed_y = temporal_frequency*spatial_wavelength #degrees per second in y
 var rotation_angle_y = 0
@@ -101,7 +110,8 @@ func _ready():
 	
 	#start experiment
 	var experimentDuration = num_reps*num_trials*(intertrial_duration + grating_duration_1 + intergrating_duration + grating_duration_2)
-	start_experiment(experimentName, experimentDuration)
+	overlay.color = Color(0, 0, 0, 1-brightness_modulate) #modulate brightness with black overlay transparency 
+	start_experiment(experimentDuration)
 	print("trial order " + str(trial_angles))
 
 
@@ -331,7 +341,7 @@ func _process(delta):
 				current_trial = 0
 				current_rep += 1
 				if (current_rep > num_reps):
-					stop_experiment(experimentName)
+					stop_experiment()
 				else:
 					trial_angles.shuffle()
 					print("trial order " + str(trial_angles))
@@ -347,7 +357,7 @@ func _input(ev):
 		if ev.scancode == KEY_ESCAPE:
 			saveUtils.save_logs(current_rep,dataLog,dataNames,experimentName) #save current logged data to a new file
 			dataLog = [] #clear saved data
-			stop_experiment(experimentName)
+			stop_experiment()
 
 
 	if ev is InputEventMouseMotion:

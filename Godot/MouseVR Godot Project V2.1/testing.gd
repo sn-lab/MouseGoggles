@@ -24,14 +24,15 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	outputrect.color = Color(0, 0, 0)
 	
-	# check UDP/TCP communication
-	verify_connection()
+	if record_eyes:
+		# check UDP/TCP communication
+		verify_connection()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	
 	#calculate fps (method 2)
-	var now := OS.get_ticks_msec()
+	now = OS.get_ticks_msec()
 	times.append(now)
 	while times.size() > 0 and times[0] <= now - 1000:
 		times.pop_front() # Remove frames older than 1 second in the `times` array
@@ -64,7 +65,7 @@ func _input(ev):
 	if ev is InputEventKey and ev.is_pressed():
 		if ev.scancode == KEY_ESCAPE:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			get_tree().change_scene("res://sceneSelect.tscn")
+			var _error = get_tree().change_scene("res://sceneSelect.tscn")
 		if ev.scancode == KEY_O:
 			Input.start_joy_vibration(0,1,1,output_dur) #for using xinput rumble output
 			if udp_connected:

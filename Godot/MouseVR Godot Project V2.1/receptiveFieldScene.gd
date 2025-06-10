@@ -17,6 +17,34 @@ export var temporal_frequencies = [  2,   2,   2,   2,   2,   2,   2,   2,   2, 
 export var num_trials = 12 # number of spots
 export var num_reps = 3
 
+#headkinbody viewport nodes
+onready var lefthead = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer/TextureRect/Viewport/LeftEyeBody")
+onready var righthead = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer2/TextureRect/Viewport/RightEyeBody")
+onready var lefteye = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer/TextureRect/Viewport/LeftEyeBody/LeftEyePivot")
+onready var righteye = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer2/TextureRect/Viewport/RightEyeBody/RightEyePivot")
+onready var colorrect = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer/ColorRect")
+onready var fpslabel = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer2/Label")
+onready var overlay = get_node("HeadKinBody/Control/Overlay")
+
+#cylinder nodes
+onready var cyl1 = get_node("CylinderKinBody1")
+onready var mesh1 = get_node("CylinderKinBody1/MeshInstance1")
+
+#spot boundary nodes
+onready var topmesh = get_node("TopMeshInstance")
+onready var botmesh = get_node("BottomMeshInstance")
+onready var rightmesh = get_node("RightMeshInstance")
+onready var leftmesh = get_node("LeftMeshInstance")
+
+#preload textures
+var grating1 = preload("res://textures/Grating 1 deg spatial wavelength.png")
+var grating2 = preload("res://textures/Grating 2 deg spatial wavelength.png")
+var grating4 = preload("res://textures/Grating 4 deg spatial wavelength.png")
+var grating6 = preload("res://textures/Grating 6 deg spatial wavelength.png")
+var grating8 = preload("res://textures/Grating 8 deg spatial wavelength.png")
+var grating12 = preload("res://textures/Grating 12 deg spatial wavelength.png")
+var grating24 = preload("res://textures/Grating 24 deg spatial wavelength.png")
+
 #experiment variables
 var speed = 0
 var angle = 0
@@ -27,23 +55,6 @@ var eye = 0
 var azimuth = 0
 var elevation = 0
 var cylinder_angle = 0
-var wavelength_z_pos = [-3, 18, 15, -3, 12, -3, 9, -3, 6, -3, -3, -3, 3, -3, -3, -3, -3, -3, -3, -3, -3, -3, -3, -3, 0]
-
-#cylinder nodes
-onready var cyl1 = get_node("CylinderKinBody1")
-onready var cyl2 = get_node("CylinderKinBody2")
-onready var cyl4 = get_node("CylinderKinBody4")
-onready var cyl6 = get_node("CylinderKinBody6")
-onready var cyl8 = get_node("CylinderKinBody8")
-onready var cyl12 = get_node("CylinderKinBody12")
-onready var cyl24 = get_node("CylinderKinBody24")
-onready var current_cylinder = cyl1
-
-#spot boundary nodes
-onready var topmesh = get_node("TopMeshInstance")
-onready var botmesh = get_node("BottomMeshInstance")
-onready var rightmesh = get_node("RightMeshInstance")
-onready var leftmesh = get_node("LeftMeshInstance")
 
 #head/eye position variables
 var head_yaw = 0 #degrees; 0 points along -z; 90 points to +x
@@ -84,8 +95,8 @@ func _ready():
 	
 	#start experiment
 	var experimentDuration = num_reps*num_trials*(predelay+stim_duration+postdelay)
-	start_experiment(experimentName, experimentDuration)
-	OS.delay_msec(1000)
+	overlay.color = Color(0, 0, 0, 1-brightness_modulate) #modulate brightness with black overlay transparency 
+	start_experiment(experimentDuration)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -107,7 +118,7 @@ func _process(delta):
 	if state==1:
 		current_rep += 1
 		if (current_rep > num_reps):
-			stop_experiment(experimentName)
+			stop_experiment()
 			yield(get_tree().create_timer(1.0), "timeout")
 		trial_order.shuffle()
 		print("trial order " + str(trial_order))
@@ -117,8 +128,8 @@ func _process(delta):
 	
 	#state 2 (starting a new trial)
 	if state==2:
-		lefteye.translation.z = wavelength_z_pos[0]
-		righteye.translation.z = wavelength_z_pos[0]
+		lefteye.translation.z = -3
+		righteye.translation.z = -3
 		current_trial += 1
 		if current_trial<=num_trials: #start the next trial
 			cylinder_angle = 0
@@ -141,35 +152,39 @@ func _process(delta):
 			speed = spatial_wavelengths[trial_order[current_trial-1]]*temporal_frequencies[trial_order[current_trial-1]]
 			
 			#get current spatial wavelength to set current cylinder mesh
+			var material1 = SpatialMaterial.new()
+			material1.params_cull_mode = SpatialMaterial.CULL_FRONT  # Front culling
+			material1.flags_unshaded = true  # Unshaded flag
+			mesh1.set_surface_material(0, material1)
 			if spatial_wavelengths[trial_order[current_trial-1]]==1:
-				current_cylinder = cyl1
+				material1.albedo_texture = grating1
 			if spatial_wavelengths[trial_order[current_trial-1]]==2:
-				current_cylinder = cyl2
+				material1.albedo_texture = grating2
 			if spatial_wavelengths[trial_order[current_trial-1]]==4:
-				current_cylinder = cyl4
+				material1.albedo_texture = grating4
 			if spatial_wavelengths[trial_order[current_trial-1]]==6:
-				current_cylinder = cyl6
+				material1.albedo_texture = grating6
 			if spatial_wavelengths[trial_order[current_trial-1]]==8:
-				current_cylinder = cyl8
+				material1.albedo_texture = grating8
 			if spatial_wavelengths[trial_order[current_trial-1]]==12:
-				current_cylinder = cyl12
+				material1.albedo_texture = grating12
 			if spatial_wavelengths[trial_order[current_trial-1]]==24:
-				current_cylinder = cyl24
+				material1.albedo_texture = grating24
 			
 			#set current z-pos and angle of each eye
 			if (eye_inds[trial_order[current_trial-1]]==1 || eye_inds[trial_order[current_trial-1]]==3):
-				lefteye.translation.z = wavelength_z_pos[spatial_wavelengths[trial_order[current_trial-1]]]
+				lefteye.translation.z = 0
 				lefteye.rotate_object_local(Vector3(1,0,0), (-eye_elevations[trial_order[current_trial-1]])*3.14/180)
 				lefteye.rotate_object_local(Vector3(0,1,0), (-eye_yaw - eye_azimuths[trial_order[current_trial-1]])*3.14/180)
 				
 			if (eye_inds[trial_order[current_trial-1]]==2 || eye_inds[trial_order[current_trial-1]]==3):
-				righteye.translation.z = wavelength_z_pos[spatial_wavelengths[trial_order[current_trial-1]]]
+				righteye.translation.z = 0
 				righteye.rotate_object_local(Vector3(1,0,0), (-eye_elevations[trial_order[current_trial-1]])*3.14/180)
 				righteye.rotate_object_local(Vector3(0,1,0), (eye_yaw - eye_azimuths[trial_order[current_trial-1]])*3.14/180)
 			
 			#rotate cylinders according to direction angle
 			#currentmesh.rotate_object_local(Vector3(0,0,1), rotation_angles[trial_order[current_trial-1]]*3.14/180)
-			current_cylinder.rotation_degrees.z = rotation_angles[trial_order[current_trial-1]]
+			cyl1.rotation_degrees.z = rotation_angles[trial_order[current_trial-1]]
 			
 			#move to next state
 			state = 4
@@ -178,15 +193,15 @@ func _process(delta):
 	#state 4 (stimulus)
 	if state==4:
 		cylinder_angle = delta*speed
-		current_cylinder.rotate_object_local(Vector3(0,1,0), cylinder_angle*3.14/180)
+		cyl1.rotate_object_local(Vector3(0,1,0), cylinder_angle*3.14/180)
 		
-		#move to next state once predelay duration has finished
+		#move to next state once stimulus duration has finished
 		if current_frame>=((predelay+stim_duration)*frames_per_second):
-			lefteye.translation.z = wavelength_z_pos[0]
-			righteye.translation.z = wavelength_z_pos[0]
-			current_cylinder.rotation_degrees.z = 0
-			current_cylinder.rotation_degrees.x = 0
-			current_cylinder.rotation_degrees.y = 0
+			lefteye.translation.z = -3
+			righteye.translation.z = -3
+			cyl1.rotation_degrees.z = 0
+			cyl1.rotation_degrees.x = 0
+			cyl1.rotation_degrees.y = 0
 			lefteye.rotation_degrees.z = 0
 			lefteye.rotation_degrees.x = 0
 			lefteye.rotation_degrees.y = 0
@@ -207,7 +222,7 @@ func _process(delta):
 	
 	#update text label
 	fpslabel.text = str(eye_azimuths[trial_order[current_trial-1]])
-	#fpslabel.text = ""
+	#fpslabel.text = str(lefteye.translation.z)
 	
 	#reset movements
 	head_thrust = 0
@@ -220,7 +235,7 @@ func _input(ev):
 		if ev.scancode == KEY_ESCAPE:
 			saveUtils.save_logs(current_rep,dataLog,dataNames,experimentName) #save current logged data to a new file
 			dataLog = [] #clear saved data
-			stop_experiment(experimentName)
+			stop_experiment()
 	
 	if ev is InputEventMouseMotion:
 		head_yaw += ev.relative.x

@@ -11,6 +11,15 @@ export var predelay = 4
 export var num_trials = 14
 export var num_reps = 5
 
+#headkinbody viewport nodes
+onready var lefthead = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer/TextureRect/Viewport/LeftEyeBody")
+onready var righthead = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer2/TextureRect/Viewport/RightEyeBody")
+onready var lefteye = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer/TextureRect/Viewport/LeftEyeBody/LeftEyePivot")
+onready var righteye = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer2/TextureRect/Viewport/RightEyeBody/RightEyePivot")
+onready var colorrect = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer/ColorRect")
+onready var fpslabel = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer2/Label")
+onready var overlay = get_node("HeadKinBody/Control/Overlay")
+
 #optomotor variables
 var rotation_speed = 0 #degrees per second
 var rotation_angle = 0 #degrees
@@ -67,7 +76,8 @@ func _ready():
 	
 	#start experiment
 	var experimentDuration = num_reps*num_trials*trial_duration
-	start_experiment(experimentName, experimentDuration)
+	overlay.color = Color(0, 0, 0, 1-brightness_modulate) #modulate brightness with black overlay transparency 
+	start_experiment(experimentDuration)
 	print("trial order " + str(trial_order))
 
 
@@ -127,7 +137,7 @@ func _process(delta):
 			current_trial = 0
 			current_rep += 1
 			if (current_rep > num_reps):
-				stop_experiment(experimentName)
+				stop_experiment()
 			trial_order.shuffle()
 			print("trial order " + str(trial_order))
 		current_condition = trial_order[current_trial]
@@ -151,7 +161,7 @@ func _input(ev):
 		if ev.scancode == KEY_ESCAPE:
 			saveUtils.save_logs(current_rep,dataLog,dataNames,experimentName) #save current logged data to a new file
 			dataLog = [] #clear saved data
-			stop_experiment(experimentName)
+			stop_experiment()
 			
 	if ev is InputEventMouseMotion:
 		head_yaw += ev.relative.x

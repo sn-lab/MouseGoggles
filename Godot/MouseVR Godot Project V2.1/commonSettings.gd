@@ -30,15 +30,6 @@ var python_time = 0 # timestamp of python script relative to Godot ms_start
 var td = OS.get_datetime() # time dictionary
 var timestamp = String(td.year) + "_" + String(td.month) + "_" + String(td.day) + "_" + String(td.hour) + "_" + String(td.minute) + "_" + String(td.second)
 
-#headkinbody viewport nodes
-onready var lefthead = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer/TextureRect/Viewport/LeftEyeBody")
-onready var righthead = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer2/TextureRect/Viewport/RightEyeBody")
-onready var lefteye = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer/TextureRect/Viewport/LeftEyeBody/LeftEyePivot")
-onready var righteye = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer2/TextureRect/Viewport/RightEyeBody/RightEyePivot")
-onready var colorrect = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer/ColorRect")
-onready var fpslabel = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer2/Label")
-onready var overlay = get_node("HeadKinBody/Control/Overlay")
-
 #UDP communication
 var udp_connected = false #(true or false) whether upd-python script is connected and responsive
 var destination_ip = "169.254.123.1"  # IP of Raspberry Pi 5 (running python script)
@@ -55,33 +46,31 @@ var tcp_port = 5002
 
 
 #common functions
-func start_experiment(experimentName, experimentDuration):
+func start_experiment(experimentDuration):
 	print(experimentName)
 	print("experiment started")
 	print("Est. max completion time: " + str(experimentDuration) + "s")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) #capture cursor movement for game movement
-	overlay.color = Color(0, 0, 0, 1-brightness_modulate) #modulate brightness with black overlay transparency 
 	randomize() #prepare for random presentations of trials
 	if record_eyes:
 		#UDP handshake
 		assert(udp.listen(listen_port) == OK, "UDP listen failed")
 		verify_connection()
-		start_video(experimentName, experimentDuration + 10) #record full experiment + 10 s in case "stop_video is not sent
+		start_video(experimentDuration + 10) #record full experiment + 10 s in case "stop_video is not sent
 		yield(get_tree().create_timer(1.0), "timeout")
 
 	
-func stop_experiment(experimentName):
+func stop_experiment():
 	print(experimentName)
 	print("experiment complete")
 	if record_eyes:
 		print("transferring video...")
-		fpslabel.text = "transferring video..."
 		stop_video()
 		OS.delay_msec(1000)
-		transfer_video(experimentName)
+		transfer_video()
 		OS.delay_msec(1000)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) #return visible cursor movement to user
-	get_tree().change_scene("res://sceneSelect.tscn")
+	var _error = get_tree().change_scene("res://sceneSelect.tscn")
 
 
 #UDP functions
@@ -111,15 +100,15 @@ func verify_connection():
 	print("Failed to verify UDP connection")
 	OS.delay_msec(1000)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	get_tree().change_scene("res://sceneSelect.tscn")
+	var _error = get_tree().change_scene("res://sceneSelect.tscn")
 
 
 func send_command(command: String, params: Array = []):
 	var message = command
 	if params.size() > 0:
 		message += ":" + PoolStringArray(params).join(":")
-	udp.set_dest_address(destination_ip, destination_port)
-	udp.put_packet(message.to_utf8())
+	var _error = udp.set_dest_address(destination_ip, destination_port)
+	_error = udp.put_packet(message.to_utf8())
 
 
 func receive_message(command: String):
@@ -139,7 +128,7 @@ func request_frames():
 	send_command("F") #request frames
 
 
-func start_video(experimentName: String, max_duration: float):
+func start_video(max_duration: float):
 	send_command("V", [experimentName, str(max_duration)])
 	receive_message("V")
 
@@ -149,13 +138,13 @@ func stop_video():
 
 
 #TCP functions
-func transfer_video(experimentName: String):
+func transfer_video():
 	var save_dir = "res://logs/" + experimentName
 	print("Beginning video transfer, saving files in " + save_dir)
 	
 	#start a new TCP communication
 	var tcp := StreamPeerTCP.new()
-	tcp.connect_to_host(destination_ip,tcp_port)
+	var _error = tcp.connect_to_host(destination_ip,tcp_port)
 	
 	#wait for connection
 	var start_time = Time.get_ticks_msec()

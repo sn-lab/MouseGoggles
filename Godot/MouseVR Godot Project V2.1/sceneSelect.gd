@@ -54,52 +54,52 @@ func _ready():
 	exitbutton.connect("pressed",self,"_exitGame")
 	
 func _load_habituation():
-	get_tree().change_scene("res://habituationScene.tscn")
+	var _error = get_tree().change_scene("res://habituationScene.tscn")
 	
 func _load_loom():
-	get_tree().change_scene("res://loomScene.tscn")
+	var _error = get_tree().change_scene("res://loomScene.tscn")
 	
 func _load_cliff():
-	get_tree().change_scene("res://cliffScene.tscn")
+	var _error = get_tree().change_scene("res://cliffScene.tscn")
 	
 func _load_linearCliff():
-	get_tree().change_scene("res://linearCliffScene.tscn")
+	var _error = get_tree().change_scene("res://linearCliffScene.tscn")
 	
 func _load_linearTrack():
-	get_tree().change_scene("res://linearTrackScene.tscn")
+	var _error = get_tree().change_scene("res://linearTrackScene.tscn")
 	
 func _load_openfieldTower():
-	get_tree().change_scene("res://openFieldTowerScene.tscn")
+	var _error = get_tree().change_scene("res://openFieldTowerScene.tscn")
 	
 func _load_openfieldRandom():
-	get_tree().change_scene("res://openFieldRandomScene.tscn")
+	var _error = get_tree().change_scene("res://openFieldRandomScene.tscn")
 	
 func _load_optomotor():
-	get_tree().change_scene("res://optomotorScene.tscn")
+	var _error = get_tree().change_scene("res://optomotorScene.tscn")
 	
 func _load_rotation():
-	get_tree().change_scene("res://rotation.tscn")
+	var _error = get_tree().change_scene("res://rotation.tscn")
 	
 func _load_linearGap():
-	get_tree().change_scene("res://linearGapScene.tscn")
+	var _error = get_tree().change_scene("res://linearGapScene.tscn")
 	
 func _load_rotatingGrating():
-	get_tree().change_scene("res://rotatingGratingScene.tscn")
+	var _error = get_tree().change_scene("res://rotatingGratingScene.tscn")
 	
 func _load_linearTrackLoom():
-	get_tree().change_scene("res://linearTrackLoomScene.tscn")
+	var _error = get_tree().change_scene("res://linearTrackLoomScene.tscn")
 	
 func _load_movement3D():
-	get_tree().change_scene("res://movement3D.tscn")
+	var _error = get_tree().change_scene("res://movement3D.tscn")
 	
 func _load_receptiveField():
-	get_tree().change_scene("res://receptiveFieldScene.tscn")
+	var _error = get_tree().change_scene("res://receptiveFieldScene.tscn")
 	
 func _load_testing():
-	get_tree().change_scene("res://testing.tscn")
+	var _error = get_tree().change_scene("res://testing.tscn")
 	
 func _load_cameraViewer():
-	get_tree().change_scene("res://cameraViewer.tscn")
+	var _error = get_tree().change_scene("res://cameraViewer.tscn")
 	
 func _exitGame():
 	get_tree().quit() 

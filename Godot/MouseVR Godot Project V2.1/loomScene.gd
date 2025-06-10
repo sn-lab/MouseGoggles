@@ -19,6 +19,15 @@ export var max_movement_before_loom = 100.0 #maximum average movement value befo
 export var min_movement_before_loom = -10.0 #minimum "" 
 export var movement_duration_before_loom = 1 #seconds the mouse has to walk slowly before a loom will start
 
+#headkinbody viewport nodes
+onready var lefthead = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer/TextureRect/Viewport/LeftEyeBody")
+onready var righthead = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer2/TextureRect/Viewport/RightEyeBody")
+onready var lefteye = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer/TextureRect/Viewport/LeftEyeBody/LeftEyePivot")
+onready var righteye = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer2/TextureRect/Viewport/RightEyeBody/RightEyePivot")
+onready var colorrect = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer/ColorRect")
+onready var fpslabel = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer2/Label")
+onready var overlay = get_node("HeadKinBody/Control/Overlay")
+
 #loom variables
 var loom_speed = 0 #meters per second
 var loom_step = 0
@@ -128,7 +137,8 @@ func _ready():
 	
 	#start experiment
 	var experimentDuration = num_reps*num_trials*(predelay + (loom_start_distance-loom_stop_distance)/velocity + postdelay) + trial1delay
-	start_experiment(experimentName, experimentDuration)
+	overlay.color = Color(0, 0, 0, 1-brightness_modulate) #modulate brightness with black overlay transparency 
+	start_experiment(experimentDuration)
 	print("trial " + str(current_condition) + ": type " + str(trial_type) + ", direction " + str(direction))
 
 
@@ -238,7 +248,7 @@ func _process(delta):
 			current_trial = 0
 			current_rep += 1
 			if (current_rep > num_reps):
-				stop_experiment(experimentName)
+				stop_experiment()
 			trial_order.shuffle()
 			print("rep " + str(current_rep) + ", trial order: " + str(trial_order))
 		current_condition = trial_order[current_trial]
@@ -260,7 +270,7 @@ func _input(ev):
 		if ev.scancode == KEY_ESCAPE:
 			saveUtils.save_logs(current_rep,dataLog,dataNames,experimentName) #save current logged data to a new file
 			dataLog = [] #clear saved data
-			stop_experiment(experimentName)
+			stop_experiment()
 			
 	if ev is InputEventMouseMotion:
 		head_yaw += ev.relative.x

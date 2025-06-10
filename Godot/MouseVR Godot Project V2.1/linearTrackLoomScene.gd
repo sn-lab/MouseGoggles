@@ -28,6 +28,15 @@ export var loom_stop_distance = 0.5774
 #eye parameters
 export var max_yaw = 0 #amount of yaw turning allowed
 
+#headkinbody viewport nodes
+onready var lefthead = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer/TextureRect/Viewport/LeftEyeBody")
+onready var righthead = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer2/TextureRect/Viewport/RightEyeBody")
+onready var lefteye = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer/TextureRect/Viewport/LeftEyeBody/LeftEyePivot")
+onready var righteye = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer2/TextureRect/Viewport/RightEyeBody/RightEyePivot")
+onready var colorrect = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer/ColorRect")
+onready var fpslabel = get_node("HeadKinBody/Control/HBoxContainer/ViewportContainer2/Label")
+onready var overlay = get_node("HeadKinBody/Control/Overlay")
+
 #loom variables
 var loom_speed = 0 #meters per second
 var loom_step = 0
@@ -131,7 +140,8 @@ func _ready():
 	
 	#start experiment
 	var experimentDuration = num_reps*trial_duration
-	start_experiment(experimentName, experimentDuration)
+	overlay.color = Color(0, 0, 0, 1-brightness_modulate) #modulate brightness with black overlay transparency 
+	start_experiment(experimentDuration)
 	if reward_trial || guaranteed_rewards>0:
 		print("rep " + String(current_rep))
 		reward_trial = 1
@@ -254,7 +264,7 @@ func _process(delta):
 		current_frame = 1
 		current_rep += 1
 		if (current_rep>num_reps):
-			stop_experiment(experimentName)
+			stop_experiment()
 		else:
 			head_yaw_angle = 180
 			head_x = track_xpos
@@ -275,7 +285,7 @@ func _input(ev):
 		if ev.scancode == KEY_ESCAPE:
 			saveUtils.save_logs(current_rep,dataLog,dataNames,experimentName) #save current logged data to a new file
 			dataLog = [] #clear saved data
-			stop_experiment(experimentName)
+			stop_experiment()
 		if ev.scancode == KEY_L:
 			loom_started = true
 			
