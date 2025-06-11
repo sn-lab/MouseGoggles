@@ -98,9 +98,9 @@ func _process(_delta):
 		dataLog.append(dataArray[i])
 	
 	#update text label
-#	fpslabel.text = str(fps) + " FPS" 
-#	fpslabel.text = str(head_z)
-	fpslabel.text = "R=reward"
+	fpslabel.text = str(fps) + " FPS" 
+	#fpslabel.text = str(head_z)
+	#fpslabel.text = "R=reward"
 	
 	#reset movements
 	head_thrust = 0

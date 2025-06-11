@@ -221,8 +221,9 @@ func _process(delta):
 	
 	
 	#update text label
-	fpslabel.text = str(eye_azimuths[trial_order[current_trial-1]])
+	#fpslabel.text = str(eye_azimuths[trial_order[current_trial-1]])
 	#fpslabel.text = str(lefteye.translation.z)
+	fpslabel.text = str(fps) + " FPS"
 	
 	#reset movements
 	head_thrust = 0

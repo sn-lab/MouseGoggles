@@ -28,6 +28,21 @@ onready var viewport2 = get_node("HBoxContainer/VBoxContainer3/MarginContainer2/
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+
+	#position game window
+	OS.set_window_size(Vector2(720,480))
+	var screen_size = OS.get_screen_size()
+	var window_size = OS.get_window_size()
+	var centered_pos = (screen_size-window_size)/2
+	OS.set_window_position(centered_pos)
+	OS.set_window_resizable(false)
+	
+	#create fullscreen game window
+	#get_tree().root.content_scale_size = Vector2i(720,480)
+	#get_tree().root.content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
+	#get_tree().root.content_scale_aspect = Window.CONTENT_SCALE_ASPECT_KEEP
+	#DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	#DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
 	
 	#modulate screen brightness
 	viewport1.color = Color(0, 0, 0.5*brightness_modulate)

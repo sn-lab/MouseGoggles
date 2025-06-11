@@ -8,7 +8,7 @@ export var head_radius = 0.04 # must be large enough to keep eye cameras from ge
 export var eye_pitch = 10 # degrees from the horizontal (+ = looking up)
 export var eye_yaw = 45 # degrees away from the head yaw (forward-facing = 0 deg, side-facing = 90)
 export var brightness_modulate = 0.5 # global brightness modulation (0 = black, 1 = max)
-export var record_eyes = true #(true or false) record eye-tracking video alongside the experiment?
+export var record_eyes = false #(true or false) record eye-tracking video alongside the experiment?
 
 #movement parameters
 export var frames_per_second = 60.0 # should be the same as the project settings>debug>settings>force FPS
