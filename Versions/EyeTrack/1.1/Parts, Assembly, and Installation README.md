@@ -278,9 +278,7 @@ This installation has been verified using the following software versions:
 
 - Import the Godot game project located in MouseGoggles/Godot/MouseVR Godot Project V2.1/project.godot
 
-- When the game editor opens, reduce the window to a partial screen (running it in full screen may cause hang-ups)
-
-- Click the small "play" button on the upper-right side of the menu bar
+- With the project highlighted, click "Run"
 
 - Select an experiment (aka "scene")
 
@@ -320,9 +318,11 @@ This installation has been verified using the following software versions:
 
 - On the Pi 4, navigate to the "godot_3.5.2-stable_rpi4_editor_Ito.bin" file. Double-click this file and select "Execute"
 
-- Open/edit the MouseVR Godot Project V2.1
+- Edit the MouseVR Godot Project V2.1
 
-- Find the "commonSettings.gd" script and open it in the "script" tab
+- Find the "commonSettings.gd" script and open it in the "script" tab in the Godot editor
+  
+- Alternatively, if the editor window is running too slowly on the Pi 4, you can navigate the the Godot Project 2.1 folder and edit the .gd scripts in a basic text editor
 
 - Scroll down to find the the "var destination_ip" line and ensure that the IP address listed here is the same you selected during the TCP/UDP installation step above
 
