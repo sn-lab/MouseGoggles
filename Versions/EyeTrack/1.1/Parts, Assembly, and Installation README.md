@@ -288,7 +288,7 @@ This installation has been verified using the following software versions:
 
 - Upon the completion of each repetition of an experiment (typically 30 - 60 s duration), logs of the mouse movement and important experiment parameters will be saved in "MouseVR Godot Project V2.1/logs/" in csv format (one row per frame, one column per data type)
 
-- Click the `esc` button to exit an experiment early. Logs of completed experiment repetitions will have been saved, but the in-progress/unfinished repetition will not be saved by default
+- Click the `esc` button to exit an experiment early; the in-progress/unfinished repetition be saved in the final log file
 
 ### Stopping the display driver
 
@@ -330,6 +330,9 @@ This installation has been verified using the following software versions:
 
 - To enable automatic eye-tracking camera recording during an experiment, open the commonSettings.gd page (viewing it in the "Script" tab) and set the `record_eyes` variable to `True`. To disable eye recording during experiments, set this variable to `False`
 
+- After an eye-tracking experiment, a binary video file of the eye-tracking cameras will be saved on the Raspberry Pi 5, in the "Cam" folder on the desktop. Since this file type is uncompressed video, it can take up a large amount of space, so this folder should be emptied often (e.g. after every ~45 minutes of recorded experiments)
+
+- To view a video, open the `pi5cam_binaryviewer.py` script, set the filename of the video you would like to view, and run it.
 
 
 ### Operating the systems remotely with VNC
