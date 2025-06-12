@@ -109,7 +109,7 @@ text = "0 fps"
 [node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/ViewportContainer2"]
 material = SubResource( 5 )
 margin_left = 230.0
-margin_top = 230.0
+margin_top = 228.0
 margin_right = 450.0
 margin_bottom = 450.0
 rect_rotation = 180.0
