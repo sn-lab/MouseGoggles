@@ -64,11 +64,12 @@ func stop_experiment():
 	print(experimentName)
 	print("experiment complete")
 	if record_eyes:
-		print("transferring video...")
 		stop_video()
-		OS.delay_msec(1000)
-		transfer_video()
-		OS.delay_msec(1000)
+		#since the video files take so much space, don't transfer them to the Pi 4
+		#print("transferring video...")
+		#OS.delay_msec(1000)
+		#transfer_video()
+		#OS.delay_msec(1000)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) #return visible cursor movement to user
 	var _error = get_tree().change_scene("res://sceneSelect.tscn")
 
@@ -94,7 +95,7 @@ func verify_connection():
 			if packet.get_string_from_utf8() == "E":
 				udp_connected = true
 				print("UDP-Python script is running and responsive")
-				print("Warning: less  than 5 GB space available on Pi 5. clear disk space to avoid data loss")
+				print("Warning: less than 5 GB of space available on Pi 5. Clear disk space (empty the 'Cam' folder on the Pi 5 desktop) to avoid data loss")
 				return
 		OS.delay_msec(100) # Wait 100ms between checks
 	print("Failed to verify UDP connection")
