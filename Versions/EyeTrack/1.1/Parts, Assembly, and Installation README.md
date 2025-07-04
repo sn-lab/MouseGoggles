@@ -149,7 +149,7 @@ To install all necessary software, you'll first need a PC to install the Raspber
 ### Install the Godot game engine
 
 - Start the Raspberry Pi and connect to the internet.
-   - to connect to a wireless internet network, you will first be asked to set your wireless LAN country
+  - to connect to a wireless internet network, you will first be asked to set your wireless LAN country
 - Open up the githib page for the [Unofficial Godot Engine for the Raspberry Pi](https://github.com/hiulit/Unofficial-Godot-Engine-Raspberry-Pi/tree/main?tab=readme-ov-file#compiling).
 - In the "Downloads" section, download the zip file for 3.5.2 - Raspberry Pi 4
 - After the zip file has been downloaded, navigate to your "downloads" folder, right-click on the zip file, and click "extract here"
@@ -199,7 +199,8 @@ This installation has been verified using the following software versions:
 ### Install the camera driver and software
 
 - Start the Raspberry Pi and connect to the internet.
-   - to connect to a wireless internet network, you will first be asked to set your wireless LAN country
+  
+  - to connect to a wireless internet network, you will first be asked to set your wireless LAN country
 
 - Open up the command terminal and enter each line, one at a time: (scroll to see the full line)
   
@@ -212,6 +213,7 @@ This installation has been verified using the following software versions:
   sudo apt-get upgrade
   sudo apt install python3-opencv
   ```
+
 - note: When you are asked if you want to continue installing, answer yes.
 
 ### Add dual-camera support in the configuration file
@@ -232,9 +234,6 @@ This installation has been verified using the following software versions:
 * Hit ctrl-s to save the file
 
 * Reboot the Raspberry Pi
-  
-  
-  
 
 ### (Optional) Set up TCP/UDP connection to the Pi 4
 
@@ -246,18 +245,17 @@ This installation has been verified using the following software versions:
   ```
 
 - To enable the Pi 4 to control the eye-tracking cameras on the Pi 5, download the "pi5cam_udp.py" and "pi5cam_udp.service" files from the python folder and place them in a folder named "Cam" on the Pi 5 desktop.
-  
-- To automatically start the pi5cam_udp.py script whenever the Pi 5 boots up (recommended), open the pi5cam_udp.service in a text editor, and change all instances of the user name "MG5" to the user name you selected for this device. Save and exit the file
-- Open up a command terminal and enter each line one at a time to copy the service file into the systemd folder and enable/start the service:
 
+- To automatically start the pi5cam_udp.py script whenever the Pi 5 boots up (recommended), open the pi5cam_udp.service in a text editor, and change all instances of the user name "MG5" to the user name you selected for this device. Save and exit the file
+
+- Open up a command terminal and enter each line one at a time to copy the service file into the systemd folder and enable/start the service:
+  
   ```
   sudo cp Desktop/Cam/pi5cam_udp.service /etc/systemd/system/pi5cam_udp.service
   sudo systemctl daemon-reload
   sudo systemctl enable pi5cam_udp.service
   sudo systemctl start pi5cam_udp.service
   ```
-  
-  
 
 # Operating Instructions
 
@@ -301,14 +299,12 @@ This installation has been verified using the following software versions:
   ```
 
 - Check in `/etc/rc.local` and `/etc/init.d` to make sure fbcp does not start on system startup (delete any fbcp entries)
-  
 
 ### Manually recording video from the eye-tracking cameras
 
 * Make sure the `pi5cam.py` script from the `Python` folder is copied to the Raspberry Pi 5, in a folder named "Cam" on the desktop.
 
 * Open the `pi5cam.py` script, which contains two blocks of code, one of which is commented out with the symbols `"""`. Running the script with the 1st block only will open camera preview windows. Running the script with the 2nd block only will record video from both cameras and save them to a binary file on the desktop. To view this video, open the `pi5cam_binaryviewer.py` script, set the filename of the video you would like to view, and run it.
-
 
 ### Automatically recording video from the eye-tracking cameras from a VR experiment
 
@@ -321,7 +317,7 @@ This installation has been verified using the following software versions:
 - Edit the MouseVR Godot Project V2.1
 
 - Find the "commonSettings.gd" script and open it in the "script" tab in the Godot editor
-  
+
 - Alternatively, if the editor window is running too slowly on the Pi 4, you can navigate the the Godot Project 2.1 folder and edit the .gd scripts in a basic text editor
 
 - Scroll down to find the the "var destination_ip" line and ensure that the IP address listed here is the same you selected during the TCP/UDP installation step above
@@ -334,17 +330,14 @@ This installation has been verified using the following software versions:
 
 - To view a video, open the `pi5cam_binaryviewer.py` script, set the filename of the video you would like to view, and run it.
 
-
 ### Operating the systems remotely with VNC
 
 - Make sure that the reaspberry Pi(s) you want to operate are connected to the internet or your local network
-
 * Open up a Raspberry Pi command terminal and enter the following line:
   
   ```
   sudo raspi-config
   ```
-
 - Click on `Interface Options`, then `VNC`, and click `enable`. Save and exit the raspi-config window
 
 - Open up another Raspberry Pi command terminal and enter the following line:
