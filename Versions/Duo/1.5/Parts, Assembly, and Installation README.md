@@ -4,7 +4,7 @@
 
 ### Off-the-shelf parts
 
-The table below lists all off-the-shelf parts required to build MouseGoggles 1.5, the first version of MouseGoggles using easier-to-source, fully-circular 240x240 [Waveshare](https://www.waveshare.com/product/1.28inch-lcd-module.htm) displays and an easier to assemble design. Follow the links below to purchase the parts in the quantities listed. In addition to these listed parts, you will also need a desktop monitor (with HDMI input or an HDMI-DVI adapter), a USB keyboard and mouse, and a MicroSD card reader, at least for the initial setup.
+The table below lists all off-the-shelf parts required to build MouseGoggles, the first version of MouseGoggles using easier-to-source, fully-circular 240x240 [Waveshare](https://www.waveshare.com/product/1.28inch-lcd-module.htm) displays and an easier to assemble design. Follow the links below to purchase the parts in the quantities listed. In addition to these listed parts, you will also need a desktop monitor (with HDMI input or an HDMI-DVI adapter), a USB keyboard and mouse, and a MicroSD card reader, at least for the initial setup.
 
 | Part Name                                         | Description                                        | Link                                                                                                                                                            | Est. Unit Cost | Quantity |
 | ------------------------------------------------- | -------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |:--------------:|:--------:|
@@ -102,16 +102,17 @@ To install all necessary software, you'll first need a PC to install the Raspber
 
 ### Install the Godot game engine
 
-- Open up the Raspberry Pi command terminal and enter each line, one at a time:
+- Start the Raspberry Pi and connect to the internet.
   
-  ```
-  sudo apt update
-  sudo apt install flatpak
-  flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-  flatpak install flathub org.godotengine.Godot
-  ```
+  - to connect to a wireless internet network, you will first be asked to set your wireless LAN country
 
-- note: When you are asked if you want to continue installing, answer yes
+- Open up the githib page for the [Unofficial Godot Engine for the Raspberry Pi](https://github.com/hiulit/Unofficial-Godot-Engine-Raspberry-Pi/tree/main?tab=readme-ov-file#compiling).
+
+- In the "Downloads" section, download the zip file for 3.5.2 - Raspberry Pi 4
+
+- After the zip file has been downloaded, navigate to your "downloads" folder, right-click on the zip file, and click "extract here"
+
+- Inside the unzipped folder, find the "...editor_Ito.bin" file. This is the executable file for running the godot game engine. To run the engine, double-click this file and select "Execute" (you do not need to run the engine yet)
 
 ### Install the display driver
 
@@ -154,27 +155,27 @@ This installation has been verified using the following software versions:
 
 ### Starting the game engine and running experiments
 
-- Open up a Raspberry Pi command terminal and enter the following line:
-  
-  ```
-  flatpak run org.godotengine.Godot
-  ```
+- Navigate to the "godot_3.5.2-stable_rpi4_editor_Ito.bin" file. Double-click this file and select "Execute".
 
-- Import the Godot game project located in MouseGoggles/Godot/MouseVR Godot Project V1.5/project.godot
+- Import the Godot game project located in MouseGoggles/Godot/MouseVR Godot Project V2.1/project.godot
 
-- When the game editor opens, reduce the window to a partial screen (running it in full screen may cause hang-ups)
+- With the project highlighted, click "Edit"
 
-- Click the small "play" button on the upper-right side of the menu bar
+- Find the "commonSettings.gd" script in the bottom-left panel and open it. Find the line `export var eye_yaw = 45` and change this value to be `50`-- this is the correct eyepiece angles of the Duo 1.5 (instead of the default value of `45` which is applicable to EyeTrack 1.1)
+
+- To run an experiment, hit the small play button on the top-right section of the window
 
 - Select an experiment (aka "scene")
 
 - A game window will appear with views rendered for each of the two eyepiece displays -- these are rotated to match the rotations of each display and are positioned in the center of the screen -- do not move this window
+  
+  - note: some experiments and functions in this Godot project (e.g. "test camera") are made for the EyeTrack 1.1 headset and will not work on the Duo 1.5
 
 - By default, forward/backward movement and left/right turning in the VR scene can be controlled by a USB computer mouse or trackpad, which can be used to verify the VR system is correctly working
 
-- Upon the completion of each repetition of an experiment (typically 30 - 60 s duration), logs of the mouse movement and important experiment parameters will be saved in "MouseVR Godot Project V1.5/logs/" in csv format (one row per frame, one column per data type)
+- Upon the completion of each repetition of an experiment (typically 30 - 60 s duration), logs of the mouse movement and important experiment parameters will be saved in "MouseVR Godot Project V2.1/logs/" in csv format (one row per frame, one column per data type)
 
-- Click the `esc` button to exit an experiment early. Logs of completed experiment repetitions will have been saved, but the in-progress/unfinished repetition will not be saved by default
+- Click the `esc` button to exit an experiment early; the in-progress/unfinished repetition be saved in the final log file
 
 ### Stopping the display driver
 
