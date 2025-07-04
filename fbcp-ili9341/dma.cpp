@@ -677,14 +677,23 @@ void SPIDMATransfer(SPITask *task)
   bool CS_BIT = task->csBit;
 
   spi->cs = BCM2835_SPI0_CS_DMAEN | BCM2835_SPI0_CS_CLEAR | DISPLAY_SPI_DRIVE_SETTINGS | CS_BIT;
-  uint32_t *headerAddr = task->DmaSpiHeaderAddress();
-  *headerAddr = BCM2835_SPI0_CS_TA | DISPLAY_SPI_DRIVE_SETTINGS | CS_BIT | (task->PayloadSize() << 16); // The first four bytes written to the SPI data register control the DLEN and CS,CPOL,CPHA settings.
+  // OLD CODE, THREW WARNINGS
+  //uint32_t *headerAddr = task->DmaSpiHeaderAddress();
+  ///headerAddr = BCM2835_SPI0_CS_TA | DISPLAY_SPI_DRIVE_SETTINGS | CS_BIT | (task->PayloadSize() << 16); // The first four bytes written to the SPI data register control the DLEN and CS,CPOL,CPHA settings.
 
   // TODO: Ideally we would be able to directly perform the DMA from the SPI ring buffer from 'task' pointer. However
   // that pointer is shared to userland, and it is proving troublesome to make it both userland-writable as well as cache-bypassing DMA coherent.
   // Therefore these two memory areas are separate for now, and we memcpy() from SPI ring buffer to an intermediate 'dmaSourceMemory' memory area to perform
   // the DMA transfer. Is there a way to avoid this intermediate buffer? That would improve performance a bit.
-  memcpy(dmaSourceBuffer.virtualAddr, headerAddr, task->PayloadSize() + 4);
+  //memcpy(dmaSourceBuffer.virtualAddr, headerAddr, task->PayloadSize() + 4);
+
+  //NEW CODE
+  uint32_t header = BCM2835_SPI0_CS_TA | DISPLAY_SPI_DRIVE_SETTINGS | CS_BIT | (task->PayloadSize() << 16);
+  // Copy header to start of DMA buffer
+  memcpy(dmaSourceBuffer.virtualAddr, &header, sizeof(header));
+  // Copy payload after header
+  memcpy((uint8_t*)dmaSourceBuffer.virtualAddr + sizeof(header), task->PayloadStart(), task->PayloadSize());
+  //END NEW CODE
 
   volatile DMAControlBlock *cb = (volatile DMAControlBlock *)dmaCb.virtualAddr;
   volatile DMAControlBlock *txcb = &cb[0];

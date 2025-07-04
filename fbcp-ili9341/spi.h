@@ -127,12 +127,12 @@ typedef struct __attribute__((packed)) SPITask
   inline uint8_t *PayloadStart() { return data + (size - sizeExpandedTaskWithPadding); }
   inline uint8_t *PayloadEnd() { return data + (size - SPI_9BIT_TASK_PADDING_BYTES); }
   inline uint32_t PayloadSize() const { return sizeExpandedTaskWithPadding - SPI_9BIT_TASK_PADDING_BYTES; }
-  inline uint32_t *DmaSpiHeaderAddress() { return (uint32_t*)(PayloadStart()-4); }
+  //inline uint32_t *DmaSpiHeaderAddress() { return (uint32_t*)(PayloadStart()-4); }
 #else
   inline uint8_t *PayloadStart() { return data; }
   inline uint8_t *PayloadEnd() { return data + size; }
   inline uint32_t PayloadSize() const { return size; }
-  inline uint32_t *DmaSpiHeaderAddress() { return &dmaSpiHeader; }
+  //inline uint32_t *DmaSpiHeaderAddress() { return &dmaSpiHeader; }
 #endif
 
 } SPITask;

@@ -33,7 +33,7 @@ extern Span *spans;
 #define SPAN_MERGE_THRESHOLD 4
 #endif
 
-void DiffFramebuffersToSingleChangedRectangle(uint16_t *framebuffer, uint16_t *prevFramebuffer, Span *&head);
+void DiffFramebuffersToSingleChangedRectangle(uint16_t *framebuffer, uint16_t *prevFramebuffer, int yStartShift, Span *&head);
 
 void DiffFramebuffersToScanlineSpansExact(uint16_t *framebuffer, uint16_t *prevFramebuffer, bool interlacedDiff, int interlacedFieldParity, int yStartShift, Span *&head);
 

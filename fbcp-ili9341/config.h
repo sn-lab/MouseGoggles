@@ -11,8 +11,9 @@
 #define DISPLAY_USES_CS1
 #define NO_INTERLACING
 #define DISPLAY_SPI_DRIVE_SETTINGS (0) 
-#define ALL_TASKS_SHOULD_DMA //used for 'without diffing'
-#define UPDATE_FRAMES_WITHOUT_DIFFING //requires 'all tasks dma'
+#define ALL_TASKS_SHOULD_DMA
+#define UPDATE_FRAMES_WITHOUT_DIFFING
+//#define UPDATE_FRAMES_IN_SINGLE_RECTANGULAR_DIFF
 //#define USE_DMA_TRANSFERS //already defined (default ON in cmakelists)
 
 // Build options: Uncomment any of these, or set at the command line to configure:
