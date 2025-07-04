@@ -6,7 +6,8 @@
 
 **Work in progess**
 
-* New version of MouseGoggles Mono using an Adafruit circular display (expected completion: June 2025)
+* New versions of all MouseGoggles types (Mono, Duo, EyeTrack) using an Adafruit circular display
+* New version of EyeTrack with updated ifrared cameras
 
 **Previous Updates**
 
