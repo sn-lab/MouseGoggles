@@ -1,5 +1,11 @@
 ![(left) 3D render of assembled MouseGoggles EyeTrack 1.1. (right) Picture of assembled MouseGoggles EyeTrack 1.1](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/EyeTrack/1.1/Images/EyeTrack_1-1_Assembled.png)
 
+# 
+
+IMPORTANT July 2025 Update: The miniature infrared eye-tracking cameras used used in this update now appear to be discontinued from Arducam! If you're seeking to build an EyeTrack headset, first try and find an alternative supplier for the IMX519 NoIR camera listed below before proceeding. 
+
+A new version of the EyeTrack headset is currently being developed to use newer cameras and displays. This will likely take a few weeks to finish development, so keep an eye out for updates by the end of July 2025!
+
 # Parts List
 
 ---
