@@ -7,7 +7,7 @@
 **Work in progess**
 
 * New versions of all MouseGoggles types (Mono, Duo, EyeTrack) using an Adafruit circular display
-* New version of EyeTrack with updated ifrared cameras
+* New version of EyeTrack with updated infrared cameras
 
 **Previous Updates**
 
