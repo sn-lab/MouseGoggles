@@ -1,0 +1,14 @@
+#GC9A01 display on SPI0
+dtoverlay=mipi-dbi-spi,spi0-0,speed=48000000
+dtparam=compatible=gc9a01\0panel-mipi-dbi-spi
+dtparam=write-only,cpha,cpol
+dtparam=width=240,height=240,width-mm=43,height-mm=43
+dtparam=reset-gpio=17,dc-gpio=25
+
+#GC9A01 display on SPI1
+dtoverlay=spi1-1cs,cs0_pin=18
+dtoverlay=mipi-dbi-spi,spi1-0,speed=48000000
+dtparam=compatible=gc9a01\0panel-mipi-dbi-spi
+dtparam=write-only,cpha,cpol
+dtparam=width=240,height=240,width-mm=43,height-mm=43
+dtparam=reset-gpio=26,dc-gpio=16
