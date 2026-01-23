@@ -22,7 +22,7 @@ function vs = matlab2teensy(vs, param)
 
 %% check for errors in parameters
 %check that pattern type is within allowed range
-assert(param.patterntype==1 | param.patterntype==2 | param.patterntype==3,'pattern type must be 1, 2, or 3');
+assert(param.patterntype==1 | param.patterntype==2 | param.patterntype==3 | param.patterntype==4,'pattern type must be 1, 2, 3, or 4');
 
 %check that color values are integers within range for 16-bit color
 assert(param.bar1color(1)>=0 & param.bar1color(1)<32,'red value of bar 1 must be between 0-31');
