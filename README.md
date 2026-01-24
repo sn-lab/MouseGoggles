@@ -6,25 +6,20 @@
 
 **Work in progess**
 
-* New versions of all MouseGoggles types (Mono, Duo, EyeTrack) using an Adafruit circular display
-* New version of EyeTrack with updated infrared cameras
+* Updating and improving [MouseGoggles EyeTrack 2.0](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/EyeTrack/2.0) software!
 
 **Previous Updates**
 
+* (Jan 2026) Added intial files for [MouseGoggles EyeTrack 2.0](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/EyeTrack/2.0)! The hardware design is complete, now built around a single Raspberry Pi 5, and features improved eye-tracking quality and an overall simpler assembly process. Some outstanding software issues are still being resolved for this version but will be updated shortly!
+  
 * (May 2025) Big software updates to EyeTrack 1.1, including the first Godot project (2.1) which enables controlling and viewing the eye-tracking cameras from within the game engine! TCP/UDP communication between the Pis enable TTL outputs and eye-tracking videos to be controlled directly from VR experiment scripts.
 
 * (Mar 2024) Added the [MouseGoggles EyeTrack](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/EyeTrack/1.0) headset, for binocular eye/pupil tracking cameras integrated into the headset
 
-* (Mar 2024) Added Code and instructions for closed-loop rotation feedback into the VR system (see the [rotation sensors](https://github.com/sn-lab/MouseGoggles/blob/main/Other%20Hardware/Installation%20README.md#rotation-sensors
-  ) readme for details)
-
 # Building a MouseGoggles System
 
-All versions of MouseGoggles were designed using as many readily available, off-the-shelf parts as possible, with only a minimal number of custom 3D printed parts and circuit boards, to make assembly as simple as possible. To build a MouseGoggles system, navigate to the folder of the version you'd like to build in the [Versions](https://github.com/sn-lab/MouseGoggles/tree/main/Versions) folder and follow the included README for a comprehensive parts list, assembly guide, and software installation instructions. If you're not sure which version you'd like to build:
+All versions of MouseGoggles were designed using as many readily available, off-the-shelf parts as possible, with only a minimal number of custom parts required to make assembly as simple as possible. To build a MouseGoggles system, navigate to the folder of the version you'd like to build in the [Versions](https://github.com/sn-lab/MouseGoggles/tree/main/Versions) folder and follow the included README for a comprehensive parts list, assembly guide, and software installation instructions. Since some parts included in earlier versions of the system have since been discontinued by the manufacturers, [Eyetrack version 2.0](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/EyeTrack/2.0) is what we recommend building for all use-cases. Version 2.0 is built on an entirely new display platform (Raspberry Pi 5; mipi-dbi-spi) that future versions will be developed from. 
 
-* Do you need binocular VR with embedded eye-tracking? [Eyetrack version 1.1](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/EyeTrack/1.1) is ideal, though as of July 2025, the cameras used by the headset are discontinued by the manufacturer. A new version is currently in development, maybe you want to build a non eye-tracking headset ([Duo version 1.5](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/Duo/1.5)) as a starting point while you wait?
-* Don't need eye-tracking? Go with the headset that is simplest to assemble and use: [Duo version 1.5](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/Duo/1.5).
-* Only looking for monocoular visual stimulation with basic stimuli (e.g. gratings, edges)? Consider the even smaller and simpler [Mono version 1.0](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/Mono/1.0).
 
 # About MouseGoggles
 
@@ -32,7 +27,7 @@ All versions of MouseGoggles were designed using as many readily available, off-
 
 ![Godot game engine running on a Raspberry Pi 4](https://github.com/sn-lab/MouseGoggles/blob/main/Images/RaspberryPiGodot.png)
 
-The heart of the MouseGoggles system is a [Raspberry Pi 4](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) running the [Godot](https://godotengine.org/) video game engine. Since the displays are relatively low resolution (240x210), an inexpensive single-board computer like a Raspberry Pi 4 is all that's needed to effectively render visual scenes at high (>60 fps) framerates. The multiplatform game engine Godot makes it easy to create virtual scenes and develop experimental protocols. Examples included in this repo are experiments for visual cliff avoidance, reactions to looming stimuli of various size/velocity ratios, and the syndirectional rotational optomotor response to gratings of various spatial wavelengths. The views rendered for each display are controlled by separate in-game cameras which can be tied together to match the inter-eye distance and angle of a typical mouse. Custom display shaders warp the view from each camera to match the spherical distortion of the Fresnel lenses, intended to create a realistic and immersive experience for the mouse.
+The heart of the MouseGoggles system is a [Raspberry Pi 4](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/) running the [Godot](https://godotengine.org/) video game engine. Since the displays are relatively low resolution (240x240), an inexpensive single-board computer like a Raspberry Pi 4 is all that's needed to effectively render visual scenes at high (>=60 fps) framerates. The multiplatform game engine Godot makes it easy to create virtual scenes and develop experimental protocols. Examples included in this repo are experiments for visual cliff avoidance, reactions to looming stimuli of various size/velocity ratios, and the syndirectional rotational optomotor response to gratings of various spatial wavelengths. The views rendered for each display are controlled by separate in-game cameras which can be tied together to match the inter-eye distance and angle of a typical mouse. Custom display shaders warp the view from each camera to match the spherical distortion of the Fresnel lenses, intended to create a realistic and immersive experience for the mouse.
 
 ### The display driver
 
