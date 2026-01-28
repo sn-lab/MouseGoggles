@@ -1,4 +1,4 @@
-![(left) 3D render of assembled MouseGoggles EyeTrack 1.1. (right) Picture of assembled MouseGoggles EyeTrack 1.1](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/EyeTrack/1.1/Images/EyeTrack_1-1_Assembled.png)
+![(left) 3D render of assembled MouseGoggles EyeTrack 2.0. (right) Picture of assembled MouseGoggles EyeTrack 2.0](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/EyeTrack/1.1/Images/EyeTrack_2-0_Assembled.png)
 
 # 
 
