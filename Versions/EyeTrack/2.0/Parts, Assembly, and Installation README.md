@@ -149,9 +149,9 @@ To install all necessary software, you'll first need a PC to install the Raspber
   sudo nano boot/firmware/config.txt
   ```
 
-- Open the file located in:`MouseGoggles/Versions/EyeTrack/2.0/Install/gc9a01.txt`
+- Open the file located in:`MouseGoggles/Versions/EyeTrack/2.0/Install/configtxt.txt`
 
-- Copy the gc9a01 text in and paste it at the bottom of the config file (just below the `[all]`section)
+- Copy the entire configtxt contents and paste it at the bottom of the config file (just below the `[all]`section)
 
 - Restart the PC.
 
