@@ -132,10 +132,11 @@ To install all necessary software, you'll first need a PC to install the Raspber
 - Select "yes" to install the OS with your custom settings
 - After the image has finished writing, Insert the SD card into your Raspberry Pi and power it on
 
-### Download the Godot game engine
+### Download the MouseGoggles repository and the Godot game engine
 
 - Start the Raspberry Pi and connect to the internet.
   - to connect to a wireless internet network, you will first be asked to set your wireless LAN country
+- 
 - Open up the github page for the [Unofficial Godot Engine for the Raspberry Pi](https://github.com/hiulit/Unofficial-Godot-Engine-Raspberry-Pi/tree/main?tab=readme-ov-file#352).
 - In the "Downloads" section, download the zip file for 3.5.2 - Raspberry Pi 3/4 (64-bit)
 - After the zip file has been downloaded, navigate to your "downloads" folder, right-click on the zip file, and click "extract here"
@@ -143,13 +144,14 @@ To install all necessary software, you'll first need a PC to install the Raspber
 
 ### Set up the displays
 
-- Open up the Raspberry Pi command terminal enter the following line to edit the Raspberry Pi configuration file:
+- Open up the Raspberry Pi command terminal enter each line, one at a time, to copy the display driver and to edit the Raspberry Pi configuration file:
   
   ```
+  sudo cp /MouseGoggles/Versions/EyeTrack/2.0/Install/gc9a01.bin /lib/firmware/
   sudo nano boot/firmware/config.txt
   ```
 
-- Open the file located in:`MouseGoggles/Versions/EyeTrack/2.0/Install/configtxt.txt`
+- In a separate window (leave the command terminal open), open the file located in:`MouseGoggles/Versions/EyeTrack/2.0/Install/configtxt.txt`
 
 - Copy the entire configtxt contents and paste it at the bottom of the config file (just below the `[all]`section)
 
