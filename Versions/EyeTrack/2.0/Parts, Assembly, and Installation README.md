@@ -14,6 +14,8 @@ The table below lists all off-the-shelf parts required to build MouseGoggles Eye
 
 Follow the links below to purchase the parts in the quantities listed (though you may consider ordering spare parts as well). If any parts are out of stock at the links below, other suppliers are often available (e.g. Digikey often stocks many Adafruit parts). In addition to these listed parts, you will also need some basic computer peripherals (HDMI monitor, USB keyboard and mouse /touchpad, microSD card reader), at least for the initial setup.
 
+* Note: if you intend on frequently acquiring eye-tracking videos, consider purchasing a MicroSD card with more storage space (e.g. 512 GB)
+
 | Part Name                                       | Description                                     | Link                                                                                           | Est. Unit Cost (USD) | Quantity |
 | ----------------------------------------------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------- |:--------------------:|:--------:|
 | Raspberry Pi 5 - 4GB                            | Raspberry Pi 5 Single-board computer            | [PiShop.US](https://www.pishop.us/product/raspberry-pi-5-4gb/)                                 | $60                  | 1        |
@@ -29,7 +31,7 @@ Follow the links below to purchase the parts in the quantities listed (though yo
 | 1.28" 240x240 Round TFT LCD                     | Display for VR headset                          | [Adafruit](https://www.adafruit.com/product/6178)                                              | $17.5                | 2        |
 | 2-56 thread, 3/16" wide narrow hex nuts         | Pack of hex nuts to assemble parts              | [McMaster](https://www.mcmaster.com/90730A003/)                                                | $4.5                 | 1        |
 | 2-56 thread, 1/2" length socket head screws     | Pack of 1/2" long screws to assemble parts      | [McMaster](https://www.mcmaster.com/91251A081/)                                                | $10                  | 1        |
-|                                                 |                                                 |                                                                                                |                      |          |
+| **Total (est.)**                                |                                                 |                                                                                                | $335                 |          |
 
 ### Recommended tools
 
@@ -132,19 +134,27 @@ To install all necessary software, you'll first need a PC to install the Raspber
 - Select "yes" to install the OS with your custom settings
 - After the image has finished writing, Insert the SD card into your Raspberry Pi and power it on
 
-### Download the MouseGoggles repository and the Godot game engine
+### Download the MouseGoggles repository
 
 - Start the Raspberry Pi and connect to the internet.
+  
   - to connect to a wireless internet network, you will first be asked to set your wireless LAN country
-- 
-- Open up the github page for the [Unofficial Godot Engine for the Raspberry Pi](https://github.com/hiulit/Unofficial-Godot-Engine-Raspberry-Pi/tree/main?tab=readme-ov-file#352).
-- In the "Downloads" section, download the zip file for 3.5.2 - Raspberry Pi 3/4 (64-bit)
-- After the zip file has been downloaded, navigate to your "downloads" folder, right-click on the zip file, and click "extract here"
-- Inside the unzipped folder, find the "...editor_Ito.bin" file. This is the executable file for running the godot game engine. To run the engine, double-click this file and select "Execute" (you do not need to run the engine yet).
+
+- Open up the Raspberry Pi command terminal and enter each line, one at a time:
+  
+  ```
+  sudo apt-get update
+  sudo apt-get upgrade
+  sudo apt install python3-opencv
+  cd ~
+  git clone https://github.com/sn-lab/MouseGoggles
+  ```
+
+- Note: If you are asked if you want to continue installing, answer yes.
 
 ### Set up the displays
 
-- Open up the Raspberry Pi command terminal enter each line, one at a time, to copy the display driver and to edit the Raspberry Pi configuration file:
+- Open up the Raspberry Pi command terminal enter each line, one at a time, to copy the display driver and to edit the Raspberry Pi configuration file: (scroll to see the full line)
   
   ```
   sudo cp /MouseGoggles/Versions/EyeTrack/2.0/Install/gc9a01.bin /lib/firmware/
@@ -164,31 +174,10 @@ To install all necessary software, you'll first need a PC to install the Raspber
 - Drag the screens so that the SPI-1 screen is on the top-left corner, and the SPI-2 screen is just to the right of SPI-1 (the screens should snap so that they are linked on their edges). If there is an HDMI screen, drag that so it is also aligned to the top-left corner, sitting underneath the SPI screens.
 
 - If you have mounted the eyepieces on the bracket vertically (i.e. with the jumper wires extending upwards above the bracket), you can skip the next line.
--
+
 - If you have mounted the eyepieces on the bracket horizontally (i.e. with the jumper wires extending towards the center of the bracket), right-click on the SPI-1 screen and set "Orientation" to "Right", then right-click on the SPI-2 screen and set "Orientation" to "Left".
 
 - Apply and accept the changes.
-
-### Set up the camera software
-
-- Open up the command terminal and enter each line, one at a time: (scroll to see the full line)
-  
-  ```
-  sudo apt-get update
-  sudo apt-get upgrade
-  sudo apt install python3-opencv
-  ```
-  
-  - note: If you are asked if you want to continue installing, answer yes.
-* Reboot the Raspberry Pi
-- Open up a command terminal and enter each line one at a time to copy the service file into the systemd folder and enable/start the service:
-  
-  ```
-  sudo cp Desktop/Cam/pi5cam_udp.service /etc/systemd/system/pi5cam_udp.service
-  sudo systemctl daemon-reload
-  sudo systemctl enable pi5cam_udp.service
-  sudo systemctl start pi5cam_udp.service
-  ```
 
 # Operating Instructions
 
@@ -196,7 +185,9 @@ To install all necessary software, you'll first need a PC to install the Raspber
 
 ### Starting the game engine and running experiments
 
-- Navigate to the "godot_3.5.2-stable_rpi4_editor_Ito.bin" file in your downloads folder. Double-click this file and select "Execute". **Feel free to move this file to the desktop to make it easier to start experiments**
+- Navigate to the "pi5cam_udp.py" file in the MouseGoggles/Versions/EyeTrack/2.0/Python folder. Double-click this file to open it into a code editor, then click the "run" (arrow) button to start the camera controller. (If you do not wish to perform eye-tracking, you can skip this step.) **Feel free to move this file to the desktop to make it easier to start experiments**
+
+- Navigate to the "godot_3.5.2-stable_rpi4_editor.arm64" file in the MouseGoggles/Godot folder. Double-click this file and select "Execute". **Feel free to move this file to the desktop to make it easier to start experiments**
 
 - Import the Godot game project located in MouseGoggles/Godot/MouseVR Godot Project V2.2/project.godot
 
