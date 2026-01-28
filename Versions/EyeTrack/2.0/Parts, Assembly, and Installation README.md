@@ -155,11 +155,15 @@ To install all necessary software, you'll first need a PC to install the Raspber
 
 - Restart the PC.
 
-- When the computer reboots, right-click on the desktop and select `configuration`
+- When the computer reboots, right-click on the desktop and select `Desktop Preferences`
 
 - Scroll down to select the `Screens` tab
 
 - Drag the screens so that the SPI-1 screen is on the top-left corner, and the SPI-2 screen is just to the right of SPI-1 (the screens should snap so that they are linked on their edges). If there is an HDMI screen, drag that so it is also aligned to the top-left corner, sitting underneath the SPI screens.
+
+- If you have mounted the eyepieces on the bracket vertically (i.e. with the jumper wires extending upwards above the bracket), you can skip the next line.
+-
+- If you have mounted the eyepieces on the bracket horizontally (i.e. with the jumper wires extending towards the center of the bracket), right-click on the SPI-1 screen and set "Orientation" to "Right", then right-click on the SPI-2 screen and set "Orientation" to "Left".
 
 - Apply and accept the changes.
 
