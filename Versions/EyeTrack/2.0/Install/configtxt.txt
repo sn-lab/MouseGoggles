@@ -1,3 +1,7 @@
+#dual OV5647 camera
+dtoverlay=ov5647,cam0
+dtoverlay=ov5647,cam1
+
 #GC9A01 display on SPI0
 dtoverlay=mipi-dbi-spi,spi0-0,speed=48000000
 dtparam=compatible=gc9a01\0panel-mipi-dbi-spi
