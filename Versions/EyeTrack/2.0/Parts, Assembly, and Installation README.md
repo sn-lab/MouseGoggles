@@ -110,8 +110,8 @@ For strong, long-lasting parts, an FDM-based printer using PLA is a good choice,
 | Display 1 - DC    | pin 22 (GPIO 25)           |
 | Display 2 - 3Vo   | pin 17 (3V3 power)         |
 | Display 2 - GND   | pin 9 (Ground)             |
-| Display 2 - SCK   | pin 38 (GPIO 20, PCM_DIN)  |
-| Display 2 - MOSI  | pin 40 (GPIO 21, PCM_DOUT) |
+| Display 2 - SCK   | pin 40 (GPIO 21, PCM_DOUT)  |
+| Display 2 - MOSI  | pin 38 (GPIO 20, PCM_DIN) |
 | Display 2 - TFTCS | pin 12 (GPIO 18, PCM_CLK)  |
 | Display 2 - RST   | pin 37 (GPIO 26)           |
 | Display 2 - DC    | pin 36 (GPIO 16)           |
@@ -156,30 +156,30 @@ To install all necessary software, you'll first need a PC to install the Raspber
 
 ### Set up the displays
 
-- Open up the Raspberry Pi command terminal enter each line, one at a time, to copy the display driver and to edit the Raspberry Pi configuration file: (scroll to see the full line)
+- Open up the Raspberry Pi command terminal enter each line, one at a time, to copy the display driver and to edit the Raspberry Pi configuration file: (scroll to see the full line).
   
   ```
   sudo cp ~/MouseGoggles/Versions/EyeTrack/2.0/Install/gc9a01.bin /lib/firmware/
   sudo nano /boot/firmware/config.txt
   ```
 
-- In a separate window (leave the command terminal open), open the file located in:`MouseGoggles/Versions/EyeTrack/2.0/Install/configtxt.txt`
+- In a separate window (leave the command terminal open), open the file located in:`MouseGoggles/Versions/EyeTrack/2.0/Install/configtxt.txt`.
 
-- Copy the entire configtxt contents and paste it at the bottom of the config file (just below the `[all]`section)
+- Copy the entire configtxt contents into the bottom of the config file (just below the `[all]`section).
 
 - Restart the PC.
 
-- When the computer reboots, right-click on the desktop and select `Desktop Preferences`
+- When the computer reboots, right-click on the desktop and select `Desktop Preferences`.
 
-- Scroll down to select the `Screens` tab
+- Scroll down the menu on the left to select the `Screens` tab.
 
-- Drag the screens so that the SPI-1 screen is on the top-left corner, and the SPI-2 screen is just to the right of SPI-1 (the screens should snap so that they are linked on their edges). If there is an HDMI screen, drag that so it is also aligned to the top-left corner, sitting underneath the SPI screens.
+- Drag the screens so that the SPI-1 screen is on the top-left corner and the SPI-2 screen is just to the right of SPI-1 (the screens should snap so that they are linked on their edges). If there is an HDMI screen, drag that so it is also aligned to the top-left corner, sitting underneath both SPI screens.
 
 - If you have mounted the eyepieces on the bracket vertically (i.e. with the jumper wires extending upwards above the bracket), you can skip the next line.
 
 - If you have mounted the eyepieces on the bracket horizontally (i.e. with the jumper wires extending towards the center of the bracket), right-click on the SPI-1 screen and set "Orientation" to "Right", then right-click on the SPI-2 screen and set "Orientation" to "Left".
 
-- Apply and accept the changes.
+- Apply and click "ok" to accept the changes.
 
 # Operating Instructions
 
