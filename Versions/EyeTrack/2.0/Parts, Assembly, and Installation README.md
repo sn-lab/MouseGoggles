@@ -159,8 +159,8 @@ To install all necessary software, you'll first need a PC to install the Raspber
 - Open up the Raspberry Pi command terminal enter each line, one at a time, to copy the display driver and to edit the Raspberry Pi configuration file: (scroll to see the full line)
   
   ```
-  sudo cp /MouseGoggles/Versions/EyeTrack/2.0/Install/gc9a01.bin /lib/firmware/
-  sudo nano boot/firmware/config.txt
+  sudo cp ~/MouseGoggles/Versions/EyeTrack/2.0/Install/gc9a01.bin /lib/firmware/
+  sudo nano /boot/firmware/config.txt
   ```
 
 - In a separate window (leave the command terminal open), open the file located in:`MouseGoggles/Versions/EyeTrack/2.0/Install/configtxt.txt`
