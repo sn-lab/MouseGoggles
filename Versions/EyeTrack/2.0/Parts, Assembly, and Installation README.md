@@ -1,4 +1,4 @@
-![(left) 3D render of assembled MouseGoggles EyeTrack 2.0. (right) Picture of assembled MouseGoggles EyeTrack 2.0](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/EyeTrack/1.1/Images/EyeTrack_2-0_Assembled.png)
+![(left) 3D render of assembled MouseGoggles EyeTrack 2.0. (right) Picture of assembled MouseGoggles EyeTrack 2.0](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/EyeTrack/2.0/Images/E2_Assembled.png)
 
 # 
 
@@ -10,40 +10,40 @@
 
 ### Off-the-shelf parts
 
-The table below lists all off-the-shelf parts required to build MouseGoggles EyeTrack 2.0, a re-design of the EyeTrack headset built entirely around a single Raspberry Pi 5! Compared to previous headsets, this version features newer parts, improved eye imaging, and a simpler assembly and installation process with no custom circuitboards required.
+The table below lists all off-the-shelf parts required to build MouseGoggles EyeTrack 2.0, a re-design of the EyeTrack headset built entirely around a single Raspberry Pi 5! This version features newer parts, improved eye imaging, and a simpler assembly and installation process with no custom circuitboards required.
 
-Follow the links below to purchase the parts in the quantities listed (though you may consider ordering spare parts as well). If any parts are out of stock at the links below, other suppliers are often available (e.g. Digikey often stocks many Adafruit parts). In addition to these listed parts, you will also need some basic computer peripherals (HDMI monitor, USB keyboard and mouse /touchpad, microSD card reader), at least for the initial setup.
+Follow the links below to purchase the parts in the quantities listed (though you may consider ordering spare parts as well). If any parts are out of stock at the links below, other suppliers are often available (e.g. Digikey stocks many Adafruit parts). In addition to these listed parts, you will also need some basic computer peripherals (HDMI monitor, USB keyboard and mouse /touchpad, microSD card reader), at least for the initial setup.
 
 * Note: if you intend on frequently acquiring eye-tracking videos, consider purchasing a MicroSD card with more storage space (e.g. 512 GB)
 
 | Part Name                                       | Description                                     | Link                                                                                           | Est. Unit Cost (USD) | Quantity |
 | ----------------------------------------------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------- |:--------------------:|:--------:|
-| Raspberry Pi 5 - 4GB                            | Raspberry Pi 5 Single-board computer            | [PiShop.US](https://www.pishop.us/product/raspberry-pi-5-4gb/)                                 | $60                  | 1        |
-| Class 10 - MicroSD Card Extreme Pro - 32 GB     | MicroSD card to Raspberry Pi OS                 | [PiShop.US](https://www.pishop.us/product/class-10-microsd-card-extreme-pro-32-gb-blank-bulk/) | $13                  | 1        |
-| Micro-HDMI to HDMI cable for Pi 4 - 3ft, Black  | HDMI adapter to connect Raspberry Pi to monitor | [PiShop.US](https://www.pishop.us/product/micro-hdmi-to-hdmi-cable-for-pi-4-3ft-black/)        | $5                   | 1        |
+| Raspberry Pi 5 - 4GB                            | Raspberry Pi 5 Single-board computer            | [PiShop.US](https://www.pishop.us/product/raspberry-pi-5-4gb/)                                 | $85                  | 1        |
+| Class 10 - MicroSD Card Extreme Pro - 32 GB     | MicroSD card to Raspberry Pi OS                 | [PiShop.US](https://www.pishop.us/product/class-10-microsd-card-extreme-pro-32-gb-blank-bulk/) | $23                  | 1        |
+| Micro-HDMI to HDMI cable for Pi 4 - 3ft, Black  | HDMI adapter to connect Raspberry Pi to monitor | [PiShop.US](https://www.pishop.us/product/micro-hdmi-to-hdmi-cable-for-pi-4-3ft-black/)        | $6                   | 1        |
 | FM02 1" Red Hot mirror                          | Hot mirror for eye tracking camera              | [Thorlabs](https://www.thorlabs.com/thorProduct.cfm?partNumber=FM02)                           | $57                  | 1+spare  |
-| FRP0510 1/2" Fresnel Lens - f = 10 mm           | Fresnel lens for VR headset                     | [Thorlabs](https://www.thorlabs.com/thorproduct.cfm?partnumber=FRP0510)                        | $21                  | 2        |
-| Raspberry Pi 5 Power Supply                     | USB-C power supply                              | [Adafruit](https://www.adafruit.com/product/5814)                                              | $12                  | 1        |
+| FRP0510 1/2" Fresnel Lens - f = 10 mm           | Fresnel lens for VR headset                     | [Thorlabs](https://www.thorlabs.com/thorproduct.cfm?partnumber=FRP0510)                        | $22                  | 2        |
+| Raspberry Pi 5 Power Supply                     | USB-C power supply                              | [Adafruit](https://www.adafruit.com/product/5814)                                              | $14                  | 1        |
 | Female/Female Jumper Wires                      | 20x12" Jumper wires                             | [Adafruit](https://www.adafruit.com/product/1949)                                              | $4                   | 1        |
 | Spy camera for Raspberry Pi                     | Mini  eye tracking camera                       | [Adafruit](https://www.adafruit.com/product/1937)                                              | $40                  | 2        |
-| FPC Camera Cable - 22-pin to 15-pin, 300mm long | Cable to connect camera modules                 | [Adafruit](https://www.adafruit.com/product/5659)                                              | $3                   | 2        |
+| FPC Camera Cable - 22-pin to 15-pin, 200mm long | Cable to connect camera modules                 | [Adafruit](https://www.adafruit.com/product/5818)                                              | $3                   | 2        |
 | CSI or DSI Cable Extender                       | 15 pin cable extender                           | [Adafruit](https://www.adafruit.com/product/3671)                                              | $3                   | 2        |
-| 1.28" 240x240 Round TFT LCD                     | Display for VR headset                          | [Adafruit](https://www.adafruit.com/product/6178)                                              | $17.5                | 2        |
-| 2-56 thread, 3/16" wide narrow hex nuts         | Pack of hex nuts to assemble parts              | [McMaster](https://www.mcmaster.com/90730A003/)                                                | $4.5                 | 1        |
+| 1.28" 240x240 Round TFT LCD                     | Display for VR headset                          | [Adafruit](https://www.adafruit.com/product/6178)                                              | $18                  | 2        |
+| 2-56 thread, 3/16" wide narrow hex nuts         | Pack of hex nuts to assemble parts              | [McMaster](https://www.mcmaster.com/90730A003/)                                                | $4                   | 1        |
 | 2-56 thread, 1/2" length socket head screws     | Pack of 1/2" long screws to assemble parts      | [McMaster](https://www.mcmaster.com/91251A081/)                                                | $10                  | 1        |
-| **Total (est.)**                                |                                                 |                                                                                                | $335                 |          |
+| **Total (est.)**                                |                                                 |                                                                                                | $375                 |          |
 
 ### Recommended tools
 
 | Part Name         | Description                                                 | Link                                                                                    | Est. Unit Cost (USD) |
 | ----------------- | ----------------------------------------------------------- | --------------------------------------------------------------------------------------- | -------------------- |
-| Needle file       | File for sanding/smoothing 3D prints                        | [McMaster](https://www.mcmaster.com/4261a37/)                                           | $17                  |
+| Needle file       | File for sanding/smoothing 3D prints                        | [McMaster](https://www.mcmaster.com/4261a37/)                                           | $19                  |
 | Hex wrench        | Wrench for assembling headset                               | [McMaster](https://www.mcmaster.com/7122A15/)                                           | $1                   |
-| Glass scribe      | Simple glass scribe for cutting hot mirror to size          | [Grainger](https://www.grainger.com/product/GENERAL-TOOLS-Scriber-Straight-3ZZP6)       | $11.5                |
+| Glass scribe      | Simple glass scribe for cutting hot mirror to size          | [Grainger](https://www.grainger.com/product/GENERAL-TOOLS-Scriber-Straight-3ZZP6)       | $12                  |
 | Silicone adhesive | Electronics grade adhesive for extra support of parts/wires | [Digikey](https://www.digikey.com/en/products/detail/chip-quik-inc/EGS10C-20G/10059587) | $5                   |
 | Soldering iron    | Soldering iron for attaching jumper wires to displays       | [Adafruit](https://www.adafruit.com/product/4921)                                       | $60                  |
-| Soldering wire    | for soldering jumper wires                                  | [Adafruit](https://www.adafruit.com/product/1930)                                       | $17.5                |
-| Wire strippers    | for stripping jumper wires                                  | [Adafruit](https://www.adafruit.com/product/527)                                        | $17.5                |
+| Soldering wire    | for soldering jumper wires                                  | [Adafruit](https://www.adafruit.com/product/1930)                                       | $18                  |
+| Wire strippers    | for stripping jumper wires                                  | [Adafruit](https://www.adafruit.com/product/527)                                        | $18                  |
 | Flush cutters     | for trimming ends of soldered wire                          | [Adafruit](https://www.adafruit.com/product/152)                                        | $7                   |
 
 ### 3D prints
@@ -57,13 +57,12 @@ For strong, long-lasting parts, an FDM-based printer using PLA is a good choice,
 | Part Name                | Description                           | Link                                                                                                                  | Quantity | Aprox. Dimensions (mm) |
 | ------------------------ | ------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | -------- | ---------------------- |
 | Eyepiece V1.stl          | Main eyepiece enclosure               | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/EyeTrack/2.0/3D%20Prints/Eyepiece%202.0%20V1.stl)     | 2        | 41x36x12.5             |
-| LensClipL V1.stl         | Clip for securing left Fresnel lens   | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/EyeTrack/2.0/3D%20Prints/LensClipL%20V1.stl)          | 1        | 17x12x4                |
-| LensClipR V1.stl         | Clip for securing right Fresnel lens  | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/EyeTrack/2.0/3D%20Prints/LensClipL%20V1.stl)          | 1        | 17x12x4                |
+| LensClip V1.stl          | Clip for securing Fresnel lens        | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/EyeTrack/2.0/3D%20Prints/LensClip%20V1.stl)           | 2        | 17x12x4                |
 | CameraClip V1.stl        | Clip for securing Camera              | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/EyeTrack/2.0/3D%20Prints/CameraClip%20V1.stl)         | 2        | 13x7x6                 |
 | EyepieceBack V1          | Backing of eyepiece                   | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/EyeTrack/2.0/3D%20Prints/EyepieceBack%202.0%20V1.stl) | 2        | 40x28x6                |
 | Bracket50 V1.stl         | Headset frame (50 deg eyepiece angle) | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/EyeTrack/2.0/3D%20Prints/Bracket50%20V1.stl)          | 1        | 79x52x43               |
-| MirrorStencil V1.stl     | Stencil for glass cutting             | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/EyeTrack/2.0/3D%20Prints/MirrorStencil%20V1.stl)      | 1        | 44x34x4.5              |
 | MirrorStencilBase V1.stl | Base of glass cutting stencil         | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/EyeTrack/2.0/3D%20Prints/MirrorStencilBase%20V1.stl)  | 1        | 40x30x3                |
+| MirrorStencil V1.stl     | Stencil for glass cutting             | [stl](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/EyeTrack/2.0/3D%20Prints/MirrorStencil%20V1.stl)      | 1        | 44x34x4.5              |
 
 # Hardware Assembly Instructions
 
@@ -71,31 +70,34 @@ For strong, long-lasting parts, an FDM-based printer using PLA is a good choice,
 
 ### Assemble the MouseGoggles headset
 
-1. Separate a group of 7 jumper wires from the bundle. Cut the sockets off of one end of the wires and strip the cut end of the wire. Solder the 7 exposed wires into the back of a circular display to the following pins: 3Vo, GND, SCK, MOSI, TFTCS, RST, DC. (it is not necessary to connect Vin, MISO, SDCS, Lite)
+![(left) 3D render of assembled MouseGoggles EyeTrack 2.0. (right) Picture of assembled MouseGoggles EyeTrack 2.0](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/EyeTrack/2.0/Images/E2_Assembly.png)
 
-2. Insert a hot mirror into the MirrorStencilBase, and set the MirrorStencil on top. Holding the mirror and stencil stable with one hand, gently scratch the mirror using the glass scribe along the 3 lines in the stencil, going over each line multiple times. After the glass has been scored, flip the MirrorStencil parts inside out and sandwich the mirror in between the two flat surfaces of the part, so that the mirror is sticking halfway out and the score line follows the straight edge of the MirrorStencil as closely as possible. Clamping the mirror between the stencil, gently press the exposed half of the mirror to snap the mirror along the central score line. Then, for each half of the mirror, expose the other sections and break along the smaller score lines to finish shaping the mirror (these smaller score lines to not need to bread as cleanly since they will be largely out of the mouse's view).
+1. Separate a group of 7 jumper wires from the bundle. Cut the sockets off of one end of the wires and strip the cut end of the wire. Solder the 7 exposed wires into the back of a circular display to the following pins: 3Vo, Gnd, SCK, MOSI, TFTCS, RST, DC. (it is not necessary to connect Vin, MISO, SDCS, Lite). Repeat with a 2nd display.
+
+2. Cover the soldered pins and base of the wires with silicone glue, to give extra support to the junction and prevent wires breaking when bent. (the glue may take up to 24 hours to fully cure)
+
+3. Insert a hot mirror into the MirrorStencilBase, and set the MirrorStencil on top. Holding the mirror and stencil stable with one hand, gently scratch the mirror using the glass scribe along the 3 lines in the stencil, going over each line multiple times. After the glass has been scored, flip the MirrorStencil parts inside out and sandwich the mirror in between the two flat surfaces of the part, so that the mirror is sticking halfway out and the score line follows the straight edge of the MirrorStencil as closely as possible. Clamping the mirror between the stencil, gently press the exposed half of the mirror to snap the mirror along the central score line. Then, for each half of the mirror, expose the other sections and break along the smaller score lines to finish roughly shaping the mirror (these smaller score lines to not need to bread as cleanly since they will be largely out of the mouse's view). Slide each mirror all the way into the mirror slot of the eyepieces to check the fit - ideally it should roughly follow the shape of the eyepiece without extruding too much.
    
-   * Note: Adding a drop of liquid to the score line can help ensure that the glass snaps along the line.
+   * Tips: Adding a drop of liquid to the score line can help ensure that the glass snaps along the line. To chip away smaller pieces of glass, you can use the metal back end of the scribe to press and break the glass edge. This broken edge does not need to be a clean edge since it is not visible inside the eyepiece.
+4* Slide each hot mirror into the angled mirror slot of the eyepieces (uncut-side first), and secure the edge of the cut side to the eyepiece with silicone glue. (the glue may take up to 24 hours to fully cure)
 
-3. Insert a camera into the camera port, with the ribbon cable oriented in the direction opposite of the eyepiece front. Press a CameraClip onto the back of the camera to clip it to the eyepiece.
+5. Insert a camera into the camera port, with the ribbon cable oriented in the direction opposite of the eyepiece front. Press a CameraClip onto the back of the camera to clip it to the eyepiece.
    
    * Note: If any part is too difficult to slide into place, use a needle file to sand down any warped areas or imperfections of the 3D prints.
 
-4. Stack the circular display on top of the eyepiece, with the display screw-holes aligned to the screw holes on the side of the eyepiece opposite of the camera port.
+6. Stack the circular display on top of the eyepiece, with the display screw-holes aligned to the screw holes on the side of the eyepiece opposite of the camera port.
 
-5. Stack the EyepieceBack onto the display/eyepiece, with all four open screw holes aligned to the four screw holes of the eyepiece, and with the camera ribbon cable sitting between the EyepieceBack and the display so that it is protected, secured, and lines up with the soldered jumper wires. From the eyepiece-side, Insert four 1/2" screws through the holes, but don't secure them with nuts yet.
+7. Stack the EyepieceBack onto the display/eyepiece, with all four open screw holes aligned to the four screw holes of the eyepiece, and with the camera ribbon cable sitting between the EyepieceBack and the display so that it is protected, secured, and lines up with the soldered jumper wires. From the eyepiece-side, Insert four 1/2" screws through the holes, but don't secure them with nuts yet.
 
-6. Repeat steps 1-7 for a second eyepiece.
+8. Repeat steps 5-7 with a second eyepiece.
 
-7. (for horizontally-mounted eyepieces) Position the two eyepieces onto the bracket so that 3 of the 4 screws of each eyepiece extend through the inner bracket slots. Then add nuts to all four screws to secure the eyepiece together and to the bracket.
+9. (for horizontally-mounted eyepieces) Position the two eyepieces onto the bracket so that 3 of the 4 screws of each eyepiece extend through the inner bracket slots. Then add nuts to all four screws to secure the eyepiece together and to the bracket.
 
-8. Insert a Fresnel lens into each slot on the front of the eyepieces, with the ridged side of the lens facing into the eyepiece and the smooth side facing out of the eyepiece (very gently sliding your finger or fingernail along each flat face of the lens will tell you which side is smooth and which side is ridged). Attach a LensClip to each eyepiece to hold the lens in place. (the thicker end of the LensClip should be oriented so that it will sit above the mouse's eye, not below it)
-
-9. Slide the hot mirror into the angled mirror slot of the eyepiece (uncut-side first), and secure the edge of the cut side to the eyepiece with silicone glue. (the glue may take up to 24 hours to fully cure).
+10. Insert a Fresnel lens into each slot on the front of the eyepieces, with the ridged side of the lens facing into the eyepiece and the smooth side facing out of the eyepiece (very gently sliding your finger or fingernail along each flat face of the lens will tell you which side is smooth and which side is ridged). Attach a LensClip to each eyepiece to hold the lens in place. (the thicker end of the LensClip should be oriented so that it will sit above the mouse's eye, not below it.
 
 ### Wire up the displays and cameras
 
-Follow the mapping table below to wire up each display to the pins of the Raspberry Pi 5 (refer to Pi 5 pin names [here](https://pinouthub.com/rpi-5-gpio-pinout/)):
+![(left) 3D render of assembled MouseGoggles EyeTrack 2.0. (right) Picture of assembled MouseGoggles EyeTrack 2.0](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/EyeTrack/2.0/Images/E2_Wiring.png)Follow the mapping table below to wire up each display to the pins of the Raspberry Pi 5 (refer to Pi 5 pin names [here](https://pinouthub.com/rpi-5-gpio-pinout/)):
 
 | Display pin       | Raspberry Pi 5 pin         |
 | ----------------- | -------------------------- |
@@ -130,15 +132,15 @@ To install all necessary software, you'll first need a PC to install the Raspber
 - Choose OS: "Raspberry Pi OS (64-bit)"
 - Choose Storage: -select your SD card-
 - When asked if you would like to apply custom OS settings, click "Edit Settings"
-- Set the hostname, username, password, WiFi, and localisation settings as desired, then click save and exit the settings window
-- Select "yes" to install the OS with your custom settings
+- Set the hostname, username, password, WiFi, and localisation settings as desired, then click save and exit the settings window (where applicable in the following instructions, the hostname will be assumed to be "MG2")
+- Select "write" to install the OS with your custom settings
 - After the image has finished writing, Insert the SD card into your Raspberry Pi and power it on
 
 ### Download the MouseGoggles repository
 
 - Start the Raspberry Pi and connect to the internet.
   
-  - to connect to a wireless internet network, you will first be asked to set your wireless LAN country
+  - to connect to a wireless internet network, you may first be asked to set your wireless LAN country
 
 - Open up the Raspberry Pi command terminal and enter each line, one at a time:
   
