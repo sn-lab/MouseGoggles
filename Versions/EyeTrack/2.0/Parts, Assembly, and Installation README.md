@@ -2,7 +2,7 @@
 
 # 
 
-**NOTE:** This version is currently in development and is subject to change; if you proceed with building this version and notice any mistakes or problems, please raise an issue on Github!
+**NOTE:** This version is currently in development and is subject to change; if you proceed with building this version and notice any mistakes or problems, please raise an [issue](https://github.com/sn-lab/MouseGoggles/issues/new) on Github!
 
 # Parts List
 
