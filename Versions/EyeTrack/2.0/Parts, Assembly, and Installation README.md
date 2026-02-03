@@ -79,25 +79,25 @@ For strong, long-lasting parts, an FDM-based printer using PLA is a good choice,
 3. Insert a hot mirror into the MirrorStencilBase, and set the MirrorStencil on top. Holding the mirror and stencil stable with one hand, gently scratch the mirror using the glass scribe along the 3 lines in the stencil, going over each line multiple times. After the glass has been scored, flip the MirrorStencil parts inside out and sandwich the mirror in between the two flat surfaces of the part, so that the mirror is sticking halfway out and the score line follows the straight edge of the MirrorStencil as closely as possible. Clamping the mirror between the stencil, gently press the exposed half of the mirror to snap the mirror along the central score line. Then, for each half of the mirror, expose the other sections and break along the smaller score lines to finish roughly shaping the mirror (these smaller score lines to not need to bread as cleanly since they will be largely out of the mouse's view). Slide each mirror all the way into the mirror slot of the eyepieces to check the fit - ideally it should roughly follow the shape of the eyepiece without extruding too much.
    
    * Tips: Adding a drop of liquid to the score line can help ensure that the glass snaps along the line. To chip away smaller pieces of glass, you can use the metal back end of the scribe to press and break the glass edge. This broken edge does not need to be a clean edge since it is not visible inside the eyepiece.
-4* Slide each hot mirror into the angled mirror slot of the eyepieces (uncut-side first), and secure the edge of the cut side to the eyepiece with silicone glue. (the glue may take up to 24 hours to fully cure)
+     4* Slide each hot mirror into the angled mirror slot of the eyepieces (uncut-side first), and secure the edge of the cut side to the eyepiece with silicone glue. (the glue may take up to 24 hours to fully cure)
 
-5. Insert a camera into the camera port, with the ribbon cable oriented in the direction opposite of the eyepiece front. Press a CameraClip onto the back of the camera to clip it to the eyepiece.
+4. Insert a camera into the camera port, with the ribbon cable oriented in the direction opposite of the eyepiece front. Press a CameraClip onto the back of the camera to clip it to the eyepiece.
    
    * Note: If any part is too difficult to slide into place, use a needle file to sand down any warped areas or imperfections of the 3D prints.
 
-6. Stack the circular display on top of the eyepiece, with the display screw-holes aligned to the screw holes on the side of the eyepiece opposite of the camera port.
+5. Stack the circular display on top of the eyepiece, with the display screw-holes aligned to the screw holes on the side of the eyepiece opposite of the camera port.
 
-7. Stack the EyepieceBack onto the display/eyepiece, with all four open screw holes aligned to the four screw holes of the eyepiece, and with the camera ribbon cable sitting between the EyepieceBack and the display so that it is protected, secured, and lines up with the soldered jumper wires. From the eyepiece-side, Insert four 1/2" screws through the holes, but don't secure them with nuts yet.
+6. Stack the EyepieceBack onto the display/eyepiece, with all four open screw holes aligned to the four screw holes of the eyepiece, and with the camera ribbon cable sitting between the EyepieceBack and the display so that it is protected, secured, and lines up with the soldered jumper wires. From the eyepiece-side, Insert four 1/2" screws through the holes, but don't secure them with nuts yet.
 
-8. Repeat steps 5-7 with a second eyepiece.
+7. Repeat steps 5-7 with a second eyepiece.
 
-9. (for horizontally-mounted eyepieces) Position the two eyepieces onto the bracket so that 3 of the 4 screws of each eyepiece extend through the inner bracket slots. Then add nuts to all four screws to secure the eyepiece together and to the bracket.
+8. (for horizontally-mounted eyepieces) Position the two eyepieces onto the bracket so that 3 of the 4 screws of each eyepiece extend through the inner bracket slots. Then add nuts to all four screws to secure the eyepiece together and to the bracket.
 
-10. Insert a Fresnel lens into each slot on the front of the eyepieces, with the ridged side of the lens facing into the eyepiece and the smooth side facing out of the eyepiece (very gently sliding your finger or fingernail along each flat face of the lens will tell you which side is smooth and which side is ridged). Attach a LensClip to each eyepiece to hold the lens in place. (the thicker end of the LensClip should be oriented so that it will sit above the mouse's eye, not below it.
+9. Insert a Fresnel lens into each slot on the front of the eyepieces, with the ridged side of the lens facing into the eyepiece and the smooth side facing out of the eyepiece (very gently sliding your finger or fingernail along each flat face of the lens will tell you which side is smooth and which side is ridged). Attach a LensClip to each eyepiece to hold the lens in place. (the thicker end of the LensClip should be oriented so that it will sit above the mouse's eye, not below it.
 
 ### Wire up the displays and cameras
 
-![(left) 3D render of assembled MouseGoggles EyeTrack 2.0. (right) Picture of assembled MouseGoggles EyeTrack 2.0](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/EyeTrack/2.0/Images/E2_Wiring.png)Follow the mapping table below to wire up each display to the pins of the Raspberry Pi 5 (refer to Pi 5 pin names [here](https://pinouthub.com/rpi-5-gpio-pinout/)):
+![(left) 3D render of assembled MouseGoggles EyeTrack 2.0. (right) Picture of assembled MouseGoggles EyeTrack 2.0](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/EyeTrack/2.0/Images/E2_Wiring.png)Follow the mapping table below to wire up each display to the pins of the Raspberry Pi 5:
 
 | Display pin       | Raspberry Pi 5 pin         |
 | ----------------- | -------------------------- |
