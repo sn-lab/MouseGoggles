@@ -70,7 +70,7 @@ For strong, long-lasting parts, an FDM-based printer using PLA is a good choice,
 
 ### Assemble the MouseGoggles headset
 
-![(left) 3D render of assembled MouseGoggles EyeTrack 2.0. (right) Picture of assembled MouseGoggles EyeTrack 2.0](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/EyeTrack/2.0/Images/E2_Assembly.png)
+![Select steps of MouseGoggles EyeTrack 2.0 assembly](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/EyeTrack/2.0/Images/E2_Assembly.png)
 
 1. Separate a group of 7 jumper wires from the bundle. Cut the sockets off of one end of the wires and strip the cut end of the wire. Solder the 7 exposed wires into the back of a circular display to the following pins: 3Vo, Gnd, SCK, MOSI, TFTCS, RST, DC. (it is not necessary to connect Vin, MISO, SDCS, Lite). Repeat with a 2nd display.
 
@@ -97,7 +97,9 @@ For strong, long-lasting parts, an FDM-based printer using PLA is a good choice,
 
 ### Wire up the displays and cameras
 
-![(left) 3D render of assembled MouseGoggles EyeTrack 2.0. (right) Picture of assembled MouseGoggles EyeTrack 2.0](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/EyeTrack/2.0/Images/E2_Wiring.png)Follow the mapping table below to wire up each display to the pins of the Raspberry Pi 5 (refer to Pi 5 pin names [here](https://pinouthub.com/rpi-5-gpio-pinout/)):
+![(left) Wired connections of a MouseGoggles EyeTrack 2.0 to a Raspberry Pi 5. (right) Pin names and numbers of the Raspberry Pi 5 40-pin header.](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/EyeTrack/2.0/Images/E2_Wiring.png)
+
+Follow the mapping table below to wire up each display to the pins of the Raspberry Pi 5 (refer to Pi 5 pin names [here](https://pinouthub.com/rpi-5-gpio-pinout/)):
 
 | Display pin       | Raspberry Pi 5 pin         |
 | ----------------- | -------------------------- |
