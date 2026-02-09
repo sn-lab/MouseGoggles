@@ -20,9 +20,10 @@ H: handshake (receive "H", send "H" back)
 F: frames (receive "F", capture frames, then send "F" and frames back)
 V: start video (receive "V", filename, and duration; start video, then send "V" back)
 X: stop video (receive "X", stop video, send "X" back)
-T: transfer video (receive "T" and filename, locate files, then send "T" and videos back via TCP (or send "M" back if files not found))
 O: send output TTL signal (receive "O")
 """
+
+base_log_dir = "/home/mg2/MouseGoggles/Godot/MouseVR Godot Project V2.2/logs"
 
 # handling camera recording (and output signaling)
 class VideoRecorder:
@@ -67,7 +68,10 @@ class VideoRecorder:
 		if not self.recording:
 			self.recording = True
 			self.stop_event.clear()
-			self.output_file = open(f"{exp_name}_frames.bin", "wb")
+			log_dir = f"{base_log_dir}/{exp_name}"
+			os.makedirs(log_dir, exist_ok=True)
+			file_path = os.path.join(log_dir, f"{exp_name}_frames.bin")
+			self.output_file = open(file_path, "wb")
 			for i, cam in enumerate(self.cams):
 				cam.start()
 				
@@ -125,11 +129,6 @@ def udp_server(recorder):
 	udp_sock.bind(("0.0.0.0", 5001))
 	print("UDP server started")
 
-	tcp_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-	tcp_sock.bind(("0.0.0.0", 5002))
-	tcp_sock.listen(1)
-	print("TCP server started")
-	
 	while True:
 		data, addr = udp_sock.recvfrom(1024)
 		message = data.decode().strip()
@@ -169,24 +168,6 @@ def udp_server(recorder):
 			recorder.stop_recording()
 			print('video stopped')
 			
-		elif message.startswith("T"): # transfer video
-			_, exp_name = message.split(":")
-			filepath = f"{exp_name}_frames.bin"
-			conn, addr = tcp_sock.accept()
-			if os.path.exists(filepath):
-				print(f"transferring video: {filepath}")
-				with open(filepath,"rb") as f:
-					try:
-						conn.sendall(f.read())
-					except BrokenPipeError:
-						print("TCP connection broken")
-						conn.close()
-						break
-			else:
-				udp_sock.sendto(b"M", addr)
-				print(f"file not found: {filepath}")
-			conn.close()
-
 
 # run main script (start UDP/TCP communication and video recording functions)
 if __name__ == "__main__":
