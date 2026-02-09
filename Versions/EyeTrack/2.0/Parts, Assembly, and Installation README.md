@@ -99,7 +99,9 @@ For strong, long-lasting parts, an FDM-based printer using PLA is a good choice,
 
 ![(left) Wired connections of a MouseGoggles EyeTrack 2.0 to a Raspberry Pi 5. (right) Pin names and numbers of the Raspberry Pi 5 40-pin header.](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/EyeTrack/2.0/Images/E2_Wiring.png)
 
-Follow the mapping table below to wire up each display to the pins of the Raspberry Pi 5 (refer to Pi 5 pin names [here](https://pinouthub.com/rpi-5-gpio-pinout/)):
+1. Connect each camera ribbon cable to a CSI extender, then to the 15-pin side of a 22-15 pin ribbon cable. Connect the left eye camera to the cam/disp 0 connector of the Pi 5, and the right eye camera to cam/disp 1.
+
+2. Connect the jumper wires of the left eye (display 1) and right eye (display 2) displays to the header pins of the Raspberry Pi 5 following the map below (refer to Pi 5 pin names in the image above):
 
 | Display pin       | Raspberry Pi 5 pin         |
 | ----------------- | -------------------------- |
@@ -189,7 +191,7 @@ To install all necessary software, you'll first need a PC to install the Raspber
 
 ### Starting the game engine and running experiments
 
-- Navigate to the "pi5cam_udp.py" file in the MouseGoggles/Versions/EyeTrack/2.0/Python folder. Double-click this file to open it into a code editor, then click the "run" (arrow) button to start the camera controller. (If you do not wish to perform eye-tracking, you can skip this step.) **Feel free to move this file to the desktop to make it easier to start experiments**
+- Navigate to the "pi5cam_udp.py" file in the MouseGoggles/Versions/EyeTrack/2.0/Python folder. Double-click this file to open and view it with a code editor (you may need to drag and resize the window to see the full editor). At the top of the script, find the "base_log_dir" variable and verify that it is pointing at the correct location of your Godot logs folder (you will likely need to change "mg2" to the username you've chosen fot this installation. After the folder is correct, click the "run" (arrow) button at the top of thw window to start the camera controller. A command window will open and display messages about this controller: once you see "UDP server started", you can move on to the next step. **Feel free to move this file to the desktop to make it easier to start experiments**
 
 - Navigate to the "godot_3.5.2-stable_rpi4_editor.arm64" file in the MouseGoggles/Godot folder. Double-click this file and select "Execute". **Feel free to move this file to the desktop to make it easier to start experiments**
 
