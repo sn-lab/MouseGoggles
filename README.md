@@ -6,11 +6,11 @@
 
 **Work in progess**
 
-* Updating and improving [MouseGoggles EyeTrack 2.0](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/EyeTrack/2.0) software!
+* Updating and improving [MouseGoggles EyeTrack 2.0](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/EyeTrack/2.0) eye imaging quality and software improvements.
 
 **Previous Updates**
 
-* (Jan 2026) Added intial files for [MouseGoggles EyeTrack 2.0](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/EyeTrack/2.0)! The hardware design is complete, now built around a single Raspberry Pi 5, and features improved eye-tracking quality and an overall simpler assembly process. Some outstanding software issues are still being resolved for this version but will be updated shortly!
+* (Jan 2026) Added intial files for [MouseGoggles EyeTrack 2.0](https://github.com/sn-lab/MouseGoggles/tree/main/Versions/EyeTrack/2.0)! The design is now built around a single Raspberry Pi 5, aiming toward improving eye-tracking quality and a simpler assembly process (though eye-imaging quality is still being worked on).
   
 * (May 2025) Big software updates to EyeTrack 1.1, including the first Godot project (2.1) which enables controlling and viewing the eye-tracking cameras from within the game engine! TCP/UDP communication between the Pis enable TTL outputs and eye-tracking videos to be controlled directly from VR experiment scripts.
 
