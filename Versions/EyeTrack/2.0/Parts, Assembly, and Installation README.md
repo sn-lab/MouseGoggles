@@ -10,7 +10,7 @@
 
 ### Off-the-shelf parts
 
-The table below lists all off-the-shelf parts required to build MouseGoggles EyeTrack 2.0, a re-design of the EyeTrack headset built entirely around a single Raspberry Pi 5! This version features newer parts, improved eye imaging, and a simpler assembly and installation process with no custom circuitboards required.
+The table below lists all off-the-shelf parts required to build MouseGoggles EyeTrack 2.0, a re-design of the EyeTrack headset built entirely around a single Raspberry Pi 5! This version features newer parts and a simpler assembly and installation process. Important note: eye imaging quality is currently being improved, and is currently dependent on external infrared (IR) illumination not yet included in this assembly process.
 
 Follow the links below to purchase the parts in the quantities listed (though you may consider ordering spare parts as well). If any parts are out of stock at the links below, other suppliers are often available (e.g. Digikey stocks many Adafruit parts). In addition to these listed parts, you will also need some basic computer peripherals (HDMI monitor, USB keyboard and mouse /touchpad, microSD card reader), at least for the initial setup.
 
