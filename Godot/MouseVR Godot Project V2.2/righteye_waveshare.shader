@@ -4,7 +4,7 @@ shader_type canvas_item;
 uniform float fov = 150; //FOV (in degrees) that the circular display covers 
 uniform float fovmax = 150; //FOV (in degrees) that the circular display covers 
 uniform float aspect_ratio = 1; //ratio of x pixels to y pixels
-uniform float red_scale = 1.0; //scale factor to reduce red pixel values (useful for simultaneous IR imaging)
+uniform float red_scale = 0.0; //scale factor to reduce red pixel values (useful for simultaneous IR imaging)
 uniform float green_scale = 1.0; //scale factor to reduce green pixel values
 
 void fragment(){
@@ -46,10 +46,8 @@ void fragment(){
 		COLOR.a = 0.0;
 	}
 	
-	//scale colors
-	//COLOR.r = COLOR.r*red_scale;
+	//(optional) override red and/or green colors
+	COLOR.r = COLOR.r*red_scale;
 	//COLOR.g = COLOR.g*green_scale;
-	
-	//override red to always on
-	COLOR.r = 1.0;
+
 }

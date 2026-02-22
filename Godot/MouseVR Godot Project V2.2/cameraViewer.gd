@@ -18,7 +18,7 @@ func _ready():
 	assert(udp.listen(listen_port) == OK, "UDP listen failed")
 	verify_connection()
 	time_elapsed = 0
-	colorbox.color = Color(1, 0, brightness_modulate)
+	colorbox.color = Color(0, 0, brightness_modulate)
 	colorlabel.text = "Max Brightness: " + str(brightness_modulate)
 	
 func _process(delta):
