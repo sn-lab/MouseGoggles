@@ -4,6 +4,12 @@
 
 **NOTE:** This version is currently in development and is subject to change; if you proceed with building this version and notice any mistakes or problems, please raise an [issue](https://github.com/sn-lab/MouseGoggles/issues/new) on Github!
 
+Recent changes:
+
+- Changed parts list for a more IR-sensitive camera from Arducam (6/8/26)
+
+- Added a software installation section on calibrating the cameras (6/8/26)
+
 # Parts List
 
 ---
@@ -16,24 +22,24 @@ Follow the links below to purchase the parts in the quantities listed (though yo
 
 * Note: if you intend on frequently acquiring eye-tracking videos, consider purchasing a MicroSD card with more storage space (e.g. 512 GB)
 
-| Part Name                                       | Description                                     | Link                                                                                           | Est. Unit Cost (USD) | Quantity |
-| ----------------------------------------------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------- |:--------------------:|:--------:|
-| Raspberry Pi 5 - 4GB                            | Raspberry Pi 5 Single-board computer            | [PiShop.US](https://www.pishop.us/product/raspberry-pi-5-4gb/)                                 | $85                  | 1        |
-| Class 10 - MicroSD Card Extreme Pro - 32 GB     | MicroSD card to Raspberry Pi OS                 | [PiShop.US](https://www.pishop.us/product/class-10-microsd-card-extreme-pro-32-gb-blank-bulk/) | $23                  | 1        |
-| Micro-HDMI to HDMI cable for Pi 4 - 3ft, Black  | HDMI adapter to connect Raspberry Pi to monitor | [PiShop.US](https://www.pishop.us/product/micro-hdmi-to-hdmi-cable-for-pi-4-3ft-black/)        | $6                   | 1        |
-| FM01 1" Near-IR Hot mirror                      | Hot mirror for eye tracking camera              | [Thorlabs](https://www.thorlabs.com/thorProduct.cfm?partNumber=FM01)                           | $42                  | 1+spare  |
-| FRP0510 1/2" Fresnel Lens - f = 10 mm           | Fresnel lens for VR headset                     | [Thorlabs](https://www.thorlabs.com/thorproduct.cfm?partnumber=FRP0510)                        | $22                  | 2        |
-| Raspberry Pi 5 Power Supply                     | USB-C power supply                              | [Adafruit](https://www.adafruit.com/product/5814)                                              | $14                  | 1        |
-| Female/Female Jumper Wires                      | 20x12" Jumper wires                             | [Adafruit](https://www.adafruit.com/product/1949)                                              | $4                   | 1        |
-| Spy camera for Raspberry Pi                     | Mini  eye tracking camera                       | [Adafruit](https://www.adafruit.com/product/1937)                                              | $40                  | 2        |
-| FPC Camera Cable - 22-pin to 15-pin, 200mm long | Cable to connect camera modules                 | [Adafruit](https://www.adafruit.com/product/5818)                                              | $3                   | 2        |
-| CSI or DSI Cable Extender                       | 15 pin cable extender                           | [Adafruit](https://www.adafruit.com/product/3671)                                              | $3                   | 2        |
-| 1.28" 240x240 Round TFT LCD                     | Display for VR headset                          | [Adafruit](https://www.adafruit.com/product/6178)                                              | $18                  | 2        |
-| Super-bright 5mm IR LED                         | IR LED for pupil illumination                   | [Adafruit](https://www.adafruit.com/product/387)                                               | $1                   | 2+spares |
-| 100 Ohm through-hole resistors - pack of 25     | Resistors for LED circuit                       | [Adafruit](https://www.adafruit.com/product/4293)                                              | $1                   | 1        |
-| 2-56 thread, 1/2" length socket head screws     | Pack of 1/2" long screws to assemble parts      | [McMaster](https://www.mcmaster.com/91251A081/)                                                | $10                  | 1        |
-| 2-56 thread, 3/16" wide narrow hex nuts         | Pack of hex nuts to assemble parts              | [McMaster](https://www.mcmaster.com/90730A003/)                                                | $4                   | 1        |
-| **Total (est.)**                                |                                                 |                                                                                                | $362                 |          |
+| Part Name                                       | Description                                           | Link                                                                                                  | Est. Unit Cost (USD) | Quantity |
+| ----------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |:--------------------:|:--------:|
+| Raspberry Pi 5 - 4GB                            | Raspberry Pi 5 Single-board computer                  | [PiShop.US](https://www.pishop.us/product/raspberry-pi-5-4gb/)                                        | $85                  | 1        |
+| Class 10 - MicroSD Card Extreme Pro - 32 GB     | MicroSD card to Raspberry Pi OS                       | [PiShop.US](https://www.pishop.us/product/class-10-microsd-card-extreme-pro-32-gb-blank-bulk/)        | $23                  | 1        |
+| Micro-HDMI to HDMI cable for Pi 4 - 3ft, Black  | HDMI adapter to connect Raspberry Pi to monitor       | [PiShop.US](https://www.pishop.us/product/micro-hdmi-to-hdmi-cable-for-pi-4-3ft-black/)               | $6                   | 1        |
+| FM01 1" Near-IR Hot mirror                      | Hot mirror for eye tracking camera                    | [Thorlabs](https://www.thorlabs.com/thorProduct.cfm?partNumber=FM01)                                  | $42                  | 1+spare  |
+| FRP0510 1/2" Fresnel Lens - f = 10 mm           | Fresnel lens for VR headset                           | [Thorlabs](https://www.thorlabs.com/thorproduct.cfm?partnumber=FRP0510)                               | $22                  | 2        |
+| NoIR Spy camera for Raspberry Pi                | Infrared-sensitive mini cameras for eye/pupil imaging | [Arducam](https://www.arducam.com/1-4-5-noir-mpspy-camera-module-sensor-flex-cable-raspberry-pi.html) | $30                  | 2        |
+| Female/Female Jumper Wires                      | 20x12" Jumper wires                                   | [Adafruit](https://www.adafruit.com/product/1949)                                                     | $4                   | 1        |
+| Raspberry Pi 5 Power Supply                     | USB-C power supply                                    | [Adafruit](https://www.adafruit.com/product/5814)                                                     | $14                  | 1        |
+| FPC Camera Cable - 22-pin to 15-pin, 200mm long | Cable to connect camera modules                       | [Adafruit](https://www.adafruit.com/product/5818)                                                     | $3                   | 2        |
+| CSI or DSI Cable Extender                       | 15 pin cable extender                                 | [Adafruit](https://www.adafruit.com/product/3671)                                                     | $3                   | 2        |
+| 1.28" 240x240 Round TFT LCD                     | Display for VR headset                                | [Adafruit](https://www.adafruit.com/product/6178)                                                     | $18                  | 2        |
+| Super-bright 5mm IR LED                         | IR LED for pupil illumination                         | [Adafruit](https://www.adafruit.com/product/387)                                                      | $1                   | 2+spares |
+| 100 Ohm through-hole resistors - pack of 25     | Resistors for LED circuit                             | [Adafruit](https://www.adafruit.com/product/4293)                                                     | $1                   | 1        |
+| 2-56 thread, 1/2" length socket head screws     | Pack of 1/2" long screws to assemble parts            | [McMaster](https://www.mcmaster.com/91251A081/)                                                       | $10                  | 1        |
+| 2-56 thread, 3/16" wide narrow hex nuts         | Pack of hex nuts to assemble parts                    | [McMaster](https://www.mcmaster.com/90730A003/)                                                       | $4                   | 1        |
+| **Total (est.)**                                |                                                       |                                                                                                       | $343                 |          |
 
 ### Recommended tools
 
@@ -201,13 +207,21 @@ To install all necessary software, you'll first need a PC to install the Raspber
 
 - Apply and click "ok" to accept the changes.
 
+### Calibrate the cameras
+
+- Navigate to the "pi5cam.py" file in the MouseGoggles/Versions/EyeTrack/2.0/Python folder. Double-click this file to open and view it with a code editor (you may need to drag and resize the window to see the full editor). At the top of the script, find the "Configuration" section --this is where settings can be edited to improve the quality of eye tracking imaging. 
+- Check that the "base_log_dir" variable is pointing at the correct location of your Godot logs folder (you will likely need to change "mg2" to the username you've chosen for this installation.
+- Click the "run" (arrow) button at the top of the window to check the live view of the cameras. Click "q" on your keyboard to stop the cameras when you are done.
+- Set the "CROP_ENABLED" variable to "True" to enable a cropped/zoomed view of the pupils. You may need to change the width, height, x, and y variables of each camera so that both eyes are centered in the cropped region. Click the run button again to check your settings. 
+- Keep adjusting the configuration and checking the cameras until you are satisfied with the quality and view of the eye tracking imaging. Once the configuration is final, copy the entire "Configuration" section and paste it in the "pi5cam_udp.py script" to replace the default configuration. This UDP script is what is used by the Godot game engine to view and record the eyes during VR experiments
+
 # Operating Instructions
 
 ---
 
 ### Starting the game engine and running experiments
 
-- Navigate to the "pi5cam_udp.py" file in the MouseGoggles/Versions/EyeTrack/2.0/Python folder. Double-click this file to open and view it with a code editor (you may need to drag and resize the window to see the full editor). At the top of the script, find the "base_log_dir" variable and verify that it is pointing at the correct location of your Godot logs folder (you will likely need to change "mg2" to the username you've chosen fot this installation. After the folder is correct, click the "run" (arrow) button at the top of thw window to start the camera controller. A command window will open and display messages about this controller: once you see "UDP server started", you can move on to the next step. **Feel free to move this file to the desktop to make it easier to start experiments**
+- Navigate to the "pi5cam_udp.py" file in the MouseGoggles/Versions/EyeTrack/2.0/Python folder. Double-click this file to open and view it with a code editor. Click the "run" (arrow) button at the top of the window to start the camera controller. A command window will open and display messages about this controller: once you see "UDP server started", you can move on to the next step. **Feel free to move this file to the desktop to make it easier to start experiments**
 
 - Navigate to the "godot_3.5.2-stable_rpi4_editor.arm64" file in the MouseGoggles/Godot folder. Double-click this file and select "Execute". **Feel free to move this file to the desktop to make it easier to start experiments**
 

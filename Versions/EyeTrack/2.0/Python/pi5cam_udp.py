@@ -56,11 +56,14 @@ CAM1_ANALOGUE_GAIN = 1.0  # cam 1 sensor amplification
 # can be different; timestamps in the .bin file are the ground truth for timing analysis.
 TARGET_FPS = 30  # target frame rate (frames per second)
 
+# --- Directory ---
+# Hardcode the directory of the Current Godot Project log folder (where camera videos will be saved)
+base_log_dir = "/home/mg2/MouseGoggles/Godot/MouseVR Godot Project V2.2/logs"
+
+
 # ============================================================
 # END OF CONFIGURATION
 # ============================================================
-
-base_log_dir = "/home/mg2/MouseGoggles/Godot/MouseVR Godot Project V2.2/logs"
 
 # Derived from TARGET_FPS; used for FrameDurationLimits and sleep interval.
 _FRAME_DURATION_US = 1_000_000 // TARGET_FPS  # microseconds per frame
