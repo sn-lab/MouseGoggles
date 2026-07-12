@@ -128,57 +128,57 @@ text = "Experiments"
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer3"]
 margin_top = 18.0
 margin_right = 140.0
-margin_bottom = 45.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="HBoxContainer/VBoxContainer3/MarginContainer"]
-margin_top = 3.0
+margin_top = 1.0
 margin_right = 140.0
-margin_bottom = 23.0
+margin_bottom = 21.0
 size_flags_vertical = 4
 action_mode = 0
 text = "habituation"
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/VBoxContainer3"]
-margin_top = 49.0
+margin_top = 45.0
 margin_right = 140.0
-margin_bottom = 76.0
+margin_bottom = 68.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="HBoxContainer/VBoxContainer3/MarginContainer2"]
-margin_top = 3.0
+margin_top = 1.0
 margin_right = 140.0
-margin_bottom = 23.0
+margin_bottom = 21.0
 size_flags_vertical = 4
 text = "loom"
 
 [node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer/VBoxContainer3"]
-margin_top = 80.0
+margin_top = 72.0
 margin_right = 140.0
-margin_bottom = 107.0
+margin_bottom = 96.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="HBoxContainer/VBoxContainer3/MarginContainer3"]
-margin_top = 3.0
+margin_top = 2.0
 margin_right = 140.0
-margin_bottom = 23.0
+margin_bottom = 22.0
 size_flags_vertical = 4
 text = "cylindrical cliff"
 
 [node name="MarginContainer4" type="MarginContainer" parent="HBoxContainer/VBoxContainer3"]
-margin_top = 111.0
+margin_top = 100.0
 margin_right = 140.0
-margin_bottom = 138.0
+margin_bottom = 123.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="HBoxContainer/VBoxContainer3/MarginContainer4"]
-margin_top = 3.0
+margin_top = 1.0
 margin_right = 140.0
-margin_bottom = 23.0
+margin_bottom = 21.0
 rect_pivot_offset = Vector2( -563, 90 )
 size_flags_vertical = 4
 action_mode = 0
@@ -188,16 +188,16 @@ __meta__ = {
 }
 
 [node name="MarginContainer5" type="MarginContainer" parent="HBoxContainer/VBoxContainer3"]
-margin_top = 142.0
+margin_top = 127.0
 margin_right = 140.0
-margin_bottom = 169.0
+margin_bottom = 151.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="HBoxContainer/VBoxContainer3/MarginContainer5"]
-margin_top = 3.0
+margin_top = 2.0
 margin_right = 140.0
-margin_bottom = 23.0
+margin_bottom = 22.0
 rect_pivot_offset = Vector2( -563, 90 )
 size_flags_vertical = 4
 action_mode = 0
@@ -207,16 +207,16 @@ __meta__ = {
 }
 
 [node name="MarginContainer6" type="MarginContainer" parent="HBoxContainer/VBoxContainer3"]
-margin_top = 173.0
+margin_top = 155.0
 margin_right = 140.0
-margin_bottom = 200.0
+margin_bottom = 178.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="HBoxContainer/VBoxContainer3/MarginContainer6"]
-margin_top = 3.0
+margin_top = 1.0
 margin_right = 140.0
-margin_bottom = 23.0
+margin_bottom = 21.0
 rect_pivot_offset = Vector2( -563, 90 )
 size_flags_vertical = 4
 action_mode = 0
@@ -226,16 +226,16 @@ __meta__ = {
 }
 
 [node name="MarginContainer7" type="MarginContainer" parent="HBoxContainer/VBoxContainer3"]
-margin_top = 204.0
+margin_top = 182.0
 margin_right = 140.0
-margin_bottom = 231.0
+margin_bottom = 205.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="HBoxContainer/VBoxContainer3/MarginContainer7"]
-margin_top = 3.0
+margin_top = 1.0
 margin_right = 140.0
-margin_bottom = 23.0
+margin_bottom = 21.0
 rect_pivot_offset = Vector2( -563, 90 )
 size_flags_vertical = 4
 action_mode = 0
@@ -245,124 +245,154 @@ __meta__ = {
 }
 
 [node name="MarginContainer8" type="MarginContainer" parent="HBoxContainer/VBoxContainer3"]
-margin_top = 235.0
+margin_top = 209.0
 margin_right = 140.0
-margin_bottom = 262.0
+margin_bottom = 233.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="HBoxContainer/VBoxContainer3/MarginContainer8"]
-margin_top = 3.0
+margin_top = 2.0
 margin_right = 140.0
-margin_bottom = 23.0
+margin_bottom = 22.0
 size_flags_vertical = 4
 action_mode = 0
 text = "optomotor"
 
 [node name="MarginContainer10" type="MarginContainer" parent="HBoxContainer/VBoxContainer3"]
-margin_top = 266.0
+margin_top = 237.0
 margin_right = 140.0
-margin_bottom = 293.0
+margin_bottom = 260.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="HBoxContainer/VBoxContainer3/MarginContainer10"]
-margin_top = 3.0
+margin_top = 1.0
 margin_right = 140.0
-margin_bottom = 23.0
+margin_bottom = 21.0
 size_flags_vertical = 4
 action_mode = 0
 text = "rotations"
 
 [node name="MarginContainer11" type="MarginContainer" parent="HBoxContainer/VBoxContainer3"]
-margin_top = 297.0
+margin_top = 264.0
 margin_right = 140.0
-margin_bottom = 324.0
+margin_bottom = 288.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="HBoxContainer/VBoxContainer3/MarginContainer11"]
-margin_top = 3.0
+margin_top = 2.0
 margin_right = 140.0
-margin_bottom = 23.0
+margin_bottom = 22.0
 size_flags_vertical = 4
 action_mode = 0
 text = "linear gap"
 
 [node name="MarginContainer12" type="MarginContainer" parent="HBoxContainer/VBoxContainer3"]
-margin_top = 328.0
+margin_top = 292.0
 margin_right = 140.0
-margin_bottom = 355.0
+margin_bottom = 315.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="HBoxContainer/VBoxContainer3/MarginContainer12"]
-margin_top = 3.0
+margin_top = 1.0
 margin_right = 140.0
-margin_bottom = 23.0
+margin_bottom = 21.0
 size_flags_vertical = 4
 action_mode = 0
 text = "rotating gratings"
 
 [node name="MarginContainer13" type="MarginContainer" parent="HBoxContainer/VBoxContainer3"]
-margin_top = 359.0
+margin_top = 319.0
 margin_right = 140.0
-margin_bottom = 386.0
+margin_bottom = 342.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="HBoxContainer/VBoxContainer3/MarginContainer13"]
-margin_top = 3.0
+margin_top = 1.0
 margin_right = 140.0
-margin_bottom = 23.0
+margin_bottom = 21.0
 size_flags_vertical = 4
 action_mode = 0
 text = "linear track loom"
 
 [node name="MarginContainer14" type="MarginContainer" parent="HBoxContainer/VBoxContainer3"]
-margin_top = 390.0
+margin_top = 346.0
 margin_right = 140.0
-margin_bottom = 417.0
+margin_bottom = 370.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="HBoxContainer/VBoxContainer3/MarginContainer14"]
-margin_top = 3.0
+margin_top = 2.0
 margin_right = 140.0
-margin_bottom = 23.0
+margin_bottom = 22.0
 size_flags_vertical = 4
 action_mode = 0
 text = "movement 3D"
 
 [node name="MarginContainer15" type="MarginContainer" parent="HBoxContainer/VBoxContainer3"]
-margin_top = 421.0
+margin_top = 374.0
 margin_right = 140.0
-margin_bottom = 448.0
+margin_bottom = 397.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="HBoxContainer/VBoxContainer3/MarginContainer15"]
-margin_top = 3.0
+margin_top = 1.0
 margin_right = 140.0
-margin_bottom = 23.0
+margin_bottom = 21.0
 size_flags_vertical = 4
 action_mode = 0
 text = "receptive field"
 
 [node name="MarginContainer16" type="MarginContainer" parent="HBoxContainer/VBoxContainer3"]
-margin_top = 452.0
+margin_top = 401.0
+margin_right = 140.0
+margin_bottom = 425.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer3/MarginContainer16"]
+margin_top = 2.0
+margin_right = 140.0
+margin_bottom = 22.0
+size_flags_vertical = 4
+action_mode = 0
+text = "video player"
+
+[node name="MarginContainer17" type="MarginContainer" parent="HBoxContainer/VBoxContainer3"]
+margin_top = 429.0
+margin_right = 140.0
+margin_bottom = 452.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer3/MarginContainer17"]
+margin_top = 1.0
+margin_right = 140.0
+margin_bottom = 21.0
+size_flags_vertical = 4
+action_mode = 0
+text = "contrast tuning"
+
+[node name="MarginContainer18" type="MarginContainer" parent="HBoxContainer/VBoxContainer3"]
+margin_top = 456.0
 margin_right = 140.0
 margin_bottom = 480.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer3/MarginContainer16"]
-margin_top = 4.0
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer3/MarginContainer18"]
+margin_top = 2.0
 margin_right = 140.0
-margin_bottom = 24.0
+margin_bottom = 22.0
 size_flags_vertical = 4
 action_mode = 0
-text = "video player"
+text = "direction tuning"
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="HBoxContainer"]
 margin_left = 626.0

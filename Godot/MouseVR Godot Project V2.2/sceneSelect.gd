@@ -17,6 +17,8 @@ onready var lineartrackloombutton = get_node("HBoxContainer/VBoxContainer3/Margi
 onready var movementbutton = get_node("HBoxContainer/VBoxContainer3/MarginContainer14/Button")
 onready var receptivefieldbutton = get_node("HBoxContainer/VBoxContainer3/MarginContainer15/Button")
 onready var videoplayerbutton = get_node("HBoxContainer/VBoxContainer3/MarginContainer16/Button")
+onready var contrasttuningbutton = get_node("HBoxContainer/VBoxContainer3/MarginContainer17/Button")
+onready var directiontuningbutton = get_node("HBoxContainer/VBoxContainer3/MarginContainer18/Button")
 
 # function nodes
 onready var testingbutton = get_node("HBoxContainer/VBoxContainer4/MarginContainer9/Button")
@@ -51,6 +53,8 @@ func _ready():
 	movementbutton.connect("pressed",self,"_load_movement3D")
 	receptivefieldbutton.connect("pressed",self,"_load_receptiveField")
 	videoplayerbutton.connect("pressed",self,"_load_videoPlayer")
+	contrasttuningbutton.connect("pressed",self,"_load_contrastTuning")
+	directiontuningbutton.connect("pressed",self,"_load_directionTuning")
 	
 	testingbutton.connect("pressed",self,"_load_testing")
 	camerabutton.connect("pressed",self,"_load_cameraViewer")
@@ -100,6 +104,13 @@ func _load_receptiveField():
 	
 func _load_videoPlayer():
 	var _error = get_tree().change_scene("res://videoPlayerScene.tscn")
+	
+func _load_contrastTuning():
+	var _error = get_tree().change_scene("res://tuningContrastScene.tscn")
+	
+func _load_directionTuning():
+	var _error = get_tree().change_scene("res://tuningDirectionScene.tscn")
+	
 	
 func _load_testing():
 	var _error = get_tree().change_scene("res://testing.tscn")
