@@ -47,14 +47,14 @@ CAM1_CROP_Y   = 472    # cam 1 top boundary of the crop window (pixels)
 
 # --- Exposure & gain (brightness) ---
 # Auto-exposure is DISABLED so brightness stays fixed across every frame. Adjust these values instead:
-EXPOSURE_TIME_US  = 8000  # shutter duration (microseconds). Lower = darker. Must be < 1000000/TARGET_FPS (can't expose longer than one frame period).
+EXPOSURE_TIME_US  = 25000  # shutter duration (microseconds). Lower = darker. Must be < 1000000/TARGET_FPS (can't expose longer than one frame period).
 CAM0_ANALOGUE_GAIN = 1.0  # cam 0 sensor amplification; 1.0–16.0. 1.0 = minimum noise; increase only if exposure alone is too dark
 CAM1_ANALOGUE_GAIN = 1.0  # cam 1 sensor amplification
 
 # --- Frame rate ---
 # Attempts to lock the camera to a rate for consistent inter-frame timing. Though, the actual framerate
 # can be different; timestamps in the .bin file are the ground truth for timing analysis.
-TARGET_FPS = 30  # target frame rate (frames per second)
+TARGET_FPS = 30  # target frame rate (frames per second). Make sure EXPOSURE_TIME_US isn't set so high that this frame rate isn't possible
 
 # --- Directory ---
 # Hardcode the directory of the Current Godot Project log folder (where camera videos will be saved)

@@ -110,18 +110,21 @@ For strong, long-lasting parts, an FDM-based printer using PLA is a good choice,
 
 ![(left) Wired connections of a MouseGoggles EyeTrack 2.0 to a Raspberry Pi 5. (right) Pin names and numbers of the Raspberry Pi 5 40-pin header.](https://github.com/sn-lab/MouseGoggles/blob/main/Versions/EyeTrack/2.0/Images/E2_Wiring.png)
 
-1. Connect each camera ribbon cable to a CSI extender, then to the 15-pin side of a 22-15 pin ribbon cable. Connect the left eye camera to the cam/disp 0 connector of the Pi 5, and the right eye camera to cam/disp 1.
+1. The Raspberry Pi cameras must first be manually refocused so that imaging of the eyes and pupils (which will sit very close to the camera) are clear and sharp. This requires breaking/removing the drop of glue which fixes the camera lens in place, then rotating the lens CCW for a more close-up focus. To locate the glue, look at the center circular plastic piece which holds the camera lens - at the seam where the circular lens holder rotates (near the notches), find the shiny, hardened drop of glue on one side of it. To break it, use some small scissors or sharp flush/diagonal 
+   cutters to cut through this drop of glue along the seam, and/or forceps to remove broken glue from the seam. Once the glue is broken or mostly broken, use forceps or a flush cutter to grab the notches and rotate the circular lens holder, taking care not to scratch the lens in the center. Once it starts to freely rotate, unscrew the lens (rotate CCW) by ~1.25 rotations (450 degrees) to set a better close-up focus.
 
-2. Connect the anode pin of each LED (the longer of the two) to it's own jumper wire, then connect a resistor to the other end of each jumper wire. Connect each resistor to a ground pin on the Raspberry Pi 5 header, and the cathode pin of each LED (the shorter of the two) to a 5V pin on the Raspberry Pi 5 header, following the map below (refer to Pi 5 pin names in the image above):
+2. Connect each camera ribbon cable to a CSI extender, then to the 15-pin side of a 22-15 pin ribbon cable. Connect the left eye camera to the cam/disp 0 connector of the Pi 5, and the right eye camera to cam/disp 1.
+
+3. Connect the anode pin of each LED (the longer of the two) to it's own jumper wire, then connect a resistor to the other end of each jumper wire. Connect each resistor to a 5V pin on the Raspberry Pi 5 header, and the cathode pin of each LED (the shorter of the two) to a ground pin on the Raspberry Pi 5 header, following the map below (refer to Pi 5 pin names in the image above):
    
    | LED pin                   | Raspberry Pi 5 pin |
    | ------------------------- | ------------------ |
-   | LED 1 - long pin/resistor | pin 14 (Ground)    |
-   | LED 1 - short pin         | pin 2 (5V power)   |
-   | LED 2 - long pin/resistor | pin 20 (Ground)    |
-   | LED 2 - short pin         | pin 4 (5V power)   |
+   | LED 1 - long pin/resistor | pin 2 (5V power)   |
+   | LED 1 - short pin         | pin 14 (Ground)    |
+   | LED 2 - long pin/resistor | pin 4 (5V power)   |
+   | LED 2 - short pin         | pin 20 (Ground)    |
 
-3. Connect the jumper wires of the left eye (display 1) and right eye (display 2) displays to the header pins of the Raspberry Pi 5 following the map below (refer to Pi 5 pin names in the image above):
+4. Connect the jumper wires of the left eye (display 1) and right eye (display 2) displays to the header pins of the Raspberry Pi 5 following the map below (refer to Pi 5 pin names in the image above):
 
 | Display pin       | Raspberry Pi 5 pin         |
 | ----------------- | -------------------------- |
