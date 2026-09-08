@@ -128,14 +128,14 @@ For strong, long-lasting parts, an FDM-based printer using PLA is a good choice,
 
 | Display pin       | Raspberry Pi 5 pin         |
 | ----------------- | -------------------------- |
-| Display 1 - 3Vo   | pin 1 (3V3 power)          |
+| Display 1 - V+    | pin 1 (3V3 power)          |
 | Display 1 - GND   | pin 6 (Ground)             |
 | Display 1 - SCK   | pin 23 (GPIO 11, SCLK)     |
 | Display 1 - MOSI  | pin 19 (GPIO 10, MOSI)     |
 | Display 1 - TFTCS | pin 24 (GPIO 8, CE0)       |
 | Display 1 - RST   | pin 11 (GPIO 17)           |
 | Display 1 - DC    | pin 22 (GPIO 25)           |
-| Display 2 - 3Vo   | pin 17 (3V3 power)         |
+| Display 2 - V+    | pin 17 (3V3 power)         |
 | Display 2 - GND   | pin 9 (Ground)             |
 | Display 2 - SCK   | pin 40 (GPIO 21, PCM_DOUT) |
 | Display 2 - MOSI  | pin 38 (GPIO 20, PCM_DIN)  |
@@ -144,6 +144,7 @@ For strong, long-lasting parts, an FDM-based printer using PLA is a good choice,
 | Display 2 - DC    | pin 36 (GPIO 16)           |
 
 * Note: to make the electrical wiring more secure, consider these options: Trim the length of the LED and resistor pins with wire cutters to reduce the amount of exposed wire; Cover exposed wire with electrical tape; Secure female/male connections with electrical tape or silicone adhesive; Solder wire connections together and cover with shrink tubing for the most secure connections.
+* Note
 
 # Software Installation Instructions
 
